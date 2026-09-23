@@ -1,0 +1,17 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "src/app/**/{page,layout,route,loading,error,template,global-error,opengraph-image,icon,apple-icon}.{ts,tsx}",
+    "src/app/**/*.{ts,tsx}",
+    "scripts/**/*.ts",
+    "prisma/schema.prisma"
+  ],
+  "project": ["src/**/*.{ts,tsx}", "scripts/**/*.ts"],
+  "ignore": ["src/app/**/*.tsx", "src/**/__tests__/**"],
+  "ignoreDependencies": [
+    "@tailwindcss/postcss",
+    "tailwindcss",
+    "@types/react-dom",
+    "@types/bcryptjs"
+  ]
+}
