@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# LearnTrace
+src/content/domains/.cache/
+.DS_Store
+*.log
+
+# LearnTrace
+src/content/domains/.cache/
+.DS_Store
+*.log
+
+# LearnTrace uploads
+uploads/

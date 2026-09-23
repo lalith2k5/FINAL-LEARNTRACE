@@ -1,0 +1,2395 @@
+{
+  "domain": {
+    "slug": "ml-engineer",
+    "name": "Machine Learning Engineer",
+    "description": "From Python fundamentals to production ML systems."
+  },
+  "skills": [
+    {
+      "slug": "python-programming",
+      "name": "Python Programming",
+      "description": "Master essential Python syntax, control structures, and standard libraries required for machine learning development.",
+      "difficulty": 1
+    },
+    {
+      "slug": "linear-algebra",
+      "name": "Linear Algebra",
+      "description": "Understand vectors, matrices, matrix operations, and eigenvalues essential for machine learning operations.",
+      "difficulty": 1
+    },
+    {
+      "slug": "calculus",
+      "name": "Calculus",
+      "description": "Learn derivatives, partial derivatives, and gradient concepts crucial for model optimization.",
+      "difficulty": 1
+    },
+    {
+      "slug": "probability-and-statistics",
+      "name": "Probability and Statistics",
+      "description": "Study random variables, probability distributions, hypothesis testing, and statistical significance.",
+      "difficulty": 1
+    },
+    {
+      "slug": "data-structures-and-algorithms",
+      "name": "Data Structures and Algorithms",
+      "description": "Apply algorithmic thinking, efficient data structures, and complexity analysis to write scalable code.",
+      "difficulty": 2
+    },
+    {
+      "slug": "numpy-fundamentals",
+      "name": "NumPy Fundamentals",
+      "description": "Perform high-performance vector and matrix operations using NumPy arrays and broadcasting.",
+      "difficulty": 2
+    },
+    {
+      "slug": "pandas-data-manipulation",
+      "name": "Pandas Data Manipulation",
+      "description": "Manipulate tabular data, clean datasets, and handle missing values effectively using Pandas DataFrames.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-visualization",
+      "name": "Data Visualization",
+      "description": "Create static and interactive visual representations of data using libraries like Matplotlib and Seaborn.",
+      "difficulty": 2
+    },
+    {
+      "slug": "exploratory-data-analysis",
+      "name": "Exploratory Data Analysis",
+      "description": "Analyze datasets to summarize their main characteristics, uncover patterns, and detect anomalies.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-preprocessing",
+      "name": "Data Preprocessing",
+      "description": "Clean, scale, encode, and prepare raw data into suitable representations for training algorithms.",
+      "difficulty": 2
+    },
+    {
+      "slug": "feature-engineering",
+      "name": "Feature Engineering",
+      "description": "Extract, transform, and select domain-specific features from raw data to boost model performance.",
+      "difficulty": 3
+    },
+    {
+      "slug": "supervised-learning-basics",
+      "name": "Supervised Learning Basics",
+      "description": "Understand core concepts of supervised learning including target variables, training, and prediction.",
+      "difficulty": 2
+    },
+    {
+      "slug": "linear-and-logistic-regression",
+      "name": "Linear and Logistic Regression",
+      "description": "Implement statistical regression models for predicting continuous targets and binary outcomes.",
+      "difficulty": 3
+    },
+    {
+      "slug": "decision-trees-and-ensembles",
+      "name": "Decision Trees and Ensembles",
+      "description": "Build tree-based algorithms including Random Forests and Gradient Boosted Decision Trees.",
+      "difficulty": 3
+    },
+    {
+      "slug": "support-vector-machines",
+      "name": "Support Vector Machines",
+      "description": "Classify complex data using hyperplanes, margins, and kernel tricks in SVM architectures.",
+      "difficulty": 3
+    },
+    {
+      "slug": "unsupervised-learning",
+      "name": "Unsupervised Learning",
+      "description": "Discover hidden structures and patterns in unlabeled data without explicit target feedback.",
+      "difficulty": 3
+    },
+    {
+      "slug": "clustering-algorithms",
+      "name": "Clustering Algorithms",
+      "description": "Group similar data points using algorithms such as K-Means, DBSCAN, and Hierarchical Clustering.",
+      "difficulty": 3
+    },
+    {
+      "slug": "dimensionality-reduction-and-pca",
+      "name": "Dimensionality Reduction and PCA",
+      "description": "Reduce feature space dimensions while preserving variance using Principal Component Analysis.",
+      "difficulty": 3
+    },
+    {
+      "slug": "model-evaluation-metrics",
+      "name": "Model Evaluation Metrics",
+      "description": "Quantify model performance using accuracy, precision, recall, F1-score, ROC-AUC, and MSE.",
+      "difficulty": 3
+    },
+    {
+      "slug": "cross-validation-and-hyperparameter-tuning",
+      "name": "Cross-Validation and Hyperparameter Tuning",
+      "description": "Optimize model hyperparameters using k-fold cross-validation, grid search, and Bayesian optimization.",
+      "difficulty": 3
+    },
+    {
+      "slug": "deep-learning-fundamentals",
+      "name": "Deep Learning Fundamentals",
+      "description": "Understand artificial neurons, forward propagation, activation functions, and backpropagation.",
+      "difficulty": 4
+    },
+    {
+      "slug": "neural-network-architectures",
+      "name": "Neural Network Architectures",
+      "description": "Design and train multi-layer perceptrons using frameworks like PyTorch or TensorFlow.",
+      "difficulty": 4
+    },
+    {
+      "slug": "convolutional-neural-networks",
+      "name": "Convolutional Neural Networks",
+      "description": "Apply spatial feature extraction networks for computer vision and image processing tasks.",
+      "difficulty": 4
+    },
+    {
+      "slug": "recurrent-neural-networks",
+      "name": "Recurrent Neural Networks",
+      "description": "Model sequential data using RNNs, LSTMs, and GRUs for time-series and language processing.",
+      "difficulty": 4
+    },
+    {
+      "slug": "transformers-and-attention",
+      "name": "Transformers and Attention",
+      "description": "Implement self-attention mechanisms and transformer-based architectures for state-of-the-art NLP models.",
+      "difficulty": 5
+    },
+    {
+      "slug": "model-optimization-and-quantization",
+      "name": "Model Optimization and Quantization",
+      "description": "Compress models using pruning, quantization, and distillation for efficient resource utilization.",
+      "difficulty": 5
+    },
+    {
+      "slug": "docker-and-containerization",
+      "name": "Docker and Containerization",
+      "description": "Package machine learning code, dependencies, and runtime environments into portable Docker containers.",
+      "difficulty": 4
+    },
+    {
+      "slug": "mlops-and-model-registry",
+      "name": "MLOps and Model Registry",
+      "description": "Track experiments, version data and artifacts, and manage model lifecycles using MLOps tools.",
+      "difficulty": 4
+    },
+    {
+      "slug": "model-deployment-api",
+      "name": "Model Deployment API",
+      "description": "Serve trained machine learning models as production REST APIs or gRPC endpoints.",
+      "difficulty": 4
+    },
+    {
+      "slug": "ml-system-design-and-monitoring",
+      "name": "ML System Design and Monitoring",
+      "description": "Architect end-to-end machine learning pipelines and monitor production systems for data drift.",
+      "difficulty": 5
+    }
+  ],
+  "prerequisites": [
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "data-structures-and-algorithms",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "numpy-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "pandas-data-manipulation",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "data-visualization",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "docker-and-containerization",
+      "weight": 0.5
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "numpy-fundamentals",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "support-vector-machines",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "calculus",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "calculus",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "calculus",
+      "childSlug": "model-optimization-and-quantization",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "unsupervised-learning",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "data-preprocessing",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "feature-engineering",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "neural-network-architectures",
+      "weight": 0.5
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "pandas-data-manipulation",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "data-preprocessing",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "supervised-learning-basics",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "pandas-data-manipulation",
+      "childSlug": "data-visualization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "pandas-data-manipulation",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "pandas-data-manipulation",
+      "childSlug": "data-preprocessing",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "data-preprocessing",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "feature-engineering",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-preprocessing",
+      "childSlug": "feature-engineering",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-preprocessing",
+      "childSlug": "supervised-learning-basics",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-preprocessing",
+      "childSlug": "unsupervised-learning",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "decision-trees-and-ensembles",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "clustering-algorithms",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "decision-trees-and-ensembles",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "support-vector-machines",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "linear-and-logistic-regression",
+      "childSlug": "decision-trees-and-ensembles",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "linear-and-logistic-regression",
+      "childSlug": "neural-network-architectures",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "decision-trees-and-ensembles",
+      "childSlug": "cross-validation-and-hyperparameter-tuning",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "support-vector-machines",
+      "childSlug": "cross-validation-and-hyperparameter-tuning",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "unsupervised-learning",
+      "childSlug": "clustering-algorithms",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "unsupervised-learning",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "clustering-algorithms",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "dimensionality-reduction-and-pca",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "model-evaluation-metrics",
+      "childSlug": "cross-validation-and-hyperparameter-tuning",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "model-evaluation-metrics",
+      "childSlug": "mlops-and-model-registry",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "cross-validation-and-hyperparameter-tuning",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "cross-validation-and-hyperparameter-tuning",
+      "childSlug": "model-optimization-and-quantization",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "deep-learning-fundamentals",
+      "childSlug": "neural-network-architectures",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "deep-learning-fundamentals",
+      "childSlug": "convolutional-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "deep-learning-fundamentals",
+      "childSlug": "recurrent-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "neural-network-architectures",
+      "childSlug": "convolutional-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "neural-network-architectures",
+      "childSlug": "recurrent-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "neural-network-architectures",
+      "childSlug": "transformers-and-attention",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "convolutional-neural-networks",
+      "childSlug": "transformers-and-attention",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "recurrent-neural-networks",
+      "childSlug": "transformers-and-attention",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "transformers-and-attention",
+      "childSlug": "model-optimization-and-quantization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "model-optimization-and-quantization",
+      "childSlug": "model-deployment-api",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "docker-and-containerization",
+      "childSlug": "model-deployment-api",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker-and-containerization",
+      "childSlug": "mlops-and-model-registry",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker-and-containerization",
+      "childSlug": "ml-system-design-and-monitoring",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "mlops-and-model-registry",
+      "childSlug": "model-deployment-api",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "mlops-and-model-registry",
+      "childSlug": "ml-system-design-and-monitoring",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "model-deployment-api",
+      "childSlug": "ml-system-design-and-monitoring",
+      "weight": 0.9
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "What is the key advantage of using a generator expression instead of a list comprehension in Python when processing large datasets?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Generators execute significantly faster than list comprehensions."
+        },
+        {
+          "id": "b",
+          "text": "Generators yield items lazily, evaluating memory one item at a time."
+        },
+        {
+          "id": "c",
+          "text": "Generators allow backwards iteration and indexing."
+        },
+        {
+          "id": "d",
+          "text": "Generators automatically parallelize computations across multiple CPU cores."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Generators evaluate items lazily on-demand using memory efficient iterators rather than storing the entire sequence in RAM at once.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "python-programming"
+      ]
+    },
+    {
+      "prompt": "Which decorator pattern correctly preserves function metadata like '__name__' and '__doc__' when wrapping a target function?",
+      "options": [
+        {
+          "id": "a",
+          "text": "@functools.wraps(func)"
+        },
+        {
+          "id": "b",
+          "text": "@functools.preserve(func)"
+        },
+        {
+          "id": "c",
+          "text": "@dataclass"
+        },
+        {
+          "id": "d",
+          "text": "@classmethod"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "@functools.wraps updates the wrapper function to copy attributes like docstrings and function names from the original function.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "python-programming"
+      ]
+    },
+    {
+      "prompt": "If matrix A has dimensions (4, 3) and matrix B has dimensions (3, 5), what are the dimensions of the product AB?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(3, 3)"
+        },
+        {
+          "id": "b",
+          "text": "(4, 3)"
+        },
+        {
+          "id": "c",
+          "text": "(4, 5)"
+        },
+        {
+          "id": "d",
+          "text": "Matrix multiplication is undefined for these dimensions."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Multiplying an (m x n) matrix by an (n x p) matrix produces a matrix of dimensions (m x p), which is (4 x 5).",
+      "difficulty": 1,
+      "skillSlugs": [
+        "linear-algebra"
+      ]
+    },
+    {
+      "prompt": "Given a square matrix A, an eigenvector v, and a scalar eigenvalue λ, which equation defines their relationship?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A + v = λv"
+        },
+        {
+          "id": "b",
+          "text": "Av = λv"
+        },
+        {
+          "id": "c",
+          "text": "A v^T = λ"
+        },
+        {
+          "id": "d",
+          "text": "A λ = v"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "An eigenvector v of matrix A transformed by A equals a scalar multiple λ of itself: Av = λv.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "linear-algebra"
+      ]
+    },
+    {
+      "prompt": "In multi-variable calculus, in which direction does the gradient vector ∇f(x, y) point for a scalar function f?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The direction of steepest descent"
+        },
+        {
+          "id": "b",
+          "text": "The direction orthogonal to the level curve towards steepest increase"
+        },
+        {
+          "id": "c",
+          "text": "Along the tangent vector of constant function values"
+        },
+        {
+          "id": "d",
+          "text": "Towards the origin of the coordinate space"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The gradient vector ∇f points in the direction of the greatest rate of increase (steepest ascent) of the function.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "calculus"
+      ]
+    },
+    {
+      "prompt": "Which calculus rule is fundamental to computing parameter updates across multiple sequential layers during backpropagation in neural networks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "L'Hôpital's Rule"
+        },
+        {
+          "id": "b",
+          "text": "Chain Rule"
+        },
+        {
+          "id": "c",
+          "text": "Product Rule"
+        },
+        {
+          "id": "d",
+          "text": "Fundamental Theorem of Calculus"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The chain rule allows computing derivatives of composite functions layer-by-layer, which enables backpropagation.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "calculus"
+      ]
+    },
+    {
+      "prompt": "Which formula represents Bayes' Theorem for calculating posterior probability P(A|B)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "P(A|B) = [P(B|A) * P(A)] / P(B)"
+        },
+        {
+          "id": "b",
+          "text": "P(A|B) = [P(A|B) * P(B)] / P(A)"
+        },
+        {
+          "id": "c",
+          "text": "P(A|B) = P(A) * P(B)"
+        },
+        {
+          "id": "d",
+          "text": "P(A|B) = P(A ∩ B) / P(A)"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Bayes' Theorem states P(A|B) = P(B|A)P(A) / P(B), relating posterior probability to likelihood, prior, and marginal evidence.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "probability-and-statistics"
+      ]
+    },
+    {
+      "prompt": "According to the Central Limit Theorem, what distribution does the sample mean approach as sample size becomes large, regardless of the underlying population distribution shape?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Uniform distribution"
+        },
+        {
+          "id": "b",
+          "text": "Normal distribution"
+        },
+        {
+          "id": "c",
+          "text": "Exponential distribution"
+        },
+        {
+          "id": "d",
+          "text": "Poisson distribution"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The Central Limit Theorem asserts that sample means approximate a normal distribution as sample size increases.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "probability-and-statistics"
+      ]
+    },
+    {
+      "prompt": "What is the average-case lookup time complexity in a well-implemented Hash Map?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O(1)"
+        },
+        {
+          "id": "b",
+          "text": "O(log N)"
+        },
+        {
+          "id": "c",
+          "text": "O(N)"
+        },
+        {
+          "id": "d",
+          "text": "O(N log N)"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Hash tables provide average O(1) constant time complexity for retrieval by directly indexing keys using a hash function.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "data-structures-and-algorithms"
+      ]
+    },
+    {
+      "prompt": "Which data structure is most optimal for maintaining the K largest elements from an unbounded incoming stream of numerical values?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Min-Heap of size K"
+        },
+        {
+          "id": "b",
+          "text": "Max-Heap of size N"
+        },
+        {
+          "id": "c",
+          "text": "Singly Linked List"
+        },
+        {
+          "id": "d",
+          "text": "Unsorted Dynamic Array"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A Min-Heap of size K keeps the K largest numbers, allowing O(log K) insertion and removal of elements smaller than the root.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "data-structures-and-algorithms"
+      ]
+    },
+    {
+      "prompt": "In NumPy, what is the resulting shape when broadcasting an array of shape (3, 1) with an array of shape (1, 4)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(3, 1)"
+        },
+        {
+          "id": "b",
+          "text": "(1, 4)"
+        },
+        {
+          "id": "c",
+          "text": "(3, 4)"
+        },
+        {
+          "id": "d",
+          "text": "Broadcasting throws a ValueError."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "NumPy broadcasting expands dimensions of size 1 to match the larger dimension, resulting in a (3, 4) tensor.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "numpy-fundamentals"
+      ]
+    },
+    {
+      "prompt": "Which NumPy operation returns a flattened 1D copy of a multi-dimensional array as opposed to a view?",
+      "options": [
+        {
+          "id": "a",
+          "text": "arr.ravel()"
+        },
+        {
+          "id": "b",
+          "text": "arr.flatten()"
+        },
+        {
+          "id": "c",
+          "text": "arr.squeeze()"
+        },
+        {
+          "id": "d",
+          "text": "arr.reshape(-1)"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "flatten() returns a copy of the array elements in 1D, whereas ravel() returns a flattened view whenever possible.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "numpy-fundamentals"
+      ]
+    },
+    {
+      "prompt": "In Pandas, what is the primary difference between the '.loc' and '.iloc' indexers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "loc is label-based, while iloc is integer position-based."
+        },
+        {
+          "id": "b",
+          "text": "iloc is label-based, while loc is integer position-based."
+        },
+        {
+          "id": "c",
+          "text": "loc returns Series, while iloc returns DataFrames."
+        },
+        {
+          "id": "d",
+          "text": "loc modifies inplace, while iloc returns copies."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "loc performs selection based on explicit index labels, while iloc selects rows and columns via zero-based integer index positions.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "pandas-data-manipulation"
+      ]
+    },
+    {
+      "prompt": "How can you memory-optimize a Pandas DataFrame containing string columns with low cardinality (few unique values repeated many times)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Convert column dtype to float64."
+        },
+        {
+          "id": "b",
+          "text": "Convert column dtype to 'category'."
+        },
+        {
+          "id": "c",
+          "text": "Apply df.dropna() across the index."
+        },
+        {
+          "id": "d",
+          "text": "Convert column dtype to object."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Converting repetitive string columns to 'category' stores unique strings once and represents data internally as compact integers.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "pandas-data-manipulation"
+      ]
+    },
+    {
+      "prompt": "Which visualization plot is best suited for identifying bivariate relationships and correlation trends between two continuous variables?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bar plot"
+        },
+        {
+          "id": "b",
+          "text": "Scatter plot"
+        },
+        {
+          "id": "c",
+          "text": "Pie chart"
+        },
+        {
+          "id": "d",
+          "text": "Histogram"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Scatter plots display pairs of continuous values as points, making non-linear or linear correlations easily visible.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "data-visualization"
+      ]
+    },
+    {
+      "prompt": "Which plot displays the five-number summary (minimum, first quartile, median, third quartile, maximum) and identifies potential outliers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Box plot"
+        },
+        {
+          "id": "b",
+          "text": "Violin plot"
+        },
+        {
+          "id": "c",
+          "text": "Density plot (KDE)"
+        },
+        {
+          "id": "d",
+          "text": "Heatmap"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Box plots depict statistical quartiles and highlight data points outside 1.5 * IQR as outliers.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "data-visualization"
+      ]
+    },
+    {
+      "prompt": "When evaluating missing data, what does 'Missing Completely at Random' (MCAR) mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The probability of missingness depends on observed data but not unobserved data."
+        },
+        {
+          "id": "b",
+          "text": "The probability of missingness depends on unobserved values."
+        },
+        {
+          "id": "c",
+          "text": "The probability of missingness is completely independent of both observed and unobserved data."
+        },
+        {
+          "id": "d",
+          "text": "Missing data is concentrated exclusively in target variables."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Under MCAR, missing values occur entirely randomly, with no systematic dependence on any variable in the dataset.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "exploratory-data-analysis"
+      ]
+    },
+    {
+      "prompt": "How is the Interquartile Range (IQR) calculated when using the standard rule for detecting univariate outliers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IQR = Q3 - Q1"
+        },
+        {
+          "id": "b",
+          "text": "IQR = Mean - Median"
+        },
+        {
+          "id": "c",
+          "text": "IQR = Q4 - Q0"
+        },
+        {
+          "id": "d",
+          "text": "IQR = Standard Deviation * 1.96"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The IQR is the difference between the 75th percentile (Q3) and 25th percentile (Q1). Outliers lie beyond Q1 - 1.5*IQR or Q3 + 1.5*IQR.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "exploratory-data-analysis"
+      ]
+    },
+    {
+      "prompt": "Why is Standard Scaler (Z-score normalization) preferable over Min-Max Scaler when features contain significant outliers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Standard Scaler bounds features between strict 0 and 1 limits."
+        },
+        {
+          "id": "b",
+          "text": "Min-Max Scaler collapses non-outlier data into a tiny range due to extreme min/max values."
+        },
+        {
+          "id": "c",
+          "text": "Standard Scaler removes all outliers automatically."
+        },
+        {
+          "id": "d",
+          "text": "Standard Scaler converts non-normal features into gaussian distributions."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Min-Max scaling uses global min/max, causing extreme outliers to compress normal feature values into a narrow interval.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "data-preprocessing"
+      ]
+    },
+    {
+      "prompt": "Which strategy prevents high cardinality issues when encoding nominal categorical variables with hundreds of distinct levels?",
+      "options": [
+        {
+          "id": "a",
+          "text": "One-Hot Encoding"
+        },
+        {
+          "id": "b",
+          "text": "Target / Mean Encoding with smoothing"
+        },
+        {
+          "id": "c",
+          "text": "Dummy Variable Creation"
+        },
+        {
+          "id": "d",
+          "text": "Label Encoding assigned alphabetically"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Target encoding maps high-cardinality categories to scalar target statistics, preventing sparse high-dimensional sparse matrices created by One-Hot Encoding.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "data-preprocessing"
+      ]
+    },
+    {
+      "prompt": "What primary risk must be strictly controlled when performing target encoding on training data?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Underfitting"
+        },
+        {
+          "id": "b",
+          "text": "Data Leakage / Overfitting"
+        },
+        {
+          "id": "c",
+          "text": "Multicollinearity"
+        },
+        {
+          "id": "d",
+          "text": "Vanishing Gradients"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Target encoding directly uses the target variable to generate feature values; without out-of-fold calculation and smoothing, it leaks target label information.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "feature-engineering"
+      ]
+    },
+    {
+      "prompt": "How can interaction features (e.g., multiplying Feature A by Feature B) help linear machine learning models?",
+      "options": [
+        {
+          "id": "a",
+          "text": "They enable linear models to capture non-linear multiplicative dependencies between inputs."
+        },
+        {
+          "id": "b",
+          "text": "They eliminate the requirement for feature scaling."
+        },
+        {
+          "id": "c",
+          "text": "They guarantee zero multicollinearity among predictors."
+        },
+        {
+          "id": "d",
+          "text": "They reduce total model memory footprint."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Creating interaction terms explicitly allows additive linear models to learn multiplicative, non-linear relationships between independent variables.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "feature-engineering"
+      ]
+    },
+    {
+      "prompt": "In the context of the Bias-Variance tradeoff, what symptom usually indicates high variance?",
+      "options": [
+        {
+          "id": "a",
+          "text": "High error on both training and test datasets."
+        },
+        {
+          "id": "b",
+          "text": "Low error on training data, but high error on validation/test data."
+        },
+        {
+          "id": "c",
+          "text": "Inability to learn simple patterns in training data."
+        },
+        {
+          "id": "d",
+          "text": "Extremely fast inference times."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "High variance corresponds to overfitting: the model fits training noise well (low train error) but fails to generalize (high validation error).",
+      "difficulty": 2,
+      "skillSlugs": [
+        "supervised-learning-basics"
+      ]
+    },
+    {
+      "prompt": "Which learning task directly maps input features x to continuous numeric output targets y?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Binary Classification"
+        },
+        {
+          "id": "b",
+          "text": "Regression"
+        },
+        {
+          "id": "c",
+          "text": "Clustering"
+        },
+        {
+          "id": "d",
+          "text": "Dimensionality Reduction"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Regression models predict continuous numerical outcomes, whereas classification predicts discrete categorical labels.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "supervised-learning-basics"
+      ]
+    },
+    {
+      "prompt": "How does L1 (Lasso) regularization differ from L2 (Ridge) regularization regarding feature weights?",
+      "options": [
+        {
+          "id": "a",
+          "text": "L1 encourages sparse weights by driving unnecessary feature coefficients exactly to zero."
+        },
+        {
+          "id": "b",
+          "text": "L2 drives weights completely to zero, whereas L1 penalizes large gradients."
+        },
+        {
+          "id": "c",
+          "text": "L1 scales non-linearly with square of parameters while L2 uses absolute values."
+        },
+        {
+          "id": "d",
+          "text": "L1 can only be applied to classification models."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "L1 regularization adds an absolute value penalty sum(|w|), driving irrelevant feature weights strictly to zero for automatic feature selection.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "linear-and-logistic-regression"
+      ]
+    },
+    {
+      "prompt": "In Logistic Regression, what function maps continuous real-valued model outputs to bounded probabilities between 0 and 1?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Softplus Function"
+        },
+        {
+          "id": "b",
+          "text": "Sigmoid (Logistic) Function"
+        },
+        {
+          "id": "c",
+          "text": "ReLU Function"
+        },
+        {
+          "id": "d",
+          "text": "Identity Function"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The Sigmoid activation function σ(z) = 1 / (1 + e^(-z)) squashes any real number input into the (0, 1) probability range.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "linear-and-logistic-regression"
+      ]
+    },
+    {
+      "prompt": "What key structural technique differentiates Random Forests from standard Gradient Boosted Decision Trees?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Random Forests build trees sequentially to fix previous mistakes; Gradient Boosting builds independent trees in parallel."
+        },
+        {
+          "id": "b",
+          "text": "Random Forests build deep trees independently in parallel (bagging); Gradient Boosting builds shallow trees sequentially (boosting)."
+        },
+        {
+          "id": "c",
+          "text": "Random Forests use continuous gradient optimization; Gradient Boosting uses random feature sampling."
+        },
+        {
+          "id": "d",
+          "text": "Random Forests cannot handle categorical features."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Random Forest uses Bootstrap Aggregating (bagging) of independent fully-grown trees to reduce variance, while Gradient Boosting sequentially fits shallow trees to residuals to reduce bias.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "decision-trees-and-ensembles"
+      ]
+    },
+    {
+      "prompt": "When splitting nodes in a Decision Tree for classification, what does a Gini Impurity of 0.0 represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The node contains an equal distribution of all classes."
+        },
+        {
+          "id": "b",
+          "text": "The node is pure and contains data samples from only one class."
+        },
+        {
+          "id": "c",
+          "text": "The tree has reached maximum depth."
+        },
+        {
+          "id": "d",
+          "text": "The split failed to reduce classification entropy."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A Gini impurity of 0 indicates complete purity, meaning every training instance assigned to that leaf node belongs to a single target class.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "decision-trees-and-ensembles"
+      ]
+    },
+    {
+      "prompt": "What is the primary function of the 'Kernel Trick' in Support Vector Machines (SVM)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To speed up gradient descent computation time."
+        },
+        {
+          "id": "b",
+          "text": "To implicitly compute dot products in higher-dimensional spaces without explicitly transforming data points."
+        },
+        {
+          "id": "c",
+          "text": "To convert multiclass classification into binary problems."
+        },
+        {
+          "id": "d",
+          "text": "To automatically drop irrelevant features."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The kernel trick enables SVMs to learn non-linear boundaries by computing inner products in high-dimensional space without constructing explicit feature representations.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "support-vector-machines"
+      ]
+    },
+    {
+      "prompt": "In Support Vector Machines, which training points directly define the location and orientation of the maximum-margin hyperplane?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Centroid points of each class"
+        },
+        {
+          "id": "b",
+          "text": "Support vectors lying on or inside the margin boundary"
+        },
+        {
+          "id": "c",
+          "text": "Outliers located far away from boundary limits"
+        },
+        {
+          "id": "d",
+          "text": "All training samples contribute equally"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Support vectors are the critical data points closest to the separating hyperplane; moving other dataset points does not alter the boundary position.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "support-vector-machines"
+      ]
+    },
+    {
+      "prompt": "What defines the unsupervised machine learning paradigm compared to supervised machine learning?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unsupervised learning requires hyperparameter tuning, whereas supervised learning does not."
+        },
+        {
+          "id": "b",
+          "text": "Unsupervised learning models uncover patterns from unlabeled input data without explicit target output signals."
+        },
+        {
+          "id": "c",
+          "text": "Unsupervised learning algorithms only run on neural networks."
+        },
+        {
+          "id": "d",
+          "text": "Unsupervised learning requires massive GPU clusters."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Unsupervised learning discovers intrinsic structures, clusters, or lower-dimensional representations from input data without target labels y.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "unsupervised-learning"
+      ]
+    },
+    {
+      "prompt": "Which algorithm detects anomalies by isolating instances through recursive random feature split partitions?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Isolation Forest"
+        },
+        {
+          "id": "b",
+          "text": "K-Means"
+        },
+        {
+          "id": "c",
+          "text": "Linear Discriminant Analysis"
+        },
+        {
+          "id": "d",
+          "text": "Hierarchical Agglomerative Clustering"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Isolation Forest isolates anomalies because anomalous points require fewer random partitions to isolate than normal crowded cluster points.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "unsupervised-learning"
+      ]
+    },
+    {
+      "prompt": "What advantage does K-Means++ initialization offer over standard random centroid initialization in K-Means clustering?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It eliminates the need to specify K beforehand."
+        },
+        {
+          "id": "b",
+          "text": "It initializes cluster centroids far apart, avoiding poor convergence and local minima."
+        },
+        {
+          "id": "c",
+          "text": "It allows K-Means to cluster arbitrary non-spherical shapes."
+        },
+        {
+          "id": "d",
+          "text": "It guarantees convergence in a single iteration."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "K-Means++ samples initial centroids proportional to squared distances from existing centroids, preventing poor cluster local minima.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "clustering-algorithms"
+      ]
+    },
+    {
+      "prompt": "Which property makes DBSCAN superior to standard K-Means for real-world spatial clustering tasks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DBSCAN clusters arbitrarily shaped non-spherical spatial groups and identifies noise/outliers."
+        },
+        {
+          "id": "b",
+          "text": "DBSCAN executes faster on high-dimensional tabular data."
+        },
+        {
+          "id": "c",
+          "text": "DBSCAN requires defining the exact number of centroids K upfront."
+        },
+        {
+          "id": "d",
+          "text": "DBSCAN assigns all data points strictly to at least one cluster."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "DBSCAN is a density-based algorithm capable of discovering arbitrary shapes and marking low-density regions as noise, unlike distance-to-centroid K-Means.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "clustering-algorithms"
+      ]
+    },
+    {
+      "prompt": "Principal Component Analysis (PCA) projects high-dimensional data onto orthogonal axes designed to maximize what mathematical metric?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Classification Accuracy"
+        },
+        {
+          "id": "b",
+          "text": "Data Variance"
+        },
+        {
+          "id": "c",
+          "text": "Mean Squared Error of classification labels"
+        },
+        {
+          "id": "d",
+          "text": "Sparsity of inputs"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "PCA sequentially identifies orthogonal directions (principal components) along which the variance of projected data points is maximized.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "dimensionality-reduction-and-pca"
+      ]
+    },
+    {
+      "prompt": "Why is t-SNE generally preferred over PCA for 2D/3D visualization of complex non-linear data manifolds, despite being unsuitable for feature engineering step transformations?",
+      "options": [
+        {
+          "id": "a",
+          "text": "t-SNE preserves local neighborhood distance structures non-linearly."
+        },
+        {
+          "id": "b",
+          "text": "t-SNE preserves global linear feature variance perfectly."
+        },
+        {
+          "id": "c",
+          "text": "t-SNE is deterministic and scales linearly to billions of rows."
+        },
+        {
+          "id": "d",
+          "text": "t-SNE provides an exact inverse mapping function."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "t-SNE effectively preserves local probabilistic similarity structures in low dimensions, capturing non-linear clusters that linear methods like PCA miss.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "dimensionality-reduction-and-pca"
+      ]
+    },
+    {
+      "prompt": "In a highly imbalanced dataset where 99% of samples are negative and 1% positive, why is raw accuracy a misleading evaluation metric?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A naive model predicting all samples as negative achieves 99% accuracy while failing to detect positive samples."
+        },
+        {
+          "id": "b",
+          "text": "Accuracy values cannot exceed 0.50 on imbalanced data."
+        },
+        {
+          "id": "c",
+          "text": "Accuracy requires calibrating probabilistic thresholds."
+        },
+        {
+          "id": "d",
+          "text": "Accuracy is only applicable to multiclass classification."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "In severe class imbalance, predicting the majority class yields high accuracy despite zero predictive utility for minority positive target instances.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "model-evaluation-metrics"
+      ]
+    },
+    {
+      "prompt": "Which evaluation metric measures the ratio of true positive predictions out of all actual positive instances present in the ground truth?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Precision"
+        },
+        {
+          "id": "b",
+          "text": "Recall (Sensitivity)"
+        },
+        {
+          "id": "c",
+          "text": "Specificity"
+        },
+        {
+          "id": "d",
+          "text": "F1-Score"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Recall = TP / (TP + FN), measuring the percentage of actual positive cases successfully identified by the model.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "model-evaluation-metrics"
+      ]
+    },
+    {
+      "prompt": "Why is Stratified K-Fold Cross-Validation recommended over standard K-Fold Cross-Validation for classification tasks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It speeds up training runtimes."
+        },
+        {
+          "id": "b",
+          "text": "It preserves target class label proportion distributions in each fold identical to the full dataset."
+        },
+        {
+          "id": "c",
+          "text": "It prevents feature values from scaling incorrectly across splits."
+        },
+        {
+          "id": "d",
+          "text": "It tunes hyperparameter search ranges automatically."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Stratification ensures that every split fold maintains representative ratios of target class labels, preventing biased or empty-class folds.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "cross-validation-and-hyperparameter-tuning"
+      ]
+    },
+    {
+      "prompt": "What advantage does Random Search hyperparameter optimization offer over Grid Search when tuning models across large parameter spaces?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Random Search evaluates all parameter combinations exhaustively."
+        },
+        {
+          "id": "b",
+          "text": "Random Search efficiently explores parameter spaces by sampling more distinct values for important parameters within fixed iteration budgets."
+        },
+        {
+          "id": "c",
+          "text": "Random Search guarantees finding global optimal parameters every time."
+        },
+        {
+          "id": "d",
+          "text": "Random Search eliminates cross-validation evaluation requirements."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Because not all hyperparameters are equally important, random sampling tests unique values across key parameters rather than wasting iterations on grid intersections.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "cross-validation-and-hyperparameter-tuning"
+      ]
+    },
+    {
+      "prompt": "Why does the ReLU (Rectified Linear Unit) activation function help mitigate the vanishing gradient problem in deep networks compared to Sigmoid?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ReLU has a derivative of 1 for all positive inputs, preventing gradients from saturating towards zero."
+        },
+        {
+          "id": "b",
+          "text": "ReLU squashes values strictly between -1 and 1."
+        },
+        {
+          "id": "c",
+          "text": "ReLU is differentiable everywhere including exactly at zero."
+        },
+        {
+          "id": "d",
+          "text": "ReLU normalizes activation distributions across batch features."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Sigmoid derivative saturates near zero for large magnitudes, causing vanishing gradients; ReLU derivative remains constant (1) for all positive inputs.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "deep-learning-fundamentals"
+      ]
+    },
+    {
+      "prompt": "What fundamental capabilities would a multi-layer neural network lose if all non-linear activation functions were removed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It would become impossible to calculate gradient loss derivatives."
+        },
+        {
+          "id": "b",
+          "text": "The entire network would collapse into a single linear transformation, unable to learn complex patterns."
+        },
+        {
+          "id": "c",
+          "text": "The network would overfit training data immediately."
+        },
+        {
+          "id": "d",
+          "text": "Weights would become zero during initialization."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Composing multiple linear layers without activation functions produces a simple linear function (W2*W1*x = W_combo*x), losing representation capacity.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "deep-learning-fundamentals"
+      ]
+    },
+    {
+      "prompt": "How do Residual Skip Connections in ResNet architectures resolve training degradation issues in very deep networks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "By adding skip identity pathways H(x) = F(x) + x, allowing gradients to flow unimpeded backward through layers."
+        },
+        {
+          "id": "b",
+          "text": "By pruning small network parameters automatically during forward passes."
+        },
+        {
+          "id": "c",
+          "text": "By forcing activations to become sparse zero vectors."
+        },
+        {
+          "id": "d",
+          "text": "By replacing matrix multiplication with convolution operations."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Residual connections allow signals and gradients to pass directly through identity mappings, enabling stable training of architectures hundreds of layers deep.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "neural-network-architectures"
+      ]
+    },
+    {
+      "prompt": "In Autoencoder neural networks, what is the core function of the central bottleneck layer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To classify low-dimensional embeddings into output categories."
+        },
+        {
+          "id": "b",
+          "text": "To compress data into a low-dimensional latent space representation forcing extraction of meaningful features."
+        },
+        {
+          "id": "c",
+          "text": "To increase output dimensions higher than input features."
+        },
+        {
+          "id": "d",
+          "text": "To perform spatial convolution reduction."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The bottleneck forces the network to learn a compressed, lower-dimensional latent representation that captures salient features needed to reconstruct inputs.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "neural-network-architectures"
+      ]
+    },
+    {
+      "prompt": "What key structural mechanisms allow Convolutional Neural Network (CNN) 2D kernel filters to process images far more efficiently than Dense Fully-Connected layers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Parameter sharing and local receptive fields"
+        },
+        {
+          "id": "b",
+          "text": "Recurrent hidden connections and gating"
+        },
+        {
+          "id": "c",
+          "text": "Self-attention matrix operations"
+        },
+        {
+          "id": "d",
+          "text": "High-dimensional label encoding"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "CNNs apply small local kernels across spatial dimensions (receptive fields) and reuse weight parameters across the image (parameter sharing).",
+      "difficulty": 2,
+      "skillSlugs": [
+        "convolutional-neural-networks"
+      ]
+    },
+    {
+      "prompt": "If an input feature map of spatial size 32x32 is processed with a 3x3 convolution kernel, stride 1, and padding 0, what is the spatial output dimensions?",
+      "options": [
+        {
+          "id": "a",
+          "text": "32x32"
+        },
+        {
+          "id": "b",
+          "text": "30x30"
+        },
+        {
+          "id": "c",
+          "text": "28x28"
+        },
+        {
+          "id": "d",
+          "text": "34x34"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Output size formula: Output = (W - K + 2P)/S + 1 = (32 - 3 + 0)/1 + 1 = 30x30.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "convolutional-neural-networks"
+      ]
+    },
+    {
+      "prompt": "In Long Short-Term Memory (LSTM) recurrent networks, which specific gate decides what incoming info should update the hidden cell state?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Forget Gate"
+        },
+        {
+          "id": "b",
+          "text": "Input Gate"
+        },
+        {
+          "id": "c",
+          "text": "Output Gate"
+        },
+        {
+          "id": "d",
+          "text": "Reset Gate"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The Input Gate determines which newly calculated values should be stored to update the long-term memory cell state.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "recurrent-neural-networks"
+      ]
+    },
+    {
+      "prompt": "What key architectural vulnerability causes vanilla Recurrent Neural Networks (RNNs) to struggle with learning long-range sequence dependencies?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Vanishing and exploding gradients during backpropagation through time (BPTT)"
+        },
+        {
+          "id": "b",
+          "text": "Inability to process variable length sequence inputs"
+        },
+        {
+          "id": "c",
+          "text": "Lack of matrix multiplication operations"
+        },
+        {
+          "id": "d",
+          "text": "Excessive spatial receptive fields"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Repeated matrix multiplication over long time steps causes gradients to vanish or explode exponentially during BPTT.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "recurrent-neural-networks"
+      ]
+    },
+    {
+      "prompt": "In Transformer self-attention, what mathematical scaling is applied to the dot products of Queries (Q) and Keys (K) with vector dimension d_k?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dividing dot products by square root of d_k"
+        },
+        {
+          "id": "b",
+          "text": "Multiplying dot products by d_k"
+        },
+        {
+          "id": "c",
+          "text": "Applying L2 normalization to outputs"
+        },
+        {
+          "id": "d",
+          "text": "Subtracting mean vector d_k"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Dot products are scaled by 1/sqrt(d_k) to prevent extremely large dot product magnitudes from pushing Softmax functions into tiny gradient regions.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "transformers-and-attention"
+      ]
+    },
+    {
+      "prompt": "Why are Positional Encodings injected directly into token embeddings in Transformer models?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Transformers process tokens in parallel and lack inherent recurrences/convolutions to infer sequence order."
+        },
+        {
+          "id": "b",
+          "text": "Positional Encodings reduce total vocabulary token size."
+        },
+        {
+          "id": "c",
+          "text": "Positional Encodings act as regularization to prevent sequence overfitting."
+        },
+        {
+          "id": "d",
+          "text": "They enable attention maps to compute softmax calculations."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Because self-attention is permutation-invariant, positional encodings must be added to convey explicit sequential token order information.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "transformers-and-attention"
+      ]
+    },
+    {
+      "prompt": "What transformation occurs when converting a standard FP32 neural network model to an INT8 post-training quantized version?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Model weights and activations map from 32-bit floating point representations to 8-bit integers."
+        },
+        {
+          "id": "b",
+          "text": "The total number of neural network layers is pruned by 80%."
+        },
+        {
+          "id": "c",
+          "text": "Gradient backpropagation training runs 8x faster."
+        },
+        {
+          "id": "d",
+          "text": "Model weights convert into binary boolean bitmask matrices."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Post-training quantization maps 32-bit floating point numbers to 8-bit integer representations, drastically reducing model size and memory bandwidth requirements.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "model-optimization-and-quantization"
+      ]
+    },
+    {
+      "prompt": "In neural network optimization, what does structural network pruning achieve?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Removes entire non-critical channels, filters, or layers to decrease latency on standard CPU/GPU inference runtimes."
+        },
+        {
+          "id": "b",
+          "text": "Rounds parameters down to nearest power-of-two values."
+        },
+        {
+          "id": "c",
+          "text": "Decreases dataset batch size."
+        },
+        {
+          "id": "d",
+          "text": "Replaces backpropagation gradient optimization with random mutations."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Structured pruning removes entire structural parameter blocks (like channels or layers), accelerating hardware execution without requiring specialized sparse linear algebra hardware.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "model-optimization-and-quantization"
+      ]
+    },
+    {
+      "prompt": "How should order of commands in a Dockerfile be structured to optimize build speed using layer caching?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Place frequently changing files (e.g. app source code) AFTER static dependency installation steps (e.g. requirements.txt)."
+        },
+        {
+          "id": "b",
+          "text": "Place frequently changing app source code before dependency installations."
+        },
+        {
+          "id": "c",
+          "text": "Disable build kit layer caching explicitly."
+        },
+        {
+          "id": "d",
+          "text": "Combine every command into a single RUN line without separating layers."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Docker invalidates cache for subsequent layers when a layer changes; keeping stable dependency installs early avoids rebuilding dependencies when editing source code.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "docker-and-containerization"
+      ]
+    },
+    {
+      "prompt": "What is the primary difference between a Docker Image and a Docker Container?",
+      "options": [
+        {
+          "id": "a",
+          "text": "An Image is an immutable build-time template; a Container is a running instantiated process instance of an Image."
+        },
+        {
+          "id": "b",
+          "text": "A Container runs on virtualized guest OS kernels, while an Image runs bare-metal."
+        },
+        {
+          "id": "c",
+          "text": "An Image holds source code; a Container holds training datasets."
+        },
+        {
+          "id": "d",
+          "text": "Docker Images can only run in Kubernetes clusters."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "An image is a static, read-only blueprint package, while a container is the isolated, executable runtime instance created from that image.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "docker-and-containerization"
+      ]
+    },
+    {
+      "prompt": "In MLOps toolchains, what is the primary role of a Model Registry (such as MLflow Model Registry)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To index and manage model lineage, versions, metadata, and lifecycle stage transitions (e.g., Staging to Production)."
+        },
+        {
+          "id": "b",
+          "text": "To automatically execute hyperparameter search grid experiments."
+        },
+        {
+          "id": "c",
+          "text": "To store raw unstructured training data files."
+        },
+        {
+          "id": "d",
+          "text": "To generate API documentation."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A Model Registry acts as a centralized repository tracking model versions, metadata provenance, and deployment lifecycle states.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "mlops-and-model-registry"
+      ]
+    },
+    {
+      "prompt": "Which automated process validates model performance regression and schema drift before automatically promoting retrained models to production?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Continuous Integration and Continuous Deployment (CI/CD) CT Pipeline"
+        },
+        {
+          "id": "b",
+          "text": "Static Code Analysis"
+        },
+        {
+          "id": "c",
+          "text": "Batch Feature Store Synchronization"
+        },
+        {
+          "id": "d",
+          "text": "Docker Layer Cache Pruning"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "In MLOps, CI/CD with Continuous Training (CT) pipelines automates testing, validation, and deployment triggers upon model retraining.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "mlops-and-model-registry"
+      ]
+    },
+    {
+      "prompt": "When building an online real-time REST API for low-latency ML inference, which framework pattern handles high concurrency efficiently without blocking worker threads?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Asynchronous event-driven web frameworks (e.g., FastAPI / ASGI)"
+        },
+        {
+          "id": "b",
+          "text": "Synchronous single-threaded WSGI frameworks"
+        },
+        {
+          "id": "c",
+          "text": "Cron jobs"
+        },
+        {
+          "id": "d",
+          "text": "Batch map-reduce processing"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Asynchronous ASGI frameworks allow non-blocking concurrency, making them ideally suited for serving real-time model requests under high traffic loads.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "model-deployment-api"
+      ]
+    },
+    {
+      "prompt": "Which design pattern is best suited for executing slow, resource-intensive deep learning batch inference predictions asynchronously without timing out caller client HTTP requests?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Asynchronous Task Queue with Workers (e.g., Celery / Redis)"
+        },
+        {
+          "id": "b",
+          "text": "Synchronous REST API blocking calls"
+        },
+        {
+          "id": "c",
+          "text": "Direct GraphQL Client Queries"
+        },
+        {
+          "id": "d",
+          "text": "Polling database triggers manually"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Using an async message queue offloads heavy ML processing to background worker nodes and immediately returns a job ID to the user.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "model-deployment-api"
+      ]
+    },
+    {
+      "prompt": "In production ML system monitoring, what is the precise distinction between 'Data Drift' and 'Concept Drift'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data Drift involves changes in input feature distributions P(X); Concept Drift involves changes in feature-target relationships P(Y|X)."
+        },
+        {
+          "id": "b",
+          "text": "Concept Drift involves changes in input features P(X); Data Drift involves server hardware failures."
+        },
+        {
+          "id": "c",
+          "text": "Data Drift refers to data pipeline latency; Concept Drift refers to slow API responses."
+        },
+        {
+          "id": "d",
+          "text": "They are synonymous terms describing memory leak degradation."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Data Drift occurs when input feature distributions shift P(X), whereas Concept Drift happens when statistical mapping between features and targets shifts P(Y|X).",
+      "difficulty": 3,
+      "skillSlugs": [
+        "ml-system-design-and-monitoring"
+      ]
+    },
+    {
+      "prompt": "What key architectural component ensures consistent, leakage-free feature computation across both offline training and online real-time model serving?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Feature Store"
+        },
+        {
+          "id": "b",
+          "text": "Model Registry"
+        },
+        {
+          "id": "c",
+          "text": "API Gateway"
+        },
+        {
+          "id": "d",
+          "text": "Container Orchestrator"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A Feature Store provides a dual online (low latency lookup) and offline (historical batch) centralized feature platform to eliminate training-serving skew.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "ml-system-design-and-monitoring"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "title": "Official Python Tutorial",
+      "type": "link",
+      "url": "https://docs.python.org/3/tutorial/index.html",
+      "skillSlugs": [
+        "python-programming"
+      ]
+    },
+    {
+      "title": "Essence of Linear Algebra",
+      "type": "video",
+      "url": "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab",
+      "skillSlugs": [
+        "linear-algebra"
+      ]
+    },
+    {
+      "title": "Essence of Calculus",
+      "type": "video",
+      "url": "https://www.youtube.com/playlist?list=PLZHQObOWTDPTjSM2Bxb0zM_8C14c4kG28",
+      "skillSlugs": [
+        "calculus"
+      ]
+    },
+    {
+      "title": "Khan Academy Probability and Statistics",
+      "type": "link",
+      "url": "https://www.khanacademy.org/math/statistics-probability",
+      "skillSlugs": [
+        "probability-and-statistics"
+      ]
+    },
+    {
+      "title": "NeetCode Data Structures and Algorithms Roadmap",
+      "type": "link",
+      "url": "https://neetcode.io/roadmap",
+      "skillSlugs": [
+        "data-structures-and-algorithms"
+      ]
+    },
+    {
+      "title": "NumPy Quickstart Guide",
+      "type": "link",
+      "url": "https://numpy.org/doc/stable/user/quickstart.html",
+      "skillSlugs": [
+        "numpy-fundamentals"
+      ]
+    },
+    {
+      "title": "Pandas Getting Started Tutorials",
+      "type": "link",
+      "url": "https://pandas.pydata.org/docs/getting_started/index.html",
+      "skillSlugs": [
+        "pandas-data-manipulation"
+      ]
+    },
+    {
+      "title": "Seaborn User Guide and Tutorial",
+      "type": "link",
+      "url": "https://seaborn.pydata.org/tutorial.html",
+      "skillSlugs": [
+        "data-visualization"
+      ]
+    },
+    {
+      "title": "Kaggle Data Cleaning & EDA Course",
+      "type": "link",
+      "url": "https://www.kaggle.com/learn/data-cleaning",
+      "skillSlugs": [
+        "exploratory-data-analysis"
+      ]
+    },
+    {
+      "title": "Scikit-Learn Data Preprocessing Guide",
+      "type": "link",
+      "url": "https://scikit-learn.org/stable/modules/preprocessing.html",
+      "skillSlugs": [
+        "data-preprocessing"
+      ]
+    },
+    {
+      "title": "Kaggle Feature Engineering Course",
+      "type": "link",
+      "url": "https://www.kaggle.com/learn/feature-engineering",
+      "skillSlugs": [
+        "feature-engineering"
+      ]
+    },
+    {
+      "title": "Scikit-Learn Supervised Learning Overview",
+      "type": "link",
+      "url": "https://scikit-learn.org/stable/supervised_learning.html",
+      "skillSlugs": [
+        "supervised-learning-basics"
+      ]
+    },
+    {
+      "title": "StatQuest: Logistic Regression Clearly Explained",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=yIYKR4sgzI8",
+      "skillSlugs": [
+        "linear-and-logistic-regression"
+      ]
+    },
+    {
+      "title": "StatQuest: Random Forests Clearly Explained",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=J4Wje7x16VA",
+      "skillSlugs": [
+        "decision-trees-and-ensembles"
+      ]
+    },
+    {
+      "title": "StatQuest: Support Vector Machines Main Ideas",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=efR1C6Urv5U",
+      "skillSlugs": [
+        "support-vector-machines"
+      ]
+    },
+    {
+      "title": "Scikit-Learn Unsupervised Learning Overview",
+      "type": "link",
+      "url": "https://scikit-learn.org/stable/unsupervised_learning.html",
+      "skillSlugs": [
+        "unsupervised-learning"
+      ]
+    },
+    {
+      "title": "Scikit-Learn Clustering Documentation",
+      "type": "link",
+      "url": "https://scikit-learn.org/stable/modules/clustering.html",
+      "skillSlugs": [
+        "clustering-algorithms"
+      ]
+    },
+    {
+      "title": "StatQuest: Principal Component Analysis (PCA)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=FgakZw6K1QQ",
+      "skillSlugs": [
+        "dimensionality-reduction-and-pca"
+      ]
+    },
+    {
+      "title": "Scikit-Learn Model Evaluation Metrics",
+      "type": "link",
+      "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "skillSlugs": [
+        "model-evaluation-metrics"
+      ]
+    },
+    {
+      "title": "Scikit-Learn Cross-Validation Guide",
+      "type": "link",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "skillSlugs": [
+        "cross-validation-and-hyperparameter-tuning"
+      ]
+    },
+    {
+      "title": "Fast.ai Practical Deep Learning for Coders",
+      "type": "link",
+      "url": "https://course.fast.ai/",
+      "skillSlugs": [
+        "deep-learning-fundamentals"
+      ]
+    },
+    {
+      "title": "Stanford CS231n Deep Learning Architecture Notes",
+      "type": "link",
+      "url": "https://cs231n.github.io/",
+      "skillSlugs": [
+        "neural-network-architectures"
+      ]
+    },
+    {
+      "title": "Stanford CS231n Convolutional Neural Networks Guide",
+      "type": "link",
+      "url": "https://cs231n.github.io/convolutional-networks/",
+      "skillSlugs": [
+        "convolutional-neural-networks"
+      ]
+    },
+    {
+      "title": "Understanding LSTM Networks by Christopher Olah",
+      "type": "note",
+      "url": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+      "skillSlugs": [
+        "recurrent-neural-networks"
+      ]
+    },
+    {
+      "title": "The Illustrated Transformer by Jay Alammar",
+      "type": "note",
+      "url": "https://jalammar.github.io/illustrated-transformer/",
+      "skillSlugs": [
+        "transformers-and-attention"
+      ]
+    },
+    {
+      "title": "PyTorch Model Optimization and Quantization Documentation",
+      "type": "link",
+      "url": "https://pytorch.org/docs/stable/quantization.html",
+      "skillSlugs": [
+        "model-optimization-and-quantization"
+      ]
+    },
+    {
+      "title": "Docker Curriculum for Beginners",
+      "type": "link",
+      "url": "https://docker-curriculum.com/",
+      "skillSlugs": [
+        "docker-and-containerization"
+      ]
+    },
+    {
+      "title": "MLflow Official Documentation",
+      "type": "link",
+      "url": "https://mlflow.org/docs/latest/index.html",
+      "skillSlugs": [
+        "mlops-and-model-registry"
+      ]
+    },
+    {
+      "title": "FastAPI First Steps Tutorial",
+      "type": "link",
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "skillSlugs": [
+        "model-deployment-api"
+      ]
+    },
+    {
+      "title": "Machine Learning Systems Design Book Outline",
+      "type": "note",
+      "url": "https://huyenchip.com/machine-learning-systems-design/toc.html",
+      "skillSlugs": [
+        "ml-system-design-and-monitoring"
+      ]
+    }
+  ]
+}
