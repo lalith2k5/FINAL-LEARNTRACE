@@ -141,3 +141,33 @@ describe("impact + roadmap", () => {
     expect(idxProb).toBeLessThan(idxMl);
   });
 });
+
+describe("updateMastery — difficulty handling", () => {
+  const base = {
+    timeTakenMs: 30_000,
+    expectedMs: 30_000,
+    confidence: 3,
+    attemptNo: 1,
+    skillWeight: 1,
+  };
+
+  it("penalizes easy wrong answers more than hard wrong answers", () => {
+    const prior = 0.7;
+    const easyWrong = updateMastery(prior, { ...base, correct: false, difficulty: 1 });
+    const hardWrong = updateMastery(prior, { ...base, correct: false, difficulty: 5 });
+    expect(easyWrong).toBeLessThan(hardWrong);
+  });
+
+  it("rewards hard correct answers more than easy correct answers", () => {
+    const prior = 0.5;
+    const easyRight = updateMastery(prior, { ...base, correct: true, difficulty: 1 });
+    const hardRight = updateMastery(prior, { ...base, correct: true, difficulty: 5 });
+    expect(hardRight).toBeGreaterThan(easyRight);
+  });
+
+  it("drops mastery on wrong, raises on correct", () => {
+    const prior = 0.5;
+    expect(updateMastery(prior, { ...base, correct: true, difficulty: 3 })).toBeGreaterThan(prior);
+    expect(updateMastery(prior, { ...base, correct: false, difficulty: 3 })).toBeLessThan(prior);
+  });
+});

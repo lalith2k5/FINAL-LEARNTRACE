@@ -27,7 +27,7 @@ export function updateMastery(prior: number, e: AttemptEvidence): number {
 
   const signal = e.correct
     ? 0.5 + 0.5 * difficulty
-    : 0.5 - 0.5 * difficulty;
+    : 0.5 * difficulty;
 
   const alpha = clamp(
     0.18 * e.skillWeight * timeFactor * confFactor * attemptPenalty,
