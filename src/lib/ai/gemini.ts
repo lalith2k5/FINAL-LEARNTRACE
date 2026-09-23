@@ -5,9 +5,9 @@ if (!apiKey) {
   throw new Error("GEMINI_API_KEY missing — check .env.local");
 }
 
-export const ai = new GoogleGenAI({ apiKey });
+const ai = new GoogleGenAI({ apiKey });
 
-export const MODEL_FLASH = "gemini-3.6-flash";
+const MODEL_FLASH = "gemini-3.6-flash";
 
 /**
  * JSON-mode call with retry on 503/429.

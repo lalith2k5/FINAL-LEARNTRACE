@@ -8,7 +8,7 @@ export type CertificateInput = {
   avgMastery: number;
 };
 
-export type Certificate = {
+type Certificate = {
   title: string;
   provider: string;
   url: string;

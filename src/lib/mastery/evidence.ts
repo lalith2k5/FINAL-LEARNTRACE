@@ -101,7 +101,7 @@ export async function getSkillEvidence(
 /**
  * Batch version — for a list of skills, compute evidence for each in parallel.
  */
-export async function getBatchEvidence(
+async function getBatchEvidence(
   userId: string,
   skillIds: string[]
 ): Promise<SkillEvidence[]> {

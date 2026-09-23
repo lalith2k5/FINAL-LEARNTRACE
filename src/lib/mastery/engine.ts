@@ -39,4 +39,3 @@ export function updateMastery(prior: number, e: AttemptEvidence): number {
   return clamp(next, 0.01, 0.99);
 }
 
-export { clamp };

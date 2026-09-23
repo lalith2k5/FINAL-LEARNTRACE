@@ -4,10 +4,6 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
-export function clamp(x: number, lo: number, hi: number) {
-  return Math.min(hi, Math.max(lo, x));
-}
 /**
  * Fisher–Yates shuffle (non-mutating).
  */

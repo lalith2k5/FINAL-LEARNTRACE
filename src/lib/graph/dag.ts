@@ -83,10 +83,3 @@ export function downstreamClosure(skillId: string, edges: Edge[]): Set<string> {
 export function parentsOf(skillId: string, edges: Edge[]): string[] {
   return edges.filter((e) => e.childId === skillId).map((e) => e.parentId);
 }
-
-/**
- * Direct children of a skill.
- */
-export function childrenOf(skillId: string, edges: Edge[]): string[] {
-  return edges.filter((e) => e.parentId === skillId).map((e) => e.childId);
-}

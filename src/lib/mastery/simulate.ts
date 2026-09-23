@@ -10,7 +10,7 @@ export type SimulateInput = {
   targetMastery: number;       // e.g. 0.75
 };
 
-export type AffectedSkill = {
+type AffectedSkill = {
   id: string;
   before: number;
   after: number;

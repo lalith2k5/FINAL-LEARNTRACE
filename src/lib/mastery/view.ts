@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { effectiveMastery } from "./decay";
 
-export type MasteryTier = "fresh" | "decaying" | "stale" | "untouched";
+type MasteryTier = "fresh" | "decaying" | "stale" | "untouched";
 
 export type MasteryView = {
   skillId: string;
