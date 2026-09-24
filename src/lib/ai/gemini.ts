@@ -7,7 +7,7 @@ if (!apiKey) {
 
 const ai = new GoogleGenAI({ apiKey });
 
-const MODEL_FLASH = "gemini-2.5-flash";
+const MODEL_FLASH = "gemini-3.5-flash";
 
 /**
  * JSON-mode call with retry on 503/429.
