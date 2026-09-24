@@ -21,7 +21,8 @@
     "db:remove-notes": "tsx scripts/remove-study-notes.ts",
     "db:seed-practical-3": "tsx scripts/seed-more-practical-3.ts",
     "db:ml-topup": "tsx scripts/seed-ml-topup.ts",
-    "db:seed-practical-all": "tsx scripts/seed-practical-all-domains.ts"
+    "db:seed-practical-all": "tsx scripts/seed-practical-all-domains.ts",
+    "db:seed-videos-all": "tsx scripts/seed-skill-videos-all.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",
