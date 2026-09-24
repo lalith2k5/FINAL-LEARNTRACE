@@ -16,7 +16,7 @@ if (!apiKey) {
 }
 
 const ai = new GoogleGenAI({ apiKey });
-const MODEL = "gemini-3.5-flash";
+const MODEL = "gemini-3.5-flash-lite";
 
 const CACHE_DIR = "src/content/notes/.cache";
 mkdirSync(CACHE_DIR, { recursive: true });

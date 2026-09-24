@@ -53,3 +53,4 @@ src/content/domains/.cache/
 # LearnTrace uploads
 uploads/
 .env.local.backup
+src/content/notes/.cache/

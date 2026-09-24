@@ -53,7 +53,12 @@ export function FocusedQuizPicker({ skills }: Props) {
     <GlassPanel className="flex flex-col">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="label-mono">Focused quiz</p>
+          <div className="flex items-center gap-2">
+            <span className="label-mono text-text-tertiary">Mode 2</span>
+          </div>
+          <p className="mt-3 text-lg font-medium text-text-primary">
+            Focused quiz
+          </p>
           <p className="mt-1 text-sm text-text-secondary">
             Pick 1–{MAX_SKILLS} skills. Get up to 5 questions per skill.
           </p>
@@ -68,7 +73,7 @@ export function FocusedQuizPicker({ skills }: Props) {
 
       {/* Skill grid */}
       <div className="mt-4 max-h-[320px] overflow-y-auto rounded-lg border border-border-subtle bg-bg-inset/40 p-2">
-        <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-1">
           {skills.map((s) => {
             const isOn = selected.has(s.id);
             return (
