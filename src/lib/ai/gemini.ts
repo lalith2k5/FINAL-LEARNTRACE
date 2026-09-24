@@ -7,7 +7,7 @@ if (!apiKey) {
 
 const ai = new GoogleGenAI({ apiKey });
 
-const MODEL_FLASH = "gemini-3.6-flash";
+const MODEL_FLASH = "gemini-2.5-flash";
 
 /**
  * JSON-mode call with retry on 503/429.
@@ -16,7 +16,7 @@ export async function callJson<T>(
   prompt: string,
   options: { system?: string; temperature?: number; maxRetries?: number } = {}
 ): Promise<T> {
-  const { system, temperature = 0.7, maxRetries = 4 } = options;
+  const { system, temperature = 0.7, maxRetries = 1 } = options;
 
   let attempt = 1;
   while (true) {
@@ -34,11 +34,12 @@ export async function callJson<T>(
       return JSON.parse(text) as T;
     } catch (err: any) {
       const status = err?.status ?? 0;
-      const retryable = status === 503 || status === 429 || status === 500;
+      // 429 = quota. Do NOT retry — quota doesn't recover in seconds.
+      const retryable = status === 503 || status === 500;
       if (!retryable || attempt >= maxRetries) throw err;
-      const wait = Math.min(30, 3 * 2 ** (attempt - 1));
-      console.log(`   ⏳ AI retry ${attempt}/${maxRetries} after ${wait}s (status ${status})`);
-      await new Promise((r) => setTimeout(r, wait * 1000));
+      const wait = 1000;
+      console.log(`   ⏳ AI retry ${attempt}/${maxRetries} after ${wait}ms (status ${status})`);
+      await new Promise((r) => setTimeout(r, wait));
       attempt++;
     }
   }

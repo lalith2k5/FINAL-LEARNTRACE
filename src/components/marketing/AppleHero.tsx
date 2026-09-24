@@ -72,10 +72,10 @@ export function AppleHero() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className="hero-type text-white"
         >
-          Learning that
+          What&apos;s your next move?
           <br />
           <span className="bg-gradient-to-r from-[#1877F2] via-[#22D3EE] to-[#1877F2] bg-clip-text text-transparent">
-            knows what you know.
+            Not the next course.
           </span>
         </motion.h1>
 
