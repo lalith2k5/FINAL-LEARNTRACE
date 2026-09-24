@@ -3,9 +3,11 @@ config({ path: ".env" });
 config({ path: ".env.local" });
 
 import { PrismaClient } from "@prisma/client";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 
 const prisma = new PrismaClient();
+const DOMAINS_DIR = "src/content/domains";
 
 type Skill = {
   slug: string;
@@ -68,21 +70,14 @@ function hasCycle(skillSlugs: string[], edges: Prereq[]): boolean {
   return false;
 }
 
-async function main() {
-  const raw = readFileSync("src/content/domains/ml-engineer.json", "utf8");
-  const content: ContentFile = JSON.parse(raw);
+async function seedDomain(content: ContentFile): Promise<void> {
+  console.log(`\n📦 ${content.domain.slug}`);
 
-  console.log(`📖 Loaded ${content.skills.length} skills, ${content.prerequisites.length} prereqs, ${content.questions.length} questions, ${content.materials.length} materials`);
-
-  // --- Validate DAG ---
   const skillSlugs = content.skills.map((s) => s.slug);
   if (hasCycle(skillSlugs, content.prerequisites)) {
-    console.error("❌ Prerequisite graph has a cycle. Fix the content file first.");
-    process.exit(1);
+    throw new Error(`Prereq cycle in "${content.domain.slug}"`);
   }
-  console.log("✓ Prerequisite graph is a valid DAG");
 
-  // --- Domain ---
   const domain = await prisma.domain.upsert({
     where: { slug: content.domain.slug },
     update: {
@@ -95,9 +90,7 @@ async function main() {
       description: content.domain.description,
     },
   });
-  console.log(`✓ Domain: ${domain.name} (${domain.id})`);
 
-  // --- Skills ---
   const slugToId = new Map<string, string>();
   for (const s of content.skills) {
     const skill = await prisma.skill.upsert({
@@ -117,18 +110,12 @@ async function main() {
     });
     slugToId.set(s.slug, skill.id);
   }
-  console.log(`✓ Inserted ${slugToId.size} skills`);
 
-  // --- Prerequisites ---
   let prereqCount = 0;
-  let missingPrereqs = 0;
   for (const p of content.prerequisites) {
     const parentId = slugToId.get(p.parentSlug);
     const childId = slugToId.get(p.childSlug);
-    if (!parentId || !childId) {
-      missingPrereqs++;
-      continue;
-    }
+    if (!parentId || !childId) continue;
     await prisma.prerequisite.upsert({
       where: { parentId_childId: { parentId, childId } },
       update: { weight: p.weight },
@@ -136,23 +123,16 @@ async function main() {
     });
     prereqCount++;
   }
-  console.log(`✓ Inserted ${prereqCount} prerequisites${missingPrereqs ? ` (skipped ${missingPrereqs} with unknown slugs)` : ""}`);
 
-  // --- Questions ---
-  // Wipe existing questions for this domain to avoid duplicates on re-seed
   await prisma.questionSkill.deleteMany({
     where: { question: { domainId: domain.id } },
   });
   await prisma.question.deleteMany({ where: { domainId: domain.id } });
 
   let qCount = 0;
-  let qSkipped = 0;
   for (const q of content.questions) {
     const validSkillSlugs = q.skillSlugs.filter((s) => slugToId.has(s));
-    if (validSkillSlugs.length === 0) {
-      qSkipped++;
-      continue;
-    }
+    if (validSkillSlugs.length === 0) continue;
     const created = await prisma.question.create({
       data: {
         domainId: domain.id,
@@ -170,22 +150,16 @@ async function main() {
     }
     qCount++;
   }
-  console.log(`✓ Inserted ${qCount} questions${qSkipped ? ` (skipped ${qSkipped})` : ""}`);
 
-  // --- Materials ---
   await prisma.materialSkill.deleteMany({
     where: { material: { domainId: domain.id } },
   });
   await prisma.material.deleteMany({ where: { domainId: domain.id } });
 
   let mCount = 0;
-  let mSkipped = 0;
   for (const m of content.materials) {
     const validSkillSlugs = m.skillSlugs.filter((s) => slugToId.has(s));
-    if (validSkillSlugs.length === 0) {
-      mSkipped++;
-      continue;
-    }
+    if (validSkillSlugs.length === 0) continue;
     const created = await prisma.material.create({
       data: {
         domainId: domain.id,
@@ -201,28 +175,47 @@ async function main() {
     }
     mCount++;
   }
-  console.log(`✓ Inserted ${mCount} materials${mSkipped ? ` (skipped ${mSkipped})` : ""}`);
 
-  // --- Summary ---
-  const [skillTotal, prereqTotal, qTotal, mTotal] = await Promise.all([
-    prisma.skill.count({ where: { domainId: domain.id } }),
-    prisma.prerequisite.count({
-      where: { parent: { domainId: domain.id } },
-    }),
-    prisma.question.count({ where: { domainId: domain.id } }),
-    prisma.material.count({ where: { domainId: domain.id } }),
-  ]);
+  console.log(
+    `   ✓ ${slugToId.size} skills · ${prereqCount} prereqs · ${qCount} questions · ${mCount} materials`
+  );
+}
 
-  console.log("\n🎉 Seed complete:");
-  console.log(`   Skills:        ${skillTotal}`);
-  console.log(`   Prereqs:       ${prereqTotal}`);
-  console.log(`   Questions:     ${qTotal}`);
-  console.log(`   Materials:     ${mTotal}`);
+async function main() {
+  const targetSlugs = process.argv.slice(2);
+
+  const allFiles = readdirSync(DOMAINS_DIR)
+    .filter((f) => f.endsWith(".json"))
+    .sort();
+
+  const files =
+    targetSlugs.length === 0
+      ? allFiles
+      : allFiles.filter((f) =>
+          targetSlugs.some((t) => f.replace(".json", "") === t)
+        );
+
+  if (files.length === 0) {
+    console.error(`❌ No matching domain files. Available: ${allFiles.join(", ")}`);
+    process.exit(1);
+  }
+
+  console.log(
+    `\n📖 Seeding ${files.length} domain file(s): ${files.join(", ")}\n`
+  );
+
+  for (const f of files) {
+    const raw = readFileSync(join(DOMAINS_DIR, f), "utf8");
+    const content: ContentFile = JSON.parse(raw);
+    await seedDomain(content);
+  }
+
+  console.log(`\n🎉 Seed complete\n`);
 }
 
 main()
   .catch((e) => {
-    console.error("❌ Seed failed:", e);
+    console.error("❌ Seed failed:", e?.message ?? e);
     process.exit(1);
   })
   .finally(() => prisma.$disconnect());

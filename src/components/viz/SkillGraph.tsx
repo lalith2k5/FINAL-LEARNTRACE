@@ -43,79 +43,49 @@ type Props = {
 
 const BANDS = [
   {
-    id: "foundations",
-    label: "Foundations",
-    description: "Math & programming basics",
+    id: "fundamentals",
+    label: "Fundamentals",
+    description: "Core concepts and foundational skills",
     tone: "sky" as const,
     icon: Code2,
-    slugs: [
-      "python-programming",
-      "linear-algebra",
-      "calculus",
-      "probability-and-statistics",
-      "data-structures-and-algorithms",
-    ],
+    minDifficulty: 1,
+    maxDifficulty: 1,
   },
   {
-    id: "data",
-    label: "Data",
-    description: "Cleaning, exploring, and shaping data",
+    id: "building-blocks",
+    label: "Building Blocks",
+    description: "Everyday tools and techniques",
     tone: "accent" as const,
     icon: Database,
-    slugs: [
-      "numpy-fundamentals",
-      "pandas-data-manipulation",
-      "data-visualization",
-      "exploratory-data-analysis",
-      "data-preprocessing",
-      "feature-engineering",
-    ],
+    minDifficulty: 2,
+    maxDifficulty: 2,
   },
   {
-    id: "core-ml",
-    label: "Core ML",
-    description: "Classical models & evaluation",
+    id: "applied",
+    label: "Applied",
+    description: "Real-world application",
     tone: "emerald" as const,
     icon: TrendingUp,
-    slugs: [
-      "linear-and-logistic-regression",
-      "supervised-learning-basics",
-      "decision-trees-and-ensembles",
-      "support-vector-machines",
-      "clustering-algorithms",
-      "dimensionality-reduction-and-pca",
-      "unsupervised-learning",
-      "model-evaluation-metrics",
-      "cross-validation-and-hyperparameter-tuning",
-    ],
+    minDifficulty: 3,
+    maxDifficulty: 3,
   },
   {
-    id: "deep-learning",
-    label: "Deep Learning",
-    description: "Neural architectures",
+    id: "advanced",
+    label: "Advanced",
+    description: "Specialized techniques and architectures",
     tone: "amber" as const,
     icon: Brain,
-    slugs: [
-      "deep-learning-fundamentals",
-      "neural-network-architectures",
-      "convolutional-neural-networks",
-      "recurrent-neural-networks",
-      "transformers-and-attention",
-    ],
+    minDifficulty: 4,
+    maxDifficulty: 4,
   },
   {
-    id: "deployment",
-    label: "Deployment",
-    description: "Shipping models to production",
+    id: "expert",
+    label: "Expert",
+    description: "Frontier topics and complex systems",
     tone: "rose" as const,
     icon: Rocket,
-    slugs: [
-      "docker-and-containerization",
-      "mlops-and-model-registry",
-      "model-deployment-api",
-      "ml-system-design-and-monitoring",
-      "model-optimization-and-quantization",
-    ],
+    minDifficulty: 5,
+    maxDifficulty: 5,
   },
 ];
 
@@ -174,21 +144,19 @@ export function SkillGraph({ nodes, edges }: Props) {
     Record<string, { x: number; y: number; w: number; h: number }>
   >({});
 
-  const bySlug = useMemo(() => {
-    const m = new Map<string, GraphNode>();
-    for (const n of nodes) m.set(n.slug, n);
-    return m;
-  }, [nodes]);
-
   const bands = useMemo(
     () =>
       BANDS.map((band) => ({
         ...band,
-        items: band.slugs
-          .map((s) => bySlug.get(s))
-          .filter(Boolean) as GraphNode[],
-      })),
-    [bySlug]
+        items: nodes
+          .filter(
+            (n) =>
+              n.difficulty >= band.minDifficulty &&
+              n.difficulty <= band.maxDifficulty
+          )
+          .sort((a, b) => a.name.localeCompare(b.name)),
+      })).filter((band) => band.items.length > 0),
+    [nodes]
   );
 
   const focusId = hoveredId ?? selectedId;
