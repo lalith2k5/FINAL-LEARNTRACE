@@ -5,123 +5,1543 @@
     "description": "From HTML and CSS to modern frameworks, accessibility, and web performance."
   },
   "skills": [
-    { "slug": "html-fundamentals", "name": "HTML Fundamentals", "description": "Structure web pages with semantic HTML and understand the DOM.", "difficulty": 1 },
-    { "slug": "css-fundamentals", "name": "CSS Fundamentals", "description": "Style pages with selectors, the box model, colors, and typography.", "difficulty": 1 },
-    { "slug": "javascript-basics", "name": "JavaScript Basics", "description": "Variables, functions, objects, arrays, and control flow in modern JS.", "difficulty": 1 },
-    { "slug": "git-version-control", "name": "Git and Version Control", "description": "Track changes, branch, merge, and collaborate with Git.", "difficulty": 1 },
-    { "slug": "css-layout", "name": "CSS Layout (Flexbox & Grid)", "description": "Build layouts with Flexbox, Grid, positioning, and responsive units.", "difficulty": 2 },
-    { "slug": "dom-manipulation", "name": "DOM Manipulation", "description": "Query, create, and modify DOM elements; handle browser events.", "difficulty": 2 },
-    { "slug": "async-javascript", "name": "Async JavaScript", "description": "Work with Promises, async/await, and the event loop.", "difficulty": 2 },
-    { "slug": "responsive-design", "name": "Responsive Design", "description": "Build mobile-first layouts with media queries and fluid sizing.", "difficulty": 2 },
-    { "slug": "http-and-apis", "name": "HTTP and APIs", "description": "Fetch data from REST APIs, handle errors, and understand CORS.", "difficulty": 2 },
-    { "slug": "typescript-fundamentals", "name": "TypeScript Fundamentals", "description": "Add static types to JavaScript for safer, more maintainable code.", "difficulty": 2 },
-    { "slug": "react-fundamentals", "name": "React Fundamentals", "description": "Build UIs with components, props, state, and JSX.", "difficulty": 3 },
-    { "slug": "state-management", "name": "State Management", "description": "Manage local, lifted, and global state with hooks, context, or a store.", "difficulty": 3 },
-    { "slug": "forms-and-validation", "name": "Forms and Validation", "description": "Handle form state, validation, and submission with good UX.", "difficulty": 3 },
-    { "slug": "accessibility", "name": "Accessibility (a11y)", "description": "Build inclusive UIs with semantics, keyboard support, and screen readers in mind.", "difficulty": 3 },
-    { "slug": "routing", "name": "Client-Side Routing", "description": "Navigate between views with a router and handle params, nested routes, and guards.", "difficulty": 3 },
-    { "slug": "testing-frontend", "name": "Frontend Testing", "description": "Write unit and integration tests for components and user flows.", "difficulty": 3 },
-    { "slug": "css-architecture", "name": "CSS Architecture", "description": "Organize styles with tokens, utility classes, or component-scoped CSS.", "difficulty": 3 },
-    { "slug": "web-performance", "name": "Web Performance", "description": "Optimize load and runtime: code splitting, lazy loading, Core Web Vitals.", "difficulty": 4 },
-    { "slug": "build-tools", "name": "Build Tools and Bundlers", "description": "Use modern bundlers (Vite, Webpack, Turbopack) and understand the toolchain.", "difficulty": 4 },
-    { "slug": "frontend-architecture", "name": "Frontend Architecture", "description": "Design scalable frontend systems: modules, data flow, deployment strategies.", "difficulty": 5 }
+    {
+      "slug": "html-fundamentals",
+      "name": "HTML Fundamentals",
+      "description": "Structure web pages with semantic HTML and understand the DOM.",
+      "difficulty": 1
+    },
+    {
+      "slug": "css-fundamentals",
+      "name": "CSS Fundamentals",
+      "description": "Style pages with selectors, the box model, colors, and typography.",
+      "difficulty": 1
+    },
+    {
+      "slug": "javascript-basics",
+      "name": "JavaScript Basics",
+      "description": "Variables, functions, objects, arrays, and control flow in modern JS.",
+      "difficulty": 1
+    },
+    {
+      "slug": "git-version-control",
+      "name": "Git and Version Control",
+      "description": "Track changes, branch, merge, and collaborate with Git.",
+      "difficulty": 1
+    },
+    {
+      "slug": "css-layout",
+      "name": "CSS Layout (Flexbox & Grid)",
+      "description": "Build layouts with Flexbox, Grid, positioning, and responsive units.",
+      "difficulty": 2
+    },
+    {
+      "slug": "dom-manipulation",
+      "name": "DOM Manipulation",
+      "description": "Query, create, and modify DOM elements; handle browser events.",
+      "difficulty": 2
+    },
+    {
+      "slug": "async-javascript",
+      "name": "Async JavaScript",
+      "description": "Work with Promises, async/await, and the event loop.",
+      "difficulty": 2
+    },
+    {
+      "slug": "responsive-design",
+      "name": "Responsive Design",
+      "description": "Build mobile-first layouts with media queries and fluid sizing.",
+      "difficulty": 2
+    },
+    {
+      "slug": "http-and-apis",
+      "name": "HTTP and APIs",
+      "description": "Fetch data from REST APIs, handle errors, and understand CORS.",
+      "difficulty": 2
+    },
+    {
+      "slug": "typescript-fundamentals",
+      "name": "TypeScript Fundamentals",
+      "description": "Add static types to JavaScript for safer, more maintainable code.",
+      "difficulty": 2
+    },
+    {
+      "slug": "react-fundamentals",
+      "name": "React Fundamentals",
+      "description": "Build UIs with components, props, state, and JSX.",
+      "difficulty": 3
+    },
+    {
+      "slug": "state-management",
+      "name": "State Management",
+      "description": "Manage local, lifted, and global state with hooks, context, or a store.",
+      "difficulty": 3
+    },
+    {
+      "slug": "forms-and-validation",
+      "name": "Forms and Validation",
+      "description": "Handle form state, validation, and submission with good UX.",
+      "difficulty": 3
+    },
+    {
+      "slug": "accessibility",
+      "name": "Accessibility (a11y)",
+      "description": "Build inclusive UIs with semantics, keyboard support, and screen readers in mind.",
+      "difficulty": 3
+    },
+    {
+      "slug": "routing",
+      "name": "Client-Side Routing",
+      "description": "Navigate between views with a router and handle params, nested routes, and guards.",
+      "difficulty": 3
+    },
+    {
+      "slug": "testing-frontend",
+      "name": "Frontend Testing",
+      "description": "Write unit and integration tests for components and user flows.",
+      "difficulty": 3
+    },
+    {
+      "slug": "css-architecture",
+      "name": "CSS Architecture",
+      "description": "Organize styles with tokens, utility classes, or component-scoped CSS.",
+      "difficulty": 3
+    },
+    {
+      "slug": "web-performance",
+      "name": "Web Performance",
+      "description": "Optimize load and runtime: code splitting, lazy loading, Core Web Vitals.",
+      "difficulty": 4
+    },
+    {
+      "slug": "build-tools",
+      "name": "Build Tools and Bundlers",
+      "description": "Use modern bundlers (Vite, Webpack, Turbopack) and understand the toolchain.",
+      "difficulty": 4
+    },
+    {
+      "slug": "frontend-architecture",
+      "name": "Frontend Architecture",
+      "description": "Design scalable frontend systems: modules, data flow, deployment strategies.",
+      "difficulty": 5
+    }
   ],
   "prerequisites": [
-    { "parentSlug": "html-fundamentals", "childSlug": "css-fundamentals", "weight": 0.9 },
-    { "parentSlug": "html-fundamentals", "childSlug": "javascript-basics", "weight": 0.7 },
-    { "parentSlug": "html-fundamentals", "childSlug": "dom-manipulation", "weight": 0.9 },
-    { "parentSlug": "css-fundamentals", "childSlug": "css-layout", "weight": 0.9 },
-    { "parentSlug": "css-fundamentals", "childSlug": "responsive-design", "weight": 0.8 },
-    { "parentSlug": "css-fundamentals", "childSlug": "css-architecture", "weight": 0.8 },
-    { "parentSlug": "javascript-basics", "childSlug": "dom-manipulation", "weight": 0.8 },
-    { "parentSlug": "javascript-basics", "childSlug": "async-javascript", "weight": 0.9 },
-    { "parentSlug": "javascript-basics", "childSlug": "typescript-fundamentals", "weight": 0.8 },
-    { "parentSlug": "javascript-basics", "childSlug": "react-fundamentals", "weight": 0.7 },
-    { "parentSlug": "git-version-control", "childSlug": "build-tools", "weight": 0.5 },
-    { "parentSlug": "css-layout", "childSlug": "responsive-design", "weight": 0.9 },
-    { "parentSlug": "css-layout", "childSlug": "css-architecture", "weight": 0.8 },
-    { "parentSlug": "dom-manipulation", "childSlug": "react-fundamentals", "weight": 0.8 },
-    { "parentSlug": "dom-manipulation", "childSlug": "accessibility", "weight": 0.7 },
-    { "parentSlug": "async-javascript", "childSlug": "http-and-apis", "weight": 0.9 },
-    { "parentSlug": "async-javascript", "childSlug": "react-fundamentals", "weight": 0.7 },
-    { "parentSlug": "responsive-design", "childSlug": "css-architecture", "weight": 0.7 },
-    { "parentSlug": "http-and-apis", "childSlug": "react-fundamentals", "weight": 0.7 },
-    { "parentSlug": "http-and-apis", "childSlug": "forms-and-validation", "weight": 0.7 },
-    { "parentSlug": "typescript-fundamentals", "childSlug": "react-fundamentals", "weight": 0.8 },
-    { "parentSlug": "typescript-fundamentals", "childSlug": "frontend-architecture", "weight": 0.8 },
-    { "parentSlug": "react-fundamentals", "childSlug": "state-management", "weight": 0.9 },
-    { "parentSlug": "react-fundamentals", "childSlug": "forms-and-validation", "weight": 0.8 },
-    { "parentSlug": "react-fundamentals", "childSlug": "routing", "weight": 0.8 },
-    { "parentSlug": "react-fundamentals", "childSlug": "testing-frontend", "weight": 0.8 },
-    { "parentSlug": "react-fundamentals", "childSlug": "web-performance", "weight": 0.7 },
-    { "parentSlug": "react-fundamentals", "childSlug": "frontend-architecture", "weight": 0.8 },
-    { "parentSlug": "state-management", "childSlug": "frontend-architecture", "weight": 0.8 },
-    { "parentSlug": "routing", "childSlug": "frontend-architecture", "weight": 0.7 },
-    { "parentSlug": "testing-frontend", "childSlug": "frontend-architecture", "weight": 0.7 },
-    { "parentSlug": "web-performance", "childSlug": "frontend-architecture", "weight": 0.8 },
-    { "parentSlug": "build-tools", "childSlug": "web-performance", "weight": 0.8 },
-    { "parentSlug": "build-tools", "childSlug": "frontend-architecture", "weight": 0.8 }
+    {
+      "parentSlug": "html-fundamentals",
+      "childSlug": "css-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "html-fundamentals",
+      "childSlug": "javascript-basics",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "html-fundamentals",
+      "childSlug": "dom-manipulation",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "css-fundamentals",
+      "childSlug": "css-layout",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "css-fundamentals",
+      "childSlug": "responsive-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "css-fundamentals",
+      "childSlug": "css-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "dom-manipulation",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "async-javascript",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "typescript-fundamentals",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "react-fundamentals",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "git-version-control",
+      "childSlug": "build-tools",
+      "weight": 0.5
+    },
+    {
+      "parentSlug": "css-layout",
+      "childSlug": "responsive-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "css-layout",
+      "childSlug": "css-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "dom-manipulation",
+      "childSlug": "react-fundamentals",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "dom-manipulation",
+      "childSlug": "accessibility",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "async-javascript",
+      "childSlug": "http-and-apis",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "async-javascript",
+      "childSlug": "react-fundamentals",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "responsive-design",
+      "childSlug": "css-architecture",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "http-and-apis",
+      "childSlug": "forms-and-validation",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "state-management",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "forms-and-validation",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "routing",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "testing-frontend",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "web-performance",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "state-management",
+      "childSlug": "frontend-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "testing-frontend",
+      "childSlug": "frontend-architecture",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "web-performance",
+      "childSlug": "frontend-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "build-tools",
+      "childSlug": "web-performance",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "build-tools",
+      "childSlug": "frontend-architecture",
+      "weight": 0.8
+    }
   ],
   "questions": [
-    { "prompt": "Which HTML tag is best for the primary heading of a page?", "options": [{ "id": "a", "text": "<head>" }, { "id": "b", "text": "<h1>" }, { "id": "c", "text": "<title>" }, { "id": "d", "text": "<header>" }], "correctId": "b", "explanation": "One <h1> per page is best for SEO and screen readers. <head> and <title> are metadata, <header> is a landmark.", "difficulty": 1, "skillSlugs": ["html-fundamentals"] },
-    { "prompt": "What does the alt attribute on an <img> do?", "options": [{ "id": "a", "text": "Styles the image" }, { "id": "b", "text": "Provides fallback text for screen readers and broken images" }, { "id": "c", "text": "Sets width" }, { "id": "d", "text": "Adds a click handler" }], "correctId": "b", "explanation": "alt text is essential for accessibility and displayed if the image fails to load.", "difficulty": 1, "skillSlugs": ["html-fundamentals"] },
-    { "prompt": "Which CSS selector has the highest specificity?", "options": [{ "id": "a", "text": "div" }, { "id": "b", "text": ".my-class" }, { "id": "c", "text": "#my-id" }, { "id": "d", "text": "*" }], "correctId": "c", "explanation": "Specificity order: inline > #id > .class > element. IDs beat classes; classes beat elements.", "difficulty": 2, "skillSlugs": ["css-fundamentals"] },
-    { "prompt": "What does the CSS box model consist of (inside to outside)?", "options": [{ "id": "a", "text": "Margin, Border, Padding, Content" }, { "id": "b", "text": "Content, Padding, Border, Margin" }, { "id": "c", "text": "Content, Border, Margin, Padding" }, { "id": "d", "text": "Padding, Content, Border, Margin" }], "correctId": "b", "explanation": "Content → Padding → Border → Margin. box-sizing: border-box includes padding+border in width.", "difficulty": 2, "skillSlugs": ["css-fundamentals"] },
-    { "prompt": "Which keyword declares a constant in modern JavaScript?", "options": [{ "id": "a", "text": "let" }, { "id": "b", "text": "var" }, { "id": "c", "text": "const" }, { "id": "d", "text": "final" }], "correctId": "c", "explanation": "const declares a block-scoped binding that can't be reassigned. Use it by default.", "difficulty": 1, "skillSlugs": ["javascript-basics"] },
-    { "prompt": "The difference between == and === in JavaScript is:", "options": [{ "id": "a", "text": "They are the same" }, { "id": "b", "text": "== does type coercion; === requires matching types" }, { "id": "c", "text": "=== is deprecated" }, { "id": "d", "text": "== is only for numbers" }], "correctId": "b", "explanation": "=== is strict equality — no type coercion. Prefer it to avoid surprising conversions like '1' == 1.", "difficulty": 2, "skillSlugs": ["javascript-basics"] },
-    { "prompt": "What is the main benefit of feature branches in Git?", "options": [{ "id": "a", "text": "Smaller repo size" }, { "id": "b", "text": "Isolate work so main stays stable" }, { "id": "c", "text": "Faster commits" }, { "id": "d", "text": "Avoids merging" }], "correctId": "b", "explanation": "Feature branches keep experimental work off main until it's reviewed and ready.", "difficulty": 1, "skillSlugs": ["git-version-control"] },
-    { "prompt": "Which Flexbox property controls horizontal alignment of items along the main axis?", "options": [{ "id": "a", "text": "align-items" }, { "id": "b", "text": "justify-content" }, { "id": "c", "text": "flex-wrap" }, { "id": "d", "text": "order" }], "correctId": "b", "explanation": "justify-content aligns along the main axis (horizontal for row). align-items aligns along the cross axis.", "difficulty": 2, "skillSlugs": ["css-layout"] },
-    { "prompt": "In CSS Grid, which property defines the columns of a grid container?", "options": [{ "id": "a", "text": "grid-rows" }, { "id": "b", "text": "grid-template-columns" }, { "id": "c", "text": "grid-gap" }, { "id": "d", "text": "column-count" }], "correctId": "b", "explanation": "grid-template-columns defines the column track sizes, e.g. repeat(3, 1fr) or 200px 1fr 1fr.", "difficulty": 2, "skillSlugs": ["css-layout"] },
-    { "prompt": "Which DOM method selects the first element matching a CSS selector?", "options": [{ "id": "a", "text": "document.getElementsByClassName" }, { "id": "b", "text": "document.querySelector" }, { "id": "c", "text": "document.getElementById" }, { "id": "d", "text": "document.createTextNode" }], "correctId": "b", "explanation": "querySelector returns the first match. querySelectorAll returns all matches as a NodeList.", "difficulty": 2, "skillSlugs": ["dom-manipulation"] },
-    { "prompt": "What does event.preventDefault() do in an event handler?", "options": [{ "id": "a", "text": "Stops propagation to parent elements" }, { "id": "b", "text": "Prevents the browser's default action (e.g., form submission)" }, { "id": "c", "text": "Removes the listener" }, { "id": "d", "text": "Cancels the fetch" }], "correctId": "b", "explanation": "preventDefault cancels the default behavior. stopPropagation stops bubbling — they're different.", "difficulty": 2, "skillSlugs": ["dom-manipulation"] },
-    { "prompt": "What does async/await do in JavaScript?", "options": [{ "id": "a", "text": "Runs code synchronously" }, { "id": "b", "text": "Allows writing asynchronous code in a synchronous-looking style over promises" }, { "id": "c", "text": "Spawns threads" }, { "id": "d", "text": "Blocks the event loop" }], "correctId": "b", "explanation": "async/await is syntactic sugar over promises — the function still returns a promise.", "difficulty": 2, "skillSlugs": ["async-javascript"] },
-    { "prompt": "In the event loop, which queue runs before setTimeout callbacks?", "options": [{ "id": "a", "text": "Macro-task queue" }, { "id": "b", "text": "Micro-task queue (promises)" }, { "id": "c", "text": "Both run in parallel" }, { "id": "d", "text": "Neither" }], "correctId": "b", "explanation": "Micro-tasks (promise callbacks) run to completion before the next macro-task (setTimeout, I/O).", "difficulty": 4, "skillSlugs": ["async-javascript"] },
-    { "prompt": "What is the mobile-first approach to responsive design?", "options": [{ "id": "a", "text": "Design for desktop first, then shrink" }, { "id": "b", "text": "Design for mobile first, then enhance for larger screens with min-width media queries" }, { "id": "c", "text": "Ignore desktop" }, { "id": "d", "text": "Only use percentages" }], "correctId": "b", "explanation": "Mobile-first starts with the smallest layout and progressively enhances upward with min-width queries.", "difficulty": 2, "skillSlugs": ["responsive-design"] },
-    { "prompt": "Which is the correct fetch call to GET JSON from an API?", "options": [{ "id": "a", "text": "fetch('/api').json()" }, { "id": "b", "text": "await fetch('/api').then(r => r.json())" }, { "id": "c", "text": "await fetch('/api').then(r => r.text())" }, { "id": "d", "text": "fetch.json('/api')" }], "correctId": "b", "explanation": "fetch returns a Response; you must call .json() on it to parse the body.", "difficulty": 2, "skillSlugs": ["http-and-apis"] },
-    { "prompt": "What is CORS and why does it matter?", "options": [{ "id": "a", "text": "A JavaScript framework" }, { "id": "b", "text": "A browser security policy that blocks cross-origin requests unless the server opts in" }, { "id": "c", "text": "A database" }, { "id": "d", "text": "A build tool" }], "correctId": "b", "explanation": "CORS (Cross-Origin Resource Sharing) lets servers control which origins can read their responses.", "difficulty": 3, "skillSlugs": ["http-and-apis"] },
-    { "prompt": "What is the difference between TypeScript `interface` and `type`?", "options": [{ "id": "a", "text": "They are identical" }, { "id": "b", "text": "Interfaces can be merged/extended; type aliases can express unions and tuples" }, { "id": "c", "text": "Types are faster" }, { "id": "d", "text": "Interfaces only work with classes" }], "correctId": "b", "explanation": "Interfaces are open to declaration merging; types are more expressive for unions, intersections, and tuples.", "difficulty": 3, "skillSlugs": ["typescript-fundamentals"] },
-    { "prompt": "In React, what does the dependency array in useEffect control?", "options": [{ "id": "a", "text": "The order of execution" }, { "id": "b", "text": "When the effect re-runs — it re-runs when any dependency changes" }, { "id": "c", "text": "CSS animations" }, { "id": "d", "text": "Server rendering" }], "correctId": "b", "explanation": "Empty array = run once. Missing array = run every render. With deps = run when they change.", "difficulty": 3, "skillSlugs": ["react-fundamentals"] },
-    { "prompt": "Why does React warn about missing `key` props in lists?", "options": [{ "id": "a", "text": "For styling" }, { "id": "b", "text": "Keys help React identify which items changed, added, or removed for efficient reconciliation" }, { "id": "c", "text": "For accessibility" }, { "id": "d", "text": "For SEO" }], "correctId": "b", "explanation": "Stable keys let React's diffing algorithm avoid re-rendering the whole list.", "difficulty": 3, "skillSlugs": ["react-fundamentals"] },
-    { "prompt": "What is React Context used for?", "options": [{ "id": "a", "text": "Styling components" }, { "id": "b", "text": "Sharing state across a tree without prop drilling" }, { "id": "c", "text": "Fetching data" }, { "id": "d", "text": "Routing" }], "correctId": "b", "explanation": "Context provides values to descendants without passing props through every intermediate component.", "difficulty": 3, "skillSlugs": ["state-management"] },
-    { "prompt": "When would you choose a global store (Redux, Zustand) over local state?", "options": [{ "id": "a", "text": "Always" }, { "id": "b", "text": "When many distant components need to read or write the same state" }, { "id": "c", "text": "Never" }, { "id": "d", "text": "Only for forms" }], "correctId": "b", "explanation": "Local state is simpler. Global stores earn their keep when state is shared across unrelated parts of the tree.", "difficulty": 3, "skillSlugs": ["state-management"] },
-    { "prompt": "Why is controlled input important in React forms?", "options": [{ "id": "a", "text": "For performance" }, { "id": "b", "text": "The input value lives in React state, so it's always in sync for validation and submission" }, { "id": "c", "text": "Required by TypeScript" }, { "id": "d", "text": "For accessibility" }], "correctId": "b", "explanation": "Controlled inputs store value in state, giving you full control over validation and formatting.", "difficulty": 3, "skillSlugs": ["forms-and-validation"] },
-    { "prompt": "Which is a good practice for form validation UX?", "options": [{ "id": "a", "text": "Only validate on submit" }, { "id": "b", "text": "Validate on blur, then on change after the first error" }, { "id": "c", "text": "Show all errors immediately" }, { "id": "d", "text": "Never validate" }], "correctId": "b", "explanation": "Validating on blur avoids nagging while typing; switching to on-change after the first error gives fast feedback.", "difficulty": 3, "skillSlugs": ["forms-and-validation"] },
-    { "prompt": "What is the minimum contrast ratio recommended by WCAG AA for body text?", "options": [{ "id": "a", "text": "1:1" }, { "id": "b", "text": "3:1" }, { "id": "c", "text": "4.5:1" }, { "id": "d", "text": "10:1" }], "correctId": "c", "explanation": "WCAG AA requires 4.5:1 for normal text and 3:1 for large text.", "difficulty": 3, "skillSlugs": ["accessibility"] },
-    { "prompt": "Why should interactive elements be keyboard accessible?", "options": [{ "id": "a", "text": "Faster loading" }, { "id": "b", "text": "Users who can't use a mouse rely on Tab, Enter, Space, and arrow keys" }, { "id": "c", "text": "For SEO" }, { "id": "d", "text": "Reduces bundle size" }], "correctId": "b", "explanation": "Keyboard access is a foundational a11y requirement. Use semantic elements and manage focus well.", "difficulty": 3, "skillSlugs": ["accessibility"] },
-    { "prompt": "In React Router, which component triggers navigation without a full page reload?", "options": [{ "id": "a", "text": "<a href>" }, { "id": "b", "text": "<Link>" }, { "id": "c", "text": "<Redirect>" }, { "id": "d", "text": "<Route>" }], "correctId": "b", "explanation": "<Link> uses client-side navigation — no full page reload — while preserving browser history.", "difficulty": 3, "skillSlugs": ["routing"] },
-    { "prompt": "What does client-side routing primarily improve?", "options": [{ "id": "a", "text": "SEO" }, { "id": "b", "text": "Perceived speed by avoiding full page reloads" }, { "id": "c", "text": "Security" }, { "id": "d", "text": "Bundle size" }], "correctId": "b", "explanation": "Client-side routing swaps views without round-tripping to the server for HTML — smooth SPAs. SSR helps SEO separately.", "difficulty": 3, "skillSlugs": ["routing"] },
-    { "prompt": "Which library is most commonly used with React for unit/component testing?", "options": [{ "id": "a", "text": "Jest alone" }, { "id": "b", "text": "React Testing Library" }, { "id": "c", "text": "Selenium" }, { "id": "d", "text": "Cypress" }], "correctId": "b", "explanation": "React Testing Library encourages testing the way users interact. Works well with Vitest or Jest.", "difficulty": 3, "skillSlugs": ["testing-frontend"] },
-    { "prompt": "The testing pyramid suggests you should have:", "options": [{ "id": "a", "text": "More E2E than unit tests" }, { "id": "b", "text": "More unit tests than integration, more integration than E2E" }, { "id": "c", "text": "Only E2E tests" }, { "id": "d", "text": "No tests" }], "correctId": "b", "explanation": "Unit tests are fast and numerous; E2E is slow and few. Balance keeps the suite fast and reliable.", "difficulty": 3, "skillSlugs": ["testing-frontend"] },
-    { "prompt": "What is the primary benefit of CSS variables (custom properties)?", "options": [{ "id": "a", "text": "Faster rendering" }, { "id": "b", "text": "Centralized design tokens that can be reused and changed at runtime" }, { "id": "c", "text": "Smaller files" }, { "id": "d", "text": "Better SEO" }], "correctId": "b", "explanation": "CSS variables (--color-primary) let you theme dynamically and keep design tokens consistent.", "difficulty": 3, "skillSlugs": ["css-architecture"] },
-    { "prompt": "Utility-first CSS (like Tailwind) means:", "options": [{ "id": "a", "text": "Writing BEM classes" }, { "id": "b", "text": "Composing small single-purpose classes directly in markup" }, { "id": "c", "text": "Inline styles only" }, { "id": "d", "text": "No CSS files" }], "correctId": "b", "explanation": "Utility classes (flex, p-4, text-sm) are combined to build styles without custom CSS per component.", "difficulty": 3, "skillSlugs": ["css-architecture"] },
-    { "prompt": "What does Core Web Vitals measure?", "options": [{ "id": "a", "text": "Server uptime" }, { "id": "b", "text": "User-experience metrics like LCP, INP, and CLS" }, { "id": "c", "text": "Code quality" }, { "id": "d", "text": "Test coverage" }], "correctId": "b", "explanation": "LCP (load), INP (interactivity), CLS (visual stability) — Google's user experience metrics used for SEO ranking.", "difficulty": 4, "skillSlugs": ["web-performance"] },
-    { "prompt": "What is code splitting in a bundler?", "options": [{ "id": "a", "text": "Removing dead code" }, { "id": "b", "text": "Breaking the bundle into smaller chunks loaded on demand" }, { "id": "c", "text": "Minifying code" }, { "id": "d", "text": "Compressing images" }], "correctId": "b", "explanation": "Dynamic imports (import()) create separate chunks so users only download what they need for the current route.", "difficulty": 4, "skillSlugs": ["web-performance"] },
-    { "prompt": "What is tree shaking?", "options": [{ "id": "a", "text": "A UI animation" }, { "id": "b", "text": "Dead code elimination — bundlers drop unused exports from the bundle" }, { "id": "c", "text": "A Git workflow" }, { "id": "d", "text": "A test strategy" }], "correctId": "b", "explanation": "Tree shaking relies on ESM's static analysis — only imported parts of a module ship in the bundle.", "difficulty": 4, "skillSlugs": ["build-tools"] },
-    { "prompt": "Which is the biggest reason to prefer Vite over legacy Webpack configs?", "options": [{ "id": "a", "text": "Larger bundles" }, { "id": "b", "text": "Faster dev server startup using native ES modules" }, { "id": "c", "text": "Better TypeScript" }, { "id": "d", "text": "Fewer bugs" }], "correctId": "b", "explanation": "Vite serves source over native ESM during dev, giving near-instant startup — bundling happens only for production.", "difficulty": 4, "skillSlugs": ["build-tools"] },
-    { "prompt": "What is a monorepo?", "options": [{ "id": "a", "text": "A single-file project" }, { "id": "b", "text": "Multiple packages stored and versioned in one repository" }, { "id": "c", "text": "A monolith server" }, { "id": "d", "text": "A legacy CMS" }], "correctId": "b", "explanation": "Monorepos (Turborepo, Nx, pnpm workspaces) let teams share code, tooling, and CI across multiple packages.", "difficulty": 4, "skillSlugs": ["frontend-architecture"] },
-    { "prompt": "What is the main reason to use SSR (server-side rendering) or SSG (static generation)?", "options": [{ "id": "a", "text": "Smaller JS bundles" }, { "id": "b", "text": "Better SEO and first-paint performance for content-heavy pages" }, { "id": "c", "text": "Better developer experience" }, { "id": "d", "text": "Cheaper hosting" }], "correctId": "b", "explanation": "SSR/SSG send ready HTML, improving time-to-content and search engine crawlability compared to client-only SPAs.", "difficulty": 5, "skillSlugs": ["frontend-architecture"] },
-    { "prompt": "Micro-frontends split a large app into:", "options": [{ "id": "a", "text": "Smaller CSS files" }, { "id": "b", "text": "Independently deployable frontend pieces owned by different teams" }, { "id": "c", "text": "Multiple databases" }, { "id": "d", "text": "Serverless functions" }], "correctId": "b", "explanation": "Micro-frontends let independent teams ship their own slice of the UI without coordinating a single big release.", "difficulty": 5, "skillSlugs": ["frontend-architecture"] }
+    {
+      "prompt": "Which HTML tag is best for the primary heading of a page?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<head>"
+        },
+        {
+          "id": "b",
+          "text": "<h1>"
+        },
+        {
+          "id": "c",
+          "text": "<title>"
+        },
+        {
+          "id": "d",
+          "text": "<header>"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "One <h1> per page is best for SEO and screen readers. <head> and <title> are metadata, <header> is a landmark.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "html-fundamentals"
+      ]
+    },
+    {
+      "prompt": "What does the alt attribute on an <img> do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Styles the image"
+        },
+        {
+          "id": "b",
+          "text": "Provides fallback text for screen readers and broken images"
+        },
+        {
+          "id": "c",
+          "text": "Sets width"
+        },
+        {
+          "id": "d",
+          "text": "Adds a click handler"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "alt text is essential for accessibility and displayed if the image fails to load.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "html-fundamentals"
+      ]
+    },
+    {
+      "prompt": "Which CSS selector has the highest specificity?",
+      "options": [
+        {
+          "id": "a",
+          "text": "div"
+        },
+        {
+          "id": "b",
+          "text": ".my-class"
+        },
+        {
+          "id": "c",
+          "text": "#my-id"
+        },
+        {
+          "id": "d",
+          "text": "*"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Specificity order: inline > #id > .class > element. IDs beat classes; classes beat elements.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "css-fundamentals"
+      ]
+    },
+    {
+      "prompt": "What does the CSS box model consist of (inside to outside)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Margin, Border, Padding, Content"
+        },
+        {
+          "id": "b",
+          "text": "Content, Padding, Border, Margin"
+        },
+        {
+          "id": "c",
+          "text": "Content, Border, Margin, Padding"
+        },
+        {
+          "id": "d",
+          "text": "Padding, Content, Border, Margin"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Content \u2192 Padding \u2192 Border \u2192 Margin. box-sizing: border-box includes padding+border in width.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "css-fundamentals"
+      ]
+    },
+    {
+      "prompt": "Which keyword declares a constant in modern JavaScript?",
+      "options": [
+        {
+          "id": "a",
+          "text": "let"
+        },
+        {
+          "id": "b",
+          "text": "var"
+        },
+        {
+          "id": "c",
+          "text": "const"
+        },
+        {
+          "id": "d",
+          "text": "final"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "const declares a block-scoped binding that can't be reassigned. Use it by default.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "javascript-basics"
+      ]
+    },
+    {
+      "prompt": "The difference between == and === in JavaScript is:",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are the same"
+        },
+        {
+          "id": "b",
+          "text": "== does type coercion; === requires matching types"
+        },
+        {
+          "id": "c",
+          "text": "=== is deprecated"
+        },
+        {
+          "id": "d",
+          "text": "== is only for numbers"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "=== is strict equality \u2014 no type coercion. Prefer it to avoid surprising conversions like '1' == 1.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "javascript-basics"
+      ]
+    },
+    {
+      "prompt": "What is the main benefit of feature branches in Git?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Smaller repo size"
+        },
+        {
+          "id": "b",
+          "text": "Isolate work so main stays stable"
+        },
+        {
+          "id": "c",
+          "text": "Faster commits"
+        },
+        {
+          "id": "d",
+          "text": "Avoids merging"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Feature branches keep experimental work off main until it's reviewed and ready.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "git-version-control"
+      ]
+    },
+    {
+      "prompt": "Which Flexbox property controls horizontal alignment of items along the main axis?",
+      "options": [
+        {
+          "id": "a",
+          "text": "align-items"
+        },
+        {
+          "id": "b",
+          "text": "justify-content"
+        },
+        {
+          "id": "c",
+          "text": "flex-wrap"
+        },
+        {
+          "id": "d",
+          "text": "order"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "justify-content aligns along the main axis (horizontal for row). align-items aligns along the cross axis.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "css-layout"
+      ]
+    },
+    {
+      "prompt": "In CSS Grid, which property defines the columns of a grid container?",
+      "options": [
+        {
+          "id": "a",
+          "text": "grid-rows"
+        },
+        {
+          "id": "b",
+          "text": "grid-template-columns"
+        },
+        {
+          "id": "c",
+          "text": "grid-gap"
+        },
+        {
+          "id": "d",
+          "text": "column-count"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "grid-template-columns defines the column track sizes, e.g. repeat(3, 1fr) or 200px 1fr 1fr.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "css-layout"
+      ]
+    },
+    {
+      "prompt": "Which DOM method selects the first element matching a CSS selector?",
+      "options": [
+        {
+          "id": "a",
+          "text": "document.getElementsByClassName"
+        },
+        {
+          "id": "b",
+          "text": "document.querySelector"
+        },
+        {
+          "id": "c",
+          "text": "document.getElementById"
+        },
+        {
+          "id": "d",
+          "text": "document.createTextNode"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "querySelector returns the first match. querySelectorAll returns all matches as a NodeList.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "dom-manipulation"
+      ]
+    },
+    {
+      "prompt": "What does event.preventDefault() do in an event handler?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stops propagation to parent elements"
+        },
+        {
+          "id": "b",
+          "text": "Prevents the browser's default action (e.g., form submission)"
+        },
+        {
+          "id": "c",
+          "text": "Removes the listener"
+        },
+        {
+          "id": "d",
+          "text": "Cancels the fetch"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "preventDefault cancels the default behavior. stopPropagation stops bubbling \u2014 they're different.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "dom-manipulation"
+      ]
+    },
+    {
+      "prompt": "What does async/await do in JavaScript?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Runs code synchronously"
+        },
+        {
+          "id": "b",
+          "text": "Allows writing asynchronous code in a synchronous-looking style over promises"
+        },
+        {
+          "id": "c",
+          "text": "Spawns threads"
+        },
+        {
+          "id": "d",
+          "text": "Blocks the event loop"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "async/await is syntactic sugar over promises \u2014 the function still returns a promise.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "async-javascript"
+      ]
+    },
+    {
+      "prompt": "In the event loop, which queue runs before setTimeout callbacks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Macro-task queue"
+        },
+        {
+          "id": "b",
+          "text": "Micro-task queue (promises)"
+        },
+        {
+          "id": "c",
+          "text": "Both run in parallel"
+        },
+        {
+          "id": "d",
+          "text": "Neither"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Micro-tasks (promise callbacks) run to completion before the next macro-task (setTimeout, I/O).",
+      "difficulty": 4,
+      "skillSlugs": [
+        "async-javascript"
+      ]
+    },
+    {
+      "prompt": "What is the mobile-first approach to responsive design?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Design for desktop first, then shrink"
+        },
+        {
+          "id": "b",
+          "text": "Design for mobile first, then enhance for larger screens with min-width media queries"
+        },
+        {
+          "id": "c",
+          "text": "Ignore desktop"
+        },
+        {
+          "id": "d",
+          "text": "Only use percentages"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Mobile-first starts with the smallest layout and progressively enhances upward with min-width queries.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "responsive-design"
+      ]
+    },
+    {
+      "prompt": "Which is the correct fetch call to GET JSON from an API?",
+      "options": [
+        {
+          "id": "a",
+          "text": "fetch('/api').json()"
+        },
+        {
+          "id": "b",
+          "text": "await fetch('/api').then(r => r.json())"
+        },
+        {
+          "id": "c",
+          "text": "await fetch('/api').then(r => r.text())"
+        },
+        {
+          "id": "d",
+          "text": "fetch.json('/api')"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "fetch returns a Response; you must call .json() on it to parse the body.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "http-and-apis"
+      ]
+    },
+    {
+      "prompt": "What is CORS and why does it matter?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A JavaScript framework"
+        },
+        {
+          "id": "b",
+          "text": "A browser security policy that blocks cross-origin requests unless the server opts in"
+        },
+        {
+          "id": "c",
+          "text": "A database"
+        },
+        {
+          "id": "d",
+          "text": "A build tool"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "CORS (Cross-Origin Resource Sharing) lets servers control which origins can read their responses.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "http-and-apis"
+      ]
+    },
+    {
+      "prompt": "What is the difference between TypeScript `interface` and `type`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are identical"
+        },
+        {
+          "id": "b",
+          "text": "Interfaces can be merged/extended; type aliases can express unions and tuples"
+        },
+        {
+          "id": "c",
+          "text": "Types are faster"
+        },
+        {
+          "id": "d",
+          "text": "Interfaces only work with classes"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Interfaces are open to declaration merging; types are more expressive for unions, intersections, and tuples.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "typescript-fundamentals"
+      ]
+    },
+    {
+      "prompt": "In React, what does the dependency array in useEffect control?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The order of execution"
+        },
+        {
+          "id": "b",
+          "text": "When the effect re-runs \u2014 it re-runs when any dependency changes"
+        },
+        {
+          "id": "c",
+          "text": "CSS animations"
+        },
+        {
+          "id": "d",
+          "text": "Server rendering"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Empty array = run once. Missing array = run every render. With deps = run when they change.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "react-fundamentals"
+      ]
+    },
+    {
+      "prompt": "Why does React warn about missing `key` props in lists?",
+      "options": [
+        {
+          "id": "a",
+          "text": "For styling"
+        },
+        {
+          "id": "b",
+          "text": "Keys help React identify which items changed, added, or removed for efficient reconciliation"
+        },
+        {
+          "id": "c",
+          "text": "For accessibility"
+        },
+        {
+          "id": "d",
+          "text": "For SEO"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Stable keys let React's diffing algorithm avoid re-rendering the whole list.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "react-fundamentals"
+      ]
+    },
+    {
+      "prompt": "What is React Context used for?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Styling components"
+        },
+        {
+          "id": "b",
+          "text": "Sharing state across a tree without prop drilling"
+        },
+        {
+          "id": "c",
+          "text": "Fetching data"
+        },
+        {
+          "id": "d",
+          "text": "Routing"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Context provides values to descendants without passing props through every intermediate component.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "state-management"
+      ]
+    },
+    {
+      "prompt": "When would you choose a global store (Redux, Zustand) over local state?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Always"
+        },
+        {
+          "id": "b",
+          "text": "When many distant components need to read or write the same state"
+        },
+        {
+          "id": "c",
+          "text": "Never"
+        },
+        {
+          "id": "d",
+          "text": "Only for forms"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Local state is simpler. Global stores earn their keep when state is shared across unrelated parts of the tree.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "state-management"
+      ]
+    },
+    {
+      "prompt": "Why is controlled input important in React forms?",
+      "options": [
+        {
+          "id": "a",
+          "text": "For performance"
+        },
+        {
+          "id": "b",
+          "text": "The input value lives in React state, so it's always in sync for validation and submission"
+        },
+        {
+          "id": "c",
+          "text": "Required by TypeScript"
+        },
+        {
+          "id": "d",
+          "text": "For accessibility"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Controlled inputs store value in state, giving you full control over validation and formatting.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "forms-and-validation"
+      ]
+    },
+    {
+      "prompt": "Which is a good practice for form validation UX?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only validate on submit"
+        },
+        {
+          "id": "b",
+          "text": "Validate on blur, then on change after the first error"
+        },
+        {
+          "id": "c",
+          "text": "Show all errors immediately"
+        },
+        {
+          "id": "d",
+          "text": "Never validate"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Validating on blur avoids nagging while typing; switching to on-change after the first error gives fast feedback.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "forms-and-validation"
+      ]
+    },
+    {
+      "prompt": "What is the minimum contrast ratio recommended by WCAG AA for body text?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1:1"
+        },
+        {
+          "id": "b",
+          "text": "3:1"
+        },
+        {
+          "id": "c",
+          "text": "4.5:1"
+        },
+        {
+          "id": "d",
+          "text": "10:1"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "WCAG AA requires 4.5:1 for normal text and 3:1 for large text.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "accessibility"
+      ]
+    },
+    {
+      "prompt": "Why should interactive elements be keyboard accessible?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Faster loading"
+        },
+        {
+          "id": "b",
+          "text": "Users who can't use a mouse rely on Tab, Enter, Space, and arrow keys"
+        },
+        {
+          "id": "c",
+          "text": "For SEO"
+        },
+        {
+          "id": "d",
+          "text": "Reduces bundle size"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Keyboard access is a foundational a11y requirement. Use semantic elements and manage focus well.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "accessibility"
+      ]
+    },
+    {
+      "prompt": "In React Router, which component triggers navigation without a full page reload?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<a href>"
+        },
+        {
+          "id": "b",
+          "text": "<Link>"
+        },
+        {
+          "id": "c",
+          "text": "<Redirect>"
+        },
+        {
+          "id": "d",
+          "text": "<Route>"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "<Link> uses client-side navigation \u2014 no full page reload \u2014 while preserving browser history.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "routing"
+      ]
+    },
+    {
+      "prompt": "What does client-side routing primarily improve?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SEO"
+        },
+        {
+          "id": "b",
+          "text": "Perceived speed by avoiding full page reloads"
+        },
+        {
+          "id": "c",
+          "text": "Security"
+        },
+        {
+          "id": "d",
+          "text": "Bundle size"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Client-side routing swaps views without round-tripping to the server for HTML \u2014 smooth SPAs. SSR helps SEO separately.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "routing"
+      ]
+    },
+    {
+      "prompt": "Which library is most commonly used with React for unit/component testing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Jest alone"
+        },
+        {
+          "id": "b",
+          "text": "React Testing Library"
+        },
+        {
+          "id": "c",
+          "text": "Selenium"
+        },
+        {
+          "id": "d",
+          "text": "Cypress"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "React Testing Library encourages testing the way users interact. Works well with Vitest or Jest.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "testing-frontend"
+      ]
+    },
+    {
+      "prompt": "The testing pyramid suggests you should have:",
+      "options": [
+        {
+          "id": "a",
+          "text": "More E2E than unit tests"
+        },
+        {
+          "id": "b",
+          "text": "More unit tests than integration, more integration than E2E"
+        },
+        {
+          "id": "c",
+          "text": "Only E2E tests"
+        },
+        {
+          "id": "d",
+          "text": "No tests"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Unit tests are fast and numerous; E2E is slow and few. Balance keeps the suite fast and reliable.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "testing-frontend"
+      ]
+    },
+    {
+      "prompt": "What is the primary benefit of CSS variables (custom properties)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Faster rendering"
+        },
+        {
+          "id": "b",
+          "text": "Centralized design tokens that can be reused and changed at runtime"
+        },
+        {
+          "id": "c",
+          "text": "Smaller files"
+        },
+        {
+          "id": "d",
+          "text": "Better SEO"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "CSS variables (--color-primary) let you theme dynamically and keep design tokens consistent.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "css-architecture"
+      ]
+    },
+    {
+      "prompt": "Utility-first CSS (like Tailwind) means:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Writing BEM classes"
+        },
+        {
+          "id": "b",
+          "text": "Composing small single-purpose classes directly in markup"
+        },
+        {
+          "id": "c",
+          "text": "Inline styles only"
+        },
+        {
+          "id": "d",
+          "text": "No CSS files"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Utility classes (flex, p-4, text-sm) are combined to build styles without custom CSS per component.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "css-architecture"
+      ]
+    },
+    {
+      "prompt": "What does Core Web Vitals measure?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Server uptime"
+        },
+        {
+          "id": "b",
+          "text": "User-experience metrics like LCP, INP, and CLS"
+        },
+        {
+          "id": "c",
+          "text": "Code quality"
+        },
+        {
+          "id": "d",
+          "text": "Test coverage"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "LCP (load), INP (interactivity), CLS (visual stability) \u2014 Google's user experience metrics used for SEO ranking.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "web-performance"
+      ]
+    },
+    {
+      "prompt": "What is code splitting in a bundler?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Removing dead code"
+        },
+        {
+          "id": "b",
+          "text": "Breaking the bundle into smaller chunks loaded on demand"
+        },
+        {
+          "id": "c",
+          "text": "Minifying code"
+        },
+        {
+          "id": "d",
+          "text": "Compressing images"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Dynamic imports (import()) create separate chunks so users only download what they need for the current route.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "web-performance"
+      ]
+    },
+    {
+      "prompt": "What is tree shaking?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A UI animation"
+        },
+        {
+          "id": "b",
+          "text": "Dead code elimination \u2014 bundlers drop unused exports from the bundle"
+        },
+        {
+          "id": "c",
+          "text": "A Git workflow"
+        },
+        {
+          "id": "d",
+          "text": "A test strategy"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Tree shaking relies on ESM's static analysis \u2014 only imported parts of a module ship in the bundle.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "build-tools"
+      ]
+    },
+    {
+      "prompt": "Which is the biggest reason to prefer Vite over legacy Webpack configs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Larger bundles"
+        },
+        {
+          "id": "b",
+          "text": "Faster dev server startup using native ES modules"
+        },
+        {
+          "id": "c",
+          "text": "Better TypeScript"
+        },
+        {
+          "id": "d",
+          "text": "Fewer bugs"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Vite serves source over native ESM during dev, giving near-instant startup \u2014 bundling happens only for production.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "build-tools"
+      ]
+    },
+    {
+      "prompt": "What is a monorepo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A single-file project"
+        },
+        {
+          "id": "b",
+          "text": "Multiple packages stored and versioned in one repository"
+        },
+        {
+          "id": "c",
+          "text": "A monolith server"
+        },
+        {
+          "id": "d",
+          "text": "A legacy CMS"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Monorepos (Turborepo, Nx, pnpm workspaces) let teams share code, tooling, and CI across multiple packages.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "frontend-architecture"
+      ]
+    },
+    {
+      "prompt": "What is the main reason to use SSR (server-side rendering) or SSG (static generation)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Smaller JS bundles"
+        },
+        {
+          "id": "b",
+          "text": "Better SEO and first-paint performance for content-heavy pages"
+        },
+        {
+          "id": "c",
+          "text": "Better developer experience"
+        },
+        {
+          "id": "d",
+          "text": "Cheaper hosting"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "SSR/SSG send ready HTML, improving time-to-content and search engine crawlability compared to client-only SPAs.",
+      "difficulty": 5,
+      "skillSlugs": [
+        "frontend-architecture"
+      ]
+    },
+    {
+      "prompt": "Micro-frontends split a large app into:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Smaller CSS files"
+        },
+        {
+          "id": "b",
+          "text": "Independently deployable frontend pieces owned by different teams"
+        },
+        {
+          "id": "c",
+          "text": "Multiple databases"
+        },
+        {
+          "id": "d",
+          "text": "Serverless functions"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Micro-frontends let independent teams ship their own slice of the UI without coordinating a single big release.",
+      "difficulty": 5,
+      "skillSlugs": [
+        "frontend-architecture"
+      ]
+    },
+    {
+      "prompt": "What does `git rebase` do compared to `git merge`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Creates a merge commit"
+        },
+        {
+          "id": "b",
+          "text": "Replays commits onto a new base, producing a linear history"
+        },
+        {
+          "id": "c",
+          "text": "Deletes branches"
+        },
+        {
+          "id": "d",
+          "text": "Only works on main"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Rebase rewrites commits onto a new base for a linear history; merge preserves branch topology with a merge commit.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "git-version-control"
+      ]
+    },
+    {
+      "prompt": "Which CSS unit scales with the root font size?",
+      "options": [
+        {
+          "id": "a",
+          "text": "px"
+        },
+        {
+          "id": "b",
+          "text": "em"
+        },
+        {
+          "id": "c",
+          "text": "rem"
+        },
+        {
+          "id": "d",
+          "text": "vh"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "rem is relative to the root font size. Using rem makes typography respect user font preferences.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "responsive-design"
+      ]
+    },
+    {
+      "prompt": "What is TypeScript's `unknown` type useful for?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Same as `any`"
+        },
+        {
+          "id": "b",
+          "text": "Forces narrowing the type before use"
+        },
+        {
+          "id": "c",
+          "text": "Disables type checking"
+        },
+        {
+          "id": "d",
+          "text": "Only for numbers"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "unknown is the safe counterpart to any: you must narrow it (typeof, in, instanceof) before using the value.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "typescript-fundamentals"
+      ]
+    }
   ],
   "materials": [
-    { "title": "MDN: HTML Basics", "type": "link", "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics", "skillSlugs": ["html-fundamentals"] },
-    { "title": "MDN: CSS First Steps", "type": "link", "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps", "skillSlugs": ["css-fundamentals"] },
-    { "title": "JavaScript.info — The Modern JavaScript Tutorial", "type": "link", "url": "https://javascript.info/", "skillSlugs": ["javascript-basics"] },
-    { "title": "Pro Git Book (Free)", "type": "link", "url": "https://git-scm.com/book/en/v2", "skillSlugs": ["git-version-control"] },
-    { "title": "CSS-Tricks: A Complete Guide to Flexbox", "type": "link", "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/", "skillSlugs": ["css-layout"] },
-    { "title": "MDN: Manipulating Documents", "type": "link", "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents", "skillSlugs": ["dom-manipulation"] },
-    { "title": "MDN: Asynchronous JavaScript", "type": "link", "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous", "skillSlugs": ["async-javascript"] },
-    { "title": "web.dev: Responsive Web Design Basics", "type": "link", "url": "https://web.dev/articles/responsive-web-design-basics", "skillSlugs": ["responsive-design"] },
-    { "title": "MDN: Fetch API", "type": "link", "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch", "skillSlugs": ["http-and-apis"] },
-    { "title": "TypeScript Handbook", "type": "link", "url": "https://www.typescriptlang.org/docs/handbook/intro.html", "skillSlugs": ["typescript-fundamentals"] },
-    { "title": "React — Learn React", "type": "link", "url": "https://react.dev/learn", "skillSlugs": ["react-fundamentals"] },
-    { "title": "React — Managing State", "type": "link", "url": "https://react.dev/learn/managing-state", "skillSlugs": ["state-management"] },
-    { "title": "MDN: Form Validation", "type": "link", "url": "https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation", "skillSlugs": ["forms-and-validation"] },
-    { "title": "The A11Y Project", "type": "link", "url": "https://www.a11yproject.com/", "skillSlugs": ["accessibility"] },
-    { "title": "React Router Docs", "type": "link", "url": "https://reactrouter.com/", "skillSlugs": ["routing"] },
-    { "title": "Testing Library Docs", "type": "link", "url": "https://testing-library.com/docs/", "skillSlugs": ["testing-frontend"] },
-    { "title": "Every Layout", "type": "link", "url": "https://every-layout.dev/", "skillSlugs": ["css-architecture"] },
-    { "title": "web.dev: Core Web Vitals", "type": "link", "url": "https://web.dev/articles/vitals", "skillSlugs": ["web-performance"] },
-    { "title": "Vite Docs", "type": "link", "url": "https://vitejs.dev/guide/", "skillSlugs": ["build-tools"] },
-    { "title": "patterns.dev — Modern Frontend Architecture", "type": "link", "url": "https://www.patterns.dev/", "skillSlugs": ["frontend-architecture"] }
+    {
+      "title": "MDN: HTML Basics",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics",
+      "skillSlugs": [
+        "html-fundamentals"
+      ]
+    },
+    {
+      "title": "MDN: CSS First Steps",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps",
+      "skillSlugs": [
+        "css-fundamentals"
+      ]
+    },
+    {
+      "title": "JavaScript.info \u2014 The Modern JavaScript Tutorial",
+      "type": "link",
+      "url": "https://javascript.info/",
+      "skillSlugs": [
+        "javascript-basics"
+      ]
+    },
+    {
+      "title": "Pro Git Book (Free)",
+      "type": "link",
+      "url": "https://git-scm.com/book/en/v2",
+      "skillSlugs": [
+        "git-version-control"
+      ]
+    },
+    {
+      "title": "CSS-Tricks: A Complete Guide to Flexbox",
+      "type": "link",
+      "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+      "skillSlugs": [
+        "css-layout"
+      ]
+    },
+    {
+      "title": "MDN: Manipulating Documents",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
+      "skillSlugs": [
+        "dom-manipulation"
+      ]
+    },
+    {
+      "title": "MDN: Asynchronous JavaScript",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous",
+      "skillSlugs": [
+        "async-javascript"
+      ]
+    },
+    {
+      "title": "web.dev: Responsive Web Design Basics",
+      "type": "link",
+      "url": "https://web.dev/articles/responsive-web-design-basics",
+      "skillSlugs": [
+        "responsive-design"
+      ]
+    },
+    {
+      "title": "MDN: Fetch API",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+      "skillSlugs": [
+        "http-and-apis"
+      ]
+    },
+    {
+      "title": "TypeScript Handbook",
+      "type": "link",
+      "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "skillSlugs": [
+        "typescript-fundamentals"
+      ]
+    },
+    {
+      "title": "React \u2014 Learn React",
+      "type": "link",
+      "url": "https://react.dev/learn",
+      "skillSlugs": [
+        "react-fundamentals"
+      ]
+    },
+    {
+      "title": "React \u2014 Managing State",
+      "type": "link",
+      "url": "https://react.dev/learn/managing-state",
+      "skillSlugs": [
+        "state-management"
+      ]
+    },
+    {
+      "title": "MDN: Form Validation",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation",
+      "skillSlugs": [
+        "forms-and-validation"
+      ]
+    },
+    {
+      "title": "The A11Y Project",
+      "type": "link",
+      "url": "https://www.a11yproject.com/",
+      "skillSlugs": [
+        "accessibility"
+      ]
+    },
+    {
+      "title": "React Router Docs",
+      "type": "link",
+      "url": "https://reactrouter.com/",
+      "skillSlugs": [
+        "routing"
+      ]
+    },
+    {
+      "title": "Testing Library Docs",
+      "type": "link",
+      "url": "https://testing-library.com/docs/",
+      "skillSlugs": [
+        "testing-frontend"
+      ]
+    },
+    {
+      "title": "Every Layout",
+      "type": "link",
+      "url": "https://every-layout.dev/",
+      "skillSlugs": [
+        "css-architecture"
+      ]
+    },
+    {
+      "title": "web.dev: Core Web Vitals",
+      "type": "link",
+      "url": "https://web.dev/articles/vitals",
+      "skillSlugs": [
+        "web-performance"
+      ]
+    },
+    {
+      "title": "Vite Docs",
+      "type": "link",
+      "url": "https://vitejs.dev/guide/",
+      "skillSlugs": [
+        "build-tools"
+      ]
+    },
+    {
+      "title": "patterns.dev \u2014 Modern Frontend Architecture",
+      "type": "link",
+      "url": "https://www.patterns.dev/",
+      "skillSlugs": [
+        "frontend-architecture"
+      ]
+    }
   ]
 }

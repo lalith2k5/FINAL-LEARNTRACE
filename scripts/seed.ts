@@ -111,6 +111,19 @@ async function seedDomain(content: ContentFile): Promise<void> {
     slugToId.set(s.slug, skill.id);
   }
 
+  // Prune skills no longer present in the JSON (handles slug renames).
+  // Cascades to their questions, materials, prereqs, and mastery rows.
+  const currentSlugs = content.skills.map((s) => s.slug);
+  const pruned = await prisma.skill.deleteMany({
+    where: {
+      domainId: domain.id,
+      slug: { notIn: currentSlugs },
+    },
+  });
+  if (pruned.count > 0) {
+    console.log(`   ⌫ Pruned ${pruned.count} stale skill(s)`);
+  }
+
   let prereqCount = 0;
   for (const p of content.prerequisites) {
     const parentId = slugToId.get(p.parentSlug);

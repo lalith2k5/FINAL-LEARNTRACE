@@ -30,7 +30,7 @@
       "difficulty": 2
     },
     {
-      "slug": "data-structures-algorithms",
+      "slug": "data-structures-and-algorithms",
       "name": "Data Structures and Algorithms",
       "description": "Choose the right data structure and analyze algorithmic complexity.",
       "difficulty": 2
@@ -139,7 +139,7 @@
     },
     {
       "parentSlug": "programming-fundamentals",
-      "childSlug": "data-structures-algorithms",
+      "childSlug": "data-structures-and-algorithms",
       "weight": 0.9
     },
     {
@@ -178,17 +178,17 @@
       "weight": 0.9
     },
     {
-      "parentSlug": "data-structures-algorithms",
+      "parentSlug": "data-structures-and-algorithms",
       "childSlug": "caching",
       "weight": 0.6
     },
     {
-      "parentSlug": "data-structures-algorithms",
+      "parentSlug": "data-structures-and-algorithms",
       "childSlug": "database-performance",
       "weight": 0.7
     },
     {
-      "parentSlug": "data-structures-algorithms",
+      "parentSlug": "data-structures-and-algorithms",
       "childSlug": "distributed-systems",
       "weight": 0.7
     },
@@ -291,6 +291,11 @@
       "parentSlug": "security-best-practices",
       "childSlug": "system-design",
       "weight": 0.8
+    },
+    {
+      "parentSlug": "docker",
+      "childSlug": "message-queues",
+      "weight": 0.6
     }
   ],
   "questions": [
@@ -480,7 +485,7 @@
       "explanation": "With a good hash function and low load factor, lookups are amortized O(1).",
       "difficulty": 2,
       "skillSlugs": [
-        "data-structures-algorithms"
+        "data-structures-and-algorithms"
       ]
     },
     {
@@ -507,7 +512,7 @@
       "explanation": "A stack follows LIFO \u2014 push and pop from the same end.",
       "difficulty": 1,
       "skillSlugs": [
-        "data-structures-algorithms"
+        "data-structures-and-algorithms"
       ]
     },
     {
@@ -1400,6 +1405,33 @@
       "skillSlugs": [
         "programming-fundamentals"
       ]
+    },
+    {
+      "prompt": "Which pattern handles repeated consumer failures in a message queue?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Retry with exponential backoff and a dead-letter queue"
+        },
+        {
+          "id": "b",
+          "text": "Ignore failures"
+        },
+        {
+          "id": "c",
+          "text": "Restart the whole system"
+        },
+        {
+          "id": "d",
+          "text": "Log and never retry"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Backoff prevents thundering-herd retries; the dead-letter queue isolates poison messages for human inspection.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "message-queues"
+      ]
     }
   ],
   "materials": [
@@ -1432,7 +1464,7 @@
       "type": "link",
       "url": "https://www.bigocheatsheet.com/",
       "skillSlugs": [
-        "data-structures-algorithms"
+        "data-structures-and-algorithms"
       ]
     },
     {
