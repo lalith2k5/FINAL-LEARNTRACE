@@ -5,123 +5,1571 @@
     "description": "From HTTP and databases to production-grade APIs and distributed systems."
   },
   "skills": [
-    { "slug": "programming-fundamentals", "name": "Programming Fundamentals", "description": "Core language concepts: variables, control flow, functions, and data types.", "difficulty": 1 },
-    { "slug": "http-and-rest", "name": "HTTP and REST", "description": "Understand HTTP verbs, status codes, headers, and RESTful API design.", "difficulty": 1 },
-    { "slug": "git-version-control", "name": "Git and Version Control", "description": "Track changes, branch, merge, and collaborate with Git and GitHub.", "difficulty": 1 },
-    { "slug": "sql-databases", "name": "SQL and Relational Databases", "description": "Model data, write queries, and design normalized schemas.", "difficulty": 2 },
-    { "slug": "data-structures-algorithms", "name": "Data Structures and Algorithms", "description": "Choose the right data structure and analyze algorithmic complexity.", "difficulty": 2 },
-    { "slug": "web-frameworks", "name": "Web Frameworks", "description": "Build HTTP servers with a modern framework (Express, FastAPI, Django, etc.).", "difficulty": 2 },
-    { "slug": "api-design", "name": "API Design", "description": "Design clean, versioned, well-documented APIs that clients love.", "difficulty": 2 },
-    { "slug": "error-handling", "name": "Error Handling and Logging", "description": "Structure errors, propagate them cleanly, and log useful context.", "difficulty": 2 },
-    { "slug": "testing", "name": "Testing", "description": "Write unit, integration, and end-to-end tests that catch real bugs.", "difficulty": 2 },
-    { "slug": "authentication-authorization", "name": "Authentication and Authorization", "description": "Implement sessions, JWTs, OAuth, and role-based access control.", "difficulty": 3 },
-    { "slug": "caching", "name": "Caching", "description": "Speed up reads with in-memory, Redis, and HTTP caching strategies.", "difficulty": 3 },
-    { "slug": "message-queues", "name": "Message Queues", "description": "Decouple services with queues and workers (RabbitMQ, Kafka, SQS).", "difficulty": 3 },
-    { "slug": "orm-and-migrations", "name": "ORM and Migrations", "description": "Use an ORM safely and evolve schemas with backward-compatible migrations.", "difficulty": 3 },
-    { "slug": "docker", "name": "Docker and Containers", "description": "Package apps into portable images and run them consistently.", "difficulty": 3 },
-    { "slug": "ci-cd", "name": "CI/CD Pipelines", "description": "Automate tests, builds, and deploys with GitHub Actions or similar.", "difficulty": 3 },
-    { "slug": "database-performance", "name": "Database Performance", "description": "Read query plans, add indexes, and avoid N+1 queries.", "difficulty": 3 },
-    { "slug": "monitoring-observability", "name": "Monitoring and Observability", "description": "Track metrics, logs, and traces to know how your service behaves.", "difficulty": 4 },
-    { "slug": "distributed-systems", "name": "Distributed Systems", "description": "Reason about consistency, partitioning, and failure modes at scale.", "difficulty": 4 },
-    { "slug": "security-best-practices", "name": "Security Best Practices", "description": "Prevent OWASP top 10 issues, handle secrets, and secure inputs.", "difficulty": 4 },
-    { "slug": "system-design", "name": "System Design", "description": "Design scalable services considering tradeoffs, failure, and cost.", "difficulty": 5 }
+    {
+      "slug": "programming-fundamentals",
+      "name": "Programming Fundamentals",
+      "description": "Core language concepts: variables, control flow, functions, and data types.",
+      "difficulty": 1
+    },
+    {
+      "slug": "http-and-rest",
+      "name": "HTTP and REST",
+      "description": "Understand HTTP verbs, status codes, headers, and RESTful API design.",
+      "difficulty": 1
+    },
+    {
+      "slug": "git-version-control",
+      "name": "Git and Version Control",
+      "description": "Track changes, branch, merge, and collaborate with Git and GitHub.",
+      "difficulty": 1
+    },
+    {
+      "slug": "sql-databases",
+      "name": "SQL and Relational Databases",
+      "description": "Model data, write queries, and design normalized schemas.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-structures-algorithms",
+      "name": "Data Structures and Algorithms",
+      "description": "Choose the right data structure and analyze algorithmic complexity.",
+      "difficulty": 2
+    },
+    {
+      "slug": "web-frameworks",
+      "name": "Web Frameworks",
+      "description": "Build HTTP servers with a modern framework (Express, FastAPI, Django, etc.).",
+      "difficulty": 2
+    },
+    {
+      "slug": "api-design",
+      "name": "API Design",
+      "description": "Design clean, versioned, well-documented APIs that clients love.",
+      "difficulty": 2
+    },
+    {
+      "slug": "error-handling",
+      "name": "Error Handling and Logging",
+      "description": "Structure errors, propagate them cleanly, and log useful context.",
+      "difficulty": 2
+    },
+    {
+      "slug": "testing",
+      "name": "Testing",
+      "description": "Write unit, integration, and end-to-end tests that catch real bugs.",
+      "difficulty": 2
+    },
+    {
+      "slug": "authentication-authorization",
+      "name": "Authentication and Authorization",
+      "description": "Implement sessions, JWTs, OAuth, and role-based access control.",
+      "difficulty": 3
+    },
+    {
+      "slug": "caching",
+      "name": "Caching",
+      "description": "Speed up reads with in-memory, Redis, and HTTP caching strategies.",
+      "difficulty": 3
+    },
+    {
+      "slug": "message-queues",
+      "name": "Message Queues",
+      "description": "Decouple services with queues and workers (RabbitMQ, Kafka, SQS).",
+      "difficulty": 3
+    },
+    {
+      "slug": "orm-and-migrations",
+      "name": "ORM and Migrations",
+      "description": "Use an ORM safely and evolve schemas with backward-compatible migrations.",
+      "difficulty": 3
+    },
+    {
+      "slug": "docker",
+      "name": "Docker and Containers",
+      "description": "Package apps into portable images and run them consistently.",
+      "difficulty": 3
+    },
+    {
+      "slug": "ci-cd",
+      "name": "CI/CD Pipelines",
+      "description": "Automate tests, builds, and deploys with GitHub Actions or similar.",
+      "difficulty": 3
+    },
+    {
+      "slug": "database-performance",
+      "name": "Database Performance",
+      "description": "Read query plans, add indexes, and avoid N+1 queries.",
+      "difficulty": 3
+    },
+    {
+      "slug": "monitoring-observability",
+      "name": "Monitoring and Observability",
+      "description": "Track metrics, logs, and traces to know how your service behaves.",
+      "difficulty": 4
+    },
+    {
+      "slug": "distributed-systems",
+      "name": "Distributed Systems",
+      "description": "Reason about consistency, partitioning, and failure modes at scale.",
+      "difficulty": 4
+    },
+    {
+      "slug": "security-best-practices",
+      "name": "Security Best Practices",
+      "description": "Prevent OWASP top 10 issues, handle secrets, and secure inputs.",
+      "difficulty": 4
+    },
+    {
+      "slug": "system-design",
+      "name": "System Design",
+      "description": "Design scalable services considering tradeoffs, failure, and cost.",
+      "difficulty": 5
+    }
   ],
   "prerequisites": [
-    { "parentSlug": "programming-fundamentals", "childSlug": "git-version-control", "weight": 0.6 },
-    { "parentSlug": "programming-fundamentals", "childSlug": "sql-databases", "weight": 0.7 },
-    { "parentSlug": "programming-fundamentals", "childSlug": "data-structures-algorithms", "weight": 0.9 },
-    { "parentSlug": "programming-fundamentals", "childSlug": "http-and-rest", "weight": 0.7 },
-    { "parentSlug": "programming-fundamentals", "childSlug": "web-frameworks", "weight": 0.9 },
-    { "parentSlug": "http-and-rest", "childSlug": "api-design", "weight": 0.9 },
-    { "parentSlug": "http-and-rest", "childSlug": "web-frameworks", "weight": 0.8 },
-    { "parentSlug": "http-and-rest", "childSlug": "authentication-authorization", "weight": 0.8 },
-    { "parentSlug": "sql-databases", "childSlug": "orm-and-migrations", "weight": 0.9 },
-    { "parentSlug": "sql-databases", "childSlug": "database-performance", "weight": 0.9 },
-    { "parentSlug": "data-structures-algorithms", "childSlug": "caching", "weight": 0.6 },
-    { "parentSlug": "data-structures-algorithms", "childSlug": "database-performance", "weight": 0.7 },
-    { "parentSlug": "data-structures-algorithms", "childSlug": "distributed-systems", "weight": 0.7 },
-    { "parentSlug": "web-frameworks", "childSlug": "api-design", "weight": 0.8 },
-    { "parentSlug": "web-frameworks", "childSlug": "error-handling", "weight": 0.9 },
-    { "parentSlug": "web-frameworks", "childSlug": "testing", "weight": 0.8 },
-    { "parentSlug": "web-frameworks", "childSlug": "docker", "weight": 0.6 },
-    { "parentSlug": "api-design", "childSlug": "authentication-authorization", "weight": 0.8 },
-    { "parentSlug": "api-design", "childSlug": "error-handling", "weight": 0.7 },
-    { "parentSlug": "api-design", "childSlug": "system-design", "weight": 0.8 },
-    { "parentSlug": "error-handling", "childSlug": "monitoring-observability", "weight": 0.7 },
-    { "parentSlug": "testing", "childSlug": "ci-cd", "weight": 0.9 },
-    { "parentSlug": "authentication-authorization", "childSlug": "security-best-practices", "weight": 0.9 },
-    { "parentSlug": "caching", "childSlug": "database-performance", "weight": 0.8 },
-    { "parentSlug": "caching", "childSlug": "distributed-systems", "weight": 0.7 },
-    { "parentSlug": "message-queues", "childSlug": "distributed-systems", "weight": 0.9 },
-    { "parentSlug": "orm-and-migrations", "childSlug": "database-performance", "weight": 0.8 },
-    { "parentSlug": "docker", "childSlug": "ci-cd", "weight": 0.8 },
-    { "parentSlug": "docker", "childSlug": "monitoring-observability", "weight": 0.7 },
-    { "parentSlug": "database-performance", "childSlug": "system-design", "weight": 0.9 },
-    { "parentSlug": "monitoring-observability", "childSlug": "system-design", "weight": 0.8 },
-    { "parentSlug": "distributed-systems", "childSlug": "system-design", "weight": 0.9 },
-    { "parentSlug": "security-best-practices", "childSlug": "system-design", "weight": 0.8 }
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "git-version-control",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "sql-databases",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "data-structures-algorithms",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "http-and-rest",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "web-frameworks",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "http-and-rest",
+      "childSlug": "api-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "http-and-rest",
+      "childSlug": "web-frameworks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "http-and-rest",
+      "childSlug": "authentication-authorization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "sql-databases",
+      "childSlug": "orm-and-migrations",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "sql-databases",
+      "childSlug": "database-performance",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-structures-algorithms",
+      "childSlug": "caching",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "data-structures-algorithms",
+      "childSlug": "database-performance",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "data-structures-algorithms",
+      "childSlug": "distributed-systems",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "api-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "error-handling",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "testing",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "docker",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "api-design",
+      "childSlug": "authentication-authorization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "api-design",
+      "childSlug": "error-handling",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "api-design",
+      "childSlug": "system-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "error-handling",
+      "childSlug": "monitoring-observability",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "testing",
+      "childSlug": "ci-cd",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "authentication-authorization",
+      "childSlug": "security-best-practices",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "caching",
+      "childSlug": "database-performance",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "caching",
+      "childSlug": "distributed-systems",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "message-queues",
+      "childSlug": "distributed-systems",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "orm-and-migrations",
+      "childSlug": "database-performance",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker",
+      "childSlug": "ci-cd",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker",
+      "childSlug": "monitoring-observability",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "database-performance",
+      "childSlug": "system-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "monitoring-observability",
+      "childSlug": "system-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "distributed-systems",
+      "childSlug": "system-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "security-best-practices",
+      "childSlug": "system-design",
+      "weight": 0.8
+    }
   ],
   "questions": [
-    { "prompt": "Which HTTP method is idempotent and typically used to fully replace a resource?", "options": [{ "id": "a", "text": "POST" }, { "id": "b", "text": "PUT" }, { "id": "c", "text": "PATCH" }, { "id": "d", "text": "DELETE" }], "correctId": "b", "explanation": "PUT replaces a resource idempotently — repeating the call yields the same final state.", "difficulty": 2, "skillSlugs": ["http-and-rest"] },
-    { "prompt": "What does HTTP 404 mean?", "options": [{ "id": "a", "text": "Server error" }, { "id": "b", "text": "Not Found" }, { "id": "c", "text": "Unauthorized" }, { "id": "d", "text": "Redirect" }], "correctId": "b", "explanation": "404 = resource not found. 401 = unauthenticated, 403 = forbidden, 500 = server error.", "difficulty": 1, "skillSlugs": ["http-and-rest"] },
-    { "prompt": "Which git command creates a new local branch and switches to it?", "options": [{ "id": "a", "text": "git branch new" }, { "id": "b", "text": "git switch -c new" }, { "id": "c", "text": "git checkout -b new" }, { "id": "d", "text": "Both b and c" }], "correctId": "d", "explanation": "Both `git switch -c` (modern) and `git checkout -b` (classic) create and switch in one step.", "difficulty": 1, "skillSlugs": ["git-version-control"] },
-    { "prompt": "What is the main benefit of feature branches in Git?", "options": [{ "id": "a", "text": "Smaller repo size" }, { "id": "b", "text": "Isolate work so main stays stable" }, { "id": "c", "text": "Faster commits" }, { "id": "d", "text": "Avoids merging" }], "correctId": "b", "explanation": "Feature branches keep experimental work off main until it's reviewed and ready.", "difficulty": 1, "skillSlugs": ["git-version-control"] },
-    { "prompt": "Which SQL constraint ensures a column uniquely identifies each row?", "options": [{ "id": "a", "text": "NOT NULL" }, { "id": "b", "text": "PRIMARY KEY" }, { "id": "c", "text": "CHECK" }, { "id": "d", "text": "DEFAULT" }], "correctId": "b", "explanation": "A PRIMARY KEY is unique and not null — one per table, uniquely identifying rows.", "difficulty": 2, "skillSlugs": ["sql-databases"] },
-    { "prompt": "What does database normalization primarily reduce?", "options": [{ "id": "a", "text": "Query speed" }, { "id": "b", "text": "Data redundancy and update anomalies" }, { "id": "c", "text": "Number of tables" }, { "id": "d", "text": "Storage cost only" }], "correctId": "b", "explanation": "Normalization removes duplicate data so updates, inserts, and deletes stay consistent.", "difficulty": 2, "skillSlugs": ["sql-databases"] },
-    { "prompt": "Average time complexity of looking up a key in a hash table?", "options": [{ "id": "a", "text": "O(1)" }, { "id": "b", "text": "O(log n)" }, { "id": "c", "text": "O(n)" }, { "id": "d", "text": "O(n log n)" }], "correctId": "a", "explanation": "With a good hash function and low load factor, lookups are amortized O(1).", "difficulty": 2, "skillSlugs": ["data-structures-algorithms"] },
-    { "prompt": "Which data structure is best for a LIFO order of operations?", "options": [{ "id": "a", "text": "Queue" }, { "id": "b", "text": "Stack" }, { "id": "c", "text": "Heap" }, { "id": "d", "text": "Linked list" }], "correctId": "b", "explanation": "A stack follows LIFO — push and pop from the same end.", "difficulty": 1, "skillSlugs": ["data-structures-algorithms"] },
-    { "prompt": "Which is NOT typically a core part of a web framework like Express or FastAPI?", "options": [{ "id": "a", "text": "Routing" }, { "id": "b", "text": "Middleware" }, { "id": "c", "text": "The database engine" }, { "id": "d", "text": "Request/response handling" }], "correctId": "c", "explanation": "Web frameworks handle HTTP concerns; the database engine is separate (Postgres, MySQL, etc.).", "difficulty": 2, "skillSlugs": ["web-frameworks"] },
-    { "prompt": "What is middleware in a web server?", "options": [{ "id": "a", "text": "A database layer" }, { "id": "b", "text": "Code that runs between the request and the handler (auth, logging, etc.)" }, { "id": "c", "text": "A deployment tool" }, { "id": "d", "text": "A caching engine" }], "correctId": "b", "explanation": "Middleware intercepts requests to run cross-cutting concerns — auth, logging, rate limiting — before/after handlers.", "difficulty": 2, "skillSlugs": ["web-frameworks"] },
-    { "prompt": "Which is the best sign of a well-designed REST API?", "options": [{ "id": "a", "text": "All endpoints are POST" }, { "id": "b", "text": "Resources are nouns; verbs come from HTTP methods" }, { "id": "c", "text": "Status codes are always 200" }, { "id": "d", "text": "Response shapes vary per endpoint" }], "correctId": "b", "explanation": "REST resources are nouns (/users/42) and actions come from HTTP methods (GET, PUT, DELETE).", "difficulty": 3, "skillSlugs": ["api-design"] },
-    { "prompt": "Why version APIs (e.g., /v1/users)?", "options": [{ "id": "a", "text": "Required by law" }, { "id": "b", "text": "To ship breaking changes without breaking existing clients" }, { "id": "c", "text": "Faster responses" }, { "id": "d", "text": "Smaller payloads" }], "correctId": "b", "explanation": "Versioning lets you evolve the API while old clients keep working against older versions.", "difficulty": 3, "skillSlugs": ["api-design"] },
-    { "prompt": "What is the primary purpose of structured logging?", "options": [{ "id": "a", "text": "Save disk space" }, { "id": "b", "text": "Make logs searchable and machine-parseable (JSON, key-value)" }, { "id": "c", "text": "Encrypt logs" }, { "id": "d", "text": "Compress logs" }], "correctId": "b", "explanation": "Structured logs (e.g., JSON) can be filtered, aggregated, and alerted on by log platforms.", "difficulty": 2, "skillSlugs": ["error-handling"] },
-    { "prompt": "Which HTTP status is best for an unexpected server error?", "options": [{ "id": "a", "text": "200" }, { "id": "b", "text": "400" }, { "id": "c", "text": "500" }, { "id": "d", "text": "302" }], "correctId": "c", "explanation": "500 = Internal Server Error. 4xx is for client errors, 5xx for server errors.", "difficulty": 1, "skillSlugs": ["error-handling"] },
-    { "prompt": "What is the main difference between a unit test and an integration test?", "options": [{ "id": "a", "text": "Unit tests are slower" }, { "id": "b", "text": "Unit tests isolate a single unit; integration tests exercise multiple parts together" }, { "id": "c", "text": "They are the same" }, { "id": "d", "text": "Integration tests don't use assertions" }], "correctId": "b", "explanation": "Unit tests verify one function in isolation; integration tests verify components work together (e.g., service + DB).", "difficulty": 2, "skillSlugs": ["testing"] },
-    { "prompt": "What is a test double (mock/stub)?", "options": [{ "id": "a", "text": "A duplicate test" }, { "id": "b", "text": "A fake object that stands in for a real dependency during a test" }, { "id": "c", "text": "A slow test" }, { "id": "d", "text": "A retry mechanism" }], "correctId": "b", "explanation": "Test doubles let you control the behavior of external dependencies (APIs, DBs) for fast, isolated tests.", "difficulty": 2, "skillSlugs": ["testing"] },
-    { "prompt": "What is the difference between authentication and authorization?", "options": [{ "id": "a", "text": "They are the same" }, { "id": "b", "text": "AuthN verifies identity; AuthZ decides what they can do" }, { "id": "c", "text": "AuthZ comes first" }, { "id": "d", "text": "Only AuthN matters" }], "correctId": "b", "explanation": "Authentication answers 'who are you?' Authorization answers 'what are you allowed to do?'", "difficulty": 2, "skillSlugs": ["authentication-authorization"] },
-    { "prompt": "A JWT (JSON Web Token) is best described as:", "options": [{ "id": "a", "text": "An encrypted password" }, { "id": "b", "text": "A signed token containing claims, verifiable without a DB lookup" }, { "id": "c", "text": "A database" }, { "id": "d", "text": "A session cookie" }], "correctId": "b", "explanation": "JWTs are signed (not necessarily encrypted) so the server can verify authenticity from the token itself.", "difficulty": 3, "skillSlugs": ["authentication-authorization"] },
-    { "prompt": "What is the main purpose of caching?", "options": [{ "id": "a", "text": "Save disk space" }, { "id": "b", "text": "Reduce latency and load on slower downstream services" }, { "id": "c", "text": "Encrypt data" }, { "id": "d", "text": "Compress data" }], "correctId": "b", "explanation": "Caching trades a small staleness risk for much lower latency and reduced backend pressure.", "difficulty": 2, "skillSlugs": ["caching"] },
-    { "prompt": "Which is the classic cache invalidation risk?", "options": [{ "id": "a", "text": "Faster reads" }, { "id": "b", "text": "Serving stale data after the source has changed" }, { "id": "c", "text": "Cache is too small" }, { "id": "d", "text": "Cache is too big" }], "correctId": "b", "explanation": "Without a good invalidation strategy (TTL, event-driven), cached values can become inconsistent with the source.", "difficulty": 3, "skillSlugs": ["caching"] },
-    { "prompt": "What is the primary benefit of message queues?", "options": [{ "id": "a", "text": "Lower database cost" }, { "id": "b", "text": "Decouple producers and consumers so slow work can run asynchronously" }, { "id": "c", "text": "Faster network" }, { "id": "d", "text": "Smaller payloads" }], "correctId": "b", "explanation": "Queues let producers push events and consumers process at their own pace, absorbing bursts and isolating failures.", "difficulty": 3, "skillSlugs": ["message-queues"] },
-    { "prompt": "An ORM (Object-Relational Mapper) is used to:", "options": [{ "id": "a", "text": "Replace the database" }, { "id": "b", "text": "Map objects in code to database tables and rows" }, { "id": "c", "text": "Speed up queries only" }, { "id": "d", "text": "Back up data" }], "correctId": "b", "explanation": "ORMs like Prisma, SQLAlchemy, or ActiveRecord let you work with typed objects instead of raw SQL.", "difficulty": 3, "skillSlugs": ["orm-and-migrations"] },
-    { "prompt": "What is the key principle of safe database migrations?", "options": [{ "id": "a", "text": "Combine all schema changes into one big migration" }, { "id": "b", "text": "Make changes backward-compatible so old and new code can coexist during rollout" }, { "id": "c", "text": "Never migrate" }, { "id": "d", "text": "Only migrate on weekends" }], "correctId": "b", "explanation": "Zero-downtime migrations avoid breaking changes: add columns as nullable, backfill, then switch reads/writes, then drop later.", "difficulty": 4, "skillSlugs": ["orm-and-migrations"] },
-    { "prompt": "What is a Docker image?", "options": [{ "id": "a", "text": "A running process" }, { "id": "b", "text": "A read-only template used to create containers" }, { "id": "c", "text": "A virtual machine" }, { "id": "d", "text": "A network" }], "correctId": "b", "explanation": "Images are immutable blueprints; containers are the running instances.", "difficulty": 2, "skillSlugs": ["docker"] },
-    { "prompt": "What is the main benefit of containers over virtual machines?", "options": [{ "id": "a", "text": "Stronger isolation" }, { "id": "b", "text": "Share the host kernel — smaller, faster to start" }, { "id": "c", "text": "Better graphics" }, { "id": "d", "text": "More secure by default" }], "correctId": "b", "explanation": "Containers share the host OS kernel, making them lightweight and fast compared to full VMs.", "difficulty": 3, "skillSlugs": ["docker"] },
-    { "prompt": "Continuous Integration (CI) primarily means:", "options": [{ "id": "a", "text": "Deploy to production on every commit" }, { "id": "b", "text": "Automatically build and test every change" }, { "id": "c", "text": "Run backups" }, { "id": "d", "text": "Load testing" }], "correctId": "b", "explanation": "CI runs automated builds and tests on every push, catching regressions early.", "difficulty": 2, "skillSlugs": ["ci-cd"] },
-    { "prompt": "What is a blue/green deployment?", "options": [{ "id": "a", "text": "Deploy to two unrelated servers" }, { "id": "b", "text": "Run two identical environments and switch traffic between them for zero-downtime releases" }, { "id": "c", "text": "Deploy only on holidays" }, { "id": "d", "text": "Use blue LEDs" }], "correctId": "b", "explanation": "Blue/green runs old (blue) and new (green) side by side, then flips the router — easy rollback if issues arise.", "difficulty": 3, "skillSlugs": ["ci-cd"] },
-    { "prompt": "What is an N+1 query problem?", "options": [{ "id": "a", "text": "Too many indexes" }, { "id": "b", "text": "One query for a list + one query per item, causing N+1 total round trips" }, { "id": "c", "text": "Too many tables" }, { "id": "d", "text": "A SQL syntax error" }], "correctId": "b", "explanation": "Fetching a list then querying per item explodes into N+1 queries. Fix: JOIN, batch, or use dataloader-style batching.", "difficulty": 3, "skillSlugs": ["database-performance"] },
-    { "prompt": "What is the primary purpose of a database index?", "options": [{ "id": "a", "text": "Reduce storage" }, { "id": "b", "text": "Speed up reads at the cost of slower writes and extra storage" }, { "id": "c", "text": "Enforce uniqueness" }, { "id": "d", "text": "Encrypt data" }], "correctId": "b", "explanation": "Indexes are lookup structures (usually B-trees) that trade write cost for much faster reads.", "difficulty": 3, "skillSlugs": ["database-performance"] },
-    { "prompt": "Which is NOT one of the three pillars of observability?", "options": [{ "id": "a", "text": "Metrics" }, { "id": "b", "text": "Logs" }, { "id": "c", "text": "Traces" }, { "id": "d", "text": "Backups" }], "correctId": "d", "explanation": "Metrics, logs, and traces are the three pillars. Backups are important but not part of observability.", "difficulty": 3, "skillSlugs": ["monitoring-observability"] },
-    { "prompt": "What is a p99 latency metric?", "options": [{ "id": "a", "text": "The average latency" }, { "id": "b", "text": "The latency below which 99% of requests complete" }, { "id": "c", "text": "The fastest 1%" }, { "id": "d", "text": "Maximum latency" }], "correctId": "b", "explanation": "p99 captures tail latency — often more important than the average for user experience.", "difficulty": 3, "skillSlugs": ["monitoring-observability"] },
-    { "prompt": "The CAP theorem says a distributed system can only guarantee two of:", "options": [{ "id": "a", "text": "Consistency, Availability, Performance" }, { "id": "b", "text": "Consistency, Availability, Partition tolerance" }, { "id": "c", "text": "Correctness, Atomicity, Persistence" }, { "id": "d", "text": "Concurrency, Availability, Persistence" }], "correctId": "b", "explanation": "Under a network partition, you choose consistency (reject writes) or availability (serve stale data).", "difficulty": 4, "skillSlugs": ["distributed-systems"] },
-    { "prompt": "Eventual consistency means:", "options": [{ "id": "a", "text": "Data is always consistent" }, { "id": "b", "text": "All replicas will converge to the same value given enough time without new writes" }, { "id": "c", "text": "Data is never consistent" }, { "id": "d", "text": "Only one replica exists" }], "correctId": "b", "explanation": "Eventual consistency trades immediate consistency for availability and scale — used by DynamoDB, Cassandra, etc.", "difficulty": 4, "skillSlugs": ["distributed-systems"] },
-    { "prompt": "Which is the OWASP-recommended defense against SQL injection?", "options": [{ "id": "a", "text": "String concatenation with escaping" }, { "id": "b", "text": "Parameterized queries / prepared statements" }, { "id": "c", "text": "Hiding the SQL error" }, { "id": "d", "text": "Using a firewall only" }], "correctId": "b", "explanation": "Parameterized queries separate SQL structure from data — user input can never become executable SQL.", "difficulty": 3, "skillSlugs": ["security-best-practices"] },
-    { "prompt": "The principle of least privilege means:", "options": [{ "id": "a", "text": "Give everyone admin access" }, { "id": "b", "text": "Grant only the permissions needed for a task — nothing more" }, { "id": "c", "text": "Use a single shared account" }, { "id": "d", "text": "Disable logging" }], "correctId": "b", "explanation": "Minimal permissions limit blast radius if credentials leak or a service is compromised.", "difficulty": 3, "skillSlugs": ["security-best-practices"] },
-    { "prompt": "Horizontal scaling means:", "options": [{ "id": "a", "text": "Bigger machine" }, { "id": "b", "text": "Adding more machines behind a load balancer" }, { "id": "c", "text": "Adding more RAM" }, { "id": "d", "text": "Faster disk" }], "correctId": "b", "explanation": "Horizontal = scale out (many machines); vertical = scale up (one bigger machine).", "difficulty": 4, "skillSlugs": ["system-design"] },
-    { "prompt": "What is the purpose of a load balancer?", "options": [{ "id": "a", "text": "Cache responses" }, { "id": "b", "text": "Distribute traffic across multiple backend instances and health-check them" }, { "id": "c", "text": "Serve HTML" }, { "id": "d", "text": "Encrypt traffic" }], "correctId": "b", "explanation": "Load balancers spread requests, remove unhealthy nodes, and often terminate TLS.", "difficulty": 4, "skillSlugs": ["system-design"] },
-    { "prompt": "What does 'stateless' mean for a service?", "options": [{ "id": "a", "text": "No database" }, { "id": "b", "text": "Requests carry all needed context so any instance can handle any request" }, { "id": "c", "text": "No logs" }, { "id": "d", "text": "No monitoring" }], "correctId": "b", "explanation": "Stateless services scale horizontally without sticky sessions — session state lives in a DB/cache, not in-process memory.", "difficulty": 4, "skillSlugs": ["system-design"] },
-    { "prompt": "Which is the best reason to choose a message queue over a synchronous call between services?", "options": [{ "id": "a", "text": "Lower latency" }, { "id": "b", "text": "Resilience to consumer downtime and traffic spikes" }, { "id": "c", "text": "Simpler debugging" }, { "id": "d", "text": "Stronger consistency" }], "correctId": "b", "explanation": "Queues buffer work and let slow or down consumers catch up without breaking producers.", "difficulty": 4, "skillSlugs": ["system-design"] }
+    {
+      "prompt": "Which HTTP method is idempotent and typically used to fully replace a resource?",
+      "options": [
+        {
+          "id": "a",
+          "text": "POST"
+        },
+        {
+          "id": "b",
+          "text": "PUT"
+        },
+        {
+          "id": "c",
+          "text": "PATCH"
+        },
+        {
+          "id": "d",
+          "text": "DELETE"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "PUT replaces a resource idempotently \u2014 repeating the call yields the same final state.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "http-and-rest"
+      ]
+    },
+    {
+      "prompt": "What does HTTP 404 mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Server error"
+        },
+        {
+          "id": "b",
+          "text": "Not Found"
+        },
+        {
+          "id": "c",
+          "text": "Unauthorized"
+        },
+        {
+          "id": "d",
+          "text": "Redirect"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "404 = resource not found. 401 = unauthenticated, 403 = forbidden, 500 = server error.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "http-and-rest"
+      ]
+    },
+    {
+      "prompt": "Which git command creates a new local branch and switches to it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "git branch new"
+        },
+        {
+          "id": "b",
+          "text": "git switch -c new"
+        },
+        {
+          "id": "c",
+          "text": "git checkout -b new"
+        },
+        {
+          "id": "d",
+          "text": "Both b and c"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Both `git switch -c` (modern) and `git checkout -b` (classic) create and switch in one step.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "git-version-control"
+      ]
+    },
+    {
+      "prompt": "What is the main benefit of feature branches in Git?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Smaller repo size"
+        },
+        {
+          "id": "b",
+          "text": "Isolate work so main stays stable"
+        },
+        {
+          "id": "c",
+          "text": "Faster commits"
+        },
+        {
+          "id": "d",
+          "text": "Avoids merging"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Feature branches keep experimental work off main until it's reviewed and ready.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "git-version-control"
+      ]
+    },
+    {
+      "prompt": "Which SQL constraint ensures a column uniquely identifies each row?",
+      "options": [
+        {
+          "id": "a",
+          "text": "NOT NULL"
+        },
+        {
+          "id": "b",
+          "text": "PRIMARY KEY"
+        },
+        {
+          "id": "c",
+          "text": "CHECK"
+        },
+        {
+          "id": "d",
+          "text": "DEFAULT"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A PRIMARY KEY is unique and not null \u2014 one per table, uniquely identifying rows.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "sql-databases"
+      ]
+    },
+    {
+      "prompt": "What does database normalization primarily reduce?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Query speed"
+        },
+        {
+          "id": "b",
+          "text": "Data redundancy and update anomalies"
+        },
+        {
+          "id": "c",
+          "text": "Number of tables"
+        },
+        {
+          "id": "d",
+          "text": "Storage cost only"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Normalization removes duplicate data so updates, inserts, and deletes stay consistent.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "sql-databases"
+      ]
+    },
+    {
+      "prompt": "Average time complexity of looking up a key in a hash table?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O(1)"
+        },
+        {
+          "id": "b",
+          "text": "O(log n)"
+        },
+        {
+          "id": "c",
+          "text": "O(n)"
+        },
+        {
+          "id": "d",
+          "text": "O(n log n)"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "With a good hash function and low load factor, lookups are amortized O(1).",
+      "difficulty": 2,
+      "skillSlugs": [
+        "data-structures-algorithms"
+      ]
+    },
+    {
+      "prompt": "Which data structure is best for a LIFO order of operations?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Queue"
+        },
+        {
+          "id": "b",
+          "text": "Stack"
+        },
+        {
+          "id": "c",
+          "text": "Heap"
+        },
+        {
+          "id": "d",
+          "text": "Linked list"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A stack follows LIFO \u2014 push and pop from the same end.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "data-structures-algorithms"
+      ]
+    },
+    {
+      "prompt": "Which is NOT typically a core part of a web framework like Express or FastAPI?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Routing"
+        },
+        {
+          "id": "b",
+          "text": "Middleware"
+        },
+        {
+          "id": "c",
+          "text": "The database engine"
+        },
+        {
+          "id": "d",
+          "text": "Request/response handling"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Web frameworks handle HTTP concerns; the database engine is separate (Postgres, MySQL, etc.).",
+      "difficulty": 2,
+      "skillSlugs": [
+        "web-frameworks"
+      ]
+    },
+    {
+      "prompt": "What is middleware in a web server?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A database layer"
+        },
+        {
+          "id": "b",
+          "text": "Code that runs between the request and the handler (auth, logging, etc.)"
+        },
+        {
+          "id": "c",
+          "text": "A deployment tool"
+        },
+        {
+          "id": "d",
+          "text": "A caching engine"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Middleware intercepts requests to run cross-cutting concerns \u2014 auth, logging, rate limiting \u2014 before/after handlers.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "web-frameworks"
+      ]
+    },
+    {
+      "prompt": "Which is the best sign of a well-designed REST API?",
+      "options": [
+        {
+          "id": "a",
+          "text": "All endpoints are POST"
+        },
+        {
+          "id": "b",
+          "text": "Resources are nouns; verbs come from HTTP methods"
+        },
+        {
+          "id": "c",
+          "text": "Status codes are always 200"
+        },
+        {
+          "id": "d",
+          "text": "Response shapes vary per endpoint"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "REST resources are nouns (/users/42) and actions come from HTTP methods (GET, PUT, DELETE).",
+      "difficulty": 3,
+      "skillSlugs": [
+        "api-design"
+      ]
+    },
+    {
+      "prompt": "Why version APIs (e.g., /v1/users)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Required by law"
+        },
+        {
+          "id": "b",
+          "text": "To ship breaking changes without breaking existing clients"
+        },
+        {
+          "id": "c",
+          "text": "Faster responses"
+        },
+        {
+          "id": "d",
+          "text": "Smaller payloads"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Versioning lets you evolve the API while old clients keep working against older versions.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "api-design"
+      ]
+    },
+    {
+      "prompt": "What is the primary purpose of structured logging?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Save disk space"
+        },
+        {
+          "id": "b",
+          "text": "Make logs searchable and machine-parseable (JSON, key-value)"
+        },
+        {
+          "id": "c",
+          "text": "Encrypt logs"
+        },
+        {
+          "id": "d",
+          "text": "Compress logs"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Structured logs (e.g., JSON) can be filtered, aggregated, and alerted on by log platforms.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "error-handling"
+      ]
+    },
+    {
+      "prompt": "Which HTTP status is best for an unexpected server error?",
+      "options": [
+        {
+          "id": "a",
+          "text": "200"
+        },
+        {
+          "id": "b",
+          "text": "400"
+        },
+        {
+          "id": "c",
+          "text": "500"
+        },
+        {
+          "id": "d",
+          "text": "302"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "500 = Internal Server Error. 4xx is for client errors, 5xx for server errors.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "error-handling"
+      ]
+    },
+    {
+      "prompt": "What is the main difference between a unit test and an integration test?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unit tests are slower"
+        },
+        {
+          "id": "b",
+          "text": "Unit tests isolate a single unit; integration tests exercise multiple parts together"
+        },
+        {
+          "id": "c",
+          "text": "They are the same"
+        },
+        {
+          "id": "d",
+          "text": "Integration tests don't use assertions"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Unit tests verify one function in isolation; integration tests verify components work together (e.g., service + DB).",
+      "difficulty": 2,
+      "skillSlugs": [
+        "testing"
+      ]
+    },
+    {
+      "prompt": "What is a test double (mock/stub)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A duplicate test"
+        },
+        {
+          "id": "b",
+          "text": "A fake object that stands in for a real dependency during a test"
+        },
+        {
+          "id": "c",
+          "text": "A slow test"
+        },
+        {
+          "id": "d",
+          "text": "A retry mechanism"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Test doubles let you control the behavior of external dependencies (APIs, DBs) for fast, isolated tests.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "testing"
+      ]
+    },
+    {
+      "prompt": "What is the difference between authentication and authorization?",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are the same"
+        },
+        {
+          "id": "b",
+          "text": "AuthN verifies identity; AuthZ decides what they can do"
+        },
+        {
+          "id": "c",
+          "text": "AuthZ comes first"
+        },
+        {
+          "id": "d",
+          "text": "Only AuthN matters"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Authentication answers 'who are you?' Authorization answers 'what are you allowed to do?'",
+      "difficulty": 2,
+      "skillSlugs": [
+        "authentication-authorization"
+      ]
+    },
+    {
+      "prompt": "A JWT (JSON Web Token) is best described as:",
+      "options": [
+        {
+          "id": "a",
+          "text": "An encrypted password"
+        },
+        {
+          "id": "b",
+          "text": "A signed token containing claims, verifiable without a DB lookup"
+        },
+        {
+          "id": "c",
+          "text": "A database"
+        },
+        {
+          "id": "d",
+          "text": "A session cookie"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "JWTs are signed (not necessarily encrypted) so the server can verify authenticity from the token itself.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "authentication-authorization"
+      ]
+    },
+    {
+      "prompt": "What is the main purpose of caching?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Save disk space"
+        },
+        {
+          "id": "b",
+          "text": "Reduce latency and load on slower downstream services"
+        },
+        {
+          "id": "c",
+          "text": "Encrypt data"
+        },
+        {
+          "id": "d",
+          "text": "Compress data"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Caching trades a small staleness risk for much lower latency and reduced backend pressure.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "caching"
+      ]
+    },
+    {
+      "prompt": "Which is the classic cache invalidation risk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Faster reads"
+        },
+        {
+          "id": "b",
+          "text": "Serving stale data after the source has changed"
+        },
+        {
+          "id": "c",
+          "text": "Cache is too small"
+        },
+        {
+          "id": "d",
+          "text": "Cache is too big"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Without a good invalidation strategy (TTL, event-driven), cached values can become inconsistent with the source.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "caching"
+      ]
+    },
+    {
+      "prompt": "What is the primary benefit of message queues?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lower database cost"
+        },
+        {
+          "id": "b",
+          "text": "Decouple producers and consumers so slow work can run asynchronously"
+        },
+        {
+          "id": "c",
+          "text": "Faster network"
+        },
+        {
+          "id": "d",
+          "text": "Smaller payloads"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Queues let producers push events and consumers process at their own pace, absorbing bursts and isolating failures.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "message-queues"
+      ]
+    },
+    {
+      "prompt": "An ORM (Object-Relational Mapper) is used to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Replace the database"
+        },
+        {
+          "id": "b",
+          "text": "Map objects in code to database tables and rows"
+        },
+        {
+          "id": "c",
+          "text": "Speed up queries only"
+        },
+        {
+          "id": "d",
+          "text": "Back up data"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "ORMs like Prisma, SQLAlchemy, or ActiveRecord let you work with typed objects instead of raw SQL.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "orm-and-migrations"
+      ]
+    },
+    {
+      "prompt": "What is the key principle of safe database migrations?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Combine all schema changes into one big migration"
+        },
+        {
+          "id": "b",
+          "text": "Make changes backward-compatible so old and new code can coexist during rollout"
+        },
+        {
+          "id": "c",
+          "text": "Never migrate"
+        },
+        {
+          "id": "d",
+          "text": "Only migrate on weekends"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Zero-downtime migrations avoid breaking changes: add columns as nullable, backfill, then switch reads/writes, then drop later.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "orm-and-migrations"
+      ]
+    },
+    {
+      "prompt": "What is a Docker image?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A running process"
+        },
+        {
+          "id": "b",
+          "text": "A read-only template used to create containers"
+        },
+        {
+          "id": "c",
+          "text": "A virtual machine"
+        },
+        {
+          "id": "d",
+          "text": "A network"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Images are immutable blueprints; containers are the running instances.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "docker"
+      ]
+    },
+    {
+      "prompt": "What is the main benefit of containers over virtual machines?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stronger isolation"
+        },
+        {
+          "id": "b",
+          "text": "Share the host kernel \u2014 smaller, faster to start"
+        },
+        {
+          "id": "c",
+          "text": "Better graphics"
+        },
+        {
+          "id": "d",
+          "text": "More secure by default"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Containers share the host OS kernel, making them lightweight and fast compared to full VMs.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "docker"
+      ]
+    },
+    {
+      "prompt": "Continuous Integration (CI) primarily means:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deploy to production on every commit"
+        },
+        {
+          "id": "b",
+          "text": "Automatically build and test every change"
+        },
+        {
+          "id": "c",
+          "text": "Run backups"
+        },
+        {
+          "id": "d",
+          "text": "Load testing"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "CI runs automated builds and tests on every push, catching regressions early.",
+      "difficulty": 2,
+      "skillSlugs": [
+        "ci-cd"
+      ]
+    },
+    {
+      "prompt": "What is a blue/green deployment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Deploy to two unrelated servers"
+        },
+        {
+          "id": "b",
+          "text": "Run two identical environments and switch traffic between them for zero-downtime releases"
+        },
+        {
+          "id": "c",
+          "text": "Deploy only on holidays"
+        },
+        {
+          "id": "d",
+          "text": "Use blue LEDs"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Blue/green runs old (blue) and new (green) side by side, then flips the router \u2014 easy rollback if issues arise.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "ci-cd"
+      ]
+    },
+    {
+      "prompt": "What is an N+1 query problem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Too many indexes"
+        },
+        {
+          "id": "b",
+          "text": "One query for a list + one query per item, causing N+1 total round trips"
+        },
+        {
+          "id": "c",
+          "text": "Too many tables"
+        },
+        {
+          "id": "d",
+          "text": "A SQL syntax error"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Fetching a list then querying per item explodes into N+1 queries. Fix: JOIN, batch, or use dataloader-style batching.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "database-performance"
+      ]
+    },
+    {
+      "prompt": "What is the primary purpose of a database index?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reduce storage"
+        },
+        {
+          "id": "b",
+          "text": "Speed up reads at the cost of slower writes and extra storage"
+        },
+        {
+          "id": "c",
+          "text": "Enforce uniqueness"
+        },
+        {
+          "id": "d",
+          "text": "Encrypt data"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Indexes are lookup structures (usually B-trees) that trade write cost for much faster reads.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "database-performance"
+      ]
+    },
+    {
+      "prompt": "Which is NOT one of the three pillars of observability?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Metrics"
+        },
+        {
+          "id": "b",
+          "text": "Logs"
+        },
+        {
+          "id": "c",
+          "text": "Traces"
+        },
+        {
+          "id": "d",
+          "text": "Backups"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Metrics, logs, and traces are the three pillars. Backups are important but not part of observability.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "monitoring-observability"
+      ]
+    },
+    {
+      "prompt": "What is a p99 latency metric?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The average latency"
+        },
+        {
+          "id": "b",
+          "text": "The latency below which 99% of requests complete"
+        },
+        {
+          "id": "c",
+          "text": "The fastest 1%"
+        },
+        {
+          "id": "d",
+          "text": "Maximum latency"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "p99 captures tail latency \u2014 often more important than the average for user experience.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "monitoring-observability"
+      ]
+    },
+    {
+      "prompt": "The CAP theorem says a distributed system can only guarantee two of:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Consistency, Availability, Performance"
+        },
+        {
+          "id": "b",
+          "text": "Consistency, Availability, Partition tolerance"
+        },
+        {
+          "id": "c",
+          "text": "Correctness, Atomicity, Persistence"
+        },
+        {
+          "id": "d",
+          "text": "Concurrency, Availability, Persistence"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Under a network partition, you choose consistency (reject writes) or availability (serve stale data).",
+      "difficulty": 4,
+      "skillSlugs": [
+        "distributed-systems"
+      ]
+    },
+    {
+      "prompt": "Eventual consistency means:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Data is always consistent"
+        },
+        {
+          "id": "b",
+          "text": "All replicas will converge to the same value given enough time without new writes"
+        },
+        {
+          "id": "c",
+          "text": "Data is never consistent"
+        },
+        {
+          "id": "d",
+          "text": "Only one replica exists"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Eventual consistency trades immediate consistency for availability and scale \u2014 used by DynamoDB, Cassandra, etc.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "distributed-systems"
+      ]
+    },
+    {
+      "prompt": "Which is the OWASP-recommended defense against SQL injection?",
+      "options": [
+        {
+          "id": "a",
+          "text": "String concatenation with escaping"
+        },
+        {
+          "id": "b",
+          "text": "Parameterized queries / prepared statements"
+        },
+        {
+          "id": "c",
+          "text": "Hiding the SQL error"
+        },
+        {
+          "id": "d",
+          "text": "Using a firewall only"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Parameterized queries separate SQL structure from data \u2014 user input can never become executable SQL.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "security-best-practices"
+      ]
+    },
+    {
+      "prompt": "The principle of least privilege means:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Give everyone admin access"
+        },
+        {
+          "id": "b",
+          "text": "Grant only the permissions needed for a task \u2014 nothing more"
+        },
+        {
+          "id": "c",
+          "text": "Use a single shared account"
+        },
+        {
+          "id": "d",
+          "text": "Disable logging"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Minimal permissions limit blast radius if credentials leak or a service is compromised.",
+      "difficulty": 3,
+      "skillSlugs": [
+        "security-best-practices"
+      ]
+    },
+    {
+      "prompt": "Horizontal scaling means:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bigger machine"
+        },
+        {
+          "id": "b",
+          "text": "Adding more machines behind a load balancer"
+        },
+        {
+          "id": "c",
+          "text": "Adding more RAM"
+        },
+        {
+          "id": "d",
+          "text": "Faster disk"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Horizontal = scale out (many machines); vertical = scale up (one bigger machine).",
+      "difficulty": 4,
+      "skillSlugs": [
+        "system-design"
+      ]
+    },
+    {
+      "prompt": "What is the purpose of a load balancer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cache responses"
+        },
+        {
+          "id": "b",
+          "text": "Distribute traffic across multiple backend instances and health-check them"
+        },
+        {
+          "id": "c",
+          "text": "Serve HTML"
+        },
+        {
+          "id": "d",
+          "text": "Encrypt traffic"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Load balancers spread requests, remove unhealthy nodes, and often terminate TLS.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "system-design"
+      ]
+    },
+    {
+      "prompt": "What does 'stateless' mean for a service?",
+      "options": [
+        {
+          "id": "a",
+          "text": "No database"
+        },
+        {
+          "id": "b",
+          "text": "Requests carry all needed context so any instance can handle any request"
+        },
+        {
+          "id": "c",
+          "text": "No logs"
+        },
+        {
+          "id": "d",
+          "text": "No monitoring"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Stateless services scale horizontally without sticky sessions \u2014 session state lives in a DB/cache, not in-process memory.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "system-design"
+      ]
+    },
+    {
+      "prompt": "Which is the best reason to choose a message queue over a synchronous call between services?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lower latency"
+        },
+        {
+          "id": "b",
+          "text": "Resilience to consumer downtime and traffic spikes"
+        },
+        {
+          "id": "c",
+          "text": "Simpler debugging"
+        },
+        {
+          "id": "d",
+          "text": "Stronger consistency"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Queues buffer work and let slow or down consumers catch up without breaking producers.",
+      "difficulty": 4,
+      "skillSlugs": [
+        "system-design"
+      ]
+    },
+    {
+      "prompt": "Which is the primary purpose of a function in programming?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Store data"
+        },
+        {
+          "id": "b",
+          "text": "Encapsulate reusable logic with a name and inputs"
+        },
+        {
+          "id": "c",
+          "text": "Render HTML"
+        },
+        {
+          "id": "d",
+          "text": "Manage memory only"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Functions group reusable logic, take inputs, and return outputs \u2014 a core abstraction in every language.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "programming-fundamentals"
+      ]
+    },
+    {
+      "prompt": "What is a variable in programming?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A named reference to a value in memory"
+        },
+        {
+          "id": "b",
+          "text": "A database table"
+        },
+        {
+          "id": "c",
+          "text": "A network protocol"
+        },
+        {
+          "id": "d",
+          "text": "A type of loop"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Variables bind names to values so you can reference and update data in your program.",
+      "difficulty": 1,
+      "skillSlugs": [
+        "programming-fundamentals"
+      ]
+    }
   ],
   "materials": [
-    { "title": "MDN: HTTP Overview", "type": "link", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview", "skillSlugs": ["http-and-rest"] },
-    { "title": "Pro Git Book (Free)", "type": "link", "url": "https://git-scm.com/book/en/v2", "skillSlugs": ["git-version-control"] },
-    { "title": "PostgreSQL Tutorial", "type": "link", "url": "https://www.postgresqltutorial.com/", "skillSlugs": ["sql-databases"] },
-    { "title": "Big-O Cheat Sheet", "type": "link", "url": "https://www.bigocheatsheet.com/", "skillSlugs": ["data-structures-algorithms"] },
-    { "title": "FastAPI Tutorial", "type": "link", "url": "https://fastapi.tiangolo.com/tutorial/", "skillSlugs": ["web-frameworks"] },
-    { "title": "Microsoft REST API Guidelines", "type": "link", "url": "https://github.com/microsoft/api-guidelines", "skillSlugs": ["api-design"] },
-    { "title": "The Twelve-Factor App", "type": "link", "url": "https://12factor.net/", "skillSlugs": ["error-handling"] },
-    { "title": "Martin Fowler: Practical Test Pyramid", "type": "link", "url": "https://martinfowler.com/articles/practical-test-pyramid.html", "skillSlugs": ["testing"] },
-    { "title": "OWASP Authentication Cheat Sheet", "type": "link", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html", "skillSlugs": ["authentication-authorization"] },
-    { "title": "Redis University", "type": "link", "url": "https://university.redis.com/", "skillSlugs": ["caching"] },
-    { "title": "RabbitMQ Tutorials", "type": "link", "url": "https://www.rabbitmq.com/tutorials", "skillSlugs": ["message-queues"] },
-    { "title": "Prisma Documentation", "type": "link", "url": "https://www.prisma.io/docs", "skillSlugs": ["orm-and-migrations"] },
-    { "title": "Docker Getting Started", "type": "link", "url": "https://docs.docker.com/get-started/", "skillSlugs": ["docker"] },
-    { "title": "GitHub Actions Documentation", "type": "link", "url": "https://docs.github.com/en/actions", "skillSlugs": ["ci-cd"] },
-    { "title": "Use the Index, Luke!", "type": "link", "url": "https://use-the-index-luke.com/", "skillSlugs": ["database-performance"] },
-    { "title": "Google SRE Book: Monitoring", "type": "link", "url": "https://sre.google/sre-book/monitoring-distributed-systems/", "skillSlugs": ["monitoring-observability"] },
-    { "title": "Designing Data-Intensive Applications (Ch. 1-4 free summaries)", "type": "link", "url": "https://dataintensive.net/", "skillSlugs": ["distributed-systems"] },
-    { "title": "OWASP Top 10", "type": "link", "url": "https://owasp.org/www-project-top-ten/", "skillSlugs": ["security-best-practices"] },
-    { "title": "System Design Primer", "type": "link", "url": "https://github.com/donnemartin/system-design-primer", "skillSlugs": ["system-design"] },
-    { "title": "ByteByteGo: System Design 101", "type": "video", "url": "https://www.youtube.com/watch?v=F2FmTdLtb_4", "skillSlugs": ["system-design"] }
+    {
+      "title": "MDN: HTTP Overview",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview",
+      "skillSlugs": [
+        "http-and-rest"
+      ]
+    },
+    {
+      "title": "Pro Git Book (Free)",
+      "type": "link",
+      "url": "https://git-scm.com/book/en/v2",
+      "skillSlugs": [
+        "git-version-control"
+      ]
+    },
+    {
+      "title": "PostgreSQL Tutorial",
+      "type": "link",
+      "url": "https://www.postgresqltutorial.com/",
+      "skillSlugs": [
+        "sql-databases"
+      ]
+    },
+    {
+      "title": "Big-O Cheat Sheet",
+      "type": "link",
+      "url": "https://www.bigocheatsheet.com/",
+      "skillSlugs": [
+        "data-structures-algorithms"
+      ]
+    },
+    {
+      "title": "FastAPI Tutorial",
+      "type": "link",
+      "url": "https://fastapi.tiangolo.com/tutorial/",
+      "skillSlugs": [
+        "web-frameworks"
+      ]
+    },
+    {
+      "title": "Microsoft REST API Guidelines",
+      "type": "link",
+      "url": "https://github.com/microsoft/api-guidelines",
+      "skillSlugs": [
+        "api-design"
+      ]
+    },
+    {
+      "title": "The Twelve-Factor App",
+      "type": "link",
+      "url": "https://12factor.net/",
+      "skillSlugs": [
+        "error-handling"
+      ]
+    },
+    {
+      "title": "Martin Fowler: Practical Test Pyramid",
+      "type": "link",
+      "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+      "skillSlugs": [
+        "testing"
+      ]
+    },
+    {
+      "title": "OWASP Authentication Cheat Sheet",
+      "type": "link",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+      "skillSlugs": [
+        "authentication-authorization"
+      ]
+    },
+    {
+      "title": "Redis University",
+      "type": "link",
+      "url": "https://university.redis.com/",
+      "skillSlugs": [
+        "caching"
+      ]
+    },
+    {
+      "title": "RabbitMQ Tutorials",
+      "type": "link",
+      "url": "https://www.rabbitmq.com/tutorials",
+      "skillSlugs": [
+        "message-queues"
+      ]
+    },
+    {
+      "title": "Prisma Documentation",
+      "type": "link",
+      "url": "https://www.prisma.io/docs",
+      "skillSlugs": [
+        "orm-and-migrations"
+      ]
+    },
+    {
+      "title": "Docker Getting Started",
+      "type": "link",
+      "url": "https://docs.docker.com/get-started/",
+      "skillSlugs": [
+        "docker"
+      ]
+    },
+    {
+      "title": "GitHub Actions Documentation",
+      "type": "link",
+      "url": "https://docs.github.com/en/actions",
+      "skillSlugs": [
+        "ci-cd"
+      ]
+    },
+    {
+      "title": "Use the Index, Luke!",
+      "type": "link",
+      "url": "https://use-the-index-luke.com/",
+      "skillSlugs": [
+        "database-performance"
+      ]
+    },
+    {
+      "title": "Google SRE Book: Monitoring",
+      "type": "link",
+      "url": "https://sre.google/sre-book/monitoring-distributed-systems/",
+      "skillSlugs": [
+        "monitoring-observability"
+      ]
+    },
+    {
+      "title": "Designing Data-Intensive Applications (Ch. 1-4 free summaries)",
+      "type": "link",
+      "url": "https://dataintensive.net/",
+      "skillSlugs": [
+        "distributed-systems"
+      ]
+    },
+    {
+      "title": "OWASP Top 10",
+      "type": "link",
+      "url": "https://owasp.org/www-project-top-ten/",
+      "skillSlugs": [
+        "security-best-practices"
+      ]
+    },
+    {
+      "title": "System Design Primer",
+      "type": "link",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "skillSlugs": [
+        "system-design"
+      ]
+    },
+    {
+      "title": "ByteByteGo: System Design 101",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=F2FmTdLtb_4",
+      "skillSlugs": [
+        "system-design"
+      ]
+    },
+    {
+      "title": "MDN: JavaScript \u2014 First Steps",
+      "type": "link",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps",
+      "skillSlugs": [
+        "programming-fundamentals"
+      ]
+    }
   ]
 }

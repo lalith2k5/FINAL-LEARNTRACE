@@ -42,15 +42,8 @@ next-env.d.ts
 
 # LearnTrace
 src/content/domains/.cache/
-.DS_Store
-*.log
-
-# LearnTrace
-src/content/domains/.cache/
-.DS_Store
-*.log
-
-# LearnTrace uploads
+src/content/notes/.cache/
 uploads/
 .env.local.backup
-src/content/notes/.cache/
+.DS_Store
+*.log

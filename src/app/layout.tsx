@@ -52,10 +52,6 @@ export const metadata: Metadata = {
     description: STORY,
     creator: "@learntrace",
   },
-  icons: {
-    icon: "/icon.svg",
-    apple: "/apple-icon.svg",
-  },
   robots: {
     index: true,
     follow: true,
