@@ -87,6 +87,7 @@ export default async function DashboardPage() {
   const skillById = new Map(skills.map((s) => [s.id, s]));
 
   const attemptedCount = domainViewList.length;
+  const isFreshUser = attemptedCount === 0;
   const strongCount = domainViewList.filter((v) => v.effective >= 0.75).length;
   const weakCount = domainViewList.filter((v) => v.effective < 0.5).length;
   const decayingCount = domainRevisionQueue.length;
@@ -140,6 +141,36 @@ export default async function DashboardPage() {
         description={`A live view of mastery across ${domain.name}.`}
       />
 
+      {isFreshUser && (
+        <section className="mb-8 space-y-4">
+          <GlassPanel glow className="border-l-2 border-l-accent">
+            <div className="flex items-start justify-between gap-6">
+              <div className="min-w-0">
+                <p className="label-mono text-accent">Get started</p>
+                <p className="mt-2 text-lg font-medium text-text-primary">
+                  Take your first diagnostic
+                </p>
+                <p className="mt-1 text-sm text-text-secondary">
+                  15 adaptive questions across {domain.name}. We&apos;ll
+                  estimate your mastery, find your highest-impact gaps, and
+                  build your roadmap.
+                </p>
+              </div>
+              <Link href="/assessment" className="btn-primary shrink-0">
+                Begin diagnostic →
+              </Link>
+            </div>
+          </GlassPanel>
+
+          <GlassPanel className="p-8 text-center text-sm text-text-tertiary">
+            Your mastery, gaps, and roadmap will appear here after your first
+            diagnostic.
+          </GlassPanel>
+        </section>
+      )}
+
+      {!isFreshUser && (
+        <>
       {/* KPI Row */}
       <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-5">
         <GlassPanel>
@@ -427,6 +458,8 @@ export default async function DashboardPage() {
           </div>
         )}
       </section>
+        </>
+      )}
     </>
   );
 }

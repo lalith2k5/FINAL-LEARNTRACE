@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -52,12 +53,16 @@ const STEPS: Step[] = [
 ];
 
 export function OnboardingFlow() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    // Skip on the domain picker — the user is already doing that
+    // task. The modal will open when they land on /dashboard.
+    if (pathname === "/domains") return;
     try {
       const done = localStorage.getItem(STORAGE_KEY);
       if (!done) {
@@ -68,7 +73,7 @@ export function OnboardingFlow() {
     } catch {
       // localStorage blocked (incognito) — skip onboarding
     }
-  }, []);
+  }, [pathname]);
 
   function finish() {
     try {

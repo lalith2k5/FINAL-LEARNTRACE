@@ -6,6 +6,7 @@ import { prisma } from "@/lib/db";
 import { requireUser } from "@/lib/user";
 import Link from "next/link";
 import { AppearanceSection } from "@/components/settings/AppearanceSection";
+import { ResetProgressSection } from "@/components/settings/ResetProgressSection";
 
 export const dynamic = "force-dynamic";
 
@@ -52,6 +53,8 @@ export default async function ProfilePage() {
             </div>
           </GlassPanel>
                     <AppearanceSection />
+
+          <ResetProgressSection />
 
 
           <GlassPanel>

@@ -25,3 +25,26 @@ export async function updateProfile(input: { name: string }) {
   revalidatePath("/dashboard");
   return { ok: true };
 }
+
+export async function resetProgress() {
+  const user = await requireUser();
+
+  await prisma.$transaction([
+    prisma.mastery.deleteMany({ where: { userId: user.id } }),
+    prisma.attempt.deleteMany({ where: { userId: user.id } }),
+    prisma.assessmentSession.deleteMany({ where: { userId: user.id } }),
+    prisma.materialProgress.deleteMany({ where: { userId: user.id } }),
+    prisma.practicalSubmission.deleteMany({ where: { userId: user.id } }),
+    prisma.roadmapItem.deleteMany({ where: { userId: user.id } }),
+  ]);
+
+  revalidatePath("/dashboard");
+  revalidatePath("/profile");
+  revalidatePath("/gaps");
+  revalidatePath("/roadmap");
+  revalidatePath("/graph");
+  revalidatePath("/report");
+  revalidatePath("/practice");
+
+  return { ok: true };
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, TrendingUp, TrendingDown, Minus } from "lucide-react";
@@ -346,13 +347,24 @@ export function QuizRunner({ sessionId, sessionKind }: Props) {
           )}
 
           <div className="mt-8 flex justify-center gap-3">
-            <button onClick={finish} className="btn-primary">
-              Back to dashboard →
-            </button>
-            {isReassessment && (
-              <button onClick={() => router.refresh()} className="btn-ghost">
-                Refresh
-              </button>
+            {isReassessment ? (
+              <>
+                <button onClick={finish} className="btn-primary">
+                  Back to dashboard →
+                </button>
+                <button onClick={() => router.refresh()} className="btn-ghost">
+                  Refresh
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/roadmap" className="btn-primary">
+                  View your roadmap →
+                </Link>
+                <button onClick={finish} className="btn-ghost">
+                  Back to dashboard
+                </button>
+              </>
             )}
           </div>
         </GlassPanel>
