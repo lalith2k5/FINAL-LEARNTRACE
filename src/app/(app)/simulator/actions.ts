@@ -16,7 +16,7 @@ export type SimulateActionInput = {
 export async function runSimulation(
   input: SimulateActionInput
 ): Promise<
-  | { ok: true; result: SimulateResult; skillNames: Record<string, string> }
+  | { ok: true; result: SimulateResult }
   | { ok: false; error: string }
 > {
   const user = await requireUser();
@@ -60,8 +60,5 @@ export async function runSimulation(
     targetMastery,
   });
 
-  const skillNames: Record<string, string> = {};
-  for (const s of skills) skillNames[s.id] = s.name;
-
-  return { ok: true, result, skillNames };
+  return { ok: true, result };
 }

@@ -23,7 +23,6 @@ export function SimulatorPanel({ skills }: Props) {
   const [mode, setMode] = useState<"skip" | "improve">("skip");
   const [improveTo, setImproveTo] = useState<number>(0.9);
   const [result, setResult] = useState<SimulateResult | null>(null);
-  const [skillNames, setSkillNames] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
@@ -43,7 +42,6 @@ export function SimulatorPanel({ skills }: Props) {
         return;
       }
       setResult(res.result);
-      setSkillNames(res.skillNames);
     });
   }
 
@@ -115,10 +113,10 @@ export function SimulatorPanel({ skills }: Props) {
             </div>
             <input
               type="range"
-              min={0.5}
+              min={selected ? Math.max(0.5, selected.mastery) : 0.5}
               max={1}
               step={0.05}
-              value={improveTo}
+              value={Math.max(improveTo, selected?.mastery ?? 0.5)}
               onChange={(e) => setImproveTo(parseFloat(e.target.value))}
               className="mt-2 w-full accent-[#1877F2]"
             />
@@ -231,7 +229,7 @@ export function SimulatorPanel({ skills }: Props) {
             <GlassPanel>
               <p className="label-mono mb-3">Downstream effects</p>
               <div className="space-y-2">
-                {result.affected.slice(0, 12).map((a) => {
+                {result.affected.slice(0, 20).map((a) => {
                   const beforePct = Math.round(a.before * 100);
                   const afterPct = Math.round(a.after * 100);
                   const negative = a.delta < 0;
@@ -241,7 +239,7 @@ export function SimulatorPanel({ skills }: Props) {
                       className="flex items-center justify-between gap-4 rounded-lg border border-border-subtle bg-bg-inset/40 px-3 py-2"
                     >
                       <p className="truncate text-sm text-text-primary">
-                        {skillNames[a.id] ?? a.id}
+                        {skills.find((s) => s.id === a.id)?.name ?? a.id}
                       </p>
                       <div className="flex shrink-0 items-center gap-2">
                         <span className="num text-xs text-text-tertiary">

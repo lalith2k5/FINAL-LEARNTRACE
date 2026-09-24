@@ -16,7 +16,9 @@
     "db:seed-questions": "tsx scripts/seed-more-questions-2.ts",
     "content:gen": "tsx scripts/generate-content.ts",
     "db:seed-practical-2": "tsx scripts/seed-more-practical-2.ts",
-    "db:ensure-notes": "tsx scripts/ensure-note-materials.ts"
+    "db:ensure-notes": "tsx scripts/ensure-note-materials.ts",
+    "db:seed-videos": "tsx scripts/seed-skill-videos.ts",
+    "db:remove-notes": "tsx scripts/remove-study-notes.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",

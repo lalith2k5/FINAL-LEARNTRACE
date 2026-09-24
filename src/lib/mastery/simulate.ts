@@ -77,10 +77,10 @@ export function simulate(input: SimulateInput): SimulateResult {
   if (mode === "skip") {
     next[skillId] = 0;
   } else {
-    next[skillId] = Math.min(1, Math.max(0, targetValue));
+    const target = Math.min(1, Math.max(0, targetValue));
+    // Improve mode never lowers mastery
+    next[skillId] = Math.max(before, target);
   }
-
-  const directDelta = next[skillId] - before;
 
   // Propagate to downstream skills (transitively)
   const downstream = downstreamClosure(skillId, graph.edges);
@@ -109,26 +109,32 @@ export function simulate(input: SimulateInput): SimulateResult {
     const parents = parentsOf(id, graph.edges);
     if (parents.length === 0) continue;
 
-    // Weighted average of parents after the change (only those we know)
-    let parentSum = 0;
-    let parentCount = 0;
-    for (const p of parents) {
-      parentSum += next[p] ?? 0;
-      parentCount++;
-    }
-    const parentAvg = parentCount > 0 ? parentSum / parentCount : 0;
-
-    // Downstream skill shouldn't exceed target mastery just because
-    // a parent improved — assume learner still has to do the work.
-    const cap = targetMastery;
-
     if (mode === "skip") {
-      // Drag down: new value = min(current, parentAvg), but not below 0
-      const dragged = Math.min(next[id] ?? 0, parentAvg);
-      next[id] = Math.max(0, dragged);
+      // Soft cascade: child drops by a fraction of the average parent drop.
+      // Represents "unsupported mastery" rather than "erased mastery" —
+      // skipping a prerequisite doesn't zero out the entire downstream tree.
+      const DRAG = 0.5;
+      let dropSum = 0;
+      let count = 0;
+      for (const p of parents) {
+        const beforeParent = mastery[p] ?? 0;
+        const afterParent = next[p] ?? 0;
+        dropSum += Math.max(0, beforeParent - afterParent);
+        count++;
+      }
+      const avgDrop = count > 0 ? dropSum / count : 0;
+      const current = next[id] ?? 0;
+      next[id] = Math.max(0, current - avgDrop * DRAG);
     } else {
-      // Lift up: new value = max(current, min(parentAvg, cap))
-      const lifted = Math.min(cap, parentAvg);
+      // Lift up: new value = max(current, min(parentAvg, targetMastery))
+      let parentSum = 0;
+      let parentCount = 0;
+      for (const p of parents) {
+        parentSum += next[p] ?? 0;
+        parentCount++;
+      }
+      const parentAvg = parentCount > 0 ? parentSum / parentCount : 0;
+      const lifted = Math.min(targetMastery, parentAvg);
       next[id] = Math.max(next[id] ?? 0, lifted);
     }
   }

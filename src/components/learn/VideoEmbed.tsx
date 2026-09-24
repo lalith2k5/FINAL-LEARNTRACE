@@ -23,6 +23,11 @@ function toEmbedUrl(url: string): string | null {
     if (u.hostname.includes("youtube.com")) {
       const v = u.searchParams.get("v");
       if (v) return `https://www.youtube.com/embed/${v}`;
+      // Playlist — youtube.com/playlist?list=ID
+      const list = u.searchParams.get("list");
+      if (u.pathname === "/playlist" && list) {
+        return `https://www.youtube.com/embed/videoseries?list=${list}`;
+      }
       // Already an embed URL
       if (u.pathname.startsWith("/embed/")) return url;
     }

@@ -156,7 +156,6 @@ export default async function LearnSkillPage({
                   type: ms.material.type,
                   url: ms.material.url,
                   body: ms.material.body,
-                  pdfUrl: ms.material.pdfUrl,
                 }}
                 skillId={skill.id}
                 completed={completedSet.has(ms.material.id)}
