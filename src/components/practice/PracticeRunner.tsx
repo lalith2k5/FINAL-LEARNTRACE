@@ -262,23 +262,33 @@ export function PracticeRunner({
                   className={cn(
                     "flex items-start gap-2 rounded-lg border px-3 py-2 text-xs transition-all",
                     r?.passed
-                      ? "border-white/[0.12]/30 bg-white/[0.06]"
+                      ? "border-emerald/40 bg-emerald/[0.06] shadow-[0_0_0_1px_rgba(16,185,129,0.15),0_0_16px_-8px_rgba(16,185,129,0.3)]"
                       : r && !r.passed
-                      ? "border-white/[0.08]/30 bg-white/[0.03]"
+                      ? "border-rose/40 bg-rose/[0.06] shadow-[0_0_0_1px_rgba(244,63,94,0.15),0_0_16px_-8px_rgba(244,63,94,0.3)]"
                       : "border-border-subtle bg-bg-inset/30"
                   )}
                 >
                   {r?.passed ? (
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-text-primary" />
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald" />
                   ) : r && !r.passed ? (
-                    <XCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-text-tertiary" />
+                    <XCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-rose" />
                   ) : (
                     <span className="mt-0.5 h-3.5 w-3.5 shrink-0 rounded-full border border-border-default" />
                   )}
                   <div className="min-w-0 flex-1">
-                    <p className="text-text-secondary">{tc.description}</p>
+                    <p
+                      className={cn(
+                        r?.passed
+                          ? "text-text-primary"
+                          : r && !r.passed
+                          ? "text-text-primary"
+                          : "text-text-secondary"
+                      )}
+                    >
+                      {tc.description}
+                    </p>
                     {r && !r.passed && r.error && (
-                      <p className="mt-1 truncate text-[10px] text-text-tertiary/80">
+                      <p className="mt-1 truncate text-[10px] text-rose/70">
                         {r.error}
                       </p>
                     )}
@@ -292,7 +302,7 @@ export function PracticeRunner({
             <motion.div
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-4 rounded-lg border border-white/[0.12]/40 bg-white/[0.06] px-3 py-2"
+              className="mt-4 rounded-lg border border-emerald/40 bg-emerald/[0.06] px-3 py-2"
             >
               <p className="text-xs text-text-primary">
                 ✓ All tests passed. Mastery updated.
