@@ -225,7 +225,7 @@ export function AuthLeftPanel() {
       {/* ---------------- Bottom ---------------- */}
       <div className="relative">
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/25">
-          Free · No credit card · 30 seconds to start
+          Built on evidence · Not completion
         </p>
       </div>
     </div>

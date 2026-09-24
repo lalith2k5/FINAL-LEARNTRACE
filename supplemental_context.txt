@@ -1,0 +1,337 @@
+=== LEARNTTRACE PROJECT SUPPLEMENTAL CONTEXT ===
+Generated on: Thu Sep 24 07:01:01 IST 2026
+
+
+=== FILE: src/app/api/auth/[...nextauth]/route.ts ===
+import { handlers } from "@/lib/auth";
+
+export const { GET, POST } = handlers;
+
+
+=== FILE: src/middleware.ts ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: postcss.config.mjs ===
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+
+
+=== FILE: eslint.config.mjs ===
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+
+
+=== FILE: vitest.config.ts ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: vitest.setup.ts ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== DIRECTORY LISTING: src/lib/mastery/__tests__ ===
+src/lib/mastery/__tests__
+src/lib/mastery/__tests__/engine.test.ts
+src/lib/mastery/__tests__/adaptive.test.ts
+src/lib/mastery/__tests__/misconceptions.test.ts
+
+
+=== DIRECTORY LISTING: src/lib/graph/__tests__ ===
+# [Directory does not exist locally yet]
+
+
+=== FILE: .env.example ===
+DATABASE_URL="postgresql://dev:dev@localhost:5433/learntrace"
+GEMINI_API_KEY="your_gemini_key_here"
+NEXTAUTH_SECRET="your_nextauth_secret_here"
+AUTH_SECRET="your_auth_secret_here"
+NEXTAUTH_URL="http://localhost:3000"
+GOOGLE_CLIENT_ID="your-client-id.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET="GOCSPX-your-secret"
+
+
+=== FILE: .gitignore ===
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# LearnTrace
+src/content/domains/.cache/
+.DS_Store
+*.log
+
+# LearnTrace
+src/content/domains/.cache/
+.DS_Store
+*.log
+
+# LearnTrace uploads
+uploads/
+.env.local.backup
+
+
+=== FILE: README.md ===
+# LearnTrace
+
+**An AI-driven knowledge graph and knowledge tracing framework for skill gap detection and personalized learning.**
+
+LearnTrace models skills and their prerequisite relationships, estimates learner mastery over time, identifies high-priority skill gaps, and generates personalized learning paths — with an AI tutor, adaptive assessment, and hands-on coding tasks.
+
+---
+
+## The Idea
+
+Most learning platforms track **course completion**, not **actual mastery**. LearnTrace goes further:
+
+- **Prerequisite-aware intelligence** — finds gaps that block downstream skills, not just low scores
+- **Evidence-based learner model** — mastery inferred from correctness, difficulty, response time, and confidence
+- **Adaptive difficulty** — the next question responds to your last 3 answers
+- **Knowledge decay** — skills lose mastery over time; the app tells you what to revise
+- **Misconception detection** — flags repeated wrong reasoning, not just wrong answers
+- **Theory vs practical** — separates conceptual knowledge from demonstrated application
+- **What-If simulator** — "What if I skip Probability?" projected through the prerequisite DAG
+- **AI tutor** — every wrong answer becomes a 4-part tutoring moment
+- **In-browser Python** — hands-on coding tasks with test-case feedback
+
+---
+
+## Stack
+
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 16 (App Router, Turbopack) |
+| Language | TypeScript strict |
+| Styling | Tailwind CSS v4 + custom design tokens |
+| DB | PostgreSQL 16 (Docker) |
+| ORM | Prisma 6 |
+| Auth | NextAuth v5 (Credentials + Google OAuth) |
+| AI | Google Gemini 3.6 Flash |
+| Code execution | Piston API (public Python runner) |
+| Viz | React Flow + Recharts + Framer Motion |
+| Tests | Vitest (35 unit tests) |
+
+---
+
+## Features
+
+### Learning loop
+- Diagnostic assessment (15 questions, adaptive)
+- Focused quiz mode (5 per skill, pick up to 3)
+- Per-skill mastery tracking with Bayesian-weighted updates
+- Concept reassessment with before/after comparison
+- Knowledge graph (React Flow) with mastery-colored nodes + verified badges
+- Skill gaps ranked by Dependency Impact Score
+- Personalized roadmap (topological sort + impact ranking)
+- Learning materials with markdown notes, PDF upload + inline viewer, video embeds
+- Practical coding tasks with in-browser Python execution
+- Theory/practical evidence panel with verified state
+
+### AI features
+- Tutor explanations on wrong answers (Gemini, cached, retry-safe)
+- AI certificate recommendations on the final report (with static fallback)
+- Content generation pipeline (used to build the skill graph)
+
+### Platform
+- Email/password + Google sign-in
+- Profile page with activity stats
+- Progress history timeline
+- Multi-domain framework (max 3 per user)
+- Loading skeletons + error boundaries on every route
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node 20+
+- pnpm (`brew install pnpm`)
+- Docker Desktop (for Postgres)
+- A Gemini API key from aistudio.google.com/apikey
+
+### Setup
+
+```bash
+git clone <your-repo-url> learntrace
+cd learntrace
+pnpm install
+
+docker run --name learntrace-pg \
+  -e POSTGRES_PASSWORD=dev \
+  -e POSTGRES_USER=dev \
+  -e POSTGRES_DB=learntrace \
+  -p 5433:5432 -d postgres:16
+
+cp .env.example .env.local
+
+pnpm db:migrate
+pnpm db:seed
+pnpm db:seed-practical
+pnpm db:seed-questions
+
+pnpm dev
+EOF_MARK
+
+**A short guide**
+
+For a full walkthrough and the mastery formula, see the source in `src/lib/mastery/`.
+
+
+=== FILE: docker-compose.yml ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: Dockerfile ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: .dockerignore ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: vercel.json ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: .nvmrc ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: .node-version ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: public/icon.svg ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: public/apple-icon.svg ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== DIRECTORY LISTING: public ===
+public
+public/file.svg
+public/vercel.svg
+public/next.svg
+public/globe.svg
+public/window.svg
+
+
+=== FILE: components.json ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: next-sitemap.config.js ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: src/app/sitemap.ts ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: src/app/robots.ts ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: .prettierrc ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== FILE: .prettierignore ===
+# [File does not exist or initialized differently in this branch]
+
+
+=== DIRECTORY LISTING: prisma/migrations ===
+prisma/migrations
+prisma/migrations/20260923045504_add_session_question_ids
+prisma/migrations/20260923045504_add_session_question_ids/migration.sql
+prisma/migrations/migration_lock.toml
+prisma/migrations/20260923090813_add_pdf_url_to_material
+prisma/migrations/20260923090813_add_pdf_url_to_material/migration.sql
+prisma/migrations/20260923073158_add_practical_learning
+prisma/migrations/20260923073158_add_practical_learning/migration.sql
+prisma/migrations/20260923071112_add_selected_option_to_attempt
+prisma/migrations/20260923071112_add_selected_option_to_attempt/migration.sql
+prisma/migrations/20260923041320_init
+prisma/migrations/20260923041320_init/migration.sql
+prisma/migrations/20260923093854_add_oauth_support
+prisma/migrations/20260923093854_add_oauth_support/migration.sql
+
+
+=== DIRECTORY LISTING: src/content/domains ===
+src/content/domains
+src/content/domains/ml-engineer.json
+
+
+=== DIRECTORY LISTING: src/content/extra ===
+src/content/extra
+src/content/extra/chunk-1.json
+src/content/extra/chunk-6.json
+src/content/extra/chunk-5.json
+src/content/extra/chunk-4.json
+src/content/extra/chunk-3.json
+src/content/extra/chunk-2.json
+
+
+=== DIRECTORY LISTING: src/content/notes ===
+src/content/notes
