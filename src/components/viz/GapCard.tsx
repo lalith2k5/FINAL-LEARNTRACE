@@ -46,10 +46,10 @@ export function GapCard({ data }: Props) {
         className={cn(
           "absolute left-0 top-0 h-full w-0.5",
           tier.label === "Critical"
-            ? "bg-amber shadow-[0_0_8px_rgba(244,244,245,0.28)]"
+            ? "bg-white shadow-[0_0_8px_rgba(244,244,245,0.55)]"
             : tier.label === "High"
-            ? "bg-rose shadow-[0_0_8px_rgba(244,244,245,0.55)]"
-            : "bg-rose shadow-[0_0_8px_rgba(244,244,245,0.55)]"
+            ? "bg-white shadow-[0_0_8px_rgba(244,244,245,0.55)]"
+            : "bg-white shadow-[0_0_8px_rgba(244,244,245,0.55)]"
         )}
       />
 

@@ -179,7 +179,7 @@ export function Sidebar() {
         <div className="flex items-center justify-between">
           <p className="label-mono">v0.1</p>
           <span className="flex items-center gap-1.5">
-            <span className="h-1 w-1 rounded-full bg-white/[0.08] shadow-[0_0_6px_#F4F4F5]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald animate-lt-pulse-dot" />
             <span className="label-mono text-text-primary">ML Track</span>
           </span>
         </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { GlassPanel } from "@/components/shared/GlassPanel";
-import { MasteryRing } from "@/components/viz/MasteryRing";
+import { MasteryBarList } from "@/components/viz/MasteryBarList";
 import { CertificatePanel } from "@/components/viz/CertificatePanel";
 import { prisma } from "@/lib/db";
 import { requireUser } from "@/lib/user";
@@ -216,21 +216,17 @@ export default async function ReportPage() {
       </section>
 
       <section className="mb-8">
-        <p className="label-mono mb-4">
-          All attempted skills · effective mastery
-        </p>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
-          {withSkill.map((v) => (
-            <GlassPanel key={v.skillId} glow>
-              <p className="label-mono truncate" title={v.skill.name}>
-                {v.skill.name}
-              </p>
-              <div className="mt-2 flex justify-center">
-                <MasteryRing value={v.effective} size={72} stroke={6} />
-              </div>
-            </GlassPanel>
-          ))}
-        </div>
+        <MasteryBarList
+          label="All attempted skills · effective mastery"
+          defaultValue={6}
+          options={[6, 10, 15, 0]}
+          items={withSkill.map((v) => ({
+            skillId: v.skillId,
+            name: v.skill.name,
+            value: v.effective,
+            view: v,
+          }))}
+        />
       </section>
 
       <CertificatePanel

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { GlassPanel } from "@/components/shared/GlassPanel";
-import { MasteryRing } from "@/components/viz/MasteryRing";
+import { MasteryBarList } from "@/components/viz/MasteryBarList";
 import {
   MasterySparkline,
   type MasteryDataPoint,
@@ -108,9 +108,9 @@ export default async function DashboardPage() {
     targetMastery: 0.75,
   }).slice(0, 3);
 
-  const topMastery = [...domainViewList]
-    .sort((a, b) => b.effective - a.effective)
-    .slice(0, 6);
+  const topMastery = [...domainViewList].sort(
+    (a, b) => b.effective - a.effective
+  );
 
   const masteryRows = await prisma.mastery.findMany({
     where: { userId: user.id, skillId: { in: skills.map((s) => s.id) } },
@@ -285,26 +285,23 @@ export default async function DashboardPage() {
       {/* Top mastery */}
       {topMastery.length > 0 && (
         <section className="mb-8">
-          <p className="label-mono mb-4">Your strongest areas</p>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {topMastery.map((v) => {
+          <MasteryBarList
+            label="Your strongest areas"
+            defaultValue={3}
+            options={[3, 5, 10, 0]}
+            items={topMastery.flatMap((v) => {
               const skill = skillById.get(v.skillId);
-              if (!skill) return null;
-              return (
-                <GlassPanel key={v.skillId} glow>
-                  <p className="label-mono truncate" title={skill.name}>
-                    {skill.name}
-                  </p>
-                  <div className="mt-3 flex justify-center">
-                    <MasteryRing value={v.effective} size={80} stroke={7} />
-                  </div>
-                  <div className="mt-3 flex justify-center">
-                    <DecayBadge view={v} />
-                  </div>
-                </GlassPanel>
-              );
+              if (!skill) return [];
+              return [
+                {
+                  skillId: v.skillId,
+                  name: skill.name,
+                  value: v.effective,
+                  view: v,
+                },
+              ];
             })}
-          </div>
+          />
         </section>
       )}
 

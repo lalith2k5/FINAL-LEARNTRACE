@@ -127,31 +127,31 @@ const TONES: Record<
   { border: string; bg: string; text: string; glow: string }
 > = {
   accent: {
-    border: "border-accent/30",
+    border: "border-border-default",
     bg: "bg-accent/[0.04]",
     text: "text-accent",
     glow: "rgba(24,119,242,0.5)",
   },
   sky: {
-    border: "border-sky/30",
+    border: "border-border-default",
     bg: "bg-sky/[0.04]",
     text: "text-sky",
     glow: "rgba(56,189,248,0.5)",
   },
   emerald: {
-    border: "border-emerald/30",
+    border: "border-border-default",
     bg: "bg-emerald/[0.04]",
     text: "text-emerald",
     glow: "rgba(16,185,129,0.5)",
   },
   amber: {
-    border: "border-amber/30",
+    border: "border-border-default",
     bg: "bg-amber/[0.04]",
     text: "text-amber",
     glow: "rgba(245,158,11,0.5)",
   },
   rose: {
-    border: "border-rose/30",
+    border: "border-border-default",
     bg: "bg-rose/[0.04]",
     text: "text-rose",
     glow: "rgba(244,63,94,0.5)",

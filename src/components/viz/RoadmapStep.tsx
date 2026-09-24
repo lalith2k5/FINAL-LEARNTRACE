@@ -81,8 +81,17 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
 
       {/* Card */}
       <div className={cn("pb-8", isLast && "pb-0")}>
-        <GlassPanel glow className="relative">
-          <div className="flex items-start justify-between gap-4">
+        <GlassPanel glow className="relative overflow-hidden">
+          {/* Mastery stripe */}
+          <div
+            className={cn(
+              "absolute left-0 top-0 h-full w-0.5",
+              step.prereqsSatisfied
+                ? "bg-white shadow-[0_0_8px_rgba(244,244,245,0.55)]"
+                : "bg-white/30"
+            )}
+          />
+          <div className="flex items-start justify-between gap-4 pl-3">
             <div className="min-w-0">
               <div className="flex items-center gap-2">
                 <p className="truncate text-base font-medium text-text-primary">
