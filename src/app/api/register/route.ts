@@ -2,9 +2,6 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/db";
-import { createToken } from "@/lib/auth/tokens";
-import { sendEmail } from "@/lib/email/transport";
-import { verifyEmail } from "@/lib/email/templates";
 
 const Schema = z.object({
   email: z.string().email(),
@@ -50,15 +47,6 @@ export async function POST(req: Request) {
     },
     select: { id: true, email: true, name: true },
   });
-
-  try {
-    const token = await createToken("verify", email);
-    const origin = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
-    const url = `${origin}/api/email/verify?email=${encodeURIComponent(email)}&token=${token}`;
-    await sendEmail(verifyEmail({ to: email, url }));
-  } catch (err) {
-    console.error("Verification email failed:", err instanceof Error ? err.message : err);
-  }
 
   return NextResponse.json({ ok: true, user });
 }

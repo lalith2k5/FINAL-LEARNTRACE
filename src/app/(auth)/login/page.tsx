@@ -112,22 +112,12 @@ function LoginForm() {
           />
         </div>
 
-        <div>
-          <PasswordInput
-            value={password}
-            onChange={setPassword}
-            placeholder="Your password"
-            autoComplete="current-password"
-          />
-          <div className="mt-2 flex justify-end">
-            <Link
-              href="/forgot-password"
-              className="text-[11px] text-white/40 transition-colors hover:text-white/70"
-            >
-              Forgot password?
-            </Link>
-          </div>
-        </div>
+        <PasswordInput
+          value={password}
+          onChange={setPassword}
+          placeholder="Your password"
+          autoComplete="current-password"
+        />
 
         <AnimatePresence>
           {error && (
@@ -181,15 +171,6 @@ function LoginForm() {
         </Link>
       </p>
 
-      <p className="mt-3 text-center text-[11px] text-white/30">
-        Need to verify your email?{" "}
-        <Link
-          href="/verify-request"
-          className="text-white/50 transition-colors hover:text-white"
-        >
-          Resend link
-        </Link>
-      </p>
     </motion.div>
   );
 }
