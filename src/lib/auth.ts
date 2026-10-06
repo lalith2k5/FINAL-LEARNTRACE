@@ -57,6 +57,63 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
+    async signIn({ user, account }) {
+      if (!account) return true;
+      if (account.provider === "credentials") return true;
+      if (!user.email) return true;
+
+      const email = user.email.trim().toLowerCase();
+
+      // Case 1: this (provider, providerAccountId) is already linked. Nothing to do.
+      const existingLink = await prisma.account.findUnique({
+        where: {
+          provider_providerAccountId: {
+            provider: account.provider,
+            providerAccountId: account.providerAccountId,
+          },
+        },
+      });
+      if (existingLink) return true;
+
+      // Case 2: no User with this email → NextAuth creates both rows.
+      const existingUser = await prisma.user.findUnique({
+        where: { email },
+      });
+      if (!existingUser) return true;
+
+      // Case 3: User exists, no link yet. Pre-create the Account row so
+      // handleLoginOrRegister's getUserByAccount() finds it and never
+      // raises OAuthAccountNotLinked. Safe for Google, which verifies emails.
+      try {
+        await prisma.account.create({
+          data: {
+            userId: existingUser.id,
+            type: account.type,
+            provider: account.provider,
+            providerAccountId: account.providerAccountId,
+            refresh_token: account.refresh_token ?? null,
+            access_token: account.access_token ?? null,
+            expires_at: account.expires_at ?? null,
+            token_type: account.token_type ?? null,
+            scope: account.scope ?? null,
+            id_token: account.id_token ?? null,
+            session_state:
+              (account.session_state as string | null | undefined) ?? null,
+          },
+        });
+        console.log(
+          `[auth] pre-linked ${account.provider} account for existing user ${email}`
+        );
+      } catch (err) {
+        // Race: another parallel callback created it. Safe to ignore.
+        console.error(
+          "[auth] pre-link skipped:",
+          err instanceof Error ? err.message : err
+        );
+      }
+
+      return true;
+    },
     async jwt({ token, user }) {
       if (user) token.id = user.id;
       return token;
