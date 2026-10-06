@@ -90,13 +90,18 @@ export function EvidencePanel({ evidence }: Props) {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             />
           </div>
-          {evidence.practicalAttempts > 0 && (
+          {!evidence.hasPracticalTasks && (
+            <p className="mt-1.5 text-[10px] text-text-quaternary">
+              No practical task mapped — practical not required for verification
+            </p>
+          )}
+          {evidence.hasPracticalTasks && evidence.practicalAttempts > 0 && (
             <p className="mt-1.5 text-[10px] text-text-quaternary">
               {evidence.practicalPassed} / {evidence.practicalAttempts} submissions
               passed
             </p>
           )}
-          {evidence.practicalAttempts === 0 && (
+          {evidence.hasPracticalTasks && evidence.practicalAttempts === 0 && (
             <p className="mt-1.5 text-[10px] text-text-quaternary">
               No submissions yet — try a practice task
             </p>

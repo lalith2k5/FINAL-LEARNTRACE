@@ -4,12 +4,13 @@ import { getMasteryView } from "./view";
 export type SkillEvidence = {
   skillId: string;
   skillName: string;
-  theory: number;          // 0..1 — from quiz attempts
-  practical: number;       // 0..1 — from code submissions
+  theory: number;
+  practical: number;
   practicalAttempts: number;
   practicalPassed: number;
-  combined: number;        // 0..1 — weighted merge
-  verified: boolean;       // both ≥ threshold
+  hasPracticalTasks: boolean;
+  combined: number;
+  verified: boolean;
 };
 
 const THEORY_WEIGHT = 0.6;
@@ -17,9 +18,15 @@ const PRACTICAL_WEIGHT = 0.4;
 const VERIFIED_THRESHOLD = 0.75;
 
 /**
- * Compute a full evidence profile for a single skill:
- * - Theory from effective mastery (decay-aware)
- * - Practical from the learner's best submission per task mapped to this skill
+ * Compute a full evidence profile for a single skill.
+ *
+ * A skill is verified when:
+ *   - theory >= threshold, AND
+ *   - practical >= threshold OR the skill has no practical tasks mapped.
+ *
+ * The second clause keeps the completion gate reachable in domains where
+ * coverage is sparse — a learner shouldn't be blocked from verifying a
+ * skill that has no practical content.
  */
 export async function getSkillEvidence(
   userId: string,
@@ -37,27 +44,27 @@ export async function getSkillEvidence(
       practical: 0,
       practicalAttempts: 0,
       practicalPassed: 0,
+      hasPracticalTasks: false,
       combined: 0,
       verified: false,
     };
   }
 
-  // Theory: current effective mastery
   const view = await getMasteryView(userId);
   const theory = view.bySkillId.get(skillId)?.effective ?? 0;
 
-  // Practical: find tasks mapped to this skill, then best submission per task
   const tasks = await prisma.practicalTaskSkill.findMany({
     where: { skillId },
     select: { taskId: true },
   });
   const taskIds = tasks.map((t) => t.taskId);
+  const hasPracticalTasks = taskIds.length > 0;
 
   let practical = 0;
   let practicalAttempts = 0;
   let practicalPassed = 0;
 
-  if (taskIds.length > 0) {
+  if (hasPracticalTasks) {
     const subs = await prisma.practicalSubmission.findMany({
       where: { userId, taskId: { in: taskIds } },
       orderBy: { createdAt: "desc" },
@@ -65,7 +72,6 @@ export async function getSkillEvidence(
 
     practicalAttempts = subs.length;
 
-    // Best pass-rate per task (across all submissions)
     const bestByTask = new Map<string, number>();
     for (const s of subs) {
       const rate = s.total > 0 ? s.passed / s.total : 0;
@@ -76,15 +82,15 @@ export async function getSkillEvidence(
 
     if (bestByTask.size > 0) {
       const sum = Array.from(bestByTask.values()).reduce((a, b) => a + b, 0);
-      practical = sum / bestByTask.size; // average across tasks
+      practical = sum / bestByTask.size;
     }
   }
 
-  // Combined: weighted merge
   const combined = theory * THEORY_WEIGHT + practical * PRACTICAL_WEIGHT;
 
-  const verified =
-    theory >= VERIFIED_THRESHOLD && practical >= VERIFIED_THRESHOLD;
+  const theoryOk = theory >= VERIFIED_THRESHOLD;
+  const practicalOk = practical >= VERIFIED_THRESHOLD;
+  const verified = theoryOk && (practicalOk || !hasPracticalTasks);
 
   return {
     skillId,
@@ -93,14 +99,12 @@ export async function getSkillEvidence(
     practical,
     practicalAttempts,
     practicalPassed,
+    hasPracticalTasks,
     combined,
     verified,
   };
 }
 
-/**
- * Batch version — for a list of skills, compute evidence for each in parallel.
- */
 async function getBatchEvidence(
   userId: string,
   skillIds: string[]
@@ -111,10 +115,6 @@ async function getBatchEvidence(
   return results;
 }
 
-/**
- * Get the set of skill IDs in a domain that are fully verified
- * (theory AND practical both ≥ threshold).
- */
 export async function getVerifiedSkills(
   userId: string,
   domainId: string
@@ -134,9 +134,6 @@ export async function getVerifiedSkills(
   );
 }
 
-/**
- * Return a map: skillId → evidence. Useful for badges in list views.
- */
 export async function getEvidenceMap(
   userId: string,
   domainId: string
