@@ -8,6 +8,7 @@ import {
 } from "@/components/viz/MasterySparkline";
 import { DecayBadge } from "@/components/viz/DecayBadge";
 import { MisconceptionCard } from "@/components/viz/MisconceptionCard";
+import { EmailVerificationBanner } from "@/components/learn/EmailVerificationBanner";
 import { prisma } from "@/lib/db";
 import { requireUser } from "@/lib/user";
 import { requireActiveDomain, getGoalSkillIds } from "@/lib/domain";
@@ -138,6 +139,8 @@ export default async function DashboardPage() {
         title="Your learning state"
         description={`A live view of mastery across ${domain.name}.`}
       />
+
+      {!user.emailVerified && <EmailVerificationBanner email={user.email} />}
 
       {isFreshUser && (
         <section className="mb-8 space-y-4">
