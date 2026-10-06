@@ -200,3 +200,40 @@ F — Something the user suggests
 4. 2.9 Content depth — 4 newer domains need ~360 more Q (multi-week, Gemini-quota-limited)
 5. Graph interactivity — search / zoom / pan
 6. CSV/JSON domain import
+
+---
+
+## Session log — 2026-10-06 (part 2)
+
+### Shipped
+- Email verification: `/verify`, `/verify-request`, `src/lib/email/*`, `src/lib/auth/tokens.ts`, dashboard banner
+- Password reset: `/forgot-password`, `/reset`, both API routes
+- Multi-language practical: `src/lib/practice/runtimes.ts` (Python, JS, TS)
+- 37 practical tasks across 4 domains — coverage 1-7/20 → 10-14/20
+- Diagnostic scales per domain: 15-60 Q (min 2 per skill)
+- Weighted edges: `Edge.weight` threaded through impact + simulate
+- Misconceptions: 3-signal union (option-repeat, overconfident, skill-weak)
+- Declared goals: `UserDomain.goalSkillIds`, `GoalPicker` on `/domains`
+- Persisted roadmap: `RoadmapItem` override table with 4-state cycle
+- Completion gate: reachable when skill has no practical tasks
+- Dead surface cut: `Mastery.confidence → evidenceCount`, `pdfUrl`, `endedAt`, `SceneIndicator.tsx`
+- next-themes replaced with script-free `ThemeProvider`
+
+### Tests
+- 43 → 86 across 9 files
+
+### Migrations
+- `add_user_goal_skills`
+- `remove_dead_surface`
+- `rename_mastery_confidence`
+
+### Open menu
+1. Notes top-up for 4 domains (Gemini-quota-limited, ~4 days of runs)
+2. Semantic misconception detection (free-text justifications + LLM)
+3. PDF upload + inline viewer (proposal §6 sub-item)
+4. Graph interactivity (search / zoom / pan)
+5. CSV/JSON domain import
+
+### Known non-blocking
+- Browser extension causes hydration warning in dev (extension injects `open-incognito-widget`)
+- Google Fonts download warning when offline (falls back to system fonts)
