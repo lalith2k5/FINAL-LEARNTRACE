@@ -112,12 +112,22 @@ function LoginForm() {
           />
         </div>
 
-        <PasswordInput
-          value={password}
-          onChange={setPassword}
-          placeholder="Your password"
-          autoComplete="current-password"
-        />
+        <div>
+          <PasswordInput
+            value={password}
+            onChange={setPassword}
+            placeholder="Your password"
+            autoComplete="current-password"
+          />
+          <div className="mt-2 flex justify-end">
+            <Link
+              href="/forgot-password"
+              className="text-[11px] text-white/40 transition-colors hover:text-white/70"
+            >
+              Forgot password?
+            </Link>
+          </div>
+        </div>
 
         <AnimatePresence>
           {error && (
