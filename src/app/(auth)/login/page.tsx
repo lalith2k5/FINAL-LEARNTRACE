@@ -170,6 +170,16 @@ function LoginForm() {
           Create one
         </Link>
       </p>
+
+      <p className="mt-3 text-center text-[11px] text-white/30">
+        Need to verify your email?{" "}
+        <Link
+          href="/verify-request"
+          className="text-white/50 transition-colors hover:text-white"
+        >
+          Resend link
+        </Link>
+      </p>
     </motion.div>
   );
 }
