@@ -14,6 +14,7 @@
     "db:migrate": "prisma migrate dev",
     "db:seed-practical": "tsx scripts/seed-practical.ts",
     "db:seed-questions": "tsx scripts/seed-more-questions-2.ts",
+    "db:seed-questions-1": "tsx scripts/seed-more-questions.ts",
     "content:gen": "tsx scripts/generate-content.ts",
     "db:seed-practical-2": "tsx scripts/seed-more-practical-2.ts",
     "db:ensure-notes": "tsx scripts/ensure-note-materials.ts",

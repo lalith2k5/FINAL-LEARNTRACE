@@ -32,10 +32,10 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 | DB | PostgreSQL 16 (Docker) |
 | ORM | Prisma 6 |
 | Auth | NextAuth v5 (Credentials + Google OAuth) |
-| AI | Google Gemini 3.6 Flash |
-| Code execution | Piston API (public Python runner) |
-| Viz | React Flow + Recharts + Framer Motion |
-| Tests | Vitest (35 unit tests) |
+| AI | Google Gemini 3.5 Flash (3-model cascade) |
+| Code execution | Piston API (Python + JavaScript) + local fallback |
+| Viz | Hand-rolled SVG + Recharts + Framer Motion |
+| Tests | Vitest (43 unit tests) |
 
 ---
 
@@ -49,7 +49,7 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 - Knowledge graph (React Flow) with mastery-colored nodes + verified badges
 - Skill gaps ranked by Dependency Impact Score
 - Personalized roadmap (topological sort + impact ranking)
-- Learning materials with markdown notes, PDF upload + inline viewer, video embeds
+- Learning materials with markdown notes and video embeds
 - Practical coding tasks with in-browser Python execution
 - Theory/practical evidence panel with verified state
 
@@ -86,7 +86,7 @@ docker run --name learntrace-pg \
   -e POSTGRES_PASSWORD=dev \
   -e POSTGRES_USER=dev \
   -e POSTGRES_DB=learntrace \
-  -p 5433:5432 -d postgres:16
+  -p 5434:5432 -d postgres:16
 
 cp .env.example .env.local
 
@@ -101,3 +101,29 @@ EOF_MARK
 **A short guide**
 
 For a full walkthrough and the mastery formula, see the source in `src/lib/mastery/`.
+
+---
+
+## Architecture notes
+
+- **Mastery engine** — `src/lib/mastery/engine.ts`. Bayesian-flavored update: `prior + α · (signal − prior)` with α scaled by time, confidence, attempt number, and skill weight.
+- **Decay** — `src/lib/mastery/decay.ts`. 21-day half-life, applied on read.
+- **Weighted graph** — `src/lib/graph/dag.ts` exports `weightedDownstreamClosure` (strongest path wins, weights multiply transitively) and `weightedParentsOf`. The Dependency Impact Score and simulator both use these.
+- **Adaptive difficulty** — `src/lib/mastery/adaptive.ts`, last-3-attempts sliding window.
+- **Language runtimes** — `src/lib/practice/runtimes.ts`. Piston runtime map + local execution fallback.
+- **Content** — `src/content/domains/*.json`. Seeded via `scripts/seed.ts` (idempotent, prunes stale skills).
+
+### Reserved for future use
+
+These schema fields exist but are intentionally not read by current code:
+
+- `VerificationToken` — required by `@auth/prisma-adapter` (only used if an Email provider is added)
+- `Attempt.attemptNo` — defaults to 1; reserved for multi-attempt quiz support
+- `GET /api/misconceptions` — public API surface; the dashboard uses the same engine inline
+
+---
+
+## Project docs
+
+- `HANDOFF.md` — internal engineering notes, current state, pending work
+- `LearnTrace_Project_Proposal_Final.pdf` — original proposal (drift documented in HANDOFF)

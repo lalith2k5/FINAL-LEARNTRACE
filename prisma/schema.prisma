@@ -124,7 +124,6 @@ model AssessmentSession {
   kind        String
   questionIds Json     @default("[]")
   startedAt   DateTime @default(now())
-  endedAt     DateTime?
 
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   attempts Attempt[]
@@ -172,7 +171,6 @@ model Material {
   type     String
   url      String?
   body     String?
-  pdfUrl   String?
 
   domain   Domain             @relation(fields: [domainId], references: [id], onDelete: Cascade)
   skills   MaterialSkill[]
