@@ -138,7 +138,7 @@ model Attempt {
   selectedOptionId String?
   timeTakenMs Int
   confidence  Int?
-  attemptNo   Int      @default(1)
+  attemptNo   Int      @default(1) // Reserved for multi-attempt quiz support
   createdAt   DateTime @default(now())
 
   user     User              @relation(fields: [userId],   references: [id], onDelete: Cascade)
@@ -149,12 +149,12 @@ model Attempt {
 // ---------- Mastery ----------
 
 model Mastery {
-  userId     String
-  skillId    String
-  value      Float    @default(0)
-  confidence Float    @default(0)
-  updatedAt  DateTime @updatedAt
-  history    Json     @default("[]")
+  userId        String
+  skillId       String
+  value         Float    @default(0)
+  evidenceCount Float    @default(0)
+  updatedAt     DateTime @updatedAt
+  history       Json     @default("[]")
 
   user  User  @relation(fields: [userId],  references: [id], onDelete: Cascade)
   skill Skill @relation(fields: [skillId], references: [id], onDelete: Cascade)
@@ -205,9 +205,9 @@ model RoadmapItem {
   id       String @id @default(cuid())
   userId   String
   skillId  String
-  order    Int
-  priority Float
-  reason   String?
+  order    Int // 0 when row is only an override (Batch 2 will populate)
+  priority Float // 0 when row is only an override (Batch 2 will populate)
+  reason   String? // null when row is only an override (Batch 2 will populate)
   status   String @default("pending")
 
   user  User  @relation(fields: [userId],  references: [id], onDelete: Cascade)

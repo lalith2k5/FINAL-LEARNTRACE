@@ -41,7 +41,7 @@ export async function startReassessment(skillId: string) {
         userId: user.id,
         skillId,
         value: COLD_START_PRIOR,
-        confidence: 0,
+        evidenceCount: 0,
         history: [],
       },
     });

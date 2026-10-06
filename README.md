@@ -33,9 +33,9 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 | ORM | Prisma 6 |
 | Auth | NextAuth v5 (Credentials + Google OAuth) |
 | AI | Google Gemini 3.5 Flash (3-model cascade) |
-| Code execution | Piston API (Python + JavaScript) + local fallback |
+| Code execution | Piston API (Python + JavaScript + TypeScript) + local fallback |
 | Viz | Hand-rolled SVG + Recharts + Framer Motion |
-| Tests | Vitest (43 unit tests) |
+| Tests | Vitest (72 unit tests) |
 
 ---
 
