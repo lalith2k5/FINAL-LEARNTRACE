@@ -53,3 +53,9 @@ uploads/
 configs_dump.txt
 domains_structure_dump.txt
 scripts/backup/
+
+# Local dev artifacts
+*.bak
+configs_dump.txt
+domains_structure_dump.txt
+scripts/backup/
