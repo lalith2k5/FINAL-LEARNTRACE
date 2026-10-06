@@ -46,7 +46,7 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 - Focused quiz mode (5 per skill, pick up to 3)
 - Per-skill mastery tracking with Bayesian-weighted updates
 - Concept reassessment with before/after comparison
-- Knowledge graph (React Flow) with mastery-colored nodes + verified badges
+- Knowledge graph (hand-rolled SVG) with mastery-colored nodes + verified badges
 - Skill gaps ranked by Dependency Impact Score
 - Personalized roadmap (topological sort + impact ranking)
 - Learning materials with markdown notes and video embeds
