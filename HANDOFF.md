@@ -237,3 +237,27 @@ F — Something the user suggests
 ### Known non-blocking
 - Browser extension causes hydration warning in dev (extension injects `open-incognito-widget`)
 - Google Fonts download warning when offline (falls back to system fonts)
+
+---
+
+## Reversal — 2026-10-06
+
+Removed the email verification + password reset flows built earlier the same day.
+Reason: added complexity without strong payoff; Google OAuth is the primary
+signup path for the target user.
+
+Kept:
+- `VerificationToken` model (NextAuth Prisma adapter requires it)
+- Semantic misconception analysis (unrelated, stays)
+
+Removed:
+- `/verify`, `/verify-request`, `/forgot-password`, `/reset` pages
+- `/api/email/*` routes
+- `src/lib/email/`, `src/lib/auth/tokens.ts` (+ token tests)
+- `EmailVerificationBanner`, dashboard hook, register hook, login footer
+- `EMAIL_*` + `RESEND_API_KEY` env vars (also from `.env.local`)
+
+Open issue (not fixed): NextAuth v5-beta `OAuthAccountNotLinked` when a
+password-created user tries Google sign-in. Workaround documented in
+session log 2026-10-06 (part 2). Real fix would need an explicit `signIn`
+callback in `src/lib/auth.ts`.
