@@ -66,3 +66,31 @@ export async function setActiveDomain(domainId: string) {
   revalidatePath("/domains");
   return { ok: true };
 }
+
+export async function setDomainGoals(domainId: string, skillIds: string[]) {
+  const user = await requireUser();
+
+  const ud = await prisma.userDomain.findUnique({
+    where: { userId_domainId: { userId: user.id, domainId } },
+  });
+  if (!ud) {
+    return { ok: false, error: "Domain not selected." };
+  }
+
+  const valid = await prisma.skill.findMany({
+    where: { domainId, id: { in: skillIds.slice(0, 3) } },
+    select: { id: true },
+  });
+
+  await prisma.userDomain.update({
+    where: { userId_domainId: { userId: user.id, domainId } },
+    data: { goalSkillIds: valid.map((s) => s.id) },
+  });
+
+  revalidatePath("/domains");
+  revalidatePath("/dashboard");
+  revalidatePath("/gaps");
+  revalidatePath("/roadmap");
+  revalidatePath("/simulator");
+  return { ok: true };
+}

@@ -23,6 +23,7 @@ async function main() {
   const edges: Edge[] = prereqs.map((p) => ({
     parentId: p.parentId,
     childId: p.childId,
+    weight: p.weight,
   }));
 
   const byId = new Map(skills.map((s) => [s.id, s]));

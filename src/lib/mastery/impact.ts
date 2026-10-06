@@ -1,4 +1,4 @@
-import { downstreamClosure, type Edge } from "@/lib/graph/dag";
+import { weightedDownstreamClosure, type Edge } from "@/lib/graph/dag";
 
 export type Graph = {
   skillIds: string[];
@@ -7,8 +7,8 @@ export type Graph = {
 
 export type ImpactInput = {
   skillId: string;
-  mastery: Record<string, number>;      // skillId -> 0..1
-  targetMastery: number;                 // e.g. 0.75
+  mastery: Record<string, number>;
+  targetMastery: number;
   goalSkillIds: Set<string>;
   graph: Graph;
 };
@@ -19,9 +19,14 @@ export type ImpactInput = {
  *
  * Where:
  *   Gap              = how far the skill is from target mastery
- *   DownstreamImpact = sum of unmastered downstream skills, weighted by goal relevance
+ *   DownstreamImpact = sum over downstream nodes of
+ *                      (their gap) × (goal weight) × (path weight)
  *   GoalRelevance    = 1.5 if the skill is a goal skill, else 1.0
  *   DepthPenalty     = mild penalty for skills with huge downstream sets
+ *
+ * Path weights come from `weightedDownstreamClosure`, so an edge with
+ * weight 0.5 contributes half as much as one with 1.0, and transitive
+ * dependencies compound multiplicatively.
  */
 export function dependencyImpactScore(input: ImpactInput): number {
   const { skillId, mastery, targetMastery, goalSkillIds, graph } = input;
@@ -30,14 +35,14 @@ export function dependencyImpactScore(input: ImpactInput): number {
   const gap = Math.max(0, targetMastery - m);
   if (gap === 0) return 0;
 
-  const downstream = downstreamClosure(skillId, graph.edges);
+  const downstream = weightedDownstreamClosure(skillId, graph.edges);
 
   let downstreamImpact = 0;
-  for (const id of downstream) {
+  for (const [id, w] of downstream) {
     const dm = mastery[id] ?? 0;
     const dGap = Math.max(0, targetMastery - dm);
     const goalWeight = goalSkillIds.has(id) ? 1.5 : 1.0;
-    downstreamImpact += dGap * goalWeight;
+    downstreamImpact += dGap * goalWeight * w;
   }
 
   const goalRelevance = goalSkillIds.has(skillId) ? 1.5 : 1.0;

@@ -1,4 +1,4 @@
-export type Edge = { parentId: string; childId: string };
+export type Edge = { parentId: string; childId: string; weight: number };
 
 /**
  * Detect cycles in a directed graph using iterative DFS with 3-color marking.
@@ -57,7 +57,7 @@ export function topologicalSort(skillIds: string[], edges: Edge[]): string[] {
 }
 
 /**
- * All skills that transitively depend on the given skill.
+ * All skills that transitively depend on the given skill (unweighted set).
  */
 export function downstreamClosure(skillId: string, edges: Edge[]): Set<string> {
   const childrenOf = new Map<string, string[]>();
@@ -78,7 +78,62 @@ export function downstreamClosure(skillId: string, edges: Edge[]): Set<string> {
 }
 
 /**
- * Direct parents of a skill.
+ * Weighted downstream closure: returns Map<downstreamId, pathWeight> where
+ * pathWeight = product of edge weights along the strongest path from
+ * `skillId` to that node. Ties resolve to the max-weight path.
+ *
+ * A weight of 1.0 means "full dependency"; 0.5 means "half dependency".
+ * Weights multiply transitively so a weak link anywhere on the path drags
+ * the effective influence down.
+ */
+export function weightedDownstreamClosure(
+  skillId: string,
+  edges: Edge[]
+): Map<string, number> {
+  const childrenOf = new Map<string, { id: string; w: number }[]>();
+  for (const e of edges) {
+    if (!childrenOf.has(e.parentId)) childrenOf.set(e.parentId, []);
+    childrenOf.get(e.parentId)!.push({ id: e.childId, w: e.weight });
+  }
+
+  const best = new Map<string, number>();
+  const frontier: { id: string; w: number }[] = [];
+
+  for (const { id, w } of childrenOf.get(skillId) ?? []) {
+    if (w > (best.get(id) ?? 0)) {
+      best.set(id, w);
+      frontier.push({ id, w });
+    }
+  }
+
+  while (frontier.length) {
+    const { id, w } = frontier.shift()!;
+    for (const { id: childId, w: childW } of childrenOf.get(id) ?? []) {
+      const nextW = w * childW;
+      if (nextW > (best.get(childId) ?? 0)) {
+        best.set(childId, nextW);
+        frontier.push({ id: childId, w: nextW });
+      }
+    }
+  }
+
+  return best;
+}
+
+/**
+ * Direct parents of a skill, with edge weights.
+ */
+export function weightedParentsOf(
+  skillId: string,
+  edges: Edge[]
+): { parentId: string; weight: number }[] {
+  return edges
+    .filter((e) => e.childId === skillId)
+    .map((e) => ({ parentId: e.parentId, weight: e.weight }));
+}
+
+/**
+ * Direct parents of a skill (unweighted).
  */
 export function parentsOf(skillId: string, edges: Edge[]): string[] {
   return edges.filter((e) => e.childId === skillId).map((e) => e.parentId);

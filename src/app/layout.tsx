@@ -62,9 +62,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var k='lt-theme';var s=localStorage.getItem(k)||localStorage.getItem('theme')||'system';var r=s;if(s==='system'){r=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}var c=document.documentElement.classList;c.remove('light','dark');c.add(r);}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-screen">
         <ThemeProvider>
           <AuthProvider>

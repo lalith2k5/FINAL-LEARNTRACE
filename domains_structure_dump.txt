@@ -1,0 +1,1725 @@
+=== FILE: src/content/domains/backend-engineer.json ===
+{
+  "domain": {
+    "slug": "backend-engineer",
+    "name": "Backend Engineer",
+    "description": "From HTTP and databases to production-grade APIs and distributed systems."
+  },
+  "skills": [
+    {
+      "slug": "programming-fundamentals",
+      "name": "Programming Fundamentals",
+      "description": "Core language concepts: variables, control flow, functions, and data types.",
+      "difficulty": 1
+    },
+    {
+      "slug": "http-and-rest",
+      "name": "HTTP and REST",
+      "description": "Understand HTTP verbs, status codes, headers, and RESTful API design.",
+      "difficulty": 1
+    },
+    {
+      "slug": "git-version-control",
+      "name": "Git and Version Control",
+      "description": "Track changes, branch, merge, and collaborate with Git and GitHub.",
+      "difficulty": 1
+    },
+    {
+      "slug": "sql-databases",
+      "name": "SQL and Relational Databases",
+      "description": "Model data, write queries, and design normalized schemas.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-structures-and-algorithms",
+      "name": "Data Structures and Algorithms",
+      "description": "Choose the right data structure and analyze algorithmic complexity.",
+      "difficulty": 2
+    },
+    {
+      "slug": "web-frameworks",
+      "name": "Web Frameworks",
+      "description": "Build HTTP servers with a modern framework (Express, FastAPI, Django, etc.).",
+      "difficulty": 2
+    },
+    {
+      "slug": "api-design",
+      "name": "API Design",
+      "description": "Design clean, versioned, well-documented APIs that clients love.",
+      "difficulty": 2
+    },
+    {
+      "slug": "error-handling",
+      "name": "Error Handling and Logging",
+      "description": "Structure errors, propagate them cleanly, and log useful context.",
+      "difficulty": 2
+    },
+    {
+      "slug": "testing",
+      "name": "Testing",
+      "description": "Write unit, integration, and end-to-end tests that catch real bugs.",
+      "difficulty": 2
+    },
+    {
+      "slug": "authentication-authorization",
+      "name": "Authentication and Authorization",
+      "description": "Implement sessions, JWTs, OAuth, and role-based access control.",
+      "difficulty": 3
+    },
+    {
+      "slug": "caching",
+      "name": "Caching",
+      "description": "Speed up reads with in-memory, Redis, and HTTP caching strategies.",
+      "difficulty": 3
+    },
+    {
+      "slug": "message-queues",
+      "name": "Message Queues",
+      "description": "Decouple services with queues and workers (RabbitMQ, Kafka, SQS).",
+      "difficulty": 3
+    },
+    {
+      "slug": "orm-and-migrations",
+      "name": "ORM and Migrations",
+      "description": "Use an ORM safely and evolve schemas with backward-compatible migrations.",
+      "difficulty": 3
+    },
+    {
+      "slug": "docker",
+      "name": "Docker and Containers",
+      "description": "Package apps into portable images and run them consistently.",
+      "difficulty": 3
+    },
+    {
+      "slug": "ci-cd",
+      "name": "CI/CD Pipelines",
+      "description": "Automate tests, builds, and deploys with GitHub Actions or similar.",
+      "difficulty": 3
+    },
+    {
+      "slug": "database-performance",
+      "name": "Database Performance",
+      "description": "Read query plans, add indexes, and avoid N+1 queries.",
+      "difficulty": 3
+    },
+    {
+      "slug": "monitoring-observability",
+      "name": "Monitoring and Observability",
+      "description": "Track metrics, logs, and traces to know how your service behaves.",
+      "difficulty": 4
+    },
+    {
+      "slug": "distributed-systems",
+      "name": "Distributed Systems",
+      "description": "Reason about consistency, partitioning, and failure modes at scale.",
+      "difficulty": 4
+    },
+    {
+      "slug": "security-best-practices",
+      "name": "Security Best Practices",
+      "description": "Prevent OWASP top 10 issues, handle secrets, and secure inputs.",
+      "difficulty": 4
+    },
+    {
+      "slug": "system-design",
+      "name": "System Design",
+      "description": "Design scalable services considering tradeoffs, failure, and cost.",
+      "difficulty": 5
+    }
+  ],
+  "prerequisites": [
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "git-version-control",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "sql-databases",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "data-structures-and-algorithms",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "http-and-rest",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "programming-fundamentals",
+      "childSlug": "web-frameworks",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "http-and-rest",
+      "childSlug": "api-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "http-and-rest",
+      "childSlug": "web-frameworks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "http-and-rest",
+      "childSlug": "authentication-authorization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "sql-databases",
+      "childSlug": "orm-and-migrations",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "sql-databases",
+      "childSlug": "database-performance",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "caching",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "database-performance",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "distributed-systems",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "api-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "error-handling",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "testing",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "web-frameworks",
+      "childSlug": "docker",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "api-design",
+      "childSlug": "authentication-authorization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "api-design",
+      "childSlug": "error-handling",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "api-design",
+      "childSlug": "system-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "error-handling",
+      "childSlug": "monitoring-observability",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "testing",
+      "childSlug": "ci-cd",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "authentication-authorization",
+      "childSlug": "security-best-practices",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "caching",
+      "childSlug": "database-performance",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "caching",
+      "childSlug": "distributed-systems",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "message-queues",
+      "childSlug": "distributed-systems",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "orm-and-migrations",
+      "childSlug": "database-performance",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker",
+      "childSlug": "ci-cd",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker",
+      "childSlug": "monitoring-observability",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "database-performance",
+      "childSlug": "system-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "monitoring-observability",
+      "childSlug": "system-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "distributed-systems",
+      "childSlug": "system-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "security-best-practices",
+      "childSlug": "system-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker",
+      "childSlug": "message-queues",
+      "weight": 0.6
+    }
+  ],
+  "counts": {
+    "skills": 20,
+    "prerequisites": 34,
+    "questions": 42,
+    "materials": 21
+  }
+}
+
+=== FILE: src/content/domains/data-analyst.json ===
+{
+  "domain": {
+    "slug": "data-analyst",
+    "name": "Data Analyst",
+    "description": "From SQL and spreadsheets to statistical analysis and business intelligence."
+  },
+  "skills": [
+    {
+      "slug": "spreadsheet-analysis",
+      "name": "Spreadsheet Analysis",
+      "description": "Analyze data in Excel and Google Sheets using formulas, pivot tables, and lookups.",
+      "difficulty": 1
+    },
+    {
+      "slug": "sql-fundamentals",
+      "name": "SQL Fundamentals",
+      "description": "Query relational databases with SELECT, WHERE, GROUP BY, ORDER BY, and aggregate functions.",
+      "difficulty": 1
+    },
+    {
+      "slug": "descriptive-statistics",
+      "name": "Descriptive Statistics",
+      "description": "Summarize data with mean, median, mode, variance, standard deviation, and percentiles.",
+      "difficulty": 1
+    },
+    {
+      "slug": "data-cleaning",
+      "name": "Data Cleaning",
+      "description": "Handle missing values, duplicates, outliers, and inconsistent formats before analysis.",
+      "difficulty": 2
+    },
+    {
+      "slug": "sql-joins",
+      "name": "SQL Joins",
+      "description": "Combine tables with INNER, LEFT, RIGHT, FULL, and self joins.",
+      "difficulty": 2
+    },
+    {
+      "slug": "python-for-analysts",
+      "name": "Python for Analysts",
+      "description": "Use pandas and numpy for tabular analysis, aggregation, and reshaping.",
+      "difficulty": 2
+    },
+    {
+      "slug": "exploratory-data-analysis",
+      "name": "Exploratory Data Analysis",
+      "description": "Explore datasets to uncover structure, patterns, anomalies, and relationships.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-visualization",
+      "name": "Data Visualization",
+      "description": "Choose appropriate chart types and design clear, honest visualizations.",
+      "difficulty": 2
+    },
+    {
+      "slug": "inferential-statistics",
+      "name": "Inferential Statistics",
+      "description": "Draw conclusions about populations from samples using confidence intervals and sampling theory.",
+      "difficulty": 2
+    },
+    {
+      "slug": "business-metrics-kpis",
+      "name": "Business Metrics and KPIs",
+      "description": "Track and interpret core business metrics such as revenue, retention, and engagement.",
+      "difficulty": 2
+    },
+    {
+      "slug": "sql-subqueries-ctes",
+      "name": "SQL Subqueries and CTEs",
+      "description": "Write subqueries, common table expressions, and window functions for complex analysis.",
+      "difficulty": 3
+    },
+    {
+      "slug": "hypothesis-testing",
+      "name": "Hypothesis Testing",
+      "description": "Test statistical claims using t-tests, chi-square, and p-values.",
+      "difficulty": 3
+    },
+    {
+      "slug": "ab-testing",
+      "name": "A/B Testing",
+      "description": "Design, run, and analyze controlled experiments to compare variants.",
+      "difficulty": 3
+    },
+    {
+      "slug": "regression-analysis",
+      "name": "Regression Analysis",
+      "description": "Model relationships between variables using linear and logistic regression.",
+      "difficulty": 3
+    },
+    {
+      "slug": "tableau-power-bi",
+      "name": "Tableau / Power BI",
+      "description": "Build interactive dashboards and reports with modern BI tools.",
+      "difficulty": 3
+    },
+    {
+      "slug": "dashboard-design",
+      "name": "Dashboard Design",
+      "description": "Design dashboards with clear hierarchy, useful metrics, and appropriate interactivity.",
+      "difficulty": 3
+    },
+    {
+      "slug": "cohort-analysis",
+      "name": "Cohort Analysis",
+      "description": "Group users by shared characteristics and track behavior over time.",
+      "difficulty": 3
+    },
+    {
+      "slug": "funnel-analysis",
+      "name": "Funnel Analysis",
+      "description": "Measure conversion through sequential steps and identify drop-off points.",
+      "difficulty": 3
+    },
+    {
+      "slug": "customer-segmentation",
+      "name": "Customer Segmentation",
+      "description": "Group customers by behavior and value to guide targeting and retention.",
+      "difficulty": 3
+    },
+    {
+      "slug": "data-storytelling",
+      "name": "Data Storytelling",
+      "description": "Communicate insights persuasively to technical and non-technical audiences.",
+      "difficulty": 3
+    }
+  ],
+  "prerequisites": [
+    {
+      "parentSlug": "spreadsheet-analysis",
+      "childSlug": "descriptive-statistics",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "spreadsheet-analysis",
+      "childSlug": "data-cleaning",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "sql-fundamentals",
+      "childSlug": "sql-joins",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "sql-fundamentals",
+      "childSlug": "sql-subqueries-ctes",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "sql-fundamentals",
+      "childSlug": "python-for-analysts",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "descriptive-statistics",
+      "childSlug": "inferential-statistics",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "descriptive-statistics",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "descriptive-statistics",
+      "childSlug": "business-metrics-kpis",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "data-cleaning",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "sql-joins",
+      "childSlug": "sql-subqueries-ctes",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "python-for-analysts",
+      "childSlug": "data-cleaning",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "python-for-analysts",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "data-visualization",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "cohort-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "funnel-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "data-storytelling",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "tableau-power-bi",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "dashboard-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "data-storytelling",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "inferential-statistics",
+      "childSlug": "hypothesis-testing",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "inferential-statistics",
+      "childSlug": "ab-testing",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "inferential-statistics",
+      "childSlug": "regression-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "hypothesis-testing",
+      "childSlug": "ab-testing",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "business-metrics-kpis",
+      "childSlug": "cohort-analysis",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "business-metrics-kpis",
+      "childSlug": "funnel-analysis",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "business-metrics-kpis",
+      "childSlug": "dashboard-design",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "business-metrics-kpis",
+      "childSlug": "data-storytelling",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "tableau-power-bi",
+      "childSlug": "dashboard-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "cohort-analysis",
+      "childSlug": "customer-segmentation",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "funnel-analysis",
+      "childSlug": "customer-segmentation",
+      "weight": 0.8
+    }
+  ],
+  "counts": {
+    "skills": 20,
+    "prerequisites": 30,
+    "questions": 40,
+    "materials": 20
+  }
+}
+
+=== FILE: src/content/domains/data-scientist.json ===
+{
+  "domain": {
+    "slug": "data-scientist",
+    "name": "Data Scientist",
+    "description": "From statistics and programming to machine learning and production data science."
+  },
+  "skills": [
+    {
+      "slug": "python-for-data-science",
+      "name": "Python for Data Science",
+      "description": "Use Python, pandas, and numpy for analysis, scripting, and modeling.",
+      "difficulty": 1
+    },
+    {
+      "slug": "probability",
+      "name": "Probability",
+      "description": "Random variables, distributions, conditional probability, and Bayes' theorem.",
+      "difficulty": 1
+    },
+    {
+      "slug": "descriptive-statistics",
+      "name": "Descriptive Statistics",
+      "description": "Summarize data with central tendency, dispersion, and distribution shape.",
+      "difficulty": 1
+    },
+    {
+      "slug": "linear-algebra",
+      "name": "Linear Algebra",
+      "description": "Vectors, matrices, matrix operations, and eigenvalues for ML.",
+      "difficulty": 1
+    },
+    {
+      "slug": "data-wrangling",
+      "name": "Data Wrangling",
+      "description": "Clean, reshape, join, and aggregate messy real-world data.",
+      "difficulty": 2
+    },
+    {
+      "slug": "exploratory-data-analysis",
+      "name": "Exploratory Data Analysis",
+      "description": "Investigate datasets to surface patterns, anomalies, and hypotheses.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-visualization",
+      "name": "Data Visualization",
+      "description": "Communicate findings with clear, accurate, and honest charts.",
+      "difficulty": 2
+    },
+    {
+      "slug": "inferential-statistics",
+      "name": "Inferential Statistics",
+      "description": "Draw conclusions about populations from samples.",
+      "difficulty": 2
+    },
+    {
+      "slug": "sql-for-analysis",
+      "name": "SQL for Analysis",
+      "description": "Query and transform data in relational databases for analysis.",
+      "difficulty": 2
+    },
+    {
+      "slug": "regression-analysis",
+      "name": "Regression Analysis",
+      "description": "Model continuous outcomes with linear and regularized regression.",
+      "difficulty": 3
+    },
+    {
+      "slug": "classification",
+      "name": "Classification",
+      "description": "Predict discrete outcomes with logistic regression, trees, and SVM.",
+      "difficulty": 3
+    },
+    {
+      "slug": "feature-engineering",
+      "name": "Feature Engineering",
+      "description": "Create, select, and transform features to boost model performance.",
+      "difficulty": 3
+    },
+    {
+      "slug": "model-evaluation-metrics",
+      "name": "Model Evaluation",
+      "description": "Assess models with cross-validation, appropriate metrics, and error analysis.",
+      "difficulty": 3
+    },
+    {
+      "slug": "experimental-design",
+      "name": "Experimental Design",
+      "description": "Design controlled experiments with proper randomization and power.",
+      "difficulty": 3
+    },
+    {
+      "slug": "ab-testing",
+      "name": "A/B Testing",
+      "description": "Run and analyze controlled experiments to make data-driven decisions.",
+      "difficulty": 3
+    },
+    {
+      "slug": "clustering-algorithms",
+      "name": "Clustering",
+      "description": "Group similar observations with K-means, DBSCAN, and hierarchical methods.",
+      "difficulty": 3
+    },
+    {
+      "slug": "time-series-analysis",
+      "name": "Time Series Analysis",
+      "description": "Model trends, seasonality, and forecast future values.",
+      "difficulty": 4
+    },
+    {
+      "slug": "causal-inference",
+      "name": "Causal Inference",
+      "description": "Estimate causal effects from observational data using DAGs and methods like IV, DiD.",
+      "difficulty": 4
+    },
+    {
+      "slug": "ml-in-production",
+      "name": "ML in Production",
+      "description": "Deploy, monitor, and maintain models in real-world systems.",
+      "difficulty": 4
+    },
+    {
+      "slug": "data-science-communication",
+      "name": "Data Science Communication",
+      "description": "Translate technical findings into business decisions stakeholders act on.",
+      "difficulty": 4
+    }
+  ],
+  "prerequisites": [
+    {
+      "parentSlug": "python-for-data-science",
+      "childSlug": "data-wrangling",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "python-for-data-science",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "python-for-data-science",
+      "childSlug": "sql-for-analysis",
+      "weight": 0.5
+    },
+    {
+      "parentSlug": "probability",
+      "childSlug": "descriptive-statistics",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "probability",
+      "childSlug": "inferential-statistics",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "probability",
+      "childSlug": "regression-analysis",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "probability",
+      "childSlug": "classification",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "probability",
+      "childSlug": "experimental-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "descriptive-statistics",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "descriptive-statistics",
+      "childSlug": "inferential-statistics",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "regression-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "clustering-algorithms",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "data-wrangling",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-wrangling",
+      "childSlug": "feature-engineering",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-wrangling",
+      "childSlug": "time-series-analysis",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "data-visualization",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "feature-engineering",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "clustering-algorithms",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "data-science-communication",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "inferential-statistics",
+      "childSlug": "experimental-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "inferential-statistics",
+      "childSlug": "ab-testing",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "inferential-statistics",
+      "childSlug": "causal-inference",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "regression-analysis",
+      "childSlug": "classification",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "regression-analysis",
+      "childSlug": "time-series-analysis",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "regression-analysis",
+      "childSlug": "causal-inference",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "classification",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "classification",
+      "childSlug": "ml-in-production",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "ml-in-production",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "model-evaluation-metrics",
+      "childSlug": "ml-in-production",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "experimental-design",
+      "childSlug": "ab-testing",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "experimental-design",
+      "childSlug": "causal-inference",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "ml-in-production",
+      "childSlug": "data-science-communication",
+      "weight": 0.7
+    }
+  ],
+  "counts": {
+    "skills": 20,
+    "prerequisites": 33,
+    "questions": 40,
+    "materials": 20
+  }
+}
+
+=== FILE: src/content/domains/frontend-engineer.json ===
+{
+  "domain": {
+    "slug": "frontend-engineer",
+    "name": "Frontend Engineer",
+    "description": "From HTML and CSS to modern frameworks, accessibility, and web performance."
+  },
+  "skills": [
+    {
+      "slug": "html-fundamentals",
+      "name": "HTML Fundamentals",
+      "description": "Structure web pages with semantic HTML and understand the DOM.",
+      "difficulty": 1
+    },
+    {
+      "slug": "css-fundamentals",
+      "name": "CSS Fundamentals",
+      "description": "Style pages with selectors, the box model, colors, and typography.",
+      "difficulty": 1
+    },
+    {
+      "slug": "javascript-basics",
+      "name": "JavaScript Basics",
+      "description": "Variables, functions, objects, arrays, and control flow in modern JS.",
+      "difficulty": 1
+    },
+    {
+      "slug": "git-version-control",
+      "name": "Git and Version Control",
+      "description": "Track changes, branch, merge, and collaborate with Git.",
+      "difficulty": 1
+    },
+    {
+      "slug": "css-layout",
+      "name": "CSS Layout (Flexbox & Grid)",
+      "description": "Build layouts with Flexbox, Grid, positioning, and responsive units.",
+      "difficulty": 2
+    },
+    {
+      "slug": "dom-manipulation",
+      "name": "DOM Manipulation",
+      "description": "Query, create, and modify DOM elements; handle browser events.",
+      "difficulty": 2
+    },
+    {
+      "slug": "async-javascript",
+      "name": "Async JavaScript",
+      "description": "Work with Promises, async/await, and the event loop.",
+      "difficulty": 2
+    },
+    {
+      "slug": "responsive-design",
+      "name": "Responsive Design",
+      "description": "Build mobile-first layouts with media queries and fluid sizing.",
+      "difficulty": 2
+    },
+    {
+      "slug": "http-and-apis",
+      "name": "HTTP and APIs",
+      "description": "Fetch data from REST APIs, handle errors, and understand CORS.",
+      "difficulty": 2
+    },
+    {
+      "slug": "typescript-fundamentals",
+      "name": "TypeScript Fundamentals",
+      "description": "Add static types to JavaScript for safer, more maintainable code.",
+      "difficulty": 2
+    },
+    {
+      "slug": "react-fundamentals",
+      "name": "React Fundamentals",
+      "description": "Build UIs with components, props, state, and JSX.",
+      "difficulty": 3
+    },
+    {
+      "slug": "state-management",
+      "name": "State Management",
+      "description": "Manage local, lifted, and global state with hooks, context, or a store.",
+      "difficulty": 3
+    },
+    {
+      "slug": "forms-and-validation",
+      "name": "Forms and Validation",
+      "description": "Handle form state, validation, and submission with good UX.",
+      "difficulty": 3
+    },
+    {
+      "slug": "accessibility",
+      "name": "Accessibility (a11y)",
+      "description": "Build inclusive UIs with semantics, keyboard support, and screen readers in mind.",
+      "difficulty": 3
+    },
+    {
+      "slug": "routing",
+      "name": "Client-Side Routing",
+      "description": "Navigate between views with a router and handle params, nested routes, and guards.",
+      "difficulty": 3
+    },
+    {
+      "slug": "testing-frontend",
+      "name": "Frontend Testing",
+      "description": "Write unit and integration tests for components and user flows.",
+      "difficulty": 3
+    },
+    {
+      "slug": "css-architecture",
+      "name": "CSS Architecture",
+      "description": "Organize styles with tokens, utility classes, or component-scoped CSS.",
+      "difficulty": 3
+    },
+    {
+      "slug": "web-performance",
+      "name": "Web Performance",
+      "description": "Optimize load and runtime: code splitting, lazy loading, Core Web Vitals.",
+      "difficulty": 4
+    },
+    {
+      "slug": "build-tools",
+      "name": "Build Tools and Bundlers",
+      "description": "Use modern bundlers (Vite, Webpack, Turbopack) and understand the toolchain.",
+      "difficulty": 4
+    },
+    {
+      "slug": "frontend-architecture",
+      "name": "Frontend Architecture",
+      "description": "Design scalable frontend systems: modules, data flow, deployment strategies.",
+      "difficulty": 5
+    }
+  ],
+  "prerequisites": [
+    {
+      "parentSlug": "html-fundamentals",
+      "childSlug": "css-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "html-fundamentals",
+      "childSlug": "javascript-basics",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "html-fundamentals",
+      "childSlug": "dom-manipulation",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "css-fundamentals",
+      "childSlug": "css-layout",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "css-fundamentals",
+      "childSlug": "responsive-design",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "css-fundamentals",
+      "childSlug": "css-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "dom-manipulation",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "async-javascript",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "typescript-fundamentals",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "javascript-basics",
+      "childSlug": "react-fundamentals",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "git-version-control",
+      "childSlug": "build-tools",
+      "weight": 0.5
+    },
+    {
+      "parentSlug": "css-layout",
+      "childSlug": "responsive-design",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "css-layout",
+      "childSlug": "css-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "dom-manipulation",
+      "childSlug": "react-fundamentals",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "dom-manipulation",
+      "childSlug": "accessibility",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "async-javascript",
+      "childSlug": "http-and-apis",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "async-javascript",
+      "childSlug": "react-fundamentals",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "responsive-design",
+      "childSlug": "css-architecture",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "http-and-apis",
+      "childSlug": "forms-and-validation",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "state-management",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "forms-and-validation",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "routing",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "testing-frontend",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "react-fundamentals",
+      "childSlug": "web-performance",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "state-management",
+      "childSlug": "frontend-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "testing-frontend",
+      "childSlug": "frontend-architecture",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "web-performance",
+      "childSlug": "frontend-architecture",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "build-tools",
+      "childSlug": "web-performance",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "build-tools",
+      "childSlug": "frontend-architecture",
+      "weight": 0.8
+    }
+  ],
+  "counts": {
+    "skills": 20,
+    "prerequisites": 29,
+    "questions": 41,
+    "materials": 20
+  }
+}
+
+=== FILE: src/content/domains/ml-engineer.json ===
+{
+  "domain": {
+    "slug": "ml-engineer",
+    "name": "Machine Learning Engineer",
+    "description": "From Python fundamentals to production ML systems."
+  },
+  "skills": [
+    {
+      "slug": "python-programming",
+      "name": "Python Programming",
+      "description": "Master essential Python syntax, control structures, and standard libraries required for machine learning development.",
+      "difficulty": 1
+    },
+    {
+      "slug": "linear-algebra",
+      "name": "Linear Algebra",
+      "description": "Understand vectors, matrices, matrix operations, and eigenvalues essential for machine learning operations.",
+      "difficulty": 1
+    },
+    {
+      "slug": "calculus",
+      "name": "Calculus",
+      "description": "Learn derivatives, partial derivatives, and gradient concepts crucial for model optimization.",
+      "difficulty": 1
+    },
+    {
+      "slug": "probability-and-statistics",
+      "name": "Probability and Statistics",
+      "description": "Study random variables, probability distributions, hypothesis testing, and statistical significance.",
+      "difficulty": 1
+    },
+    {
+      "slug": "data-structures-and-algorithms",
+      "name": "Data Structures and Algorithms",
+      "description": "Apply algorithmic thinking, efficient data structures, and complexity analysis to write scalable code.",
+      "difficulty": 2
+    },
+    {
+      "slug": "numpy-fundamentals",
+      "name": "NumPy Fundamentals",
+      "description": "Perform high-performance vector and matrix operations using NumPy arrays and broadcasting.",
+      "difficulty": 2
+    },
+    {
+      "slug": "pandas-data-manipulation",
+      "name": "Pandas Data Manipulation",
+      "description": "Manipulate tabular data, clean datasets, and handle missing values effectively using Pandas DataFrames.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-visualization",
+      "name": "Data Visualization",
+      "description": "Create static and interactive visual representations of data using libraries like Matplotlib and Seaborn.",
+      "difficulty": 2
+    },
+    {
+      "slug": "exploratory-data-analysis",
+      "name": "Exploratory Data Analysis",
+      "description": "Analyze datasets to summarize their main characteristics, uncover patterns, and detect anomalies.",
+      "difficulty": 2
+    },
+    {
+      "slug": "data-preprocessing",
+      "name": "Data Preprocessing",
+      "description": "Clean, scale, encode, and prepare raw data into suitable representations for training algorithms.",
+      "difficulty": 2
+    },
+    {
+      "slug": "feature-engineering",
+      "name": "Feature Engineering",
+      "description": "Extract, transform, and select domain-specific features from raw data to boost model performance.",
+      "difficulty": 3
+    },
+    {
+      "slug": "supervised-learning-basics",
+      "name": "Supervised Learning Basics",
+      "description": "Understand core concepts of supervised learning including target variables, training, and prediction.",
+      "difficulty": 2
+    },
+    {
+      "slug": "linear-and-logistic-regression",
+      "name": "Linear and Logistic Regression",
+      "description": "Implement statistical regression models for predicting continuous targets and binary outcomes.",
+      "difficulty": 3
+    },
+    {
+      "slug": "decision-trees-and-ensembles",
+      "name": "Decision Trees and Ensembles",
+      "description": "Build tree-based algorithms including Random Forests and Gradient Boosted Decision Trees.",
+      "difficulty": 3
+    },
+    {
+      "slug": "support-vector-machines",
+      "name": "Support Vector Machines",
+      "description": "Classify complex data using hyperplanes, margins, and kernel tricks in SVM architectures.",
+      "difficulty": 3
+    },
+    {
+      "slug": "unsupervised-learning",
+      "name": "Unsupervised Learning",
+      "description": "Discover hidden structures and patterns in unlabeled data without explicit target feedback.",
+      "difficulty": 3
+    },
+    {
+      "slug": "clustering-algorithms",
+      "name": "Clustering Algorithms",
+      "description": "Group similar data points using algorithms such as K-Means, DBSCAN, and Hierarchical Clustering.",
+      "difficulty": 3
+    },
+    {
+      "slug": "dimensionality-reduction-and-pca",
+      "name": "Dimensionality Reduction and PCA",
+      "description": "Reduce feature space dimensions while preserving variance using Principal Component Analysis.",
+      "difficulty": 3
+    },
+    {
+      "slug": "model-evaluation-metrics",
+      "name": "Model Evaluation Metrics",
+      "description": "Quantify model performance using accuracy, precision, recall, F1-score, ROC-AUC, and MSE.",
+      "difficulty": 3
+    },
+    {
+      "slug": "cross-validation-and-hyperparameter-tuning",
+      "name": "Cross-Validation and Hyperparameter Tuning",
+      "description": "Optimize model hyperparameters using k-fold cross-validation, grid search, and Bayesian optimization.",
+      "difficulty": 3
+    },
+    {
+      "slug": "deep-learning-fundamentals",
+      "name": "Deep Learning Fundamentals",
+      "description": "Understand artificial neurons, forward propagation, activation functions, and backpropagation.",
+      "difficulty": 4
+    },
+    {
+      "slug": "neural-network-architectures",
+      "name": "Neural Network Architectures",
+      "description": "Design and train multi-layer perceptrons using frameworks like PyTorch or TensorFlow.",
+      "difficulty": 4
+    },
+    {
+      "slug": "convolutional-neural-networks",
+      "name": "Convolutional Neural Networks",
+      "description": "Apply spatial feature extraction networks for computer vision and image processing tasks.",
+      "difficulty": 4
+    },
+    {
+      "slug": "recurrent-neural-networks",
+      "name": "Recurrent Neural Networks",
+      "description": "Model sequential data using RNNs, LSTMs, and GRUs for time-series and language processing.",
+      "difficulty": 4
+    },
+    {
+      "slug": "transformers-and-attention",
+      "name": "Transformers and Attention",
+      "description": "Implement self-attention mechanisms and transformer-based architectures for state-of-the-art NLP models.",
+      "difficulty": 5
+    },
+    {
+      "slug": "model-optimization-and-quantization",
+      "name": "Model Optimization and Quantization",
+      "description": "Compress models using pruning, quantization, and distillation for efficient resource utilization.",
+      "difficulty": 5
+    },
+    {
+      "slug": "docker-and-containerization",
+      "name": "Docker and Containerization",
+      "description": "Package machine learning code, dependencies, and runtime environments into portable Docker containers.",
+      "difficulty": 4
+    },
+    {
+      "slug": "mlops-and-model-registry",
+      "name": "MLOps and Model Registry",
+      "description": "Track experiments, version data and artifacts, and manage model lifecycles using MLOps tools.",
+      "difficulty": 4
+    },
+    {
+      "slug": "model-deployment-api",
+      "name": "Model Deployment API",
+      "description": "Serve trained machine learning models as production REST APIs or gRPC endpoints.",
+      "difficulty": 4
+    },
+    {
+      "slug": "ml-system-design-and-monitoring",
+      "name": "ML System Design and Monitoring",
+      "description": "Architect end-to-end machine learning pipelines and monitor production systems for data drift.",
+      "difficulty": 5
+    }
+  ],
+  "prerequisites": [
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "data-structures-and-algorithms",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "numpy-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "pandas-data-manipulation",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "data-visualization",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "python-programming",
+      "childSlug": "docker-and-containerization",
+      "weight": 0.5
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "numpy-fundamentals",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "linear-algebra",
+      "childSlug": "support-vector-machines",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "calculus",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "calculus",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "calculus",
+      "childSlug": "model-optimization-and-quantization",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "unsupervised-learning",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "probability-and-statistics",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "data-preprocessing",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "feature-engineering",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "data-structures-and-algorithms",
+      "childSlug": "neural-network-architectures",
+      "weight": 0.5
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "pandas-data-manipulation",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "data-preprocessing",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "supervised-learning-basics",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "numpy-fundamentals",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "pandas-data-manipulation",
+      "childSlug": "data-visualization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "pandas-data-manipulation",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "pandas-data-manipulation",
+      "childSlug": "data-preprocessing",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "exploratory-data-analysis",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-visualization",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "data-preprocessing",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "exploratory-data-analysis",
+      "childSlug": "feature-engineering",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-preprocessing",
+      "childSlug": "feature-engineering",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "data-preprocessing",
+      "childSlug": "supervised-learning-basics",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "data-preprocessing",
+      "childSlug": "unsupervised-learning",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "decision-trees-and-ensembles",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "feature-engineering",
+      "childSlug": "clustering-algorithms",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "linear-and-logistic-regression",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "decision-trees-and-ensembles",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "support-vector-machines",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "supervised-learning-basics",
+      "childSlug": "model-evaluation-metrics",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "linear-and-logistic-regression",
+      "childSlug": "decision-trees-and-ensembles",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "linear-and-logistic-regression",
+      "childSlug": "neural-network-architectures",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "decision-trees-and-ensembles",
+      "childSlug": "cross-validation-and-hyperparameter-tuning",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "support-vector-machines",
+      "childSlug": "cross-validation-and-hyperparameter-tuning",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "unsupervised-learning",
+      "childSlug": "clustering-algorithms",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "unsupervised-learning",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "clustering-algorithms",
+      "childSlug": "dimensionality-reduction-and-pca",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "dimensionality-reduction-and-pca",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "model-evaluation-metrics",
+      "childSlug": "cross-validation-and-hyperparameter-tuning",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "model-evaluation-metrics",
+      "childSlug": "mlops-and-model-registry",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "cross-validation-and-hyperparameter-tuning",
+      "childSlug": "deep-learning-fundamentals",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "cross-validation-and-hyperparameter-tuning",
+      "childSlug": "model-optimization-and-quantization",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "deep-learning-fundamentals",
+      "childSlug": "neural-network-architectures",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "deep-learning-fundamentals",
+      "childSlug": "convolutional-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "deep-learning-fundamentals",
+      "childSlug": "recurrent-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "neural-network-architectures",
+      "childSlug": "convolutional-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "neural-network-architectures",
+      "childSlug": "recurrent-neural-networks",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "neural-network-architectures",
+      "childSlug": "transformers-and-attention",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "convolutional-neural-networks",
+      "childSlug": "transformers-and-attention",
+      "weight": 0.6
+    },
+    {
+      "parentSlug": "recurrent-neural-networks",
+      "childSlug": "transformers-and-attention",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "transformers-and-attention",
+      "childSlug": "model-optimization-and-quantization",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "model-optimization-and-quantization",
+      "childSlug": "model-deployment-api",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "docker-and-containerization",
+      "childSlug": "model-deployment-api",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker-and-containerization",
+      "childSlug": "mlops-and-model-registry",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "docker-and-containerization",
+      "childSlug": "ml-system-design-and-monitoring",
+      "weight": 0.7
+    },
+    {
+      "parentSlug": "mlops-and-model-registry",
+      "childSlug": "model-deployment-api",
+      "weight": 0.8
+    },
+    {
+      "parentSlug": "mlops-and-model-registry",
+      "childSlug": "ml-system-design-and-monitoring",
+      "weight": 0.9
+    },
+    {
+      "parentSlug": "model-deployment-api",
+      "childSlug": "ml-system-design-and-monitoring",
+      "weight": 0.9
+    }
+  ],
+  "counts": {
+    "skills": 30,
+    "prerequisites": 68,
+    "questions": 60,
+    "materials": 30
+  }
+}
+

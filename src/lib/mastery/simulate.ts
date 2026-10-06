@@ -1,13 +1,17 @@
-import { downstreamClosure, parentsOf, type Edge } from "@/lib/graph/dag";
+import {
+  downstreamClosure,
+  weightedParentsOf,
+  type Edge,
+} from "@/lib/graph/dag";
 
 export type SimulateInput = {
   skillId: string;
   mode: "skip" | "improve";
-  targetValue?: number;        // for improve mode, 0..1
+  targetValue?: number;
   mastery: Record<string, number>;
   graph: { skillIds: string[]; edges: Edge[] };
   goalSkillIds: Set<string>;
-  targetMastery: number;       // e.g. 0.75
+  targetMastery: number;
 };
 
 type AffectedSkill = {
@@ -30,9 +34,6 @@ export type SimulateResult = {
   };
 };
 
-/**
- * Goal readiness = average mastery over goal skills (capped at target).
- */
 function goalReadiness(
   mastery: Record<string, number>,
   goalSkillIds: Set<string>,
@@ -44,19 +45,21 @@ function goalReadiness(
     const m = mastery[id] ?? 0;
     total += Math.min(m, targetMastery);
   }
-  return total / goalSkillIds.size / targetMastery; // 0..1
+  return total / goalSkillIds.size / targetMastery;
 }
 
 /**
- * Simulate changing mastery of a skill and propagate the effect
- * down through downstream skills (dependents) using a simple
- * proportional model.
+ * Simulate changing mastery of a skill and propagate the effect down
+ * through downstream skills.
  *
- * - skip mode: sets the skill to 0 and drags down downstream skills
- *   proportionally to how much of their mastery could be attributed
- *   to this prerequisite.
- * - improve mode: sets the skill to `targetValue` and lifts downstream
- *   skills toward the target, capped at the target mastery.
+ * - skip: sets the skill to 0, drags each downstream node down by
+ *   `avgParentDrop * DRAG`, where the parent average is weighted by
+ *   edge weight. A node with a single 1.0-weight parent loses 50% of
+ *   that parent's drop; a node with two parents at 0.9 and 0.5 loses
+ *   50% of the weighted average.
+ * - improve: sets the skill to `max(before, targetValue)`, lifts each
+ *   downstream node toward the weighted parent average, capped at
+ *   targetMastery. Never lowers a downstream node.
  */
 export function simulate(input: SimulateInput): SimulateResult {
   const {
@@ -69,24 +72,18 @@ export function simulate(input: SimulateInput): SimulateResult {
     targetMastery,
   } = input;
 
-  // Clone mastery
   const next: Record<string, number> = { ...mastery };
-
   const before = mastery[skillId] ?? 0;
 
   if (mode === "skip") {
     next[skillId] = 0;
   } else {
     const target = Math.min(1, Math.max(0, targetValue));
-    // Improve mode never lowers mastery
     next[skillId] = Math.max(before, target);
   }
 
-  // Propagate to downstream skills (transitively)
   const downstream = downstreamClosure(skillId, graph.edges);
 
-  // Sort downstream by depth from root so effects cascade correctly.
-  // We compute depth via BFS.
   const adj = new Map<string, string[]>();
   for (const e of graph.edges) {
     if (!adj.has(e.parentId)) adj.set(e.parentId, []);
@@ -106,40 +103,35 @@ export function simulate(input: SimulateInput): SimulateResult {
   );
 
   for (const id of orderedDownstream) {
-    const parents = parentsOf(id, graph.edges);
+    const parents = weightedParentsOf(id, graph.edges);
     if (parents.length === 0) continue;
 
     if (mode === "skip") {
-      // Soft cascade: child drops by a fraction of the average parent drop.
-      // Represents "unsupported mastery" rather than "erased mastery" —
-      // skipping a prerequisite doesn't zero out the entire downstream tree.
       const DRAG = 0.5;
       let dropSum = 0;
-      let count = 0;
-      for (const p of parents) {
+      let weightSum = 0;
+      for (const { parentId: p, weight: w } of parents) {
         const beforeParent = mastery[p] ?? 0;
         const afterParent = next[p] ?? 0;
-        dropSum += Math.max(0, beforeParent - afterParent);
-        count++;
+        dropSum += Math.max(0, beforeParent - afterParent) * w;
+        weightSum += w;
       }
-      const avgDrop = count > 0 ? dropSum / count : 0;
+      const avgDrop = weightSum > 0 ? dropSum / weightSum : 0;
       const current = next[id] ?? 0;
       next[id] = Math.max(0, current - avgDrop * DRAG);
     } else {
-      // Lift up: new value = max(current, min(parentAvg, targetMastery))
       let parentSum = 0;
-      let parentCount = 0;
-      for (const p of parents) {
-        parentSum += next[p] ?? 0;
-        parentCount++;
+      let weightSum = 0;
+      for (const { parentId: p, weight: w } of parents) {
+        parentSum += (next[p] ?? 0) * w;
+        weightSum += w;
       }
-      const parentAvg = parentCount > 0 ? parentSum / parentCount : 0;
+      const parentAvg = weightSum > 0 ? parentSum / weightSum : 0;
       const lifted = Math.min(targetMastery, parentAvg);
       next[id] = Math.max(next[id] ?? 0, lifted);
     }
   }
 
-  // Collect affected (any non-zero delta)
   const affected: AffectedSkill[] = [];
   const allIds = new Set([skillId, ...downstream]);
   for (const id of allIds) {

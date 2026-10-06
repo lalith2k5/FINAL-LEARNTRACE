@@ -10,7 +10,7 @@ import { DecayBadge } from "@/components/viz/DecayBadge";
 import { MisconceptionCard } from "@/components/viz/MisconceptionCard";
 import { prisma } from "@/lib/db";
 import { requireUser } from "@/lib/user";
-import { requireActiveDomain } from "@/lib/domain";
+import { requireActiveDomain, getGoalSkillIds } from "@/lib/domain";
 import { rankGaps } from "@/lib/mastery/impact";
 import { getMasteryView } from "@/lib/mastery/view";
 import {
@@ -48,10 +48,9 @@ export default async function DashboardPage() {
     domainSkillIds.has(v.skillId)
   );
 
-  const wrongAttempts = await prisma.attempt.findMany({
+  const recentAttempts = await prisma.attempt.findMany({
     where: {
       userId: user.id,
-      correct: false,
       selectedOptionId: { not: null },
       question: { domainId: domain.id },
     },
@@ -63,7 +62,7 @@ export default async function DashboardPage() {
   });
 
   const misconceptionAttempts: MisconceptionAttempt[] = [];
-  for (const a of wrongAttempts) {
+  for (const a of recentAttempts) {
     const ps = a.question.skills[0]?.skill;
     if (!ps) continue;
     misconceptionAttempts.push({
@@ -75,6 +74,7 @@ export default async function DashboardPage() {
       selectedOptionId: a.selectedOptionId,
       correctOptionId: a.question.correctId,
       options: a.question.options as { id: string; text: string }[],
+      confidence: a.confidence,
       createdAt: a.createdAt,
     });
   }
@@ -83,6 +83,7 @@ export default async function DashboardPage() {
   const edges: Edge[] = prereqs.map((p) => ({
     parentId: p.parentId,
     childId: p.childId,
+    weight: p.weight,
   }));
   const skillById = new Map(skills.map((s) => [s.id, s]));
 
@@ -97,10 +98,7 @@ export default async function DashboardPage() {
       ? domainViewList.reduce((a, v) => a + v.effective, 0) / attemptedCount
       : 0;
 
-  const goalSkills = [...skills]
-    .sort((a, b) => b.difficulty - a.difficulty)
-    .slice(0, 3);
-  const goalSkillIds = new Set(goalSkills.map((s) => s.id));
+  const goalSkillIds = await getGoalSkillIds(user.id, domain.id, skills);
 
   const ranked = rankGaps({
     mastery: domainMastery,
@@ -349,7 +347,7 @@ export default async function DashboardPage() {
           <div className="grid gap-3 md:grid-cols-2">
             {misconceptions.slice(0, 4).map((m, i) => (
               <MisconceptionCard
-                key={`${m.skillId}-${m.selectedOptionId}`}
+                key={`${m.skillId}-${m.kind}`}
                 misconception={m}
                 index={i}
               />

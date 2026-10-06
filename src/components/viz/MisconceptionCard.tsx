@@ -1,16 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { AlertTriangle, ChevronDown } from "lucide-react";
+import { AlertTriangle, ChevronDown, Gauge, Repeat } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import type { Misconception } from "@/lib/mastery/misconceptions";
 import { cn } from "@/lib/utils";
 
-/**
- * Deterministic date formatter — same output on server and client.
- * Uses en-GB + explicit 2-digit day/month to avoid locale drift.
- */
 function stableFormatDate(d: Date | string): string {
   const date = typeof d === "string" ? new Date(d) : d;
   return new Intl.DateTimeFormat("en-GB", {
@@ -26,17 +22,53 @@ type Props = {
   index: number;
 };
 
+function severityFor(m: Misconception): {
+  label: string;
+  tone: string;
+  border: string;
+} {
+  const count =
+    m.kind === "option-repeat" ? m.count : m.wrongCount;
+  if (count >= 4) {
+    return {
+      label: "Persistent",
+      tone: "text-text-tertiary",
+      border: "border-white/[0.08]/40",
+    };
+  }
+  if (count >= 3) {
+    return {
+      label: "Recurring",
+      tone: "text-text-secondary",
+      border: "border-white/[0.10]/40",
+    };
+  }
+  return {
+    label: "Emerging",
+    tone: "text-text-secondary",
+    border: "border-white/[0.10]/40",
+  };
+}
+
+const KIND_META: Record<
+  Misconception["kind"],
+  { label: string; Icon: typeof Repeat }
+> = {
+  "option-repeat": { label: "Repeated wrong option", Icon: Repeat },
+  overconfident: { label: "Overconfident errors", Icon: Gauge },
+  "skill-weak": { label: "Systematic weakness", Icon: AlertTriangle },
+};
+
 export function MisconceptionCard({ misconception, index }: Props) {
   const [open, setOpen] = useState(false);
+  const severity = severityFor(misconception);
+  const meta = KIND_META[misconception.kind];
+  const { Icon } = meta;
 
-  const severity =
-    misconception.count >= 4
-      ? { label: "Persistent", tone: "text-text-tertiary", border: "border-white/[0.08]/40" }
-      : misconception.count >= 3
-      ? { label: "Recurring", tone: "text-text-secondary", border: "border-white/[0.10]/40" }
-      : { label: "Emerging", tone: "text-text-secondary", border: "border-white/[0.10]/40" };
-
-  const ratePct = Math.round(misconception.repeatedRate * 100);
+  const headerCount =
+    misconception.kind === "option-repeat"
+      ? misconception.count
+      : misconception.wrongCount;
 
   return (
     <motion.div
@@ -48,25 +80,22 @@ export function MisconceptionCard({ misconception, index }: Props) {
         <div
           className={cn(
             "absolute left-0 top-0 h-full w-0.5",
-            misconception.count >= 4
+            headerCount >= 4
               ? "bg-rose shadow-[0_0_8px_rgba(244,244,245,0.28)]"
-              : misconception.count >= 3
-              ? "bg-rose shadow-[0_0_8px_rgba(244,244,245,0.55)]"
               : "bg-rose shadow-[0_0_8px_rgba(244,244,245,0.55)]"
           )}
         />
 
         <div className="pl-2">
-          {/* Header */}
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
-                <AlertTriangle className={cn("h-3.5 w-3.5 shrink-0", severity.tone)} />
+                <Icon className={cn("h-3.5 w-3.5 shrink-0", severity.tone)} />
                 <span className={cn("label-mono", severity.tone)}>
                   {severity.label}
                 </span>
                 <span className="num text-xs text-text-quaternary">
-                  · {misconception.count}× repeated
+                  · {meta.label}
                 </span>
               </div>
               <p className="mt-1 truncate text-sm font-medium text-text-primary">
@@ -75,39 +104,84 @@ export function MisconceptionCard({ misconception, index }: Props) {
             </div>
             <div className="shrink-0 text-right">
               <p className="num text-lg font-semibold text-text-primary">
-                {misconception.count}
+                {headerCount}
               </p>
               <p className="label-mono">times</p>
             </div>
           </div>
 
-          {/* Wrong vs correct */}
-          <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            <div className="rounded-lg border border-white/[0.08]/30 bg-white/[0.03] px-3 py-2">
-              <p className="label-mono text-text-tertiary">You picked</p>
-              <p className="mt-1 text-xs text-text-secondary">
-                {misconception.selectedOptionText}
-              </p>
-            </div>
-            <div className="rounded-lg border border-white/[0.12]/30 bg-white/[0.06] px-3 py-2">
-              <p className="label-mono text-text-primary">Correct</p>
-              <p className="mt-1 text-xs text-text-secondary">
-                {misconception.correctOptionText}
-              </p>
-            </div>
-          </div>
+          {misconception.kind === "option-repeat" && (
+            <>
+              <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                <div className="rounded-lg border border-white/[0.08]/30 bg-white/[0.03] px-3 py-2">
+                  <p className="label-mono text-text-tertiary">You picked</p>
+                  <p className="mt-1 text-xs text-text-secondary">
+                    {misconception.selectedOptionText}
+                  </p>
+                </div>
+                <div className="rounded-lg border border-white/[0.12]/30 bg-white/[0.06] px-3 py-2">
+                  <p className="label-mono text-text-primary">Correct</p>
+                  <p className="mt-1 text-xs text-text-secondary">
+                    {misconception.correctOptionText}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-3 flex items-center justify-between text-[11px]">
+                <span className="text-text-tertiary">
+                  {Math.round(misconception.repeatedRate * 100)}% of your wrong
+                  answers on this skill
+                </span>
+                <span className="text-text-quaternary">
+                  {stableFormatDate(misconception.lastSeenAt)}
+                </span>
+              </div>
+            </>
+          )}
 
-          {/* Meta */}
-          <div className="mt-3 flex items-center justify-between text-[11px]">
-            <span className="text-text-tertiary">
-              {ratePct}% of your wrong answers on this skill
-            </span>
-            <span className="text-text-quaternary">
-              {stableFormatDate(misconception.lastSeenAt)}
-            </span>
-          </div>
+          {misconception.kind === "overconfident" && (
+            <div className="mt-4 space-y-2">
+              <div className="rounded-lg border border-white/[0.08]/30 bg-white/[0.03] px-3 py-2">
+                <p className="label-mono text-text-tertiary">
+                  High confidence, wrong answer
+                </p>
+                <p className="mt-1 text-xs text-text-secondary">
+                  You rated confidence {misconception.avgConfidence.toFixed(1)}/5
+                  on {misconception.wrongCount} questions you got wrong — a
+                  signal you may believe a misunderstanding.
+                </p>
+              </div>
+              <div className="flex items-center justify-between text-[11px]">
+                <span className="text-text-tertiary">
+                  Confident wrong answers
+                </span>
+                <span className="text-text-quaternary">
+                  {stableFormatDate(misconception.lastSeenAt)}
+                </span>
+              </div>
+            </div>
+          )}
 
-          {/* Toggle */}
+          {misconception.kind === "skill-weak" && (
+            <div className="mt-4 space-y-2">
+              <div className="rounded-lg border border-white/[0.08]/30 bg-white/[0.03] px-3 py-2">
+                <p className="label-mono text-text-tertiary">Wrong rate</p>
+                <p className="mt-1 text-xs text-text-secondary">
+                  {Math.round(misconception.wrongRate * 100)}% wrong across{" "}
+                  {misconception.totalCount} attempts — consistent difficulty,
+                  not a bad-luck streak.
+                </p>
+              </div>
+              <div className="flex items-center justify-between text-[11px]">
+                <span className="text-text-tertiary">
+                  {misconception.wrongCount} wrong / {misconception.totalCount} total
+                </span>
+                <span className="text-text-quaternary">
+                  {stableFormatDate(misconception.lastSeenAt)}
+                </span>
+              </div>
+            </div>
+          )}
+
           {misconception.exampleQuestions.length > 0 && (
             <button
               onClick={() => setOpen((v) => !v)}

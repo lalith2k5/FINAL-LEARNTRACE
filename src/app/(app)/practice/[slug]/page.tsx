@@ -52,6 +52,7 @@ export default async function PracticalTaskPage({
 
       <PracticeRunner
         taskId={task.id}
+        language={task.language}
         taskTitle={task.title}
         description={task.description}
         difficulty={task.difficulty}

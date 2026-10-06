@@ -1,0 +1,630 @@
+=== FILE: package.json ===
+{
+  "name": "learntrace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:studio": "prisma studio",
+    "db:migrate": "prisma migrate dev",
+    "db:seed-practical": "tsx scripts/seed-practical.ts",
+    "db:seed-questions": "tsx scripts/seed-more-questions-2.ts",
+    "content:gen": "tsx scripts/generate-content.ts",
+    "db:seed-practical-2": "tsx scripts/seed-more-practical-2.ts",
+    "db:ensure-notes": "tsx scripts/ensure-note-materials.ts",
+    "db:seed-videos": "tsx scripts/seed-skill-videos.ts",
+    "db:remove-notes": "tsx scripts/remove-study-notes.ts",
+    "db:seed-practical-3": "tsx scripts/seed-more-practical-3.ts",
+    "db:ml-topup": "tsx scripts/seed-ml-topup.ts",
+    "db:seed-practical-all": "tsx scripts/seed-practical-all-domains.ts",
+    "db:seed-videos-all": "tsx scripts/seed-skill-videos-all.ts"
+  },
+  "dependencies": {
+    "@auth/prisma-adapter": "^2.11.3",
+    "@google/genai": "^2.23.0",
+    "@prisma/client": "^6.19.3",
+    "bcryptjs": "^3.0.3",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "framer-motion": "^13.4.0",
+    "lucide-react": "^1.47.0",
+    "next": "16.3.5",
+    "next-auth": "5.0.0-beta.32",
+    "next-themes": "^0.4.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "^10.1.0",
+    "recharts": "^3.10.1",
+    "remark-gfm": "^4.0.1",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^3.0.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/ui": "^5.0.1",
+    "dotenv": "^18.0.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "prisma": "^6.19.3",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.0.1"
+  },
+  "packageManager": "pnpm@12.5.1"
+}
+
+=== FILE: tsconfig.json ===
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+
+=== FILE: next.config.ts ===
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Prevent Next 16 from bundling Prisma and bcrypt — they need native
+  // resolution at runtime, and bundling breaks both on Vercel and in
+  // standalone server builds.
+  serverExternalPackages: ["@prisma/client", "bcryptjs"],
+};
+
+export default nextConfig;
+
+=== FILE: postcss.config.mjs ===
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+
+=== FILE: vitest.config.mts ===
+import { defineConfig } from "vitest/config";
+
+export default defineConfig({
+  resolve: { tsconfigPaths: true },
+  test: {
+    environment: "node",
+    include: ["src/**/*.test.ts"],
+  },
+});
+
+=== FILE: eslint.config.mjs ===
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+
+=== FILE: .env.example ===
+DATABASE_URL="postgresql://dev:dev@localhost:5434/learntrace"
+GEMINI_API_KEY="your_gemini_key_here"
+NEXTAUTH_SECRET="your_nextauth_secret_here"
+AUTH_SECRET="your_auth_secret_here"
+NEXTAUTH_URL="http://localhost:3000"
+GOOGLE_CLIENT_ID="your-client-id.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET="GOCSPX-your-secret"
+
+=== FILE: README.md ===
+# LearnTrace
+
+**An AI-driven knowledge graph and knowledge tracing framework for skill gap detection and personalized learning.**
+
+LearnTrace models skills and their prerequisite relationships, estimates learner mastery over time, identifies high-priority skill gaps, and generates personalized learning paths — with an AI tutor, adaptive assessment, and hands-on coding tasks.
+
+---
+
+## The Idea
+
+Most learning platforms track **course completion**, not **actual mastery**. LearnTrace goes further:
+
+- **Prerequisite-aware intelligence** — finds gaps that block downstream skills, not just low scores
+- **Evidence-based learner model** — mastery inferred from correctness, difficulty, response time, and confidence
+- **Adaptive difficulty** — the next question responds to your last 3 answers
+- **Knowledge decay** — skills lose mastery over time; the app tells you what to revise
+- **Misconception detection** — flags repeated wrong reasoning, not just wrong answers
+- **Theory vs practical** — separates conceptual knowledge from demonstrated application
+- **What-If simulator** — "What if I skip Probability?" projected through the prerequisite DAG
+- **AI tutor** — every wrong answer becomes a 4-part tutoring moment
+- **In-browser Python** — hands-on coding tasks with test-case feedback
+
+---
+
+## Stack
+
+| Layer | Tech |
+|---|---|
+| Framework | Next.js 16 (App Router, Turbopack) |
+| Language | TypeScript strict |
+| Styling | Tailwind CSS v4 + custom design tokens |
+| DB | PostgreSQL 16 (Docker) |
+| ORM | Prisma 6 |
+| Auth | NextAuth v5 (Credentials + Google OAuth) |
+| AI | Google Gemini 3.6 Flash |
+| Code execution | Piston API (public Python runner) |
+| Viz | React Flow + Recharts + Framer Motion |
+| Tests | Vitest (35 unit tests) |
+
+---
+
+## Features
+
+### Learning loop
+- Diagnostic assessment (15 questions, adaptive)
+- Focused quiz mode (5 per skill, pick up to 3)
+- Per-skill mastery tracking with Bayesian-weighted updates
+- Concept reassessment with before/after comparison
+- Knowledge graph (React Flow) with mastery-colored nodes + verified badges
+- Skill gaps ranked by Dependency Impact Score
+- Personalized roadmap (topological sort + impact ranking)
+- Learning materials with markdown notes, PDF upload + inline viewer, video embeds
+- Practical coding tasks with in-browser Python execution
+- Theory/practical evidence panel with verified state
+
+### AI features
+- Tutor explanations on wrong answers (Gemini, cached, retry-safe)
+- AI certificate recommendations on the final report (with static fallback)
+- Content generation pipeline (used to build the skill graph)
+
+### Platform
+- Email/password + Google sign-in
+- Profile page with activity stats
+- Progress history timeline
+- Multi-domain framework (max 3 per user)
+- Loading skeletons + error boundaries on every route
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node 20+
+- pnpm (`brew install pnpm`)
+- Docker Desktop (for Postgres)
+- A Gemini API key from aistudio.google.com/apikey
+
+### Setup
+
+```bash
+git clone <your-repo-url> learntrace
+cd learntrace
+pnpm install
+
+docker run --name learntrace-pg \
+  -e POSTGRES_PASSWORD=dev \
+  -e POSTGRES_USER=dev \
+  -e POSTGRES_DB=learntrace \
+  -p 5433:5432 -d postgres:16
+
+cp .env.example .env.local
+
+pnpm db:migrate
+pnpm db:seed
+pnpm db:seed-practical
+pnpm db:seed-questions
+
+pnpm dev
+EOF_MARK
+
+**A short guide**
+
+For a full walkthrough and the mastery formula, see the source in `src/lib/mastery/`.
+
+=== FILE: prisma/migrations/20260923041320_init/migration.sql ===
+-- CreateTable
+CREATE TABLE "User" (
+    "id" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "name" TEXT,
+    "passwordHash" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Domain" (
+    "id" TEXT NOT NULL,
+    "slug" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+
+    CONSTRAINT "Domain_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "UserDomain" (
+    "userId" TEXT NOT NULL,
+    "domainId" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "UserDomain_pkey" PRIMARY KEY ("userId","domainId")
+);
+
+-- CreateTable
+CREATE TABLE "Skill" (
+    "id" TEXT NOT NULL,
+    "domainId" TEXT NOT NULL,
+    "slug" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "description" TEXT,
+    "difficulty" INTEGER NOT NULL DEFAULT 2,
+
+    CONSTRAINT "Skill_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Prerequisite" (
+    "parentId" TEXT NOT NULL,
+    "childId" TEXT NOT NULL,
+    "weight" DOUBLE PRECISION NOT NULL DEFAULT 1.0,
+
+    CONSTRAINT "Prerequisite_pkey" PRIMARY KEY ("parentId","childId")
+);
+
+-- CreateTable
+CREATE TABLE "Question" (
+    "id" TEXT NOT NULL,
+    "domainId" TEXT NOT NULL,
+    "prompt" TEXT NOT NULL,
+    "options" JSONB NOT NULL,
+    "correctId" TEXT NOT NULL,
+    "explanation" TEXT,
+    "difficulty" INTEGER NOT NULL DEFAULT 2,
+
+    CONSTRAINT "Question_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "QuestionSkill" (
+    "questionId" TEXT NOT NULL,
+    "skillId" TEXT NOT NULL,
+    "weight" DOUBLE PRECISION NOT NULL DEFAULT 1.0,
+
+    CONSTRAINT "QuestionSkill_pkey" PRIMARY KEY ("questionId","skillId")
+);
+
+-- CreateTable
+CREATE TABLE "AssessmentSession" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "domainId" TEXT NOT NULL,
+    "kind" TEXT NOT NULL,
+    "startedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "endedAt" TIMESTAMP(3),
+
+    CONSTRAINT "AssessmentSession_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Attempt" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "questionId" TEXT NOT NULL,
+    "sessionId" TEXT NOT NULL,
+    "correct" BOOLEAN NOT NULL,
+    "timeTakenMs" INTEGER NOT NULL,
+    "confidence" INTEGER,
+    "attemptNo" INTEGER NOT NULL DEFAULT 1,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Attempt_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Mastery" (
+    "userId" TEXT NOT NULL,
+    "skillId" TEXT NOT NULL,
+    "value" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "confidence" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "history" JSONB NOT NULL DEFAULT '[]',
+
+    CONSTRAINT "Mastery_pkey" PRIMARY KEY ("userId","skillId")
+);
+
+-- CreateTable
+CREATE TABLE "Material" (
+    "id" TEXT NOT NULL,
+    "domainId" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "url" TEXT,
+    "body" TEXT,
+
+    CONSTRAINT "Material_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "MaterialSkill" (
+    "materialId" TEXT NOT NULL,
+    "skillId" TEXT NOT NULL,
+
+    CONSTRAINT "MaterialSkill_pkey" PRIMARY KEY ("materialId","skillId")
+);
+
+-- CreateTable
+CREATE TABLE "MaterialProgress" (
+    "userId" TEXT NOT NULL,
+    "materialId" TEXT NOT NULL,
+    "completed" BOOLEAN NOT NULL DEFAULT false,
+    "completedAt" TIMESTAMP(3),
+
+    CONSTRAINT "MaterialProgress_pkey" PRIMARY KEY ("userId","materialId")
+);
+
+-- CreateTable
+CREATE TABLE "RoadmapItem" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "skillId" TEXT NOT NULL,
+    "order" INTEGER NOT NULL,
+    "priority" DOUBLE PRECISION NOT NULL,
+    "reason" TEXT,
+    "status" TEXT NOT NULL DEFAULT 'pending',
+
+    CONSTRAINT "RoadmapItem_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Domain_slug_key" ON "Domain"("slug");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Skill_domainId_slug_key" ON "Skill"("domainId", "slug");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "RoadmapItem_userId_skillId_key" ON "RoadmapItem"("userId", "skillId");
+
+-- AddForeignKey
+ALTER TABLE "UserDomain" ADD CONSTRAINT "UserDomain_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "UserDomain" ADD CONSTRAINT "UserDomain_domainId_fkey" FOREIGN KEY ("domainId") REFERENCES "Domain"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Skill" ADD CONSTRAINT "Skill_domainId_fkey" FOREIGN KEY ("domainId") REFERENCES "Domain"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Prerequisite" ADD CONSTRAINT "Prerequisite_parentId_fkey" FOREIGN KEY ("parentId") REFERENCES "Skill"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Prerequisite" ADD CONSTRAINT "Prerequisite_childId_fkey" FOREIGN KEY ("childId") REFERENCES "Skill"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Question" ADD CONSTRAINT "Question_domainId_fkey" FOREIGN KEY ("domainId") REFERENCES "Domain"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "QuestionSkill" ADD CONSTRAINT "QuestionSkill_questionId_fkey" FOREIGN KEY ("questionId") REFERENCES "Question"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "QuestionSkill" ADD CONSTRAINT "QuestionSkill_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AssessmentSession" ADD CONSTRAINT "AssessmentSession_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Attempt" ADD CONSTRAINT "Attempt_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Attempt" ADD CONSTRAINT "Attempt_questionId_fkey" FOREIGN KEY ("questionId") REFERENCES "Question"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Attempt" ADD CONSTRAINT "Attempt_sessionId_fkey" FOREIGN KEY ("sessionId") REFERENCES "AssessmentSession"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Mastery" ADD CONSTRAINT "Mastery_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Mastery" ADD CONSTRAINT "Mastery_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Material" ADD CONSTRAINT "Material_domainId_fkey" FOREIGN KEY ("domainId") REFERENCES "Domain"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MaterialSkill" ADD CONSTRAINT "MaterialSkill_materialId_fkey" FOREIGN KEY ("materialId") REFERENCES "Material"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MaterialSkill" ADD CONSTRAINT "MaterialSkill_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MaterialProgress" ADD CONSTRAINT "MaterialProgress_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MaterialProgress" ADD CONSTRAINT "MaterialProgress_materialId_fkey" FOREIGN KEY ("materialId") REFERENCES "Material"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "RoadmapItem" ADD CONSTRAINT "RoadmapItem_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "RoadmapItem" ADD CONSTRAINT "RoadmapItem_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+=== FILE: prisma/migrations/20260923045504_add_session_question_ids/migration.sql ===
+-- AlterTable
+ALTER TABLE "AssessmentSession" ADD COLUMN     "questionIds" JSONB NOT NULL DEFAULT '[]';
+
+=== FILE: prisma/migrations/20260923071112_add_selected_option_to_attempt/migration.sql ===
+-- AlterTable
+ALTER TABLE "Attempt" ADD COLUMN     "selectedOptionId" TEXT;
+
+=== FILE: prisma/migrations/20260923073158_add_practical_learning/migration.sql ===
+-- CreateTable
+CREATE TABLE "PracticalTask" (
+    "id" TEXT NOT NULL,
+    "domainId" TEXT NOT NULL,
+    "slug" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "language" TEXT NOT NULL DEFAULT 'python',
+    "difficulty" INTEGER NOT NULL DEFAULT 2,
+    "starterCode" TEXT NOT NULL,
+    "solutionHint" TEXT,
+    "testCases" JSONB NOT NULL DEFAULT '[]',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "PracticalTask_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "PracticalTaskSkill" (
+    "taskId" TEXT NOT NULL,
+    "skillId" TEXT NOT NULL,
+
+    CONSTRAINT "PracticalTaskSkill_pkey" PRIMARY KEY ("taskId","skillId")
+);
+
+-- CreateTable
+CREATE TABLE "PracticalSubmission" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "taskId" TEXT NOT NULL,
+    "code" TEXT NOT NULL,
+    "passed" INTEGER NOT NULL DEFAULT 0,
+    "total" INTEGER NOT NULL DEFAULT 0,
+    "passedAll" BOOLEAN NOT NULL DEFAULT false,
+    "results" JSONB NOT NULL DEFAULT '[]',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "PracticalSubmission_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "PracticalTask_domainId_slug_key" ON "PracticalTask"("domainId", "slug");
+
+-- AddForeignKey
+ALTER TABLE "PracticalTask" ADD CONSTRAINT "PracticalTask_domainId_fkey" FOREIGN KEY ("domainId") REFERENCES "Domain"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PracticalTaskSkill" ADD CONSTRAINT "PracticalTaskSkill_taskId_fkey" FOREIGN KEY ("taskId") REFERENCES "PracticalTask"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PracticalTaskSkill" ADD CONSTRAINT "PracticalTaskSkill_skillId_fkey" FOREIGN KEY ("skillId") REFERENCES "Skill"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PracticalSubmission" ADD CONSTRAINT "PracticalSubmission_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "PracticalSubmission" ADD CONSTRAINT "PracticalSubmission_taskId_fkey" FOREIGN KEY ("taskId") REFERENCES "PracticalTask"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+=== FILE: prisma/migrations/20260923090813_add_pdf_url_to_material/migration.sql ===
+-- AlterTable
+ALTER TABLE "Material" ADD COLUMN     "pdfUrl" TEXT;
+
+=== FILE: prisma/migrations/20260923093854_add_oauth_support/migration.sql ===
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "emailVerified" TIMESTAMP(3),
+ADD COLUMN     "image" TEXT;
+
+-- CreateTable
+CREATE TABLE "Account" (
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "provider" TEXT NOT NULL,
+    "providerAccountId" TEXT NOT NULL,
+    "refresh_token" TEXT,
+    "access_token" TEXT,
+    "expires_at" INTEGER,
+    "token_type" TEXT,
+    "scope" TEXT,
+    "id_token" TEXT,
+    "session_state" TEXT,
+
+    CONSTRAINT "Account_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Session" (
+    "id" TEXT NOT NULL,
+    "sessionToken" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "expires" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Session_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "VerificationToken" (
+    "identifier" TEXT NOT NULL,
+    "token" TEXT NOT NULL,
+    "expires" TIMESTAMP(3) NOT NULL
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Account_provider_providerAccountId_key" ON "Account"("provider", "providerAccountId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Session_sessionToken_key" ON "Session"("sessionToken");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "VerificationToken_token_key" ON "VerificationToken"("token");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token");
+
+-- AddForeignKey
+ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+

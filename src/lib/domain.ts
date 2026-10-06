@@ -70,3 +70,28 @@ export async function requireActiveDomain(userId: string) {
   // `redirect` throws, so `domain` is guaranteed non-null here.
   return domain!;
 }
+
+/**
+ * Return the learner's declared goal skills for a domain.
+ * Falls back to the 3 hardest skills if none are declared yet.
+ */
+export async function getGoalSkillIds(
+  userId: string,
+  domainId: string,
+  skills: { id: string; difficulty: number }[]
+): Promise<Set<string>> {
+  const ud = await prisma.userDomain.findUnique({
+    where: { userId_domainId: { userId, domainId } },
+    select: { goalSkillIds: true },
+  });
+
+  if (ud && ud.goalSkillIds.length > 0) {
+    return new Set(ud.goalSkillIds);
+  }
+
+  const fallback = [...skills]
+    .sort((a, b) => b.difficulty - a.difficulty)
+    .slice(0, 3);
+
+  return new Set(fallback.map((s) => s.id));
+}

@@ -15,12 +15,14 @@ import { cn } from "@/lib/utils";
 import { saveSubmission } from "@/app/(app)/practice/[slug]/actions";
 import { notify } from "@/lib/toast";
 import { celebrateSkillVerified } from "@/lib/confetti";
+import { getRuntime } from "@/lib/practice/runtimes";
 
 type TestCase = { description: string; assertion: string };
 type TestResult = { description: string; passed: boolean; error?: string };
 
 type Props = {
   taskId: string;
+  language: string;
   taskTitle: string;
   description: string;
   difficulty: number;
@@ -32,6 +34,7 @@ type Props = {
 
 export function PracticeRunner({
   taskId,
+  language,
   taskTitle,
   description,
   difficulty,
@@ -40,6 +43,7 @@ export function PracticeRunner({
   testCases,
   priorCode,
 }: Props) {
+  const runtime = getRuntime(language);
   const [code, setCode] = useState(priorCode ?? starterCode);
   const [results, setResults] = useState<TestResult[] | null>(null);
   const [running, setRunning] = useState(false);
@@ -57,7 +61,7 @@ export function PracticeRunner({
       const res = await fetch("/api/practice/run", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code, testCases, taskId }),
+        body: JSON.stringify({ code, language, testCases, taskId }),
       });
 
       const data = await res.json();
@@ -171,7 +175,7 @@ export function PracticeRunner({
               <span className="h-2 w-2 rounded-full bg-white/[0.03]" />
               <span className="h-2 w-2 rounded-full bg-white/[0.04]" />
               <span className="h-2 w-2 rounded-full bg-white/[0.06]" />
-              <span className="ml-2 label-mono">solution.py</span>
+              <span className="ml-2 label-mono">{runtime.fileName}</span>
             </div>
             <textarea
               value={code}

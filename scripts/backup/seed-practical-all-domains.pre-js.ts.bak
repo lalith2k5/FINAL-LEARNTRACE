@@ -12,7 +12,6 @@ type Task = {
   title: string;
   description: string;
   difficulty: number;
-  language?: string;
   starterCode: string;
   solutionHint: string;
   skillSlugs: string[];
@@ -170,172 +169,127 @@ const TASKS: Task[] = [
   {
     domainSlug: "frontend-engineer", slug: "dedupe-array",
     title: "Dedupe an Array",
-    description: "Write `dedupe(xs)` that returns a new array with duplicates removed, preserving first-occurrence order.",
+    description: "Write `dedupe(xs)` that returns a new list with duplicates removed, preserving first-occurrence order.",
     difficulty: 1,
-    language: "javascript",
-    starterCode: `function dedupe(xs) {
-  // Return a new array with duplicates removed, preserving first-occurrence order
-  return [];
-}
-`,
-    solutionHint: "Iterate and add to a Set of seen values; push to output if new.",
+    starterCode: `def dedupe(xs):\n    pass\n`,
+    solutionHint: "Iterate and add to a set of seen; append if new.",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Basic", assertion: "assertEqual(dedupe([1, 2, 2, 3, 1]), [1, 2, 3])" },
-      { description: "Preserve order", assertion: "assertEqual(dedupe([3, 1, 3, 2, 1]), [3, 1, 2])" },
-      { description: "Empty", assertion: "assertEqual(dedupe([]), [])" },
+      { description: "Basic", assertion: "assert dedupe([1, 2, 2, 3, 1]) == [1, 2, 3]" },
+      { description: "Preserve order", assertion: "assert dedupe([3, 1, 3, 2, 1]) == [3, 1, 2]" },
+      { description: "Empty", assertion: "assert dedupe([]) == []" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "deep-equal",
     title: "Deep Equality",
-    description: "Write `deepEqual(a, b)` that recursively checks equality for nested arrays and objects.",
+    description: "Write `deep_equal(a, b)` that recursively checks equality for nested lists and dicts.",
     difficulty: 3,
-    language: "javascript",
-    starterCode: `function deepEqual(a, b) {
-  // Return true if a and b are structurally equal
-  return false;
-}
-`,
-    solutionHint: "Type-check first; recurse on arrays/objects; use strict equality for primitives.",
+    starterCode: `def deep_equal(a, b):\n    pass\n`,
+    solutionHint: "Type check first; recurse on dict/list; otherwise ==.",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Primitives", assertion: "assert(deepEqual(1, 1) === true); assert(deepEqual(1, 2) === false)" },
-      { description: "Nested arrays", assertion: "assert(deepEqual([1, [2, 3]], [1, [2, 3]]) === true)" },
-      { description: "Nested objects differ", assertion: "assert(deepEqual({a: [1]}, {a: [2]}) === false)" },
+      { description: "Primitives", assertion: "assert deep_equal(1, 1) is True and deep_equal(1, 2) is False" },
+      { description: "Nested lists", assertion: "assert deep_equal([1, [2, 3]], [1, [2, 3]]) is True" },
+      { description: "Nested dicts differ", assertion: "assert deep_equal({'a': [1]}, {'a': [2]}) is False" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "slugify",
     title: "Slugify a Title",
-    description: "Write `slugify(s)` that converts a title into a URL slug: lowercase, spaces to hyphens, non-alphanumeric (except hyphens) removed, collapse multiple hyphens.",
+    description: "Write `slugify(s)` that converts a title into a URL slug: lowercase, spaces → hyphens, non-alphanumeric (except hyphens) removed, collapse multiple hyphens.",
     difficulty: 2,
-    language: "javascript",
-    starterCode: `function slugify(s) {
-  // Return a URL-safe slug
-  return "";
-}
-`,
-    solutionHint: "Lowercase, replace non-alphanumeric with hyphens, collapse runs, strip edges.",
+    starterCode: `def slugify(s):\n    pass\n`,
+    solutionHint: "Lowercase, replace non-alphanumeric with hyphens, then collapse runs and strip edges.",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Basic", assertion: "assertEqual(slugify('Hello World'), 'hello-world')" },
-      { description: "Punctuation stripped", assertion: "assertEqual(slugify('Hello, World!'), 'hello-world')" },
-      { description: "Collapse whitespace", assertion: "assertEqual(slugify('  a   b  '), 'a-b')" },
+      { description: "Basic", assertion: "assert slugify('Hello World') == 'hello-world'" },
+      { description: "Punctuation stripped", assertion: "assert slugify('Hello, World!') == 'hello-world'" },
+      { description: "Collapse whitespace", assertion: "assert slugify('  a   b  ') == 'a-b'" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "format-currency",
     title: "Format Currency",
-    description: "Write `formatCurrency(amount, symbol)` that formats a number with thousands separators and exactly 2 decimal places. Negatives get a leading minus before the symbol.",
+    description: "Write `format_currency(amount, symbol='$')` that formats a number with thousands separators and exactly 2 decimal places. Negative amounts get a leading minus.",
     difficulty: 2,
-    language: "javascript",
-    starterCode: `function formatCurrency(amount, symbol = '$') {
-  // Return a formatted currency string
-  return "";
-}
-`,
-    solutionHint: "Use toFixed(2) and a manual thousands-grouping pass. Handle negatives separately.",
+    starterCode: `def format_currency(amount, symbol='$'):\n    pass\n`,
+    solutionHint: "f'{amount:,.2f}' handles grouping and decimals. Prepend symbol; handle negatives carefully.",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Integer", assertion: "assertEqual(formatCurrency(1234), '$1,234.00')" },
-      { description: "Decimal", assertion: "assertEqual(formatCurrency(1234.5), '$1,234.50')" },
-      { description: "Negative", assertion: "assertEqual(formatCurrency(-50), '-$50.00')" },
+      { description: "Integer", assertion: "assert format_currency(1234) == '$1,234.00'" },
+      { description: "Decimal", assertion: "assert format_currency(1234.5) == '$1,234.50'" },
+      { description: "Negative", assertion: "assert format_currency(-50) == '-$50.00'" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "chunk-array",
     title: "Chunk an Array",
-    description: "Write `chunk(xs, size)` that splits an array into consecutive chunks of length `size` (last chunk may be shorter).",
+    description: "Write `chunk(xs, size)` that splits a list into consecutive chunks of length `size` (last chunk may be shorter).",
     difficulty: 2,
-    language: "javascript",
-    starterCode: `function chunk(xs, size) {
-  // Return an array of chunks
-  return [];
-}
-`,
-    solutionHint: "Loop in steps of `size` and use slice.",
+    starterCode: `def chunk(xs, size):\n    pass\n`,
+    solutionHint: "Slice in a loop: xs[i:i+size] for i in range(0, len(xs), size).",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Even split", assertion: "assertEqual(chunk([1,2,3,4], 2), [[1,2],[3,4]])" },
-      { description: "Uneven", assertion: "assertEqual(chunk([1,2,3,4,5], 2), [[1,2],[3,4],[5]])" },
-      { description: "Empty", assertion: "assertEqual(chunk([], 3), [])" },
+      { description: "Even split", assertion: "assert chunk([1,2,3,4], 2) == [[1,2],[3,4]]" },
+      { description: "Uneven", assertion: "assert chunk([1,2,3,4,5], 2) == [[1,2],[3,4],[5]]" },
+      { description: "Empty", assertion: "assert chunk([], 3) == []" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "group-by",
     title: "Group By Key",
-    description: "Write `groupBy(items, key)` that groups an array of objects by the value at `key`, returning an object of arrays.",
+    description: "Write `group_by(items, key)` that groups a list of dicts by the value at `key`, returning a dict of lists.",
     difficulty: 2,
-    language: "javascript",
-    starterCode: `function groupBy(items, key) {
-  // Return an object mapping each key value to an array of items
-  return {};
-}
-`,
-    solutionHint: "Loop and append using out[value] = (out[value] || []).concat([item]).",
+    starterCode: `def group_by(items, key):\n    pass\n`,
+    solutionHint: "Loop and append to dict.setdefault(value, []).",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Group by category", assertion: "assertEqual(groupBy([{c:'a',v:1},{c:'b',v:2},{c:'a',v:3}], 'c'), {a: [{c:'a',v:1},{c:'a',v:3}], b: [{c:'b',v:2}]})" },
-      { description: "Empty input", assertion: "assertEqual(groupBy([], 'x'), {})" },
-      { description: "Single group", assertion: "assertEqual(groupBy([{k:1},{k:1}], 'k'), {1: [{k:1},{k:1}]})" },
+      { description: "Group by category", assertion: "assert group_by([{'c':'a','v':1},{'c':'b','v':2},{'c':'a','v':3}], 'c') == {'a': [{'c':'a','v':1},{'c':'a','v':3}], 'b': [{'c':'b','v':2}]}" },
+      { description: "Empty input", assertion: "assert group_by([], 'x') == {}" },
+      { description: "Single group", assertion: "assert group_by([{'k':1},{'k':1}], 'k') == {1: [{'k':1},{'k':1}]}" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "flatten-deep-array",
     title: "Deep Flatten an Array",
-    description: "Write `flattenDeep(xs)` that fully flattens arbitrarily nested arrays into a single flat array.",
+    description: "Write `flatten_deep(xs)` that fully flattens arbitrarily nested lists into a single flat list.",
     difficulty: 3,
-    language: "javascript",
-    starterCode: `function flattenDeep(xs) {
-  // Return a fully flattened array
-  return [];
-}
-`,
-    solutionHint: "Recurse: if an element is an array, splice in flattenDeep(element); otherwise push.",
+    starterCode: `def flatten_deep(xs):\n    pass\n`,
+    solutionHint: "Recurse: if item is a list, extend with flatten_deep(item); else append.",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Two levels", assertion: "assertEqual(flattenDeep([1, [2, 3], 4]), [1, 2, 3, 4])" },
-      { description: "Three levels", assertion: "assertEqual(flattenDeep([1, [2, [3, [4]]]]), [1, 2, 3, 4])" },
-      { description: "Empty", assertion: "assertEqual(flattenDeep([]), [])" },
+      { description: "Two levels", assertion: "assert flatten_deep([1, [2, 3], 4]) == [1, 2, 3, 4]" },
+      { description: "Three levels", assertion: "assert flatten_deep([1, [2, [3, [4]]]]) == [1, 2, 3, 4]" },
+      { description: "Empty", assertion: "assert flatten_deep([]) == []" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "capitalize-title",
     title: "Capitalize Title Case",
-    description: "Write `titleCase(s)` that capitalizes the first letter of each word and lowercases the rest, preserving spaces.",
+    description: "Write `title_case(s)` that capitalizes the first letter of each word and lowercases the rest, preserving spaces.",
     difficulty: 1,
-    language: "javascript",
-    starterCode: `function titleCase(s) {
-  // Return the string in Title Case
-  return "";
-}
-`,
-    solutionHint: "Split on spaces, capitalize first char + lowercase rest of each word, join.",
+    starterCode: `def title_case(s):\n    pass\n`,
+    solutionHint: "s.title() does this — or split, capitalize each, join.",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Basic", assertion: "assertEqual(titleCase('hello world'), 'Hello World')" },
-      { description: "Mixed case input", assertion: "assertEqual(titleCase('HELLO world'), 'Hello World')" },
-      { description: "Single word", assertion: "assertEqual(titleCase('python'), 'Python')" },
+      { description: "Basic", assertion: "assert title_case('hello world') == 'Hello World'" },
+      { description: "Mixed case input", assertion: "assert title_case('HELLO world') == 'Hello World'" },
+      { description: "Single word", assertion: "assert title_case('python') == 'Python'" },
     ],
   },
   {
     domainSlug: "frontend-engineer", slug: "count-occurrences",
     title: "Count Occurrences",
-    description: "Write `count(xs)` that returns an object mapping each unique element to its frequency.",
+    description: "Write `count(xs)` that returns a dict mapping each unique element to its frequency.",
     difficulty: 1,
-    language: "javascript",
-    starterCode: `function count(xs) {
-  // Return an object mapping each unique element to its frequency
-  return {};
-}
-`,
-    solutionHint: "Loop and increment out[item] = (out[item] || 0) + 1.",
+    starterCode: `def count(xs):\n    pass\n`,
+    solutionHint: "collections.Counter, or manual dict increment.",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "Basic", assertion: "assertEqual(count(['a','b','a','c','a']), {a: 3, b: 1, c: 1})" },
-      { description: "Empty", assertion: "assertEqual(count([]), {})" },
-      { description: "Numbers", assertion: "assertEqual(count([1, 1, 2]), {1: 2, 2: 1})" },
+      { description: "Basic", assertion: "assert count(['a','b','a','c','a']) == {'a': 3, 'b': 1, 'c': 1}" },
+      { description: "Empty", assertion: "assert count([]) == {}" },
+      { description: "Numbers", assertion: "assert count([1, 1, 2]) == {1: 2, 2: 1}" },
     ],
   },
   {
@@ -343,18 +297,13 @@ const TASKS: Task[] = [
     title: "Clamp a Number",
     description: "Write `clamp(n, lo, hi)` that returns `n` bounded to the range [lo, hi].",
     difficulty: 1,
-    language: "javascript",
-    starterCode: `function clamp(n, lo, hi) {
-  // Return n bounded to [lo, hi]
-  return n;
-}
-`,
-    solutionHint: "Math.max(lo, Math.min(hi, n)).",
+    starterCode: `def clamp(n, lo, hi):\n    pass\n`,
+    solutionHint: "max(lo, min(hi, n)).",
     skillSlugs: ["javascript-basics"],
     testCases: [
-      { description: "In range", assertion: "assertEqual(clamp(5, 1, 10), 5)" },
-      { description: "Below", assertion: "assertEqual(clamp(-3, 0, 10), 0)" },
-      { description: "Above", assertion: "assertEqual(clamp(100, 0, 10), 10)" },
+      { description: "In range", assertion: "assert clamp(5, 1, 10) == 5" },
+      { description: "Below", assertion: "assert clamp(-3, 0, 10) == 0" },
+      { description: "Above", assertion: "assert clamp(100, 0, 10) == 10" },
     ],
   },
 
@@ -694,7 +643,7 @@ async function main() {
         slug: task.slug,
         title: task.title,
         description: task.description,
-        language: task.language ?? "python",
+        language: "python",
         difficulty: task.difficulty,
         starterCode: task.starterCode,
         solutionHint: task.solutionHint,

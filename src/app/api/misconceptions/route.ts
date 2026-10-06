@@ -20,10 +20,9 @@ export async function GET(req: Request) {
   const domainId = searchParams.get("domainId");
 
   // Load wrong attempts with their question + option data
-  const wrongAttempts = await prisma.attempt.findMany({
+  const recentAttempts = await prisma.attempt.findMany({
     where: {
       userId: user.id,
-      correct: false,
       selectedOptionId: { not: null },
       question: domainId ? { domainId } : undefined,
     },
@@ -41,7 +40,7 @@ export async function GET(req: Request) {
   // Flatten to the engine's input shape — one attempt per question, using
   // the *first* skill of each question for grouping.
   const flattened: MisconceptionAttempt[] = [];
-  for (const a of wrongAttempts) {
+  for (const a of recentAttempts) {
     const primarySkill = a.question.skills[0]?.skill;
     if (!primarySkill) continue;
 
@@ -54,6 +53,7 @@ export async function GET(req: Request) {
       selectedOptionId: a.selectedOptionId,
       correctOptionId: a.question.correctId,
       options: a.question.options as { id: string; text: string }[],
+      confidence: a.confidence,
       createdAt: a.createdAt,
     });
   }

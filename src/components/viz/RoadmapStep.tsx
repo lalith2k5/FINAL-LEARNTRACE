@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useTransition } from "react";
 import { motion } from "framer-motion";
+import { Check, SkipForward, RotateCcw } from "lucide-react";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import { cn } from "@/lib/utils";
+import { setRoadmapStepStatus } from "@/app/(app)/roadmap/actions";
+import { notify } from "@/lib/toast";
 
 export type RoadmapStepData = {
   order: number;
@@ -18,6 +22,7 @@ export type RoadmapStepData = {
   estimatedMinutes: number;
   prereqsSatisfied: boolean;
   goalRelevant: boolean;
+  overrideStatus: "pending" | "in-progress" | "done" | "skipped";
 };
 
 type Props = {
@@ -37,6 +42,28 @@ function formatMinutes(mins: number): string {
 export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
   const masteryPct = Math.round(step.mastery * 100);
   const targetPct = Math.round(step.targetMastery * 100);
+  const [status, setStatus] = useState(step.overrideStatus);
+  const [isPending, startTransition] = useTransition();
+
+  function set(next: "done" | "skipped" | "pending") {
+    const prev = status;
+    setStatus(next);
+    startTransition(async () => {
+      const res = await setRoadmapStepStatus(step.skillId, next);
+      if (!res.ok) {
+        setStatus(prev);
+        notify.error("Couldn't update step");
+        return;
+      }
+      notify.success(
+        next === "done"
+          ? "Marked as done"
+          : next === "skipped"
+          ? "Marked as skipped"
+          : "Marked as pending"
+      );
+    });
+  }
 
   return (
     <motion.div
@@ -81,7 +108,14 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
 
       {/* Card */}
       <div className={cn("pb-8", isLast && "pb-0")}>
-        <GlassPanel glow className="relative overflow-hidden">
+        <GlassPanel
+          glow
+          className={cn(
+            "relative overflow-hidden",
+            status === "done" && "opacity-70",
+            status === "skipped" && "opacity-50"
+          )}
+        >
           {/* Mastery stripe */}
           <div
             className={cn(
@@ -160,8 +194,51 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
           {/* Reason */}
           <p className="mt-3 text-xs text-text-secondary">{step.reason}</p>
 
-          {/* CTA */}
-          <div className="mt-4 flex justify-end">
+          {/* Status controls */}
+          <div className="mt-4 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-1">
+              {status === "pending" && (
+                <>
+                  <button
+                    onClick={() => set("done")}
+                    disabled={isPending}
+                    className="btn-ghost text-[11px]"
+                  >
+                    <Check className="h-3 w-3" />
+                    Done
+                  </button>
+                  <button
+                    onClick={() => set("skipped")}
+                    disabled={isPending}
+                    className="btn-ghost text-[11px]"
+                  >
+                    <SkipForward className="h-3 w-3" />
+                    Skip
+                  </button>
+                </>
+              )}
+              {status === "done" && (
+                <button
+                  onClick={() => set("pending")}
+                  disabled={isPending}
+                  className="btn-ghost text-[11px] text-text-primary"
+                >
+                  <Check className="h-3 w-3" />
+                  Done · undo
+                </button>
+              )}
+              {status === "skipped" && (
+                <button
+                  onClick={() => set("pending")}
+                  disabled={isPending}
+                  className="btn-ghost text-[11px] text-text-tertiary"
+                >
+                  <SkipForward className="h-3 w-3" />
+                  Skipped · undo
+                </button>
+              )}
+            </div>
+
             <Link
               href={`/learn/${step.skillId}`}
               className={cn(

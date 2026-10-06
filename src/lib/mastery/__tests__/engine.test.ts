@@ -52,9 +52,9 @@ describe("updateMastery", () => {
 describe("graph", () => {
   const ids = ["a", "b", "c", "d"];
   const edges = [
-    { parentId: "a", childId: "b" },
-    { parentId: "b", childId: "c" },
-    { parentId: "a", childId: "d" },
+    { parentId: "a", childId: "b", weight: 1 },
+    { parentId: "b", childId: "c", weight: 1 },
+    { parentId: "a", childId: "d", weight: 1 },
   ];
 
   it("detects no cycle in a DAG", () => {
@@ -63,7 +63,7 @@ describe("graph", () => {
 
   it("detects a cycle", () => {
     expect(
-      hasCycle(ids, [...edges, { parentId: "c", childId: "a" }])
+      hasCycle(ids, [...edges, { parentId: "c", childId: "a", weight: 1 }])
     ).toBe(true);
   });
 
@@ -86,9 +86,9 @@ describe("impact + roadmap", () => {
   const graph = {
     skillIds: ["py", "prob", "stats", "ml"],
     edges: [
-      { parentId: "py", childId: "ml" },
-      { parentId: "prob", childId: "stats" },
-      { parentId: "stats", childId: "ml" },
+      { parentId: "py", childId: "ml", weight: 1 },
+      { parentId: "prob", childId: "stats", weight: 1 },
+      { parentId: "stats", childId: "ml", weight: 1 },
     ],
   };
   const mastery = { py: 0.9, prob: 0.3, stats: 0.7, ml: 0.5 };

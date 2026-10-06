@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import { MasteryBarList } from "@/components/viz/MasteryBarList";
 import { CertificatePanel } from "@/components/viz/CertificatePanel";
+import { CompletionPanel } from "@/components/viz/CompletionPanel";
 import { prisma } from "@/lib/db";
 import { requireUser } from "@/lib/user";
 import { requireActiveDomain } from "@/lib/domain";
@@ -92,8 +93,17 @@ export default async function ReportPage() {
       <PageHeader
         eyebrow="Report"
         title={`${domain.name} — Report`}
-        description={`${domainViewList.length} of ${skills.length} skills attempted`}
+        description={`${domainViewList.length} of ${skills.length} skills attempted · ${verifiedSkills.size} verified`}
       />
+
+      <div className="mb-8">
+        <CompletionPanel
+          domainName={domain.name}
+          verifiedCount={verifiedSkills.size}
+          totalSkills={skills.length}
+          masteryPct={avgMastery}
+        />
+      </div>
 
       <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
         <GlassPanel>
@@ -229,13 +239,15 @@ export default async function ReportPage() {
         />
       </section>
 
-      <CertificatePanel
-        domainName={domain.name}
-        strongSkills={strong.map((v) => v.skill.name)}
-        weakSkills={weak.map((v) => v.skill.name)}
-        attemptedCount={domainViewList.length}
-        avgMastery={avgMastery}
-      />
+      <section className={verifiedSkills.size === skills.length ? "rounded-xl ring-1 ring-emerald/30 ring-offset-4 ring-offset-bg-base" : undefined}>
+        <CertificatePanel
+          domainName={domain.name}
+          strongSkills={strong.map((v) => v.skill.name)}
+          weakSkills={weak.map((v) => v.skill.name)}
+          attemptedCount={domainViewList.length}
+          avgMastery={avgMastery}
+        />
+      </section>
     </>
   );
 }

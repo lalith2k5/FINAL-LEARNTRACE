@@ -6,7 +6,7 @@ import {
 } from "@/components/viz/RoadmapStep";
 import { prisma } from "@/lib/db";
 import { requireUser } from "@/lib/user";
-import { requireActiveDomain } from "@/lib/domain";
+import { requireActiveDomain, getGoalSkillIds } from "@/lib/domain";
 import { getMasteryView } from "@/lib/mastery/view";
 import { buildRoadmap } from "@/lib/mastery/roadmap";
 import { parentsOf, type Edge } from "@/lib/graph/dag";
@@ -49,14 +49,20 @@ export default async function RoadmapPage() {
   const edges: Edge[] = prereqs.map((p) => ({
     parentId: p.parentId,
     childId: p.childId,
+    weight: p.weight,
   }));
+
+  const overrides = await prisma.roadmapItem.findMany({
+    where: {
+      userId: user.id,
+      skillId: { in: skills.map((s) => s.id) },
+    },
+  });
+  const overrideMap = new Map(overrides.map((o) => [o.skillId, o.status]));
 
   const targetMastery = 0.75;
 
-  const goalSkills = [...skills]
-    .sort((a, b) => b.difficulty - a.difficulty)
-    .slice(0, 3);
-  const goalSkillIds = new Set(goalSkills.map((s) => s.id));
+  const goalSkillIds = await getGoalSkillIds(user.id, domain.id, skills);
 
   const steps = buildRoadmap({
     mastery: masteryMap,
@@ -101,6 +107,13 @@ export default async function RoadmapPage() {
       estimatedMinutes: s.estimatedMinutes,
       prereqsSatisfied,
       goalRelevant: goalSkillIds.has(s.skillId),
+      overrideStatus:
+        (overrideMap.get(s.skillId) as
+          | "pending"
+          | "in-progress"
+          | "done"
+          | "skipped"
+          | undefined) ?? "pending",
     };
   });
 

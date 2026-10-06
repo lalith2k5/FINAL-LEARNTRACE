@@ -2,7 +2,9 @@ import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import { DomainCard } from "@/components/viz/DomainCard";
+import { GoalPicker } from "@/components/viz/GoalPicker";
 import { requireUser } from "@/lib/user";
+import { prisma } from "@/lib/db";
 import { listDomainsForUser, MAX_DOMAINS_PER_USER } from "@/lib/domain";
 
 export const dynamic = "force-dynamic";
@@ -14,6 +16,28 @@ export default async function DomainsPage() {
   const selectedCount = domains.filter((d) => d.isSelected).length;
   const atLimit = selectedCount >= MAX_DOMAINS_PER_USER;
   const hasActive = domains.some((d) => d.isActive);
+
+  const activeDomain = domains.find((d) => d.isActive) ?? null;
+  const [activeSkills, activeGoalIds] = activeDomain
+    ? await Promise.all([
+        prisma.skill.findMany({
+          where: { domainId: activeDomain.id },
+          select: { id: true, name: true, difficulty: true },
+          orderBy: [{ difficulty: "asc" }, { name: "asc" }],
+        }),
+        prisma.userDomain
+          .findUnique({
+            where: {
+              userId_domainId: {
+                userId: user.id,
+                domainId: activeDomain.id,
+              },
+            },
+            select: { goalSkillIds: true },
+          })
+          .then((ud) => ud?.goalSkillIds ?? []),
+      ])
+    : [[], []];
 
   return (
     <>
@@ -83,6 +107,18 @@ export default async function DomainsPage() {
             Deselect one to free a slot.
           </p>
         </GlassPanel>
+      )}
+
+      {/* Goal picker — active domain only */}
+      {activeDomain && activeSkills.length > 0 && (
+        <div className="mb-8">
+          <GoalPicker
+            domainId={activeDomain.id}
+            domainName={activeDomain.name}
+            skills={activeSkills}
+            initialGoalIds={activeGoalIds}
+          />
+        </div>
       )}
 
       {/* Domain grid */}

@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/db";
 import { requireUser } from "@/lib/user";
-import { requireActiveDomain } from "@/lib/domain";
+import { requireActiveDomain, getGoalSkillIds } from "@/lib/domain";
 import { getMasteryView } from "@/lib/mastery/view";
 import { simulate, type SimulateResult } from "@/lib/mastery/simulate";
 import type { Edge } from "@/lib/graph/dag";
@@ -41,14 +41,12 @@ export async function runSimulation(
   const edges: Edge[] = prereqs.map((p) => ({
     parentId: p.parentId,
     childId: p.childId,
+    weight: p.weight,
   }));
 
   const targetMastery = 0.75;
 
-  const goalSkills = [...skills]
-    .sort((a, b) => b.difficulty - a.difficulty)
-    .slice(0, 3);
-  const goalSkillIds = new Set(goalSkills.map((s) => s.id));
+  const goalSkillIds = await getGoalSkillIds(user.id, domain.id, skills);
 
   const result = simulate({
     skillId: input.skillId,
