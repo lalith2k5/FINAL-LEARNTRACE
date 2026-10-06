@@ -100,6 +100,7 @@ export function weightedDownstreamClosure(
   const frontier: { id: string; w: number }[] = [];
 
   for (const { id, w } of childrenOf.get(skillId) ?? []) {
+    if (id === skillId) continue;
     if (w > (best.get(id) ?? 0)) {
       best.set(id, w);
       frontier.push({ id, w });
@@ -109,6 +110,7 @@ export function weightedDownstreamClosure(
   while (frontier.length) {
     const { id, w } = frontier.shift()!;
     for (const { id: childId, w: childW } of childrenOf.get(id) ?? []) {
+      if (childId === skillId) continue;
       const nextW = w * childW;
       if (nextW > (best.get(childId) ?? 0)) {
         best.set(childId, nextW);

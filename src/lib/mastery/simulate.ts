@@ -109,24 +109,20 @@ export function simulate(input: SimulateInput): SimulateResult {
     if (mode === "skip") {
       const DRAG = 0.5;
       let dropSum = 0;
-      let weightSum = 0;
       for (const { parentId: p, weight: w } of parents) {
         const beforeParent = mastery[p] ?? 0;
         const afterParent = next[p] ?? 0;
         dropSum += Math.max(0, beforeParent - afterParent) * w;
-        weightSum += w;
       }
-      const avgDrop = weightSum > 0 ? dropSum / weightSum : 0;
+      const avgDrop = parents.length > 0 ? dropSum / parents.length : 0;
       const current = next[id] ?? 0;
       next[id] = Math.max(0, current - avgDrop * DRAG);
     } else {
       let parentSum = 0;
-      let weightSum = 0;
       for (const { parentId: p, weight: w } of parents) {
         parentSum += (next[p] ?? 0) * w;
-        weightSum += w;
       }
-      const parentAvg = weightSum > 0 ? parentSum / weightSum : 0;
+      const parentAvg = parents.length > 0 ? parentSum / parents.length : 0;
       const lifted = Math.min(targetMastery, parentAvg);
       next[id] = Math.max(next[id] ?? 0, lifted);
     }
