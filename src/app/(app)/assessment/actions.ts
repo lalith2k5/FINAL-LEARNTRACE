@@ -15,7 +15,9 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 const QUESTIONS_PER_SKILL = 5;
-const DIAGNOSTIC_TOTAL = 15;
+const DIAGNOSTIC_MIN = 15;
+const DIAGNOSTIC_MAX = 60;
+const DIAGNOSTIC_PER_SKILL_TARGET = 2;
 
 /**
  * Start a new assessment session.
@@ -63,30 +65,75 @@ export async function startAssessment(skillIds?: string[]) {
   } else {
     kind = "diagnostic";
 
-    // Balance across difficulty levels: up to 3 per level
-    const byDiff = new Map<number, typeof all>();
+    // Group questions by primary skill (first linked skill)
+    const bySkill = new Map<string, typeof all>();
     for (const q of all) {
-      const list = byDiff.get(q.difficulty) ?? [];
+      const primary = q.skills[0]?.skillId;
+      if (!primary) continue;
+      const list = bySkill.get(primary) ?? [];
       list.push(q);
-      byDiff.set(q.difficulty, list);
+      bySkill.set(primary, list);
     }
+
+    const skillCount = bySkill.size;
+    const target = Math.min(
+      DIAGNOSTIC_MAX,
+      Math.max(
+        DIAGNOSTIC_MIN,
+        skillCount * DIAGNOSTIC_PER_SKILL_TARGET
+      )
+    );
 
     const picked: typeof all = [];
-    for (let d = 1; d <= 5; d++) {
-      const pool = shuffle(byDiff.get(d) ?? []);
-      picked.push(...pool.slice(0, 3));
+    const used = new Set<string>();
+
+    // Round 1: 1 question per skill (spread evenly)
+    for (const [_, pool] of bySkill) {
+      const s = shuffle(pool.filter((q) => !used.has(q.id)));
+      if (s[0]) {
+        used.add(s[0].id);
+        picked.push(s[0]);
+      }
     }
 
-    let finalList = picked;
-    if (finalList.length < DIAGNOSTIC_TOTAL) {
-      const usedIds = new Set(finalList.map((q) => q.id));
-      const remaining = shuffle(
-        all.filter((q) => !usedIds.has(q.id))
-      ).slice(0, DIAGNOSTIC_TOTAL - finalList.length);
-      finalList = [...finalList, ...remaining];
+    // Round 2: 2nd question per skill (fills coverage up to target)
+    if (picked.length < target) {
+      for (const [_, pool] of bySkill) {
+        if (picked.length >= target) break;
+        const s = shuffle(pool.filter((q) => !used.has(q.id)));
+        if (s[0]) {
+          used.add(s[0].id);
+          picked.push(s[0]);
+        }
+      }
     }
 
-    finalIds = shuffle(finalList.slice(0, DIAGNOSTIC_TOTAL)).map((q) => q.id);
+    // Round 3: fill the rest by difficulty balance if still under target
+    if (picked.length < target) {
+      const byDiff = new Map<number, typeof all>();
+      for (const q of all) {
+        if (used.has(q.id)) continue;
+        const list = byDiff.get(q.difficulty) ?? [];
+        list.push(q);
+        byDiff.set(q.difficulty, list);
+      }
+      const order = [1, 2, 3, 4, 5];
+      let cursor = 0;
+      while (picked.length < target) {
+        const d = order[cursor % order.length];
+        const pool = byDiff.get(d) ?? [];
+        const next = pool.shift();
+        if (next) {
+          used.add(next.id);
+          picked.push(next);
+        }
+        cursor++;
+        const exhausted = order.every((dd) => (byDiff.get(dd) ?? []).length === 0);
+        if (exhausted) break;
+      }
+    }
+
+    finalIds = shuffle(picked.slice(0, target)).map((q) => q.id);
   }
 
   const session = await prisma.assessmentSession.create({

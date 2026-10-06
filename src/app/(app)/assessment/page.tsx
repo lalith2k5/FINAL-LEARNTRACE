@@ -46,8 +46,8 @@ export default async function AssessmentPage() {
               Full diagnostic
             </p>
             <p className="mt-1 text-sm text-text-secondary">
-              15 questions balanced across all difficulty levels. Best for a
-              fresh baseline.
+              Balanced across every skill in {domain.name}. Length scales
+              with the domain (15–60 questions). Best for a fresh baseline.
             </p>
 
             <div className="mt-4 rounded-lg border border-border-subtle bg-bg-inset/40 px-3 py-2 text-xs text-text-tertiary">
