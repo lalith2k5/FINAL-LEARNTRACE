@@ -173,3 +173,30 @@ C — Graph interactivity (search, zoom/pan)
 D — Polish items: root not-found.tsx ✓ done, root error.tsx ✓ done, per-route loading skeletons ✓ done, metadata.icons cleanup ✓ done
 E — CSV/JSON domain import (add domains without code edits)
 F — Something the user suggests
+---
+
+## Session log — 2026-10-06
+
+### Shipped
+- Edge weights are now live: `Edge.weight` threaded through `impact.ts` (weighted downstream closure) and `simulate.ts` (weighted parent averaging). Every analysis page uses declared goals now.
+- Multi-language practice: `src/lib/practice/runtimes.ts` (Python + JavaScript + TypeScript). 10 frontend-engineer tasks migrated to real JS in the DB.
+- Misconceptions: 3-signal union — `option-repeat`, `overconfident`, `skill-weak`. New card variants.
+- Declared goals: `UserDomain.goalSkillIds String[]`, `GoalPicker` on `/domains`, `getGoalSkillIds()` helper.
+- Persisted roadmap: `RoadmapItem` used as an override table (Done/Skip/Undo). `src/app/(app)/roadmap/actions.ts`.
+- Report completion gate: `CompletionPanel` + ring-highlighted certificates when domain is fully verified.
+- next-themes removed → script-free `ThemeProvider`.
+- Dead schema cut: `Material.pdfUrl`, `AssessmentSession.endedAt`. `SceneIndicator.tsx` deleted. `Logo.tsx` renders a real mark.
+- README rewritten to match reality.
+- Tests: 38 → 43.
+
+### Fixed along the way
+- `.env` was pointing at 5433 and winning over `.env.local`. Removed the line from `.env`.
+- Docker container was stopped. `docker start learntrace-pg` restores.
+
+### Open menu
+1. Tests for new code — `runtimes.ts`, `GoalPicker`, roadmap actions, `CompletionPanel`, weighted impact/simulate (~45 min)
+2. 2.1 Diagnostic depth — proposal wanted 15 per topic, code does 15 total (~2h)
+3. §1 PDF upload + inline viewer — needs storage decision (~half-day+)
+4. 2.9 Content depth — 4 newer domains need ~360 more Q (multi-week, Gemini-quota-limited)
+5. Graph interactivity — search / zoom / pan
+6. CSV/JSON domain import
