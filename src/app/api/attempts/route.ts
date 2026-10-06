@@ -45,8 +45,7 @@ export async function POST(req: Request) {
 
   const correct = question.correctId === selectedOptionId;
 
-    // Save attempt
-  await prisma.attempt.create({
+  const createdAttempt = await prisma.attempt.create({
     data: {
       userId: user.id,
       questionId: question.id,
@@ -112,6 +111,7 @@ export async function POST(req: Request) {
     : null;
 
   return NextResponse.json({
+    attemptId: createdAttempt.id,
     correct,
     correctId: question.correctId,
     explanation: question.explanation,

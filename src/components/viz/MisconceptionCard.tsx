@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AlertTriangle, ChevronDown, Gauge, Repeat } from "lucide-react";
+import { AlertTriangle, ChevronDown, Gauge, Repeat, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import type { Misconception } from "@/lib/mastery/misconceptions";
@@ -28,7 +28,9 @@ function severityFor(m: Misconception): {
   border: string;
 } {
   const count =
-    m.kind === "option-repeat" ? m.count : m.wrongCount;
+    m.kind === "option-repeat" || m.kind === "semantic"
+      ? m.count
+      : m.wrongCount;
   if (count >= 4) {
     return {
       label: "Persistent",
@@ -54,21 +56,23 @@ const KIND_META: Record<
   Misconception["kind"],
   { label: string; Icon: typeof Repeat }
 > = {
+  semantic: { label: "Reasoning error", Icon: Sparkles },
   "option-repeat": { label: "Repeated wrong option", Icon: Repeat },
   overconfident: { label: "Overconfident errors", Icon: Gauge },
   "skill-weak": { label: "Systematic weakness", Icon: AlertTriangle },
 };
+
+function headerCount(m: Misconception): number {
+  if (m.kind === "option-repeat" || m.kind === "semantic") return m.count;
+  return m.wrongCount;
+}
 
 export function MisconceptionCard({ misconception, index }: Props) {
   const [open, setOpen] = useState(false);
   const severity = severityFor(misconception);
   const meta = KIND_META[misconception.kind];
   const { Icon } = meta;
-
-  const headerCount =
-    misconception.kind === "option-repeat"
-      ? misconception.count
-      : misconception.wrongCount;
+  const count = headerCount(misconception);
 
   return (
     <motion.div
@@ -80,7 +84,9 @@ export function MisconceptionCard({ misconception, index }: Props) {
         <div
           className={cn(
             "absolute left-0 top-0 h-full w-0.5",
-            headerCount >= 4
+            misconception.kind === "semantic"
+              ? "bg-violet shadow-[0_0_8px_#8B5CF6]"
+              : count >= 4
               ? "bg-rose shadow-[0_0_8px_rgba(244,244,245,0.28)]"
               : "bg-rose shadow-[0_0_8px_rgba(244,244,245,0.55)]"
           )}
@@ -90,9 +96,25 @@ export function MisconceptionCard({ misconception, index }: Props) {
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
-                <Icon className={cn("h-3.5 w-3.5 shrink-0", severity.tone)} />
-                <span className={cn("label-mono", severity.tone)}>
-                  {severity.label}
+                <Icon
+                  className={cn(
+                    "h-3.5 w-3.5 shrink-0",
+                    misconception.kind === "semantic"
+                      ? "text-violet"
+                      : severity.tone
+                  )}
+                />
+                <span
+                  className={cn(
+                    "label-mono",
+                    misconception.kind === "semantic"
+                      ? "text-violet"
+                      : severity.tone
+                  )}
+                >
+                  {misconception.kind === "semantic"
+                    ? "Reasoning error"
+                    : severity.label}
                 </span>
                 <span className="num text-xs text-text-quaternary">
                   · {meta.label}
@@ -104,11 +126,43 @@ export function MisconceptionCard({ misconception, index }: Props) {
             </div>
             <div className="shrink-0 text-right">
               <p className="num text-lg font-semibold text-text-primary">
-                {headerCount}
+                {count}
               </p>
               <p className="label-mono">times</p>
             </div>
           </div>
+
+          {misconception.kind === "semantic" && (
+            <div className="mt-4 space-y-2">
+              <div className="rounded-lg border border-violet/30 bg-violet/[0.05] px-3 py-2">
+                <p className="label-mono text-violet">Category</p>
+                <p className="mt-1 text-xs text-text-secondary">
+                  {misconception.category.replace(/-/g, " ")}
+                </p>
+              </div>
+              <div className="rounded-lg border border-white/[0.08]/30 bg-white/[0.03] px-3 py-2">
+                <p className="label-mono text-text-tertiary">What you believe</p>
+                <p className="mt-1 text-xs text-text-secondary">
+                  {misconception.belief}
+                </p>
+              </div>
+              <div className="rounded-lg border border-white/[0.12]/30 bg-white/[0.06] px-3 py-2">
+                <p className="label-mono text-text-primary">Correct reasoning</p>
+                <p className="mt-1 text-xs text-text-secondary">
+                  {misconception.corrective}
+                </p>
+              </div>
+              <div className="flex items-center justify-between text-[11px]">
+                <span className="text-text-tertiary">
+                  Analysis confidence{" "}
+                  {Math.round(misconception.avgConfidence * 100)}%
+                </span>
+                <span className="text-text-quaternary">
+                  {stableFormatDate(misconception.lastSeenAt)}
+                </span>
+              </div>
+            </div>
+          )}
 
           {misconception.kind === "option-repeat" && (
             <>

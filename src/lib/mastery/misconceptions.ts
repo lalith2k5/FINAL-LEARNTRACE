@@ -8,6 +8,13 @@ export type MisconceptionAttempt = {
   correctOptionId: string;
   options: { id: string; text: string }[];
   confidence?: number | null;
+  justification?: string | null;
+  misconceptionJson?: {
+    category?: string;
+    misconception?: string;
+    corrective?: string;
+    confidence?: number;
+  } | null;
   createdAt: Date;
 };
 
@@ -43,7 +50,17 @@ export type OverconfidentMisconception = MisconceptionBase & {
   avgConfidence: number;
 };
 
+export type SemanticMisconception = MisconceptionBase & {
+  kind: "semantic";
+  category: string;
+  count: number;
+  belief: string;
+  corrective: string;
+  avgConfidence: number;
+};
+
 export type Misconception =
+  | SemanticMisconception
   | OptionRepeatMisconception
   | SkillWeakMisconception
   | OverconfidentMisconception;
@@ -86,6 +103,63 @@ export function detectMisconceptions(
       wrongs[0].createdAt
     );
     const exampleQuestions = wrongs.slice(0, 3).map((w) => w.questionPrompt);
+
+    // --- Signal 0 (highest priority): semantic ---
+    const byCategory = new Map<
+      string,
+      { attempts: MisconceptionAttempt[]; belief: string; corrective: string; totalConf: number }
+    >();
+    for (const w of wrongs) {
+      const cat = w.misconceptionJson?.category;
+      if (!cat || cat === "unclear") continue;
+      const cur = byCategory.get(cat) ?? {
+        attempts: [],
+        belief: "",
+        corrective: "",
+        totalConf: 0,
+      };
+      cur.attempts.push(w);
+      cur.totalConf += w.misconceptionJson?.confidence ?? 0.5;
+      if (!cur.belief && w.misconceptionJson?.misconception) {
+        cur.belief = w.misconceptionJson.misconception;
+      }
+      if (!cur.corrective && w.misconceptionJson?.corrective) {
+        cur.corrective = w.misconceptionJson.corrective;
+      }
+      byCategory.set(cat, cur);
+    }
+
+    let topCategory: {
+      category: string;
+      attempts: MisconceptionAttempt[];
+      belief: string;
+      corrective: string;
+      totalConf: number;
+    } | null = null;
+    for (const [category, group] of byCategory) {
+      if (group.attempts.length < 2) continue;
+      if (!topCategory || group.attempts.length > topCategory.attempts.length) {
+        topCategory = { category, ...group };
+      }
+    }
+
+    if (topCategory) {
+      results.push({
+        kind: "semantic",
+        skillId,
+        skillName,
+        category: topCategory.category,
+        count: topCategory.attempts.length,
+        belief: topCategory.belief || "A recurring reasoning error on this skill.",
+        corrective:
+          topCategory.corrective ||
+          "Review the underlying concept and try a similar question.",
+        avgConfidence: topCategory.totalConf / topCategory.attempts.length,
+        lastSeenAt,
+        exampleQuestions,
+      });
+      continue;
+    }
 
     // --- Signal 1: option-repeat ---
     const byOption = new Map<string, MisconceptionAttempt[]>();
@@ -171,7 +245,13 @@ export function detectMisconceptions(
 
   // Sort: most concrete first, then by severity count, then recency
   const rank = (m: Misconception) =>
-    m.kind === "option-repeat" ? 0 : m.kind === "overconfident" ? 1 : 2;
+    m.kind === "semantic"
+      ? 0
+      : m.kind === "option-repeat"
+      ? 1
+      : m.kind === "overconfident"
+      ? 2
+      : 3;
 
   results.sort((a, b) => {
     const r = rank(a) - rank(b);
@@ -185,6 +265,7 @@ export function detectMisconceptions(
 }
 
 function severityCount(m: Misconception): number {
+  if (m.kind === "semantic") return m.count;
   if (m.kind === "option-repeat") return m.count;
   return m.wrongCount;
 }
@@ -193,6 +274,7 @@ function severityCount(m: Misconception): number {
  * Score a misconception by severity (for display priority).
  */
 export function misconceptionSeverity(m: Misconception): number {
+  if (m.kind === "semantic") return m.count * 2;
   if (m.kind === "option-repeat") return m.count * (1 + m.repeatedRate);
   if (m.kind === "overconfident") return m.wrongCount * 1.5;
   return m.wrongCount;

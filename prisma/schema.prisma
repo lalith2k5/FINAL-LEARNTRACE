@@ -139,6 +139,8 @@ model Attempt {
   timeTakenMs Int
   confidence  Int?
   attemptNo   Int      @default(1) // Reserved for multi-attempt quiz support
+  justification     String?
+  misconceptionJson Json?
   createdAt   DateTime @default(now())
 
   user     User              @relation(fields: [userId],   references: [id], onDelete: Cascade)

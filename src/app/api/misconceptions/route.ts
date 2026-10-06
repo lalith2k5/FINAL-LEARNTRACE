@@ -54,6 +54,16 @@ export async function GET(req: Request) {
       correctOptionId: a.question.correctId,
       options: a.question.options as { id: string; text: string }[],
       confidence: a.confidence,
+      justification: a.justification,
+      misconceptionJson: a.misconceptionJson as
+        | {
+            category?: string;
+            misconception?: string;
+            corrective?: string;
+            confidence?: number;
+          }
+        | null
+        | undefined,
       createdAt: a.createdAt,
     });
   }

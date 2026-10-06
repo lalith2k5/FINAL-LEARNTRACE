@@ -90,9 +90,20 @@ export function QuizRunner({ sessionId, sessionKind }: Props) {
     correct: boolean;
     explanation?: string;
     correctOptionId?: string;
+    attemptId?: string;
   } | null>(null);
   const [aiExplanation, setAiExplanation] = useState<AiExplanation | null>(null);
   const [shakeKey, setShakeKey] = useState(0);
+
+  // Semantic misconception analysis state
+  const [justification, setJustification] = useState("");
+  const [analysisLoading, setAnalysisLoading] = useState(false);
+  const [analysis, setAnalysis] = useState<{
+    category: string;
+    misconception: string;
+    corrective: string;
+  } | null>(null);
+  const [analysisError, setAnalysisError] = useState<string | null>(null);
 
   // Reassessment comparison — fetched when done
   const [comparison, setComparison] = useState<Comparison | null>(null);
@@ -106,6 +117,9 @@ export function QuizRunner({ sessionId, sessionKind }: Props) {
     setConfidence(null);
     setFeedback(null);
     setAiExplanation(null);
+    setJustification("");
+    setAnalysis(null);
+    setAnalysisError(null);
 
     try {
       const res = await fetch("/api/assessment/next", {
@@ -183,6 +197,7 @@ export function QuizRunner({ sessionId, sessionKind }: Props) {
         correct: data.correct,
         explanation: data.explanation ?? undefined,
         correctOptionId: data.correctId,
+        attemptId: data.attemptId,
       });
 
       if (!data.correct) {
@@ -227,6 +242,32 @@ export function QuizRunner({ sessionId, sessionKind }: Props) {
       setFeedback({ correct: false, explanation: "Network error." });
     } finally {
       setSubmitting(false);
+    }
+  }
+
+  async function submitMisconception() {
+    if (!feedback?.attemptId || !justification.trim()) return;
+    setAnalysisLoading(true);
+    setAnalysisError(null);
+    try {
+      const res = await fetch("/api/ai/misconception", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          attemptId: feedback.attemptId,
+          justification: justification.trim(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setAnalysisError(data.error ?? "Analysis failed");
+        return;
+      }
+      setAnalysis(data.analysis);
+    } catch {
+      setAnalysisError("Network error");
+    } finally {
+      setAnalysisLoading(false);
     }
   }
 
@@ -622,6 +663,72 @@ export function QuizRunner({ sessionId, sessionKind }: Props) {
                     <p className="text-xs italic text-text-tertiary">
                       {aiExplanation.encouragement}
                     </p>
+                  </div>
+                </div>
+              )}
+            </GlassPanel>
+          )}
+          {!feedback.correct && (
+            <GlassPanel className="border-l-2 border-l-violet">
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet shadow-[0_0_8px_#8B5CF6]" />
+                <p className="label-mono text-violet">Explain your reasoning</p>
+                <span className="label-mono text-text-quaternary">optional</span>
+              </div>
+
+              {!analysis && (
+                <>
+                  <p className="mt-2 text-xs text-text-tertiary">
+                    Why did you pick that answer? A sentence or two helps us
+                    detect your specific misconception — not just the wrong
+                    option.
+                  </p>
+                  <textarea
+                    value={justification}
+                    onChange={(e) => setJustification(e.target.value)}
+                    placeholder="I thought ... because ..."
+                    rows={3}
+                    maxLength={600}
+                    disabled={analysisLoading}
+                    className="mt-3 w-full resize-y rounded-lg border border-border-default bg-bg-inset/60 p-3 text-sm text-text-primary outline-none transition-colors placeholder:text-text-quaternary focus:border-hover-border focus:ring-1 focus:ring-[color:var(--color-focus-ring)] disabled:opacity-60"
+                  />
+                  <div className="mt-2 flex items-center justify-between">
+                    <span className="text-[10px] text-text-quaternary">
+                      {justification.length} / 600
+                    </span>
+                    <button
+                      onClick={submitMisconception}
+                      disabled={analysisLoading || justification.trim().length < 5}
+                      className={cn(
+                        "btn-primary text-xs",
+                        (analysisLoading || justification.trim().length < 5) &&
+                          "cursor-not-allowed opacity-40"
+                      )}
+                    >
+                      {analysisLoading ? "Analyzing..." : "Analyze my reasoning →"}
+                    </button>
+                  </div>
+                  {analysisError && (
+                    <p className="mt-2 text-xs text-rose/80">{analysisError}</p>
+                  )}
+                </>
+              )}
+
+              {analysis && (
+                <div className="mt-3 space-y-3 text-sm">
+                  <div>
+                    <p className="label-mono mb-1 text-violet">Category</p>
+                    <p className="text-xs text-text-secondary">
+                      {analysis.category.replace(/-/g, " ")}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="label-mono mb-1">What you believe</p>
+                    <p className="text-text-secondary">{analysis.misconception}</p>
+                  </div>
+                  <div>
+                    <p className="label-mono mb-1">Correct reasoning</p>
+                    <p className="text-text-secondary">{analysis.corrective}</p>
                   </div>
                 </div>
               )}
