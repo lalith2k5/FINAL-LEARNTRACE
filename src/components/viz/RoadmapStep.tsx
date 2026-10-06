@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useTransition } from "react";
 import { motion } from "framer-motion";
-import { Check, SkipForward, RotateCcw } from "lucide-react";
+import { Check, SkipForward, Play, RotateCcw } from "lucide-react";
 import { GlassPanel } from "@/components/shared/GlassPanel";
 import { cn } from "@/lib/utils";
 import { setRoadmapStepStatus } from "@/app/(app)/roadmap/actions";
@@ -39,29 +39,37 @@ function formatMinutes(mins: number): string {
   return m === 0 ? `${h}h` : `${h}h ${m}m`;
 }
 
+type Status = RoadmapStepData["overrideStatus"];
+
 export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
   const masteryPct = Math.round(step.mastery * 100);
   const targetPct = Math.round(step.targetMastery * 100);
-  const [status, setStatus] = useState(step.overrideStatus);
+  const [status, setStatus] = useState<Status>(step.overrideStatus);
   const [isPending, startTransition] = useTransition();
 
-  function set(next: "done" | "skipped" | "pending") {
+  function set(next: Status) {
     const prev = status;
     setStatus(next);
     startTransition(async () => {
-      const res = await setRoadmapStepStatus(step.skillId, next);
+      const res = await setRoadmapStepStatus({
+        skillId: step.skillId,
+        status: next,
+        order: step.order,
+        priority: step.priority,
+        reason: step.reason,
+      });
       if (!res.ok) {
         setStatus(prev);
         notify.error("Couldn't update step");
         return;
       }
-      notify.success(
-        next === "done"
-          ? "Marked as done"
-          : next === "skipped"
-          ? "Marked as skipped"
-          : "Marked as pending"
-      );
+      const labels: Record<Status, string> = {
+        pending: "Reset to pending",
+        "in-progress": "Marked as in progress",
+        done: "Marked as done",
+        skipped: "Marked as skipped",
+      };
+      notify.success(labels[next]);
     });
   }
 
@@ -72,33 +80,42 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
       transition={{ duration: 0.35, delay: index * 0.04 }}
       className="relative grid grid-cols-[40px_1fr] gap-4"
     >
-      {/* Timeline rail */}
       <div className="relative flex flex-col items-center">
-        {/* Node dot */}
         <div
           className={cn(
             "z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 bg-bg-base",
-            step.prereqsSatisfied
-              ? "border-accent shadow-[0_0_12px_rgba(244,244,245, 0.5)]"
+            status === "done"
+              ? "border-emerald shadow-[0_0_12px_rgba(16,185,129,0.5)]"
+              : status === "in-progress"
+              ? "border-amber shadow-[0_0_12px_rgba(245,158,11,0.5)]"
+              : step.prereqsSatisfied
+              ? "border-accent shadow-[0_0_12px_rgba(244,244,245,0.5)]"
               : "border-border-strong"
           )}
         >
           <span
             className={cn(
               "num text-sm font-semibold",
-              step.prereqsSatisfied ? "text-accent" : "text-text-tertiary"
+              status === "done"
+                ? "text-emerald"
+                : status === "in-progress"
+                ? "text-amber"
+                : step.prereqsSatisfied
+                ? "text-accent"
+                : "text-text-tertiary"
             )}
           >
             {String(step.order).padStart(2, "0")}
           </span>
         </div>
 
-        {/* Connector line */}
         {!isLast && (
           <div
             className={cn(
               "w-px flex-1 bg-gradient-to-b",
-              step.prereqsSatisfied
+              status === "done"
+                ? "from-emerald/40 via-border-default to-border-subtle"
+                : step.prereqsSatisfied
                 ? "from-accent/40 via-border-default to-border-subtle"
                 : "from-border-subtle to-transparent"
             )}
@@ -106,21 +123,24 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
         )}
       </div>
 
-      {/* Card */}
       <div className={cn("pb-8", isLast && "pb-0")}>
         <GlassPanel
           glow
           className={cn(
             "relative overflow-hidden",
             status === "done" && "opacity-70",
-            status === "skipped" && "opacity-50"
+            status === "skipped" && "opacity-50",
+            status === "in-progress" && "border-amber/40"
           )}
         >
-          {/* Mastery stripe */}
           <div
             className={cn(
               "absolute left-0 top-0 h-full w-0.5",
-              step.prereqsSatisfied
+              status === "done"
+                ? "bg-emerald shadow-[0_0_8px_#10B981]"
+                : status === "in-progress"
+                ? "bg-amber shadow-[0_0_8px_#F59E0B]"
+                : step.prereqsSatisfied
                 ? "bg-white shadow-[0_0_8px_rgba(244,244,245,0.55)]"
                 : "bg-white/30"
             )}
@@ -136,7 +156,12 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
                     Goal skill
                   </span>
                 )}
-                {!step.prereqsSatisfied && (
+                {status === "in-progress" && (
+                  <span className="label-mono shrink-0 rounded-md border border-amber/40 bg-amber/10 px-1.5 py-0.5 text-amber">
+                    In progress
+                  </span>
+                )}
+                {!step.prereqsSatisfied && status === "pending" && (
                   <span className="label-mono shrink-0 rounded-md border border-white/[0.10]/40 bg-white/[0.04] px-1.5 py-0.5 text-text-secondary">
                     Blocked
                   </span>
@@ -154,14 +179,12 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
             </div>
           </div>
 
-          {/* Description */}
           {step.description && (
             <p className="mt-3 text-xs text-text-tertiary">
               {step.description}
             </p>
           )}
 
-          {/* Mastery bar with target marker */}
           <div className="mt-4">
             <div className="mb-1.5 flex items-center justify-between">
               <span className="label-mono">Progress</span>
@@ -183,7 +206,6 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
                 animate={{ width: `${masteryPct}%` }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               />
-              {/* Target marker */}
               <div
                 className="absolute top-0 h-full w-0.5 bg-text-secondary"
                 style={{ left: `${targetPct}%` }}
@@ -191,14 +213,20 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
             </div>
           </div>
 
-          {/* Reason */}
           <p className="mt-3 text-xs text-text-secondary">{step.reason}</p>
 
-          {/* Status controls */}
-          <div className="mt-4 flex items-center justify-between gap-2">
-            <div className="flex items-center gap-1">
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-1">
               {status === "pending" && (
                 <>
+                  <button
+                    onClick={() => set("in-progress")}
+                    disabled={isPending}
+                    className="btn-ghost text-[11px]"
+                  >
+                    <Play className="h-3 w-3" />
+                    Start
+                  </button>
                   <button
                     onClick={() => set("done")}
                     disabled={isPending}
@@ -217,11 +245,31 @@ export function RoadmapStepCard({ step, isFirst, isLast, index }: Props) {
                   </button>
                 </>
               )}
+              {status === "in-progress" && (
+                <>
+                  <button
+                    onClick={() => set("done")}
+                    disabled={isPending}
+                    className="btn-ghost text-[11px] text-amber"
+                  >
+                    <Check className="h-3 w-3" />
+                    Mark done
+                  </button>
+                  <button
+                    onClick={() => set("pending")}
+                    disabled={isPending}
+                    className="btn-ghost text-[11px]"
+                  >
+                    <RotateCcw className="h-3 w-3" />
+                    Undo
+                  </button>
+                </>
+              )}
               {status === "done" && (
                 <button
                   onClick={() => set("pending")}
                   disabled={isPending}
-                  className="btn-ghost text-[11px] text-text-primary"
+                  className="btn-ghost text-[11px] text-emerald"
                 >
                   <Check className="h-3 w-3" />
                   Done · undo

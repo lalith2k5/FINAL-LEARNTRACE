@@ -205,9 +205,9 @@ model RoadmapItem {
   id       String @id @default(cuid())
   userId   String
   skillId  String
-  order    Int // 0 when row is only an override (Batch 2 will populate)
-  priority Float // 0 when row is only an override (Batch 2 will populate)
-  reason   String? // null when row is only an override (Batch 2 will populate)
+  order    Int // Snapshot of step position at override time
+  priority Float // Snapshot of impact score at override time
+  reason   String? // Snapshot of reason at override time
   status   String @default("pending")
 
   user  User  @relation(fields: [userId],  references: [id], onDelete: Cascade)
