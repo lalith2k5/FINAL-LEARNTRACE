@@ -261,3 +261,31 @@ Open issue (not fixed): NextAuth v5-beta `OAuthAccountNotLinked` when a
 password-created user tries Google sign-in. Workaround documented in
 session log 2026-10-06 (part 2). Real fix would need an explicit `signIn`
 callback in `src/lib/auth.ts`.
+
+---
+
+## Session log — 2026-10-09
+
+### Shipped
+- AI cascade hardened: Gemini (3 models) → Groq (openai/gpt-oss-20b) → OpenRouter (openrouter/free)
+  - Env-configurable models: GROQ_MODEL, OPENROUTER_MODEL
+  - 429 backoff (15s × attempts), JSON extraction fallback, bad-JSON retry
+  - Lazy Gemini client (fixes ESM hoisting)
+  - Timeouts: Gemini 20s, OpenAI-compat 45s
+- Content depth: 613 → 1,058 questions across 4 domains; every skill now ≥8 Q
+  - `scripts/generate-questions-batch.ts` — idempotent, cached, rerunnable
+  - Cache in `src/content/generated-questions/*.json`
+  - Target adjustable via `TARGET_PER_SKILL` constant
+
+### Tests
+- 83 (unchanged from yesterday's 92 minus the 9 token tests removed in the revert)
+
+### Notes
+- Groq retired all Llama models 2026-08-16; OpenRouter removed free Llama models 2026-09-11
+- Set `GROQ_MODEL`/`OPENROUTER_MODEL` env vars — never hardcode model slugs, they churn monthly
+- Gemini free tier: 20 RPD on gemini-3.5-flash; Groq: 1,000 RPD; OpenRouter: 50 RPD
+
+### Open menu
+1. Graph interactivity (search / zoom / pan)
+2. CSV/JSON domain import
+3. PDF upload + inline viewer
