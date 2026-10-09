@@ -174,18 +174,29 @@ async function runLocal(
     );
   }
   const { spawn } = await import("node:child_process");
+  const { mkdtempSync, writeFileSync, rmSync } = await import("node:fs");
   const { join } = await import("node:path");
+  const { tmpdir } = await import("node:os");
+
   const cmd = runtime.localCommand;
   const env = {
     ...process.env,
     PATH: `${join(process.cwd(), "node_modules", ".bin")}:${process.env.PATH ?? ""}`,
   };
 
+  const workdir = mkdtempSync(join(tmpdir(), "lt-run-"));
+  const filePath = join(workdir, runtime.fileName);
+
   const runOne = (
     fullCode: string
   ): Promise<{ code: number; stderr: string }> => {
     return new Promise((resolve) => {
-      const proc = spawn(cmd, ["-e", fullCode], { timeout: 5000, env });
+      writeFileSync(filePath, fullCode, "utf8");
+      const proc = spawn(cmd, [filePath], {
+        timeout: 5000,
+        env,
+        cwd: workdir,
+      });
       let stderr = "";
       proc.stderr.on("data", (d) => {
         stderr += d.toString();
@@ -199,21 +210,29 @@ async function runLocal(
     });
   };
 
-  const results: TestResult[] = [];
-  for (const tc of testCases) {
-    const fullCode = runtime.buildRunnable(code, tc.assertion);
-    const { code: exitCode, stderr } = await runOne(fullCode);
-    if (exitCode === 0) {
-      results.push({ description: tc.description, passed: true });
-    } else {
-      results.push({
-        description: tc.description,
-        passed: false,
-        error: shortenError(stderr),
-      });
+  try {
+    const results: TestResult[] = [];
+    for (const tc of testCases) {
+      const fullCode = runtime.buildRunnable(code, tc.assertion);
+      const { code: exitCode, stderr } = await runOne(fullCode);
+      if (exitCode === 0) {
+        results.push({ description: tc.description, passed: true });
+      } else {
+        results.push({
+          description: tc.description,
+          passed: false,
+          error: shortenError(stderr),
+        });
+      }
+    }
+    return results;
+  } finally {
+    try {
+      rmSync(workdir, { recursive: true, force: true });
+    } catch {
+      // ignore
     }
   }
-  return results;
 }
 
 function shortenError(stderr: string): string {

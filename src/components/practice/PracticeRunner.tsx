@@ -182,7 +182,7 @@ export function PracticeRunner({
               onChange={(e) => setCode(e.target.value)}
               spellCheck={false}
               rows={16}
-              className="block w-full resize-y bg-[#0A0A0C] p-4 font-mono text-[13px] leading-relaxed text-text-primary outline-none"
+              className="block w-full resize-y bg-[#0A0A0C] p-4 font-mono text-[13px] leading-relaxed text-[#F4F4F5] caret-[#5EB8FF] outline-none"
               style={{
                 fontFamily: "var(--font-geist-mono), ui-monospace, monospace",
                 tabSize: 4,
