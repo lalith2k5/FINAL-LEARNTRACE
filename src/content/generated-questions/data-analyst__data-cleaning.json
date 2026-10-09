@@ -1,52 +1,100 @@
 {
   "questions": [
     {
-      "prompt": "When dealing with a numeric column that has 30% missing values, which imputation strategy best preserves the overall distribution while mitigating bias?",
+      "prompt": "Which of the following is a common method to handle missing values in a dataset?",
       "options": [
         {
           "id": "a",
-          "text": "Delete all rows with missing values"
+          "text": "Drop all columns"
         },
         {
           "id": "b",
-          "text": "Fill missing values with the column mean"
+          "text": "Impute with mean"
         },
         {
           "id": "c",
-          "text": "Fill missing values with the column median"
+          "text": "Replace with random values"
         },
         {
           "id": "d",
-          "text": "Fill missing values with the most frequent value"
-        }
-      ],
-      "correctId": "c",
-      "explanation": "The median is robust to outliers and keeps the distribution shape.",
-      "difficulty": 2
-    },
-    {
-      "prompt": "Which pandas method returns a boolean Series indicating duplicate rows in a DataFrame?",
-      "options": [
-        {
-          "id": "a",
-          "text": ".unique()"
-        },
-        {
-          "id": "b",
-          "text": ".duplicated()"
-        },
-        {
-          "id": "c",
-          "text": ".drop_duplicates()"
-        },
-        {
-          "id": "d",
-          "text": ".is_duplicate()"
+          "text": "Leave as is"
         }
       ],
       "correctId": "b",
-      "explanation": "`.duplicated()` marks rows that are duplicates of previous ones.",
+      "explanation": "Imputing missing values with the column mean is a basic, widely used approach.",
       "difficulty": 1
+    },
+    {
+      "prompt": "What is the primary purpose of removing duplicate rows in a dataset?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increase dataset size"
+        },
+        {
+          "id": "b",
+          "text": "Reduce redundancy"
+        },
+        {
+          "id": "c",
+          "text": "Introduce bias"
+        },
+        {
+          "id": "d",
+          "text": "Make data look cleaner"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Eliminating duplicates removes redundant records, improving data quality and model performance.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which technique is suitable for identifying outliers in a numerical variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Z-score threshold"
+        },
+        {
+          "id": "b",
+          "text": "Random sampling"
+        },
+        {
+          "id": "c",
+          "text": "Sorting"
+        },
+        {
+          "id": "d",
+          "text": "One-hot encoding"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A Z-score indicates how many standard deviations a value is from the mean; values beyond a threshold flag outliers.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "When cleaning dates that appear in multiple formats (e.g., 'MM/DD/YYYY' and 'DD-MM-YYYY'), which approach ensures consistency?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Convert all to ISO 8601 format"
+        },
+        {
+          "id": "b",
+          "text": "Keep original formats"
+        },
+        {
+          "id": "c",
+          "text": "Delete all date entries"
+        },
+        {
+          "id": "d",
+          "text": "Convert to text"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Standardizing dates to ISO 8601 eliminates ambiguity and facilitates reliable comparisons.",
+      "difficulty": 5
     }
   ]
 }

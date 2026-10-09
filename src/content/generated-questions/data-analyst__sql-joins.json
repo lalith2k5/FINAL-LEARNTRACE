@@ -1,39 +1,15 @@
 {
   "questions": [
     {
-      "prompt": "Given two tables, Orders(order_id, customer_id) and Customers(customer_id, name), which SQL clause correctly returns only customers who have placed an order?",
+      "prompt": "Which SQL clause returns only rows that have matching values in both tables?",
       "options": [
         {
           "id": "a",
-          "text": "SELECT Customers.name FROM Customers INNER JOIN Orders ON Customers.customer_id = Orders.customer_id;"
-        },
-        {
-          "id": "b",
-          "text": "SELECT Customers.name FROM Customers LEFT JOIN Orders ON Customers.customer_id = Orders.customer_id;"
-        },
-        {
-          "id": "c",
-          "text": "SELECT Customers.name FROM Customers RIGHT JOIN Orders ON Customers.customer_id = Orders.customer_id;"
-        },
-        {
-          "id": "d",
-          "text": "SELECT Customers.name FROM Customers FULL JOIN Orders ON Customers.customer_id = Orders.customer_id;"
-        }
-      ],
-      "correctId": "a",
-      "explanation": "INNER JOIN returns rows that have matching keys in both tables.",
-      "difficulty": 1
-    },
-    {
-      "prompt": "Which join type returns all rows from the left table and matching rows from the right table, filling with NULL where no match exists?",
-      "options": [
-        {
-          "id": "a",
-          "text": "INNER JOIN"
-        },
-        {
-          "id": "b",
           "text": "LEFT JOIN"
+        },
+        {
+          "id": "b",
+          "text": "INNER JOIN"
         },
         {
           "id": "c",
@@ -45,8 +21,80 @@
         }
       ],
       "correctId": "b",
-      "explanation": "LEFT JOIN keeps all left rows and adds NULLs for missing right rows.",
+      "explanation": "INNER JOIN returns only rows that have matching values in both tables.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When using a LEFT JOIN, which rows are guaranteed to appear in the result set?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only rows with matches in both tables"
+        },
+        {
+          "id": "b",
+          "text": "Rows from the left table with or without matches in the right table"
+        },
+        {
+          "id": "c",
+          "text": "Only rows from the right table with matches"
+        },
+        {
+          "id": "d",
+          "text": "Rows from the right table with or without matches"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A LEFT JOIN always returns all rows from the left table, regardless of matches in the right table.",
       "difficulty": 2
+    },
+    {
+      "prompt": "Which statement correctly performs a self join to list employees and their managers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT e.name, m.name FROM employees e JOIN employees m ON e.manager_id = m.id"
+        },
+        {
+          "id": "b",
+          "text": "SELECT e.name, m.name FROM employees e LEFT JOIN employees m ON e.id = m.manager_id"
+        },
+        {
+          "id": "c",
+          "text": "SELECT e.name, m.name FROM employees e RIGHT JOIN employees m ON e.manager_id = m.id"
+        },
+        {
+          "id": "d",
+          "text": "SELECT e.name, m.name FROM employees e FULL JOIN employees m ON e.id = m.manager_id"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The ON clause e.manager_id = m.id correctly links each employee to their manager.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which result set will a FULL OUTER JOIN produce compared to an INNER JOIN?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only rows that exist in both tables"
+        },
+        {
+          "id": "b",
+          "text": "All rows from both tables, matching where possible"
+        },
+        {
+          "id": "c",
+          "text": "Only rows from the left table"
+        },
+        {
+          "id": "d",
+          "text": "Only rows from the right table"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A FULL OUTER JOIN returns all rows from both tables, filling unmatched columns with NULLs.",
+      "difficulty": 4
     }
   ]
 }

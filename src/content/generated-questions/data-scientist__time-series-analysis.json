@@ -1,15 +1,39 @@
 {
   "questions": [
     {
-      "prompt": "In time series analysis, which component represents a long-term increase or decrease in the data values?",
+      "prompt": "Which of the following best describes the autocorrelation function in a time series?",
       "options": [
         {
           "id": "a",
-          "text": "Seasonality"
+          "text": "The average value of the series"
         },
         {
           "id": "b",
-          "text": "Irregularity"
+          "text": "The variance of the series"
+        },
+        {
+          "id": "c",
+          "text": "The correlation between observations at different lags"
+        },
+        {
+          "id": "d",
+          "text": "The overall trend of the series"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Autocorrelation measures how observations separated by a lag are related, indicating persistence in the series.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "A time series has a mean that changes over time but a constant variance. Which property does it lack?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stationarity"
+        },
+        {
+          "id": "b",
+          "text": "Seasonality"
         },
         {
           "id": "c",
@@ -17,12 +41,84 @@
         },
         {
           "id": "d",
-          "text": "Cyclic"
+          "text": "Autocorrelation"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Stationary series require a constant mean; a changing mean violates stationarity.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When decomposing a monthly sales series into trend, seasonal, and irregular components, which method is appropriate to capture a non‑linear trend?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Additive decomposition"
+        },
+        {
+          "id": "b",
+          "text": "Multiplicative decomposition"
+        },
+        {
+          "id": "c",
+          "text": "LOESS smoothing"
+        },
+        {
+          "id": "d",
+          "text": "Simple moving average"
         }
       ],
       "correctId": "c",
-      "explanation": "The trend component captures systematic long-term movements in the series, distinguishing it from short-term seasonal or irregular fluctuations.",
-      "difficulty": 1
+      "explanation": "LOESS smoothing can flexibly model non‑linear trends without assuming a specific functional form.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In ARIMA(p,d,q) modeling, what does the 'd' parameter represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Number of autoregressive terms"
+        },
+        {
+          "id": "b",
+          "text": "Number of moving average terms"
+        },
+        {
+          "id": "c",
+          "text": "Degree of differencing"
+        },
+        {
+          "id": "d",
+          "text": "Number of seasonal periods"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The 'd' parameter specifies how many times the series is differenced to achieve stationarity.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "A time series exhibits strong weekly seasonality and a long‑term upward drift. Which model would best capture both components?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seasonal ARIMA with trend"
+        },
+        {
+          "id": "b",
+          "text": "Exponential smoothing with additive seasonality"
+        },
+        {
+          "id": "c",
+          "text": "Prophet model with yearly seasonality"
+        },
+        {
+          "id": "d",
+          "text": "Simple moving average"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Seasonal ARIMA can model both the weekly seasonal pattern and the upward trend through differencing and ARMA terms.",
+      "difficulty": 5
     }
   ]
 }

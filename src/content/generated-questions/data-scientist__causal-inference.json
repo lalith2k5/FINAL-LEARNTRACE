@@ -1,52 +1,100 @@
 {
   "questions": [
     {
-      "prompt": "In a directed acyclic graph (DAG), which of the following best describes a confounder?",
+      "prompt": "In a directed acyclic graph (DAG) representing a causal model with variables X, Y, and Z, where Z causes both X and Y, and X causes Y, which variable is a confounder for the causal effect of X on Y?",
       "options": [
         {
           "id": "a",
-          "text": "A variable that lies on the causal pathway from the treatment to the outcome."
+          "text": "X"
         },
         {
           "id": "b",
-          "text": "A variable that is a descendant of the outcome."
+          "text": "Y"
         },
         {
           "id": "c",
-          "text": "A variable that causes both the treatment and the outcome."
+          "text": "Z"
         },
         {
           "id": "d",
-          "text": "A variable that is only affected by the treatment."
+          "text": "None"
         }
       ],
       "correctId": "c",
-      "explanation": "A confounder causes both the treatment and the outcome, creating a spurious association if not controlled for.",
+      "explanation": "Z influences both the treatment X and the outcome Y, so it is a confounder.",
       "difficulty": 1
     },
     {
-      "prompt": "The backdoor adjustment criterion requires that we adjust for a set of variables that blocks all backdoor paths between the treatment and the outcome. Which condition must be satisfied for a set to be a valid backdoor adjustment set?",
+      "prompt": "Which of the following is NOT a required condition for a variable to be a valid instrumental variable (IV) in estimating the causal effect of treatment T on outcome Y?",
       "options": [
         {
           "id": "a",
-          "text": "The set must contain at least one collider."
+          "text": "IV must be associated with T."
         },
         {
           "id": "b",
-          "text": "The set must block every path that starts with an arrow pointing into the treatment."
+          "text": "IV must affect Y only through T."
         },
         {
           "id": "c",
-          "text": "The set must include all descendants of the treatment."
+          "text": "IV must be independent of any unmeasured confounders of T and Y."
         },
         {
           "id": "d",
-          "text": "The set must contain only variables that are causes of the outcome."
+          "text": "IV must be correlated with Y."
         }
       ],
-      "correctId": "b",
-      "explanation": "A backdoor set blocks every path that begins with an arrow into the treatment, thereby removing confounding bias.",
+      "correctId": "d",
+      "explanation": "An IV must not directly affect the outcome; it can only influence Y through the treatment.",
       "difficulty": 2
+    },
+    {
+      "prompt": "In a difference-in-differences (DiD) design, which assumption allows us to attribute the estimated treatment effect to the policy rather than other time-varying factors?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Parallel trends assumption."
+        },
+        {
+          "id": "b",
+          "text": "No spillover effects."
+        },
+        {
+          "id": "c",
+          "text": "Constant treatment effect over time."
+        },
+        {
+          "id": "d",
+          "text": "Random assignment of treatment."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "DiD relies on the assumption that, absent treatment, the treatment and control groups would follow parallel trends over time.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In a sharp regression discontinuity design, which assumption is crucial for identification of the causal effect at the cutoff?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The running variable is continuous at the cutoff."
+        },
+        {
+          "id": "b",
+          "text": "The treatment assignment is random around the cutoff."
+        },
+        {
+          "id": "c",
+          "text": "The relationship between the running variable and the outcome is linear."
+        },
+        {
+          "id": "d",
+          "text": "There is no manipulation of the running variable near the cutoff."
+        }
+      ],
+      "correctId": "d",
+      "explanation": "If subjects can manipulate the running variable near the cutoff, the assignment is no longer effectively random, violating identification.",
+      "difficulty": 5
     }
   ]
 }

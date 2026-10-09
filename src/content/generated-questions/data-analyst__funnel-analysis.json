@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of funnel analysis in digital marketing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Measuring overall website traffic"
+        },
+        {
+          "id": "b",
+          "text": "Measuring conversion through sequential steps"
+        },
+        {
+          "id": "c",
+          "text": "Measuring bounce rate"
+        },
+        {
+          "id": "d",
+          "text": "Measuring page load time"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Funnel analysis tracks how users move through predefined steps, highlighting where they drop off.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "A website has 1,000 visitors, 800 add items to cart, and 400 proceed to checkout. Which step shows the biggest drop-off?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Visits to add to cart"
+        },
+        {
+          "id": "b",
+          "text": "Add to cart to checkout"
+        },
+        {
+          "id": "c",
+          "text": "Checkout to purchase"
+        },
+        {
+          "id": "d",
+          "text": "All steps have equal drop-off"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The largest percentage loss occurs between adding to cart and proceeding to checkout.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "If 2,000 visitors visit a site and 400 complete a purchase, what is the overall conversion rate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10%"
+        },
+        {
+          "id": "b",
+          "text": "20%"
+        },
+        {
+          "id": "c",
+          "text": "30%"
+        },
+        {
+          "id": "d",
+          "text": "40%"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Conversion rate = 400/2000 = 0.20, or 20%.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In a funnel that includes optional steps (e.g., newsletter signup), how should you handle these steps when calculating conversion rates?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ignore optional steps"
+        },
+        {
+          "id": "b",
+          "text": "Treat them as separate, parallel funnels"
+        },
+        {
+          "id": "c",
+          "text": "Use weighted averages"
+        },
+        {
+          "id": "d",
+          "text": "Combine all steps into a single metric"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Optional steps create branching paths; they should be modeled as separate funnels to avoid skewing main conversion metrics.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "You observe a funnel where 70% of users drop off at step 3, but step 4 shows a 90% conversion rate among those who reach it. What does this suggest?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Step 3 is a major barrier"
+        },
+        {
+          "id": "b",
+          "text": "Step 4 is irrelevant"
+        },
+        {
+          "id": "c",
+          "text": "Step 4 has low traffic"
+        },
+        {
+          "id": "d",
+          "text": "The data is unreliable"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A high drop-off at step 3 indicates a problem, while the high conversion at step 4 shows it is effective once users reach it.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which metric specifically measures the proportion of users who exit between two consecutive steps in a funnel?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bounce rate"
+        },
+        {
+          "id": "b",
+          "text": "Drop‑off rate"
+        },
+        {
+          "id": "c",
+          "text": "Conversion rate"
+        },
+        {
+          "id": "d",
+          "text": "Exit rate"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Drop‑off rate captures the percentage lost between two consecutive funnel steps.",
+      "difficulty": 5
+    }
+  ]
+}

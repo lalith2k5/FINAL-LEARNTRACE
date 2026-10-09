@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is JSX in React?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A way to write plain JavaScript objects"
+        },
+        {
+          "id": "b",
+          "text": "A syntax extension that looks like HTML"
+        },
+        {
+          "id": "c",
+          "text": "A function to create React elements"
+        },
+        {
+          "id": "d",
+          "text": "A CSS preprocessor"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "JSX is a syntax extension that lets you write HTML-like tags in JavaScript, which are compiled to React.createElement calls.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which statement about passing props is true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Props can be mutated by the child component"
+        },
+        {
+          "id": "b",
+          "text": "Props are read-only in the receiving component"
+        },
+        {
+          "id": "c",
+          "text": "Props are only used in class components"
+        },
+        {
+          "id": "d",
+          "text": "Props can be passed as functions to trigger updates"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Props are immutable; the child component should not modify them, they are read-only.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When calling setState, which of the following is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "setState immediately updates this.state"
+        },
+        {
+          "id": "b",
+          "text": "setState accepts an object or a function and updates state asynchronously"
+        },
+        {
+          "id": "c",
+          "text": "setState can be called outside a component method"
+        },
+        {
+          "id": "d",
+          "text": "setState returns the updated state value"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "setState merges the given object or the result of a function into state and schedules an asynchronous update.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following is NOT a valid way to define a React component?",
+      "options": [
+        {
+          "id": "a",
+          "text": "function MyComponent(props) { return <div />; }"
+        },
+        {
+          "id": "b",
+          "text": "class MyComponent extends React.Component { render() { return <div />; } }"
+        },
+        {
+          "id": "c",
+          "text": "const MyComponent = (props) => { return <div />; }"
+        },
+        {
+          "id": "d",
+          "text": "var MyComponent = React.createClass({ render: function() { return <div />; } })"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "React.createClass is deprecated and not used in modern React code.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What does ReactDOM.render do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It updates the DOM with new React elements without unmounting"
+        },
+        {
+          "id": "b",
+          "text": "It compiles JSX into JavaScript"
+        },
+        {
+          "id": "c",
+          "text": "It mounts a React component into a specified DOM container"
+        },
+        {
+          "id": "d",
+          "text": "It removes a component from the DOM"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "ReactDOM.render mounts a React element into a DOM container and manages updates.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which lifecycle method is called after a component updates?",
+      "options": [
+        {
+          "id": "a",
+          "text": "componentDidMount"
+        },
+        {
+          "id": "b",
+          "text": "componentWillUnmount"
+        },
+        {
+          "id": "c",
+          "text": "componentDidUpdate"
+        },
+        {
+          "id": "d",
+          "text": "componentWillReceiveProps"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "componentDidUpdate runs after a component’s updates are flushed to the DOM.",
+      "difficulty": 5
+    }
+  ]
+}
