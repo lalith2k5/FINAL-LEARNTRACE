@@ -174,13 +174,18 @@ async function runLocal(
     );
   }
   const { spawn } = await import("node:child_process");
+  const { join } = await import("node:path");
   const cmd = runtime.localCommand;
+  const env = {
+    ...process.env,
+    PATH: `${join(process.cwd(), "node_modules", ".bin")}:${process.env.PATH ?? ""}`,
+  };
 
   const runOne = (
     fullCode: string
   ): Promise<{ code: number; stderr: string }> => {
     return new Promise((resolve) => {
-      const proc = spawn(cmd, ["-e", fullCode], { timeout: 5000 });
+      const proc = spawn(cmd, ["-e", fullCode], { timeout: 5000, env });
       let stderr = "";
       proc.stderr.on("data", (d) => {
         stderr += d.toString();

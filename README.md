@@ -18,7 +18,7 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 - **Theory vs practical** — separates conceptual knowledge from demonstrated application
 - **What-If simulator** — "What if I skip Probability?" projected through the prerequisite DAG
 - **AI tutor** — every wrong answer becomes a 4-part tutoring moment
-- **In-browser Python** — hands-on coding tasks with test-case feedback
+- **In-browser code execution** (Python, JavaScript, TypeScript) with test-case feedback
 
 ---
 
@@ -32,17 +32,17 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 | DB | PostgreSQL 16 (Docker) |
 | ORM | Prisma 6 |
 | Auth | NextAuth v5 (Credentials + Google OAuth) |
-| AI | Google Gemini 3.5 Flash (3-model cascade) |
+| AI | Gemini 3.5 Flash (3-model cascade) → Groq → OpenRouter fallback |
 | Code execution | Piston API (Python + JavaScript + TypeScript) + local fallback |
 | Viz | Hand-rolled SVG + Recharts + Framer Motion |
-| Tests | Vitest (72 unit tests) |
+| Tests | Vitest (83 unit tests) |
 
 ---
 
 ## Features
 
 ### Learning loop
-- Diagnostic assessment (15 questions, adaptive)
+- Diagnostic assessment (15–60 questions, adaptive per domain size)
 - Focused quiz mode (5 per skill, pick up to 3)
 - Per-skill mastery tracking with Bayesian-weighted updates
 - Concept reassessment with before/after comparison
@@ -50,7 +50,7 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 - Skill gaps ranked by Dependency Impact Score
 - Personalized roadmap (topological sort + impact ranking)
 - Learning materials with markdown notes and video embeds
-- Practical coding tasks with in-browser Python execution
+- Practical coding tasks with in-browser Python / JS / TS execution
 - Theory/practical evidence panel with verified state
 
 ### AI features
@@ -63,7 +63,7 @@ Most learning platforms track **course completion**, not **actual mastery**. Lea
 - Profile page with activity stats
 - Progress history timeline
 - Multi-domain framework (max 3 per user)
-- Loading skeletons + error boundaries on every route
+- Loading skeletons on most routes (root-group fallback covers the rest) + error boundaries at root and app-group level
 
 ---
 

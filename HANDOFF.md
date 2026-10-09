@@ -257,10 +257,10 @@ Removed:
 - `EmailVerificationBanner`, dashboard hook, register hook, login footer
 - `EMAIL_*` + `RESEND_API_KEY` env vars (also from `.env.local`)
 
-Open issue (not fixed): NextAuth v5-beta `OAuthAccountNotLinked` when a
-password-created user tries Google sign-in. Workaround documented in
-session log 2026-10-06 (part 2). Real fix would need an explicit `signIn`
-callback in `src/lib/auth.ts`.
+Resolved: NextAuth v5-beta `OAuthAccountNotLinked` when a password-created
+user tries Google sign-in. The `signIn` callback in `src/lib/auth.ts`
+pre-creates the Account row for existing users whose email matches, and
+`allowDangerousEmailAccountLinking: true` covers the remaining race.
 
 ---
 

@@ -41,7 +41,7 @@ export const RUNTIMES: Record<string, Runtime> = {
     pistonVersion: "5.0.3",
     fileName: "solution.ts",
     displayName: "TypeScript 5",
-    localCommand: null,
+    localCommand: "tsx",
     buildRunnable: (code, assertion) =>
       `${JS_HEADER}\n${code}\n\n// --- test ---\n${assertion}\n`,
   },
