@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best describes the purpose of linear regression?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Estimate a causal effect between a dependent and independent variable"
+        },
+        {
+          "id": "b",
+          "text": "Predict a dependent variable using one or more independent variables"
+        },
+        {
+          "id": "c",
+          "text": "Identify correlation only"
+        },
+        {
+          "id": "d",
+          "text": "Cluster variables into groups"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Linear regression predicts the value of the dependent variable based on the values of independent variables.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In the simple linear regression model y = 2 + 0.5x, what does the coefficient 0.5 represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The intercept"
+        },
+        {
+          "id": "b",
+          "text": "The change in y for a one‑unit increase in x"
+        },
+        {
+          "id": "c",
+          "text": "The standard error of the estimate"
+        },
+        {
+          "id": "d",
+          "text": "The R² value"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The coefficient indicates how much y changes when x increases by one unit.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which of the following is NOT an assumption of linear regression?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Linearity"
+        },
+        {
+          "id": "b",
+          "text": "Independence of errors"
+        },
+        {
+          "id": "c",
+          "text": "Normality of errors"
+        },
+        {
+          "id": "d",
+          "text": "Multicollinearity"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Multicollinearity is a potential problem but not an assumption of the model.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Logistic regression is used to model which type of outcome variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Continuous"
+        },
+        {
+          "id": "b",
+          "text": "Binary categorical"
+        },
+        {
+          "id": "c",
+          "text": "Count"
+        },
+        {
+          "id": "d",
+          "text": "Time-to-event"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Logistic regression predicts the probability of a binary outcome.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Including an interaction term between X₁ and X₂ in a regression model allows you to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Model a non‑linear effect of X₁ alone"
+        },
+        {
+          "id": "b",
+          "text": "Capture a combined effect beyond the additive contributions of X₁ and X₂"
+        },
+        {
+          "id": "c",
+          "text": "Increase the degrees of freedom in the model"
+        },
+        {
+          "id": "d",
+          "text": "Eliminate multicollinearity"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "An interaction term models how the effect of one predictor changes at different levels of another predictor.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which statistical test is most appropriate for comparing two nested regression models?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Adjusted R²"
+        },
+        {
+          "id": "b",
+          "text": "AIC"
+        },
+        {
+          "id": "c",
+          "text": "Likelihood ratio test"
+        },
+        {
+          "id": "d",
+          "text": "Cross‑validation error"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The likelihood ratio test compares nested models by evaluating the difference in their log‑likelihoods.",
+      "difficulty": 3
+    }
+  ]
+}

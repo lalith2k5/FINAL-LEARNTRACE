@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of establishing a visual hierarchy in a dashboard?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To make it look colorful"
+        },
+        {
+          "id": "b",
+          "text": "To guide user attention to key metrics"
+        },
+        {
+          "id": "c",
+          "text": "To reduce the number of charts"
+        },
+        {
+          "id": "d",
+          "text": "To increase data volume"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Visual hierarchy directs user focus to the most important information first.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following metrics is most appropriate to place at the top of a sales performance dashboard?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Number of support tickets"
+        },
+        {
+          "id": "b",
+          "text": "Total revenue"
+        },
+        {
+          "id": "c",
+          "text": "Average employee tenure"
+        },
+        {
+          "id": "d",
+          "text": "Inventory turnover"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The top metric should reflect the primary business goal, such as revenue.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "How does interactive filtering improve dashboard usability?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It hides unrelated data"
+        },
+        {
+          "id": "b",
+          "text": "It allows users to customize views"
+        },
+        {
+          "id": "c",
+          "text": "It reduces loading time"
+        },
+        {
+          "id": "d",
+          "text": "It automatically updates data"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Interactive filters let users tailor the view to their needs.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "When designing a dashboard for executive stakeholders, which design principle should be prioritized?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Detailed drill-downs"
+        },
+        {
+          "id": "b",
+          "text": "Minimalist layout"
+        },
+        {
+          "id": "c",
+          "text": "Frequent alerts"
+        },
+        {
+          "id": "d",
+          "text": "Complex data visualizations"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Executives need high-level insights, so a minimalist design reduces cognitive load.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which technique best supports drill-down navigation without cluttering the initial view?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Embedding all charts in a single page"
+        },
+        {
+          "id": "b",
+          "text": "Using a breadcrumb trail"
+        },
+        {
+          "id": "c",
+          "text": "Displaying all metrics in a table"
+        },
+        {
+          "id": "d",
+          "text": "Removing interactivity"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Breadcrumbs provide a clear path for drill-down while keeping the main view clean.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which color scheme is generally recommended for data dashboards?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Random colors"
+        },
+        {
+          "id": "b",
+          "text": "High-contrast monochrome"
+        },
+        {
+          "id": "c",
+          "text": "Muted palette with accent colors"
+        },
+        {
+          "id": "d",
+          "text": "Neon colors"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A muted palette reduces eye strain and accent colors highlight important data.",
+      "difficulty": 3
+    }
+  ]
+}

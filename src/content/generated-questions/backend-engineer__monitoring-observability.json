@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best describes the concept of observability in distributed systems?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The ability to see logs"
+        },
+        {
+          "id": "b",
+          "text": "The ability to predict future states"
+        },
+        {
+          "id": "c",
+          "text": "The ability to infer internal state from external outputs"
+        },
+        {
+          "id": "d",
+          "text": "The ability to control services"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Observability is about inferring a system’s internal state by observing its external outputs such as logs, metrics, and traces.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In the context of observability, which statement correctly matches the primary use of each data type?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Metrics for detailed debugging, Logs for aggregated metrics, Traces for high-level performance"
+        },
+        {
+          "id": "b",
+          "text": "Metrics for aggregated state, Logs for debugging events, Traces for request flow"
+        },
+        {
+          "id": "c",
+          "text": "Metrics for request flow, Logs for aggregated state, Traces for debugging events"
+        },
+        {
+          "id": "d",
+          "text": "Metrics for debugging events, Logs for request flow, Traces for aggregated state"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Metrics capture aggregated state, logs record individual events, and traces show the path of a request through services.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When instrumenting a high-throughput service, what is a common technique to avoid overwhelming the tracing system?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Record all traces"
+        },
+        {
+          "id": "b",
+          "text": "Use sampling to collect a subset"
+        },
+        {
+          "id": "c",
+          "text": "Store traces in memory"
+        },
+        {
+          "id": "d",
+          "text": "Disable tracing"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Sampling limits the number of traces sent, reducing storage and processing overhead while still providing representative data.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following alerting strategies is most effective for detecting anomalies in latency?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fixed threshold on latency"
+        },
+        {
+          "id": "b",
+          "text": "Rate-based threshold on error count"
+        },
+        {
+          "id": "c",
+          "text": "Statistical anomaly detection on latency distribution"
+        },
+        {
+          "id": "d",
+          "text": "Alert on any log message"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Statistical anomaly detection adapts to normal latency patterns and flags deviations, providing more reliable alerts than static thresholds.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In a distributed tracing system, which component is responsible for propagating the trace context across service boundaries?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Collector"
+        },
+        {
+          "id": "b",
+          "text": "Exporter"
+        },
+        {
+          "id": "c",
+          "text": "Injector"
+        },
+        {
+          "id": "d",
+          "text": "Sampler"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "An injector injects trace identifiers into outgoing requests so downstream services can continue the trace.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which practice best ensures that metrics collected from a service are actionable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Collect all possible metrics"
+        },
+        {
+          "id": "b",
+          "text": "Use a naming convention and tag key cardinality"
+        },
+        {
+          "id": "c",
+          "text": "Avoid using tags"
+        },
+        {
+          "id": "d",
+          "text": "Only collect metrics once per deployment"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Consistent naming and controlled tag cardinality make metrics easier to query, correlate, and alert on.",
+      "difficulty": 3
+    }
+  ]
+}

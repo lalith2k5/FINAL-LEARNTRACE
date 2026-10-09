@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which HTTP method is used to retrieve data without causing side effects?",
+      "options": [
+        {
+          "id": "a",
+          "text": "GET"
+        },
+        {
+          "id": "b",
+          "text": "POST"
+        },
+        {
+          "id": "c",
+          "text": "PUT"
+        },
+        {
+          "id": "d",
+          "text": "DELETE"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "GET is safe and idempotent, used to read data without modifying resources.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which status code indicates that the client must authenticate to access the requested resource?",
+      "options": [
+        {
+          "id": "a",
+          "text": "401"
+        },
+        {
+          "id": "b",
+          "text": "403"
+        },
+        {
+          "id": "c",
+          "text": "404"
+        },
+        {
+          "id": "d",
+          "text": "200"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "401 Unauthorized signals the client needs valid authentication credentials.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which HTTP header is used to indicate the type of data in the request body?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Content-Type"
+        },
+        {
+          "id": "b",
+          "text": "Accept"
+        },
+        {
+          "id": "c",
+          "text": "Authorization"
+        },
+        {
+          "id": "d",
+          "text": "User-Agent"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Content-Type tells the server how to parse the request body.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In a RESTful API, what is the most appropriate URI to retrieve the user resource with ID 42?",
+      "options": [
+        {
+          "id": "a",
+          "text": "/users/42/profile"
+        },
+        {
+          "id": "b",
+          "text": "/users/42"
+        },
+        {
+          "id": "c",
+          "text": "/profile/users/42"
+        },
+        {
+          "id": "d",
+          "text": "/api/users/42/profile"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "/users/42 directly identifies the user resource, following RESTful conventions.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which HTTP status code should a server return when a request conflicts with the current state of the resource?",
+      "options": [
+        {
+          "id": "a",
+          "text": "409 Conflict"
+        },
+        {
+          "id": "b",
+          "text": "400 Bad Request"
+        },
+        {
+          "id": "c",
+          "text": "404 Not Found"
+        },
+        {
+          "id": "d",
+          "text": "500 Internal Server Error"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "409 Conflict indicates the request could not be completed due to a conflict with the resource's current state.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which HTTP method is typically used to update an entire existing resource?",
+      "options": [
+        {
+          "id": "a",
+          "text": "PATCH"
+        },
+        {
+          "id": "b",
+          "text": "POST"
+        },
+        {
+          "id": "c",
+          "text": "PUT"
+        },
+        {
+          "id": "d",
+          "text": "DELETE"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "PUT replaces the entire resource, whereas PATCH modifies part of it.",
+      "difficulty": 3
+    }
+  ]
+}

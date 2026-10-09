@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following is a common technique to ensure a model stays performant after deployment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Retraining only at the end of the year"
+        },
+        {
+          "id": "b",
+          "text": "Continuous monitoring of performance metrics"
+        },
+        {
+          "id": "c",
+          "text": "Ignoring data drift"
+        },
+        {
+          "id": "d",
+          "text": "Using a single GPU"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Continuous monitoring allows early detection of performance degradation caused by data drift or concept drift.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What is the main benefit of using a feature store in a production ML pipeline?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reduces the number of training epochs"
+        },
+        {
+          "id": "b",
+          "text": "Ensures consistency between training and serving features"
+        },
+        {
+          "id": "c",
+          "text": "Automatically deploys models"
+        },
+        {
+          "id": "d",
+          "text": "Eliminates the need for monitoring"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A feature store centralizes feature definitions so the same transformations are applied during training and inference, preventing feature drift.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which strategy is most effective for rolling out a new model version with minimal risk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Full production rollout"
+        },
+        {
+          "id": "b",
+          "text": "Canary release"
+        },
+        {
+          "id": "c",
+          "text": "Offline testing only"
+        },
+        {
+          "id": "d",
+          "text": "Random traffic split"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Canary releases expose the new model to a small subset of traffic, allowing quick rollback if issues arise.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In a model monitoring dashboard, which metric would best indicate that the input data distribution has shifted?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Accuracy"
+        },
+        {
+          "id": "b",
+          "text": "Latency"
+        },
+        {
+          "id": "c",
+          "text": "Feature distribution divergence (e.g., KL divergence)"
+        },
+        {
+          "id": "d",
+          "text": "Model size"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Divergence metrics compare current feature distributions to the training distribution, flagging distribution shifts.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which of the following practices helps ensure compliance with data privacy regulations in ML model deployment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Storing raw user data in the model weights"
+        },
+        {
+          "id": "b",
+          "text": "Using differential privacy during training and limiting data retention"
+        },
+        {
+          "id": "c",
+          "text": "Ignoring data sources"
+        },
+        {
+          "id": "d",
+          "text": "Logging all predictions without encryption"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Differential privacy protects individual data points, and limiting retention reduces exposure risks, aligning with privacy laws.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "What is the primary purpose of model versioning in a CI/CD pipeline for ML?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To make models larger"
+        },
+        {
+          "id": "b",
+          "text": "To track changes and enable rollback"
+        },
+        {
+          "id": "c",
+          "text": "To increase inference latency"
+        },
+        {
+          "id": "d",
+          "text": "To avoid using containers"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Versioning records model artifacts, facilitating reproducibility and rollback when newer versions underperform.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "prompt": "Which architectural pattern is most suitable for isolating UI components in a large-scale application?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Monolithic"
+        },
+        {
+          "id": "b",
+          "text": "Micro frontends"
+        },
+        {
+          "id": "c",
+          "text": "MVC"
+        },
+        {
+          "id": "d",
+          "text": "MVP"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Micro frontends allow independent teams to build and deploy separate parts of the UI, improving scalability.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In a unidirectional data flow architecture, which component is responsible for propagating state changes to the view?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Store"
+        },
+        {
+          "id": "b",
+          "text": "Controller"
+        },
+        {
+          "id": "c",
+          "text": "View"
+        },
+        {
+          "id": "d",
+          "text": "Middleware"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The store holds the state and notifies components of changes.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which deployment strategy minimizes downtime when updating a single feature of a React application?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Full rebuild and redeploy"
+        },
+        {
+          "id": "b",
+          "text": "Canary releases"
+        },
+        {
+          "id": "c",
+          "text": "Blue-green deployment"
+        },
+        {
+          "id": "d",
+          "text": "Rolling updates"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Canary releases allow only a small percentage of users to see the change, reducing risk.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which technique is most effective for reducing initial bundle size in a modern SPA?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Code splitting"
+        },
+        {
+          "id": "b",
+          "text": "Server-side rendering"
+        },
+        {
+          "id": "c",
+          "text": "CSS in JS"
+        },
+        {
+          "id": "d",
+          "text": "Polyfills"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Code splitting loads only required modules on demand, reducing payload.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In a micro-frontend architecture, how should shared dependencies be managed to avoid duplication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Each micro-frontend bundles its own copy"
+        },
+        {
+          "id": "b",
+          "text": "Use a shared library served from CDN"
+        },
+        {
+          "id": "c",
+          "text": "Dynamically import dependencies at runtime"
+        },
+        {
+          "id": "d",
+          "text": "Exclude dependencies from build process"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Serving shared libs from CDN ensures a single copy is loaded and cached across micro frontends.",
+      "difficulty": 5
+    }
+  ]
+}

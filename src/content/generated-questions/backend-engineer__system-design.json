@@ -1,0 +1,100 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following is a primary benefit of using a load balancer in front of multiple application servers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reduce network latency"
+        },
+        {
+          "id": "b",
+          "text": "Provide fault tolerance"
+        },
+        {
+          "id": "c",
+          "text": "Increase database size"
+        },
+        {
+          "id": "d",
+          "text": "Encrypt data"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A load balancer distributes traffic and provides failover, improving availability.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When designing a caching layer for a high‑traffic web application, which trade‑off is most critical to consider?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cache size vs. write throughput"
+        },
+        {
+          "id": "b",
+          "text": "Cache consistency vs. latency"
+        },
+        {
+          "id": "c",
+          "text": "Cache encryption vs. cost"
+        },
+        {
+          "id": "d",
+          "text": "Cache location vs. color"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Choosing between strong consistency and low latency is the key trade‑off in cache design.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In a microservices architecture, which pattern best addresses the problem of a single service failure cascading to other services?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Circuit Breaker"
+        },
+        {
+          "id": "b",
+          "text": "Load Balancer"
+        },
+        {
+          "id": "c",
+          "text": "Database Replication"
+        },
+        {
+          "id": "d",
+          "text": "Content Delivery Network"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A circuit breaker isolates a failing service, preventing cascading failures.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "A video‑streaming company wants to minimize latency for users worldwide while keeping costs low. Which architecture choice is most effective?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Host all content in a single large data center"
+        },
+        {
+          "id": "b",
+          "text": "Use a global CDN with edge caching"
+        },
+        {
+          "id": "c",
+          "text": "Deploy a peer‑to‑peer network"
+        },
+        {
+          "id": "d",
+          "text": "Store videos on local user devices"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A CDN caches content near users, reducing latency and bandwidth costs.",
+      "difficulty": 5
+    }
+  ]
+}

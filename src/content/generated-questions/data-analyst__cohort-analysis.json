@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of cohort analysis?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To segment users by demographic attributes"
+        },
+        {
+          "id": "b",
+          "text": "To track the behavior of a group of users over time"
+        },
+        {
+          "id": "c",
+          "text": "To calculate lifetime value of individual users"
+        },
+        {
+          "id": "d",
+          "text": "To predict future revenue using machine learning"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Cohort analysis focuses on groups of users sharing a characteristic and observing their behavior across time periods.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In a cohort analysis, how is the retention rate for a cohort typically calculated?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Number of new users in the cohort / total users"
+        },
+        {
+          "id": "b",
+          "text": "Number of active users in a later period / number of users in the initial period"
+        },
+        {
+          "id": "c",
+          "text": "Total revenue / number of cohorts"
+        },
+        {
+          "id": "d",
+          "text": "Average session duration / number of sessions"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Retention rate compares users still active in a later period to the original cohort size.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which statement best differentiates cohort analysis from simple segmentation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cohort analysis groups users by device type, segmentation does not"
+        },
+        {
+          "id": "b",
+          "text": "Cohort analysis tracks changes over time, segmentation is static"
+        },
+        {
+          "id": "c",
+          "text": "Segmentation uses machine learning, cohort analysis uses rule-based filters"
+        },
+        {
+          "id": "d",
+          "text": "Segmentation is only for marketing, cohort analysis is only for product"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Cohort analysis examines how a group’s behavior evolves, whereas segmentation only categorizes users at a point in time.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which metric would you look at in cohort analysis to identify a sudden increase in churn?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Average order value"
+        },
+        {
+          "id": "b",
+          "text": "Cohort retention drop between two consecutive months"
+        },
+        {
+          "id": "c",
+          "text": "Total number of new users"
+        },
+        {
+          "id": "d",
+          "text": "User acquisition cost"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A sharp decline in retention between periods signals higher churn for that cohort.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "When would cohort analysis provide more insight than a simple time‑series trend chart?",
+      "options": [
+        {
+          "id": "a",
+          "text": "When you only care about overall revenue growth"
+        },
+        {
+          "id": "b",
+          "text": "When you want to compare the behavior of users who joined in different months"
+        },
+        {
+          "id": "c",
+          "text": "When you need to forecast next quarter sales"
+        },
+        {
+          "id": "d",
+          "text": "When you are analyzing daily active users"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Cohort analysis reveals differences between groups that a single trend line cannot show.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "A product manager wants to know if users who signed up in January stay active longer than those who signed up in February. Which analysis should they perform?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A cohort analysis comparing January vs February cohorts"
+        },
+        {
+          "id": "b",
+          "text": "A segment analysis by signup month"
+        },
+        {
+          "id": "c",
+          "text": "A churn prediction model"
+        },
+        {
+          "id": "d",
+          "text": "A cohort analysis of revenue per cohort"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Comparing January and February cohorts tracks retention over time for each signup group.",
+      "difficulty": 3
+    }
+  ]
+}

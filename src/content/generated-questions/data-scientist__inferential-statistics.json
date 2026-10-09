@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What distinguishes a sample from a population in inferential statistics?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sample size is larger than population size"
+        },
+        {
+          "id": "b",
+          "text": "Population is a subset of the sample"
+        },
+        {
+          "id": "c",
+          "text": "Sample is a subset of the population"
+        },
+        {
+          "id": "d",
+          "text": "Population is derived from the sample"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A sample is a subset drawn from the larger population; it is not larger than the population.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which statement best describes the Central Limit Theorem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The distribution of sample means becomes normal as sample size increases"
+        },
+        {
+          "id": "b",
+          "text": "The distribution of population means becomes normal as sample size increases"
+        },
+        {
+          "id": "c",
+          "text": "Sample mean always equals population mean"
+        },
+        {
+          "id": "d",
+          "text": "The distribution of sample variances is normal for small samples"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "As sample size grows, the sampling distribution of the mean approaches normality regardless of the population shape.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In a hypothesis test, a p‑value of 0.03 indicates:",
+      "options": [
+        {
+          "id": "a",
+          "text": "There is a 3% chance the null hypothesis is true"
+        },
+        {
+          "id": "b",
+          "text": "The observed data would be unlikely if the null hypothesis were true"
+        },
+        {
+          "id": "c",
+          "text": "We should reject the null hypothesis at alpha=0.05"
+        },
+        {
+          "id": "d",
+          "text": "Both b and c"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "A p‑value of 0.03 means the data are unlikely under the null, so we reject at alpha 0.05.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "A 95% confidence interval for a mean is (10, 14). Which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "We are 95% confident that the true mean lies between 10 and 14"
+        },
+        {
+          "id": "b",
+          "text": "There is a 95% chance that the true mean is between 10 and 14"
+        },
+        {
+          "id": "c",
+          "text": "95% of sample means will fall between 10 and 14"
+        },
+        {
+          "id": "d",
+          "text": "The interval has a 5% chance of containing the true mean"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The interval captures the true mean 95% of the time across repeated samples.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Two studies both find a statistically significant difference with p<0.05, but one has a very small effect size. Which statement is most accurate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The study with the smaller effect size is more important"
+        },
+        {
+          "id": "b",
+          "text": "Statistical significance always implies practical significance"
+        },
+        {
+          "id": "c",
+          "text": "The study with the smaller effect size may not be practically meaningful"
+        },
+        {
+          "id": "d",
+          "text": "Effect size is irrelevant if p<0.05"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A small effect size means the difference, while statistically significant, may lack practical importance.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In a power analysis for a two‑sample t‑test, increasing the sample size from 30 to 60 per group while holding alpha constant will:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Decrease power"
+        },
+        {
+          "id": "b",
+          "text": "Increase power"
+        },
+        {
+          "id": "c",
+          "text": "Keep power unchanged"
+        },
+        {
+          "id": "d",
+          "text": "Increase alpha"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "More subjects increase the ability to detect a true effect, thereby raising power.",
+      "difficulty": 5
+    }
+  ]
+}

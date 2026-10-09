@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the purpose of the intercept in a simple linear regression?",
+      "options": [
+        {
+          "id": "a",
+          "text": "slope of the line"
+        },
+        {
+          "id": "b",
+          "text": "predicted value when the predictor is zero"
+        },
+        {
+          "id": "c",
+          "text": "residual variance"
+        },
+        {
+          "id": "d",
+          "text": "coefficient of determination"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The intercept represents the expected outcome when the predictor is zero.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which assumption is NOT required for linear regression?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Linearity"
+        },
+        {
+          "id": "b",
+          "text": "Homoscedasticity"
+        },
+        {
+          "id": "c",
+          "text": "Normality of errors"
+        },
+        {
+          "id": "d",
+          "text": "Independence of predictors"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Linear regression requires independence of errors, not of predictors.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which regularization method tends to set some coefficients exactly to zero?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ridge"
+        },
+        {
+          "id": "b",
+          "text": "Lasso"
+        },
+        {
+          "id": "c",
+          "text": "Elastic Net"
+        },
+        {
+          "id": "d",
+          "text": "None"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Lasso adds an L1 penalty that can shrink coefficients to zero.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "If the coefficient for X is 0.5 in a multiple regression model, what does this mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "X increases Y by 0.5 units when all other predictors are zero"
+        },
+        {
+          "id": "b",
+          "text": "X increases Y by 0.5 units holding other predictors constant"
+        },
+        {
+          "id": "c",
+          "text": "X increases Y by 0.5%"
+        },
+        {
+          "id": "d",
+          "text": "Y decreases by 0.5 when X increases by one unit"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The coefficient indicates the change in Y per unit increase in X while other variables are held constant.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which diagnostic indicates severe multicollinearity?",
+      "options": [
+        {
+          "id": "a",
+          "text": "High R²"
+        },
+        {
+          "id": "b",
+          "text": "Small p-values"
+        },
+        {
+          "id": "c",
+          "text": "VIF greater than 10"
+        },
+        {
+          "id": "d",
+          "text": "Residual plot shows a funnel shape"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A VIF above 10 signals high multicollinearity among predictors.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which metric is most appropriate for a regression problem with heteroskedastic errors?",
+      "options": [
+        {
+          "id": "a",
+          "text": "R²"
+        },
+        {
+          "id": "b",
+          "text": "Adjusted R²"
+        },
+        {
+          "id": "c",
+          "text": "Root mean squared error"
+        },
+        {
+          "id": "d",
+          "text": "Mean absolute error"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "MAE is less sensitive to heteroskedasticity than squared-error metrics.",
+      "difficulty": 5
+    }
+  ]
+}

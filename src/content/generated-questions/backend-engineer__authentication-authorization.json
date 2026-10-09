@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary difference between session-based authentication and token-based (JWT) authentication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "JWTs are stored exclusively in server memory, whereas sessions are stored in the browser."
+        },
+        {
+          "id": "b",
+          "text": "Sessions require server-side state storage, whereas JWTs are self-contained and stateless."
+        },
+        {
+          "id": "c",
+          "text": "Sessions are immune to XSS attacks, while JWTs are immune to CSRF attacks."
+        },
+        {
+          "id": "d",
+          "text": "JWTs require a database lookup on every single request, while sessions do not."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Session-based authentication typically relies on server-side storage (like a database or memory cache) to validate the session ID, whereas JWTs contain all necessary user and claims data signed cryptographically, making them stateless.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When designing a secure token-based authentication system using JSON Web Tokens (JWT), which of the following practices should be followed regarding the secret key or private key?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Embed the private key in the frontend JavaScript bundle so the client can sign requests."
+        },
+        {
+          "id": "b",
+          "text": "Store the secret key securely on the server and never expose it to the client."
+        },
+        {
+          "id": "c",
+          "text": "Rotate the secret key on every incoming HTTP request to prevent replay attacks."
+        },
+        {
+          "id": "d",
+          "text": "Use an easily guessable secret key to ensure fast hashing performance."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The secret or private key used to sign JWTs must remain strictly on the server to prevent malicious clients from forging valid tokens with arbitrary claims.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In an OAuth 2.0 authorization code flow, why is the Authorization Code exchanged for an Access Token on the backend server rather than directly in the client browser?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Browsers do not support HTTP POST requests required for token exchange."
+        },
+        {
+          "id": "b",
+          "text": "It keeps the client secret hidden from public view and potential theft."
+        },
+        {
+          "id": "c",
+          "text": "Backend servers execute token exchanges significantly faster than client browsers."
+        },
+        {
+          "id": "d",
+          "text": "Authorization codes expire instantly once they reach a browser environment."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The backend server can securely store credentials like the client secret without exposing them to public-facing environments like single-page applications or mobile apps.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following scenarios best demonstrates a limitation of relying solely on Role-Based Access Control (RBAC)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A user needs permission to edit only their own profile documents, but the 'Editor' role grants access to all documents."
+        },
+        {
+          "id": "b",
+          "text": "An administrator needs to be assigned multiple roles simultaneously."
+        },
+        {
+          "id": "c",
+          "text": "The system has too many users assigned to the 'Viewer' role."
+        },
+        {
+          "id": "d",
+          "text": "A newly hired employee needs to be provisioned with standard organizational permissions."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "RBAC assigns permissions to roles rather than individual resources or context. When access depends on ownership (e.g., 'edit only my own profile'), Attribute-Based Access Control (ABAC) or fine-grained policies are typically required.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "An application uses JWTs stored in local storage for authentication. What is the primary security vulnerability introduced by this implementation choice?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cross-Site Request Forgery (CSRF) via automatic cookie transmission."
+        },
+        {
+          "id": "b",
+          "text": "SQL Injection vulnerabilities in the token decoding pipeline."
+        },
+        {
+          "id": "c",
+          "text": "Cross-Site Scripting (XSS) allowing malicious scripts to read the token from storage."
+        },
+        {
+          "id": "d",
+          "text": "Man-in-the-middle decryption of the JWT payload without a TLS certificate."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Local storage is accessible by any JavaScript running on the page. If the application suffers from an XSS vulnerability, malicious scripts can exfiltrate the JWT from local storage.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "When implementing token revocation for stateless JWTs, which architectural pattern is commonly used to handle tokens that need to be invalidated before their natural expiration time?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Broadcasting a revocation event via WebSockets to all active browsers."
+        },
+        {
+          "id": "b",
+          "text": "Checking a server-side blacklist or token revocation cache on each authenticated request."
+        },
+        {
+          "id": "c",
+          "text": "Modifying the cryptographic secret key globally to invalidate all issued tokens instantly."
+        },
+        {
+          "id": "d",
+          "text": "Compressing the JWT payload so the server can reject it based on size."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Because JWTs are inherently stateless, checking a fast, server-side store (like Redis) for blacklisted token IDs (jti) or user session versions allows for immediate revocation.",
+      "difficulty": 5
+    }
+  ]
+}

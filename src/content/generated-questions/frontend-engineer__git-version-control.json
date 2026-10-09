@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "Which Git command initializes a new repository in the current directory?",
+      "options": [
+        {
+          "id": "a",
+          "text": "git init"
+        },
+        {
+          "id": "b",
+          "text": "git start"
+        },
+        {
+          "id": "c",
+          "text": "git new"
+        },
+        {
+          "id": "d",
+          "text": "git create"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "git init creates a .git folder, turning the directory into a Git repository.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which command stages all modified and new files for the next commit?",
+      "options": [
+        {
+          "id": "a",
+          "text": "git commit"
+        },
+        {
+          "id": "b",
+          "text": "git add ."
+        },
+        {
+          "id": "c",
+          "text": "git push"
+        },
+        {
+          "id": "d",
+          "text": "git merge"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "git add . stages all changes in the current directory.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "After creating a branch 'feature', what command merges it into 'main'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "git merge feature"
+        },
+        {
+          "id": "b",
+          "text": "git commit feature"
+        },
+        {
+          "id": "c",
+          "text": "git pull feature"
+        },
+        {
+          "id": "d",
+          "text": "git push feature"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "git merge feature incorporates the feature branch into the current branch.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "prompt": "In a directed acyclic graph (DAG), which of the following best describes a confounder?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A variable that lies on the causal pathway from the treatment to the outcome."
+        },
+        {
+          "id": "b",
+          "text": "A variable that is a descendant of the outcome."
+        },
+        {
+          "id": "c",
+          "text": "A variable that causes both the treatment and the outcome."
+        },
+        {
+          "id": "d",
+          "text": "A variable that is only affected by the treatment."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A confounder causes both the treatment and the outcome, creating a spurious association if not controlled for.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "The backdoor adjustment criterion requires that we adjust for a set of variables that blocks all backdoor paths between the treatment and the outcome. Which condition must be satisfied for a set to be a valid backdoor adjustment set?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The set must contain at least one collider."
+        },
+        {
+          "id": "b",
+          "text": "The set must block every path that starts with an arrow pointing into the treatment."
+        },
+        {
+          "id": "c",
+          "text": "The set must include all descendants of the treatment."
+        },
+        {
+          "id": "d",
+          "text": "The set must contain only variables that are causes of the outcome."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A backdoor set blocks every path that begins with an arrow into the treatment, thereby removing confounding bias.",
+      "difficulty": 2
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What does CI stand for in CI/CD pipelines?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Continuous Integration"
+        },
+        {
+          "id": "b",
+          "text": "Continuous Deployment"
+        },
+        {
+          "id": "c",
+          "text": "Continuous Improvement"
+        },
+        {
+          "id": "d",
+          "text": "Continuous Delivery"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Continuous Integration refers to automatically building and testing code on each commit.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which artifact is typically produced by the build step in a CI pipeline?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Source code"
+        },
+        {
+          "id": "b",
+          "text": "Test report"
+        },
+        {
+          "id": "c",
+          "text": "Binary executable"
+        },
+        {
+          "id": "d",
+          "text": "Deployment script"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The build step compiles source code into a binary or package ready for deployment.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which GitHub Actions feature ensures that only approved changes are deployed to a protected environment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Environments with protection rules"
+        },
+        {
+          "id": "b",
+          "text": "Branch protection rules"
+        },
+        {
+          "id": "c",
+          "text": "Secrets management"
+        },
+        {
+          "id": "d",
+          "text": "Workflow permissions"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Environment protection rules allow you to require approvals or status checks before deployment.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "How can you cache npm dependencies in a GitHub Actions workflow to speed up builds?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use actions/cache with node_modules as a key"
+        },
+        {
+          "id": "b",
+          "text": "Use actions/setup-node with caching enabled"
+        },
+        {
+          "id": "c",
+          "text": "Run npm ci with --cache option"
+        },
+        {
+          "id": "d",
+          "text": "Upload node_modules as an artifact"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "actions/setup-node can automatically cache node_modules between workflow runs.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In a multi‑branch pipeline, how do you prevent production deployment from a feature branch?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Protect the production environment and allow deployments only from main"
+        },
+        {
+          "id": "b",
+          "text": "Apply branch protection rules to main"
+        },
+        {
+          "id": "c",
+          "text": "Require status checks before deployment"
+        },
+        {
+          "id": "d",
+          "text": "Use a manual approval step"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Protecting the production environment ensures only deployments from the main branch are permitted.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "What is the primary advantage of using a blue‑green deployment strategy in CI/CD?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Immediate rollback to previous version"
+        },
+        {
+          "id": "b",
+          "text": "Faster deployment times"
+        },
+        {
+          "id": "c",
+          "text": "Eliminates the need for a load balancer"
+        },
+        {
+          "id": "d",
+          "text": "Zero downtime with easy rollback"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Blue‑green deployment switches traffic between two identical environments, giving zero downtime and simple rollback.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In a Vue Router configuration, how do you define a route that maps the path '/about' to the component AboutPage?",
+      "options": [
+        {
+          "id": "a",
+          "text": "{path:'/about', component:AboutPage}"
+        },
+        {
+          "id": "b",
+          "text": "{path:'/about', component:'AboutPage'}"
+        },
+        {
+          "id": "c",
+          "text": "{path:'about', component:AboutPage}"
+        },
+        {
+          "id": "d",
+          "text": "{route:'/about', component:AboutPage}"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The component must be referenced directly, and the path should start with a slash.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which route meta field can be used to indicate that a route requires authentication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "requiresAuth"
+        },
+        {
+          "id": "b",
+          "text": "authRequired"
+        },
+        {
+          "id": "c",
+          "text": "requiresLogin"
+        },
+        {
+          "id": "d",
+          "text": "authGuard"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Vue Router uses meta fields; 'requiresAuth' is a common convention for auth checks.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When using nested routes, which component is responsible for rendering the child components?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Parent component"
+        },
+        {
+          "id": "b",
+          "text": "Child component"
+        },
+        {
+          "id": "c",
+          "text": "RouterView"
+        },
+        {
+          "id": "d",
+          "text": "Layout component"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "<RouterView> acts as a placeholder for child route components.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which navigation guard type is called before each route change and receives the target route, current route, and next function?",
+      "options": [
+        {
+          "id": "a",
+          "text": "beforeEach"
+        },
+        {
+          "id": "b",
+          "text": "beforeEnter"
+        },
+        {
+          "id": "c",
+          "text": "beforeResolve"
+        },
+        {
+          "id": "d",
+          "text": "beforeLeave"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "beforeEach is a global guard invoked before every navigation.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In Vue Router 4, how can you programmatically navigate to a named route 'profile' with a dynamic parameter 'id' set to 42?",
+      "options": [
+        {
+          "id": "a",
+          "text": "router.push({name: 'profile', params: {id: 42}})"
+        },
+        {
+          "id": "b",
+          "text": "router.push('/profile/42')"
+        },
+        {
+          "id": "c",
+          "text": "router.navigate('profile', {id: 42})"
+        },
+        {
+          "id": "d",
+          "text": "router.push({path: '/profile', query: {id: 42}})"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Named route navigation uses the route name and params object.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which component property should be added to a route definition to ensure the component is cached between navigations?",
+      "options": [
+        {
+          "id": "a",
+          "text": "keepAlive: true"
+        },
+        {
+          "id": "b",
+          "text": "cache: true"
+        },
+        {
+          "id": "c",
+          "text": "reuse: true"
+        },
+        {
+          "id": "d",
+          "text": "persistent: true"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Setting keepAlive in meta triggers <keep-alive> caching for the component.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In RFM analysis, what does the 'R' stand for?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Recency"
+        },
+        {
+          "id": "b",
+          "text": "Revenue"
+        },
+        {
+          "id": "c",
+          "text": "Repeatability"
+        },
+        {
+          "id": "d",
+          "text": "Reliability"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "R in RFM stands for Recency, indicating how recently a customer made a purchase.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following best describes the primary difference between demographic and behavioral segmentation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Demographic segmentation is based on customer actions, while behavioral segmentation uses age and income."
+        },
+        {
+          "id": "b",
+          "text": "Demographic segmentation uses age, income, and education, whereas behavioral segmentation focuses on purchase frequency and brand loyalty."
+        },
+        {
+          "id": "c",
+          "text": "Both use the same data but different analysis tools."
+        },
+        {
+          "id": "d",
+          "text": "Demographic segmentation is only for B2B markets."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Demographic segmentation classifies customers by static attributes like age and income, whereas behavioral segmentation groups them based on actions such as purchase frequency and loyalty.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When performing K-means clustering for customer segmentation, which distance metric is most commonly used?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Manhattan distance"
+        },
+        {
+          "id": "b",
+          "text": "Cosine similarity"
+        },
+        {
+          "id": "c",
+          "text": "Euclidean distance"
+        },
+        {
+          "id": "d",
+          "text": "Jaccard index"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "K-means relies on Euclidean distance to assign points to the nearest cluster centroid.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Why is it beneficial to segment customers by lifetime value (LTV)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It simplifies data collection."
+        },
+        {
+          "id": "b",
+          "text": "It identifies which customers are most profitable over time."
+        },
+        {
+          "id": "c",
+          "text": "It replaces the need for demographic data."
+        },
+        {
+          "id": "d",
+          "text": "It guarantees higher marketing spend."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Segmenting by LTV highlights high‑value customers, allowing focused investment in retention and upsell.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "A retailer notices that a particular segment has high purchase frequency but low average order value. Which retention strategy is most appropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Offer high‑margin product bundles to increase order value."
+        },
+        {
+          "id": "b",
+          "text": "Reduce marketing spend on the segment."
+        },
+        {
+          "id": "c",
+          "text": "Provide loyalty points that reward large orders."
+        },
+        {
+          "id": "d",
+          "text": "Replace the product assortment with premium items."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Bundling encourages customers to add more items per visit, boosting average order value while maintaining frequency.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which of the following is a common pitfall when creating customer segments?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using too few data points per segment."
+        },
+        {
+          "id": "b",
+          "text": "Allowing segments to overlap."
+        },
+        {
+          "id": "c",
+          "text": "Updating segments after each purchase."
+        },
+        {
+          "id": "d",
+          "text": "Ignoring customer feedback."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Small sample sizes produce unreliable clusters that can mislead targeting decisions.",
+      "difficulty": 5
+    }
+  ]
+}

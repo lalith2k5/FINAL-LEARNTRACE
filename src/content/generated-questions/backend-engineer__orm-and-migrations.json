@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of a database migration in the context of an ORM?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Define the data model schema"
+        },
+        {
+          "id": "b",
+          "text": "Transform data between applications"
+        },
+        {
+          "id": "c",
+          "text": "Manage version control of code"
+        },
+        {
+          "id": "d",
+          "text": "Optimize query performance"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Migrations let you evolve the database schema in sync with the application’s data model.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following best describes a backward‑compatible migration?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A migration that introduces breaking changes"
+        },
+        {
+          "id": "b",
+          "text": "A migration that can be rolled back without data loss"
+        },
+        {
+          "id": "c",
+          "text": "A migration that adds or changes columns without affecting existing data"
+        },
+        {
+          "id": "d",
+          "text": "A migration that deletes tables"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Backward‑compatible migrations modify the schema in ways that existing data and queries continue to work.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When adding a new non‑nullable column to an existing table with data, what is the safest approach?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Add the column with a default value"
+        },
+        {
+          "id": "b",
+          "text": "Add the column without default and run an UPDATE later"
+        },
+        {
+          "id": "c",
+          "text": "Drop and recreate the table"
+        },
+        {
+          "id": "d",
+          "text": "Use a nullable column and make it non‑nullable after data is populated"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Adding with a default ensures every existing row gets a valid value immediately, avoiding nulls.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What is a recommended strategy for safely removing a column that is still referenced by legacy code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Drop the column immediately"
+        },
+        {
+          "id": "b",
+          "text": "Rename the column and keep it"
+        },
+        {
+          "id": "c",
+          "text": "Mark the column as deprecated in the ORM and keep it for a transition period"
+        },
+        {
+          "id": "d",
+          "text": "Delete the column and update legacy code at the same time"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Deprecating the column gives the legacy code time to migrate while keeping the schema stable.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "You need to change the data type of a column from VARCHAR to INTEGER in a table with millions of rows. Which sequence of migration steps ensures backward compatibility?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Add new integer column, copy data, drop old column, rename new column"
+        },
+        {
+          "id": "b",
+          "text": "Directly alter the column type"
+        },
+        {
+          "id": "c",
+          "text": "Drop the column, add new one, run a data migration script"
+        },
+        {
+          "id": "d",
+          "text": "Add a new integer column, leave old column, update application to use new column"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Adding a new column preserves the old data while the new column is populated, then you switch over safely.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which approach is best for performing a data migration that requires complex transformations on a large table without significant downtime?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Run the transformation in a single transaction"
+        },
+        {
+          "id": "b",
+          "text": "Use a background job to populate a new column gradually"
+        },
+        {
+          "id": "c",
+          "text": "Lock the table for the entire duration"
+        },
+        {
+          "id": "d",
+          "text": "Disable all writes to the table"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A background job processes rows incrementally, minimizing lock time and keeping the system responsive.",
+      "difficulty": 5
+    }
+  ]
+}

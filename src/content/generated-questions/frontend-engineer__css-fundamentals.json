@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which CSS selector will select all <p> elements that are direct children of a <div>?",
+      "options": [
+        {
+          "id": "a",
+          "text": "p div"
+        },
+        {
+          "id": "b",
+          "text": "div > p"
+        },
+        {
+          "id": "c",
+          "text": "div p"
+        },
+        {
+          "id": "d",
+          "text": "p > div"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The '>' combinator selects only direct children of the parent element.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In the CSS box model, which property controls the space between the content of an element and its border?",
+      "options": [
+        {
+          "id": "a",
+          "text": "margin"
+        },
+        {
+          "id": "b",
+          "text": "padding"
+        },
+        {
+          "id": "c",
+          "text": "border"
+        },
+        {
+          "id": "d",
+          "text": "outline"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Padding defines the space inside the border around the content.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What does the CSS value 'rgba(0, 128, 255, 0.3)' represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A color with red, green, blue, alpha values"
+        },
+        {
+          "id": "b",
+          "text": "A color with hue, saturation, value, alpha"
+        },
+        {
+          "id": "c",
+          "text": "A grayscale value"
+        },
+        {
+          "id": "d",
+          "text": "A color in HSL format"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "rgba stands for red, green, blue, and alpha (opacity).",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which CSS property is used to set the font size of an element?",
+      "options": [
+        {
+          "id": "a",
+          "text": "font-weight"
+        },
+        {
+          "id": "b",
+          "text": "font-size"
+        },
+        {
+          "id": "c",
+          "text": "font-style"
+        },
+        {
+          "id": "d",
+          "text": "font-family"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "font-size directly controls the size of the text.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which selector will match an element that has both the class 'active' and the id 'main'?",
+      "options": [
+        {
+          "id": "a",
+          "text": ".active#main"
+        },
+        {
+          "id": "b",
+          "text": "#main.active"
+        },
+        {
+          "id": "c",
+          "text": ".active"
+        },
+        {
+          "id": "d",
+          "text": "#main"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Combining class and id selectors matches elements with both attributes.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Given the following CSS, which selector has higher specificity: 'ul li a' or '.nav a'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ul li a"
+        },
+        {
+          "id": "b",
+          "text": ".nav a"
+        },
+        {
+          "id": "c",
+          "text": "Both have equal specificity"
+        },
+        {
+          "id": "d",
+          "text": "Neither"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A class selector (.nav) adds more specificity than element selectors.",
+      "difficulty": 3
+    }
+  ]
+}

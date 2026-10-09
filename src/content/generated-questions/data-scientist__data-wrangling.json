@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which method is commonly used to handle missing numeric values in a dataset during data wrangling?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Remove all rows with missing values"
+        },
+        {
+          "id": "b",
+          "text": "Replace missing values with column mean"
+        },
+        {
+          "id": "c",
+          "text": "Replace missing values with string 'NA'"
+        },
+        {
+          "id": "d",
+          "text": "Leave missing values unchanged"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Replacing missing numeric values with the column mean is a standard imputation technique that preserves the dataset size and reduces bias.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "You have a dataframe with columns: 'id', 'year', 'value'. You want to create a wide format with one column per year. Which function in pandas would you use?",
+      "options": [
+        {
+          "id": "a",
+          "text": "merge"
+        },
+        {
+          "id": "b",
+          "text": "pivot_table"
+        },
+        {
+          "id": "c",
+          "text": "groupby"
+        },
+        {
+          "id": "d",
+          "text": "concat"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "pivot_table reshapes the data by turning unique values in 'year' into separate columns, aligning them with corresponding 'id' and 'value' entries.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When joining two tables on a key, which join type retains only rows with matching keys in both tables?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Left join"
+        },
+        {
+          "id": "b",
+          "text": "Right join"
+        },
+        {
+          "id": "c",
+          "text": "Inner join"
+        },
+        {
+          "id": "d",
+          "text": "Outer join"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "An inner join returns only the intersection of keys present in both tables, discarding non-matching rows.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "You want to compute the average 'sales' per 'region' in a DataFrame. Which pandas method chain is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "df.groupby('region')['sales'].mean()"
+        },
+        {
+          "id": "b",
+          "text": "df.groupby('sales')['region'].mean()"
+        },
+        {
+          "id": "c",
+          "text": "df['sales'].groupby('region').mean()"
+        },
+        {
+          "id": "d",
+          "text": "df.groupby('region').mean('sales')"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "groupby('region') groups rows by region, then selecting 'sales' and applying mean yields the desired average.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which technique can standardize values like 'NY', 'New York', 'ny' in a column?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use regex to replace all letters to uppercase"
+        },
+        {
+          "id": "b",
+          "text": "Use mapping dictionary to convert all to 'New York'"
+        },
+        {
+          "id": "c",
+          "text": "Drop duplicates"
+        },
+        {
+          "id": "d",
+          "text": "Convert column to integer"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A mapping dictionary explicitly defines each variant and maps them to a single standardized label, ensuring consistency.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "You have a dataset with timestamps that are not equally spaced. Which pandas operation can resample the data to regular hourly intervals, filling missing periods with forward fill?",
+      "options": [
+        {
+          "id": "a",
+          "text": "df.resample('H').ffill()"
+        },
+        {
+          "id": "b",
+          "text": "df.groupby('timestamp').mean()"
+        },
+        {
+          "id": "c",
+          "text": "df.set_index('timestamp').asfreq('H')"
+        },
+        {
+          "id": "d",
+          "text": "df.interpolate(method='time')"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "resample('H') creates hourly bins, and ffill() propagates the last valid observation forward to fill gaps.",
+      "difficulty": 5
+    }
+  ]
+}

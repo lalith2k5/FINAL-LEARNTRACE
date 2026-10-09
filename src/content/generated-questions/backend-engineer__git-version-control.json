@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In Git, what is the purpose of the 'staging area' (or index) before committing changes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It automatically uploads your local changes to a remote repository like GitHub."
+        },
+        {
+          "id": "b",
+          "text": "It acts as a preparation area where you can select exactly which changes to include in your next commit."
+        },
+        {
+          "id": "c",
+          "text": "It permanently deletes untracked files to clean up your working directory."
+        },
+        {
+          "id": "d",
+          "text": "It merges conflicting branches automatically before saving your work."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The staging area allows developers to review and format their commits by choosing specific files or modifications to include, separating the working directory state from the actual repository history.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following best describes the relationship between Git and GitHub?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Git is the programming language used to write GitHub's web interface."
+        },
+        {
+          "id": "b",
+          "text": "Git is a local command-line tool for version control, while GitHub is a cloud-based hosting service for Git repositories."
+        },
+        {
+          "id": "c",
+          "text": "Git is only used for small personal projects, whereas GitHub is required for large enterprise software."
+        },
+        {
+          "id": "d",
+          "text": "Git and GitHub are identical tools developed by the same team, with GitHub being the newer name."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Git is the underlying open-source version control system that runs locally on your machine, while GitHub is a web-based platform that hosts Git repositories and provides collaboration features.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the primary difference between running 'git fetch' and 'git pull'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "'git fetch' downloads remote changes without merging them, while 'git pull' downloads and immediately merges them."
+        },
+        {
+          "id": "b",
+          "text": "'git fetch' only works on private repositories, while 'git pull' works on public ones."
+        },
+        {
+          "id": "c",
+          "text": "'git fetch' uploads local commits, while 'git pull' downloads remote commits."
+        },
+        {
+          "id": "d",
+          "text": "'git fetch' creates a new branch, while 'git pull' deletes an existing branch."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "'git fetch' safely retrieves updates from the remote repository without changing your local working files, whereas 'git pull' is a shortcut that performs a fetch and then automatically merges those updates into your current branch.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "You are trying to merge a feature branch into the main branch, and Git reports a merge conflict. What is the correct way to handle this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Git will automatically choose the newest changes and discard the older ones, so you don't need to do anything."
+        },
+        {
+          "id": "b",
+          "text": "You must delete the feature branch and recreate your changes manually on the main branch."
+        },
+        {
+          "id": "c",
+          "text": "Open the conflicted files, manually choose which changes to keep, remove the conflict markers, stage the files, and commit the resolution."
+        },
+        {
+          "id": "d",
+          "text": "Run 'git push --force' to overwrite the conflicting changes on the remote server."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Merge conflicts happen when Git cannot automatically reconcile differences; developers must manually edit the files to resolve the conflicts, stage the corrected files, and make a new commit.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "You have pushed a commit to a shared remote repository, but realize it contains a bug. What is the safest way to undo this change without disrupting your team members' histories?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use 'git reset --hard' to delete the commit locally, then force-push to the remote repository."
+        },
+        {
+          "id": "b",
+          "text": "Use 'git revert' to create a new commit that records the exact opposite of the buggy commit's changes."
+        },
+        {
+          "id": "c",
+          "text": "Delete the repository on GitHub and recreate it from your local backup."
+        },
+        {
+          "id": "d",
+          "text": "Manually delete the files affected by the bug and make a standard new commit."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "'git revert' is safe for shared repositories because it creates a new commit that undoes the changes, preserving the commit history and preventing synchronization issues for other developers.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "When you check out a specific commit hash directly (detached HEAD state) instead of a branch name, what happens if you make new commits?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The commits are saved to the main branch automatically."
+        },
+        {
+          "id": "b",
+          "text": "Git prevents you from making any commits until you switch back to an active branch."
+        },
+        {
+          "id": "c",
+          "text": "The commits are made but are not associated with any branch, meaning they can easily be lost if you switch branches without creating a new branch reference."
+        },
+        {
+          "id": "d",
+          "text": "The commits overwrite the history of the commit you checked out, permanently altering the past."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "In a detached HEAD state, you are not on any branch. Commits made here are orphaned and will eventually be cleaned up by Git's garbage collection unless you create a branch to point to them.",
+      "difficulty": 5
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which method should you use to retrieve data from a REST API endpoint using JavaScript's Fetch API?",
+      "options": [
+        {
+          "id": "a",
+          "text": "fetch"
+        },
+        {
+          "id": "b",
+          "text": "XMLHttpRequest"
+        },
+        {
+          "id": "c",
+          "text": "ajax"
+        },
+        {
+          "id": "d",
+          "text": "request"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The fetch function initiates an HTTP GET request and returns a promise that resolves to the response, which can then be processed.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When a REST API returns a 404 status code, which of the following is the most appropriate way to handle it in client code?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Throw an error and display a message"
+        },
+        {
+          "id": "b",
+          "text": "Retry the request automatically"
+        },
+        {
+          "id": "c",
+          "text": "Ignore and continue"
+        },
+        {
+          "id": "d",
+          "text": "Log to console only"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A 404 status means the requested resource does not exist; throwing an error and showing a user-friendly message informs the user appropriately.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the purpose of the 'Access-Control-Allow-Origin' header in a CORS response?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Allow the browser to send credentials"
+        },
+        {
+          "id": "b",
+          "text": "Specify allowed HTTP methods"
+        },
+        {
+          "id": "c",
+          "text": "Indicate which origins can access the resource"
+        },
+        {
+          "id": "d",
+          "text": "Prevent caching"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The header tells the browser which origins are allowed to access the resource, enabling cross-origin requests.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "When parsing JSON from an API response, which of the following is the correct way to handle malformed JSON?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use try/catch around JSON.parse"
+        },
+        {
+          "id": "b",
+          "text": "Assume it's valid and let the app crash"
+        },
+        {
+          "id": "c",
+          "text": "Send request again"
+        },
+        {
+          "id": "d",
+          "text": "Replace all double quotes with single quotes"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Wrapping JSON.parse in try/catch allows the application to gracefully handle parsing errors without crashing.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which of the following methods is most secure for sending an OAuth 2.0 access token in a client-side JavaScript application?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Store token in localStorage"
+        },
+        {
+          "id": "b",
+          "text": "Store token in a cookie with HttpOnly flag"
+        },
+        {
+          "id": "c",
+          "text": "Include token in URL query parameters"
+        },
+        {
+          "id": "d",
+          "text": "Embed token in a hidden form field"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Storing the token in an HttpOnly cookie keeps it inaccessible to JavaScript, protecting it from XSS attacks.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "How can you handle paginated API responses when you need to fetch all items?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use a single request with max limit"
+        },
+        {
+          "id": "b",
+          "text": "Make successive requests using the 'next' link in response"
+        },
+        {
+          "id": "c",
+          "text": "Ignore pagination and only fetch first page"
+        },
+        {
+          "id": "d",
+          "text": "Use WebSocket to stream data"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "By following the 'next' link provided in each response, the client can iteratively request subsequent pages until all data is retrieved.",
+      "difficulty": 3
+    }
+  ]
+}

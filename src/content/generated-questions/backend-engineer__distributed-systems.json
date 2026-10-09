@@ -1,0 +1,100 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best describes the CAP theorem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Consistency, Availability, and Partition tolerance can all be achieved simultaneously."
+        },
+        {
+          "id": "b",
+          "text": "Consistency and Partition tolerance can be achieved at the expense of Availability."
+        },
+        {
+          "id": "c",
+          "text": "You can only guarantee two of the three properties at any time."
+        },
+        {
+          "id": "d",
+          "text": "Partition tolerance is irrelevant to distributed systems."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "CAP states that a distributed system can satisfy at most two of Consistency, Availability, and Partition tolerance simultaneously.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In an eventually consistent system, a client that writes a value and immediately reads it from a different replica may see what?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Always the new value."
+        },
+        {
+          "id": "b",
+          "text": "Always the old value."
+        },
+        {
+          "id": "c",
+          "text": "Either the old or new value depending on replication lag."
+        },
+        {
+          "id": "d",
+          "text": "The system will throw an error."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Replication lag can cause a stale read; eventual consistency only guarantees convergence over time.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In Paxos, which role is responsible for collecting votes and deciding the chosen value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Proposer"
+        },
+        {
+          "id": "b",
+          "text": "Acceptor"
+        },
+        {
+          "id": "c",
+          "text": "Learner"
+        },
+        {
+          "id": "d",
+          "text": "Coordinator"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Acceptors receive proposals and vote; the value that receives a majority of votes is chosen.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which failure mode is most likely when a network partition splits a cluster of nodes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "All nodes lose connectivity to each other."
+        },
+        {
+          "id": "b",
+          "text": "Some nodes can still communicate within their partition."
+        },
+        {
+          "id": "c",
+          "text": "Nodes stop working entirely."
+        },
+        {
+          "id": "d",
+          "text": "Partition causes immediate data loss."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A partition isolates subsets of nodes; nodes inside the same partition can still talk to each other.",
+      "difficulty": 3
+    }
+  ]
+}

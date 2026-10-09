@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which plot is most appropriate for visualizing the distribution of a single continuous variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Box plot"
+        },
+        {
+          "id": "b",
+          "text": "Scatter plot"
+        },
+        {
+          "id": "c",
+          "text": "Histogram"
+        },
+        {
+          "id": "d",
+          "text": "Heatmap"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A histogram shows frequency counts across bins, revealing the shape of a continuous variable's distribution.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In a scatter plot, what visual pattern indicates a positive linear relationship between two variables?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Points trend upward from left to right"
+        },
+        {
+          "id": "b",
+          "text": "Points trend downward from left to right"
+        },
+        {
+          "id": "c",
+          "text": "Points randomly scattered"
+        },
+        {
+          "id": "d",
+          "text": "Points align vertically"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A positive correlation shows points forming an upward sloping trend.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which EDA technique is specifically designed to highlight potential outliers in a dataset?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Principal Component Analysis"
+        },
+        {
+          "id": "b",
+          "text": "Box plot"
+        },
+        {
+          "id": "c",
+          "text": "Histogram"
+        },
+        {
+          "id": "d",
+          "text": "Scatter plot"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Box plots display median, quartiles, and whiskers, making outliers easy to spot.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Why should missing values be investigated during exploratory data analysis?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To automatically fill them with zeros"
+        },
+        {
+          "id": "b",
+          "text": "To understand data quality and inform handling decisions"
+        },
+        {
+          "id": "c",
+          "text": "To delete the entire dataset"
+        },
+        {
+          "id": "d",
+          "text": "To create new features"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Missing data patterns affect model performance and may bias results if not addressed.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which measure of central tendency is most robust to extreme values?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mean"
+        },
+        {
+          "id": "b",
+          "text": "Median"
+        },
+        {
+          "id": "c",
+          "text": "Mode"
+        },
+        {
+          "id": "d",
+          "text": "Range"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The median remains unaffected by outliers, unlike the mean.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In a pair plot of a multivariate dataset, what does the diagonal histogram represent for each variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correlation between variables"
+        },
+        {
+          "id": "b",
+          "text": "Distribution of each individual variable"
+        },
+        {
+          "id": "c",
+          "text": "Outlier detection"
+        },
+        {
+          "id": "d",
+          "text": "Joint distribution of variable pairs"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The diagonal shows each variable’s univariate distribution, while off-diagonal panels show pairwise relationships.",
+      "difficulty": 5
+    }
+  ]
+}

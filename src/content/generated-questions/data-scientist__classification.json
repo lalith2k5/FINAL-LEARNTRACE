@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In logistic regression, what does the model output for each instance?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A probability between 0 and 1"
+        },
+        {
+          "id": "b",
+          "text": "A count of class occurrences"
+        },
+        {
+          "id": "c",
+          "text": "A binary class label"
+        },
+        {
+          "id": "d",
+          "text": "The raw score before applying a threshold"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Logistic regression applies a sigmoid to the linear combination of features, producing a probability that the instance belongs to the positive class.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What is the primary goal of a support vector machine (SVM) when selecting a hyperplane?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Minimize the distance between the hyperplane and the closest data points"
+        },
+        {
+          "id": "b",
+          "text": "Maximize the margin between the hyperplane and the closest data points"
+        },
+        {
+          "id": "c",
+          "text": "Minimize the number of support vectors"
+        },
+        {
+          "id": "d",
+          "text": "Maximize the classification error on the training data"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "An SVM seeks the hyperplane that maximizes the margin—the distance to the nearest support vectors—improving generalization.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which metric is commonly used as a splitting criterion in decision trees to measure impurity?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Gini impurity"
+        },
+        {
+          "id": "b",
+          "text": "Euclidean distance"
+        },
+        {
+          "id": "c",
+          "text": "Cosine similarity"
+        },
+        {
+          "id": "d",
+          "text": "Manhattan distance"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Decision trees often use Gini impurity (or entropy) to decide the best split by quantifying how mixed the classes are in a node.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which regularization term in logistic regression encourages sparsity in the model coefficients?",
+      "options": [
+        {
+          "id": "a",
+          "text": "L1 (lasso) penalty"
+        },
+        {
+          "id": "b",
+          "text": "L2 (ridge) penalty"
+        },
+        {
+          "id": "c",
+          "text": "Both L1 and L2 penalties together"
+        },
+        {
+          "id": "d",
+          "text": "No regularization"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "L1 regularization adds the absolute value of coefficients to the loss, driving many to zero and creating a sparse model.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What is the main purpose of the kernel trick in SVMs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reduce the dimensionality of the input space"
+        },
+        {
+          "id": "b",
+          "text": "Map data into a higher-dimensional space to make it linearly separable"
+        },
+        {
+          "id": "c",
+          "text": "Accelerate the training process by using fewer samples"
+        },
+        {
+          "id": "d",
+          "text": "Ensure the data are normally distributed"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The kernel trick computes inner products in a high‑dimensional feature space without explicit mapping, enabling nonlinear decision boundaries.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which ensemble method primarily uses bagging to reduce variance in classification?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Gradient boosting"
+        },
+        {
+          "id": "b",
+          "text": "Bagging (e.g., Random Forest)"
+        },
+        {
+          "id": "c",
+          "text": "Stacking"
+        },
+        {
+          "id": "d",
+          "text": "Voting"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Random Forest builds multiple decision trees on bootstrap samples (bagging) and averages their predictions to lower variance.",
+      "difficulty": 5
+    }
+  ]
+}

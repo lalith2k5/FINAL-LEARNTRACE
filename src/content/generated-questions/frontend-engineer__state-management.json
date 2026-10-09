@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "prompt": "Which hook is used to add local state to a functional component?",
+      "options": [
+        {
+          "id": "a",
+          "text": "useContext"
+        },
+        {
+          "id": "b",
+          "text": "useState"
+        },
+        {
+          "id": "c",
+          "text": "useReducer"
+        },
+        {
+          "id": "d",
+          "text": "useEffect"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "useState returns a state variable and a setter function for local component state.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When you want to set state after receiving data from an API, which hook should you use?",
+      "options": [
+        {
+          "id": "a",
+          "text": "useState"
+        },
+        {
+          "id": "b",
+          "text": "useReducer"
+        },
+        {
+          "id": "c",
+          "text": "useEffect"
+        },
+        {
+          "id": "d",
+          "text": "useContext"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "useEffect runs after render and is ideal for performing side effects like fetching data and updating state.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What does lifting state mean in React?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Moving state up to a parent component"
+        },
+        {
+          "id": "b",
+          "text": "Moving state down to a child component"
+        },
+        {
+          "id": "c",
+          "text": "Eliminating the need for props"
+        },
+        {
+          "id": "d",
+          "text": "Using only class components"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Lifting state moves the state variable to a common ancestor so that child components can receive it via props.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following is NOT a benefit of using React Context?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Avoids prop drilling"
+        },
+        {
+          "id": "b",
+          "text": "Provides a way to share global state"
+        },
+        {
+          "id": "c",
+          "text": "Ensures components re-render on every state change"
+        },
+        {
+          "id": "d",
+          "text": "Allows default values"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Context does not automatically force re-renders on every change; components subscribe to context changes selectively.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which scenario best suits useReducer for state management?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Simple toggle"
+        },
+        {
+          "id": "b",
+          "text": "Complex state logic with many sub-values"
+        },
+        {
+          "id": "c",
+          "text": "Fetching data once"
+        },
+        {
+          "id": "d",
+          "text": "Managing form inputs"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "useReducer is useful when state transitions are complex and involve multiple sub-values or branching logic.",
+      "difficulty": 4
+    }
+  ]
+}

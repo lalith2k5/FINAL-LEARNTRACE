@@ -1,0 +1,100 @@
+{
+  "questions": [
+    {
+      "prompt": "What will be the order of console logs for the following code?\n\nconsole.log('start');\nsetTimeout(() => console.log('timeout'), 0);\nPromise.resolve().then(() => console.log('promise')).finally(() => console.log('finally'));\nconsole.log('end');",
+      "options": [
+        {
+          "id": "a",
+          "text": "start, end, promise, finally, timeout"
+        },
+        {
+          "id": "b",
+          "text": "start, end, finally, promise, timeout"
+        },
+        {
+          "id": "c",
+          "text": "start, promise, finally, end, timeout"
+        },
+        {
+          "id": "d",
+          "text": "start, end, promise, timeout, finally"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Microtasks run before macrotasks, so the promise then and finally execute before the setTimeout.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What does an async function return when it returns a value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The value itself"
+        },
+        {
+          "id": "b",
+          "text": "A Promise that resolves to the value"
+        },
+        {
+          "id": "c",
+          "text": "A Promise that rejects with the value"
+        },
+        {
+          "id": "d",
+          "text": "Nothing, async functions always return undefined"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Async functions always return a Promise that resolves to the returned value.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which statement about the event loop is true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Microtasks are executed after every macrotask"
+        },
+        {
+          "id": "b",
+          "text": "Macrotasks are executed before microtasks"
+        },
+        {
+          "id": "c",
+          "text": "Microtasks are executed after the current call stack is empty but before the next macrotask"
+        },
+        {
+          "id": "d",
+          "text": "The event loop only processes microtasks"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Microtasks are processed after the current stack empties and before the next macrotask.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What is the result of Promise.allSettled([Promise.reject('error'), Promise.resolve(42)])?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A Promise that rejects with 'error'"
+        },
+        {
+          "id": "b",
+          "text": "A Promise that resolves to an array [{\"status\":\"rejected\",\"reason\":\"error\"},{\"status\":\"fulfilled\",\"value\":42}]"
+        },
+        {
+          "id": "c",
+          "text": "A Promise that resolves to an array [42, 'error']"
+        },
+        {
+          "id": "d",
+          "text": "A Promise that resolves to an array [{\"status\":\"fulfilled\",\"value\":42},{\"status\":\"rejected\",\"reason\":\"error\"}]"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Promise.allSettled returns an array of objects with status and value or reason for each promise.",
+      "difficulty": 4
+    }
+  ]
+}

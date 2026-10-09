@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which SQL clause is used to filter rows based on a condition?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "b",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "c",
+          "text": "WHERE"
+        },
+        {
+          "id": "d",
+          "text": "HAVING"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "WHERE filters rows before grouping or ordering.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What does the following query return? SELECT department, COUNT(*) FROM employees GROUP BY department;",
+      "options": [
+        {
+          "id": "a",
+          "text": "Number of employees per department"
+        },
+        {
+          "id": "b",
+          "text": "List of departments only"
+        },
+        {
+          "id": "c",
+          "text": "Total number of employees"
+        },
+        {
+          "id": "d",
+          "text": "No rows because COUNT(*) needs a column"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "COUNT(*) counts rows in each department group.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which JOIN will return rows that match in both tables?",
+      "options": [
+        {
+          "id": "a",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "b",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "c",
+          "text": "RIGHT JOIN"
+        },
+        {
+          "id": "d",
+          "text": "FULL OUTER JOIN"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "INNER JOIN returns only matching rows.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What does ROW_NUMBER() OVER (PARTITION BY category ORDER BY price DESC) compute?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Assigns row numbers per category sorted by price descending"
+        },
+        {
+          "id": "b",
+          "text": "Computes a running total of price"
+        },
+        {
+          "id": "c",
+          "text": "Calculates cumulative sum of price"
+        },
+        {
+          "id": "d",
+          "text": "Computes average price"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "ROW_NUMBER assigns sequential numbers within each partition.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which statement correctly describes a correlated subquery?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Runs once for each row in the outer query"
+        },
+        {
+          "id": "b",
+          "text": "Runs only once for the entire query"
+        },
+        {
+          "id": "c",
+          "text": "Cannot reference columns from the outer query"
+        },
+        {
+          "id": "d",
+          "text": "Always faster than a non-correlated subquery"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A correlated subquery is evaluated per outer row.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "How can you convert NULL values to 0 in a numeric column during SELECT?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using IFNULL"
+        },
+        {
+          "id": "b",
+          "text": "Using COALESCE"
+        },
+        {
+          "id": "c",
+          "text": "Using CASE"
+        },
+        {
+          "id": "d",
+          "text": "All of the above"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "All three functions can replace NULL with 0.",
+      "difficulty": 3
+    }
+  ]
+}

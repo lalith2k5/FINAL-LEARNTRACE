@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best defines the null hypothesis in hypothesis testing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Statement that there is a difference"
+        },
+        {
+          "id": "b",
+          "text": "Statement that there is no effect"
+        },
+        {
+          "id": "c",
+          "text": "Statement that the alternative hypothesis is true"
+        },
+        {
+          "id": "d",
+          "text": "Statement that data are random"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The null hypothesis posits no effect or no difference, serving as the default assumption.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "A researcher wants to compare the mean test scores of two independent groups. Which statistical test should they use?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Chi-square test"
+        },
+        {
+          "id": "b",
+          "text": "Paired t-test"
+        },
+        {
+          "id": "c",
+          "text": "Independent samples t-test"
+        },
+        {
+          "id": "d",
+          "text": "Correlation coefficient"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Independent samples t-test is designed to compare means between two unrelated groups.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "If the p-value obtained from a test is 0.03, what does this indicate under a 5% significance level?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reject H0"
+        },
+        {
+          "id": "b",
+          "text": "Fail to reject H0"
+        },
+        {
+          "id": "c",
+          "text": "Cannot determine"
+        },
+        {
+          "id": "d",
+          "text": "Accept H0"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Because 0.03 < 0.05, the result is statistically significant and H0 is rejected.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which assumption is NOT required for a chi-square goodness-of-fit test?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Expected frequency at least 5 in each cell"
+        },
+        {
+          "id": "b",
+          "text": "Observations are independent"
+        },
+        {
+          "id": "c",
+          "text": "Variables are continuous"
+        },
+        {
+          "id": "d",
+          "text": "Sample size is large enough"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Chi-square tests use categorical, not continuous, variables; continuity is not an assumption.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In the context of hypothesis testing, a Type I error refers to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Incorrectly failing to reject H0"
+        },
+        {
+          "id": "b",
+          "text": "Incorrectly rejecting H0"
+        },
+        {
+          "id": "c",
+          "text": "Incorrectly rejecting H1"
+        },
+        {
+          "id": "d",
+          "text": "Incorrectly failing to reject H1"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A Type I error is a false positive, rejecting a true null hypothesis.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "When conducting multiple t-tests, which adjustment helps control the overall Type I error rate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bonferroni correction"
+        },
+        {
+          "id": "b",
+          "text": "Tukey's test"
+        },
+        {
+          "id": "c",
+          "text": "McNemar test"
+        },
+        {
+          "id": "d",
+          "text": "Wilcoxon test"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Bonferroni correction divides the alpha level by the number of tests to maintain the family-wise error rate.",
+      "difficulty": 3
+    }
+  ]
+}

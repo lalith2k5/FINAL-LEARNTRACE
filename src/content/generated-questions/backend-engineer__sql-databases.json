@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which clause is used to specify the columns to retrieve in a SELECT statement?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FROM"
+        },
+        {
+          "id": "b",
+          "text": "WHERE"
+        },
+        {
+          "id": "c",
+          "text": "SELECT"
+        },
+        {
+          "id": "d",
+          "text": "GROUP BY"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The SELECT clause lists the columns to return.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which JOIN returns rows that have matching values in both tables?",
+      "options": [
+        {
+          "id": "a",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "b",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "c",
+          "text": "RIGHT JOIN"
+        },
+        {
+          "id": "d",
+          "text": "FULL OUTER JOIN"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "INNER JOIN returns only rows with matches in both tables.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which normal form eliminates transitive dependencies?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1NF"
+        },
+        {
+          "id": "b",
+          "text": "2NF"
+        },
+        {
+          "id": "c",
+          "text": "3NF"
+        },
+        {
+          "id": "d",
+          "text": "BCNF"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "3NF requires no transitive dependencies among non-key attributes.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What does the EXISTS subquery return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "boolean"
+        },
+        {
+          "id": "b",
+          "text": "set of rows"
+        },
+        {
+          "id": "c",
+          "text": "count"
+        },
+        {
+          "id": "d",
+          "text": "error"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "EXISTS evaluates to true or false depending on whether the subquery returns any rows.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which index type is most efficient for range queries on a numeric column?",
+      "options": [
+        {
+          "id": "a",
+          "text": "B-Tree"
+        },
+        {
+          "id": "b",
+          "text": "Hash"
+        },
+        {
+          "id": "c",
+          "text": "Full-text"
+        },
+        {
+          "id": "d",
+          "text": "Bitmap"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "B-Tree indexes support efficient range scans on numeric data.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "What happens when a foreign key reference is deleted without ON DELETE CASCADE?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Row is deleted"
+        },
+        {
+          "id": "b",
+          "text": "No action"
+        },
+        {
+          "id": "c",
+          "text": "Update to null"
+        },
+        {
+          "id": "d",
+          "text": "Error"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The default action is NO ACTION, preventing deletion of the parent row if children exist.",
+      "difficulty": 3
+    }
+  ]
+}

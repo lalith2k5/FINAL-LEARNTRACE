@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "You are writing a query that calculates a running total of sales per region. You define a CTE named sales_cte. Where must this CTE definition appear relative to the main SELECT statement?",
+      "options": [
+        {
+          "id": "a",
+          "text": "After the main SELECT statement."
+        },
+        {
+          "id": "b",
+          "text": "Immediately before the main SELECT statement, separated by a comma if multiple CTEs exist."
+        },
+        {
+          "id": "c",
+          "text": "Inside the WHERE clause of the main SELECT."
+        },
+        {
+          "id": "d",
+          "text": "As a separate stored procedure called before the SELECT."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A CTE must be defined immediately before the single SELECT, INSERT, UPDATE, or DELETE statement it is used in, and multiple CTEs are separated by commas.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "You want to number rows within each department partition ordered by salary, ensuring each row gets a unique sequential number even if salaries tie. Which function should you use?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RANK()"
+        },
+        {
+          "id": "b",
+          "text": "DENSE_RANK()"
+        },
+        {
+          "id": "c",
+          "text": "ROW_NUMBER()"
+        },
+        {
+          "id": "d",
+          "text": "NTILE()"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "ROW_NUMBER() assigns a unique sequential integer to every row regardless of ties, whereas RANK and DENSE_RANK produce duplicate ranks for tied values.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Consider a correlated subquery used in the WHERE clause. How does its execution typically compare to a non-correlated subquery?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It executes once before the outer query processes any rows."
+        },
+        {
+          "id": "b",
+          "text": "It executes once for each row processed by the outer query."
+        },
+        {
+          "id": "c",
+          "text": "It executes in parallel with the outer query."
+        },
+        {
+          "id": "d",
+          "text": "It is converted automatically into a JOIN by the optimizer and always runs once."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A correlated subquery references the outer query's current row, requiring re-evaluation for every outer row, which is generally slower than a non-correlated subquery.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which clause is mandatory in the definition of every recursive CTE to prevent infinite loops?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The SELECT statement must include a LIMIT clause."
+        },
+        {
+          "id": "b",
+          "text": "The CTE must contain an anchor member and a recursive member joined by UNION ALL."
+        },
+        {
+          "id": "c",
+          "text": "The recursive member must reference the CTE name first in the UNION ALL."
+        },
+        {
+          "id": "d",
+          "text": "The anchor member must return exactly one row."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A recursive CTE requires an anchor query (base case) and a recursive query (continuation) combined with UNION ALL to terminate properly.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "You have a CTE defined immediately before a single SELECT statement that joins the CTE to itself. What is the likely execution behavior?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The CTE is materialized once and reused for both sides of the join."
+        },
+        {
+          "id": "b",
+          "text": "The CTE is typically expanded into the statement, potentially causing the underlying query logic to run twice."
+        },
+        {
+          "id": "c",
+          "text": "The database caches the CTE result in tempdb automatically."
+        },
+        {
+          "id": "d",
+          "text": "The query fails because CTEs cannot be joined to themselves."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "CTEs are syntactic constructs that are expanded into the referencing statement rather than materialized like temp tables, so self-joins can duplicate the underlying logic.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Why does the following query fail? SELECT (SELECT name FROM employees WHERE dept_id = 5) FROM departments;",
+      "options": [
+        {
+          "id": "a",
+          "text": "Subqueries cannot be used in the SELECT clause."
+        },
+        {
+          "id": "b",
+          "text": "The inner subquery returns more than one row, causing a scalar value error."
+        },
+        {
+          "id": "c",
+          "text": "You must use EXISTS instead of a subquery here."
+        },
+        {
+          "id": "d",
+          "text": "The outer query cannot reference the inner query's table without a JOIN."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A scalar subquery in the SELECT list must return exactly one value; if dept_id=5 has multiple employees, it returns multiple rows and triggers an error.",
+      "difficulty": 3
+    }
+  ]
+}

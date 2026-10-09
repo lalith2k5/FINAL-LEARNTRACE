@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best describes the mobile-first approach in responsive web design?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Start with large screens"
+        },
+        {
+          "id": "b",
+          "text": "Use CSS grid"
+        },
+        {
+          "id": "c",
+          "text": "Begin styling for mobile devices and scale up"
+        },
+        {
+          "id": "d",
+          "text": "Use JavaScript for responsiveness"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Mobile‑first means you write CSS targeting small screens first, then add media queries for larger ones.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which CSS media query syntax correctly targets viewports wider than 768px?",
+      "options": [
+        {
+          "id": "a",
+          "text": "@media (min-width: 768px) {...}"
+        },
+        {
+          "id": "b",
+          "text": "@media (max-width: 768px) {...}"
+        },
+        {
+          "id": "c",
+          "text": "@media screen and (width: 768px) {...}"
+        },
+        {
+          "id": "d",
+          "text": "@media (width > 768px) {...}"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "min-width includes widths greater than or equal to 768px.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Why is using percentage widths for container elements advantageous in responsive design?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Keeps elements fixed size"
+        },
+        {
+          "id": "b",
+          "text": "Allows elements to scale with viewport"
+        },
+        {
+          "id": "c",
+          "text": "Improves load time"
+        },
+        {
+          "id": "d",
+          "text": "Enables use of media queries"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Percentages make elements adapt to the size of their parent, scaling with the viewport.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which CSS property ensures that flex items wrap onto multiple lines when necessary?",
+      "options": [
+        {
+          "id": "a",
+          "text": "flex-direction: row;"
+        },
+        {
+          "id": "b",
+          "text": "flex-wrap: wrap;"
+        },
+        {
+          "id": "c",
+          "text": "align-items: center;"
+        },
+        {
+          "id": "d",
+          "text": "justify-content: space-between"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "flex-wrap: wrap lets flex items move onto new lines when space runs out.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "The CSS function clamp() can be used to create fluid font sizes that scale between which two values?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Minimum, preferred, maximum"
+        },
+        {
+          "id": "b",
+          "text": "Minimum, maximum, default"
+        },
+        {
+          "id": "c",
+          "text": "Preferred, maximum, fallback"
+        },
+        {
+          "id": "d",
+          "text": "Minimum, maximum, viewport"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "clamp(min, preferred, max) limits a value between a minimum and maximum.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which viewport unit is appropriate for setting a height that is 50% of the viewport height?",
+      "options": [
+        {
+          "id": "a",
+          "text": "50vh"
+        },
+        {
+          "id": "b",
+          "text": "50vw"
+        },
+        {
+          "id": "c",
+          "text": "50%"
+        },
+        {
+          "id": "d",
+          "text": "50vmin"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "vh represents viewport height; 50vh is half the viewport height.",
+      "difficulty": 2
+    }
+  ]
+}

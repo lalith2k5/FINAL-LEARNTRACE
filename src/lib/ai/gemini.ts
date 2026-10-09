@@ -1,21 +1,27 @@
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = process.env.GEMINI_API_KEY;
-if (!apiKey) {
-  throw new Error("GEMINI_API_KEY missing — check .env.local");
-}
+let aiClient: GoogleGenAI | null = null;
 
-const ai = new GoogleGenAI({ apiKey });
+function getGeminiClient(): GoogleGenAI {
+  if (aiClient) return aiClient;
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY missing — check .env.local");
+  }
+  aiClient = new GoogleGenAI({ apiKey });
+  return aiClient;
+}
 
 const GEMINI_MODEL_PRIMARY = "gemini-3.5-flash";
 const GEMINI_MODEL_FALLBACK = "gemini-flash-latest";
 const GEMINI_MODEL_FALLBACK_2 = "gemini-3.5-flash-lite";
-const REQUEST_TIMEOUT_MS = 3000;
+const REQUEST_TIMEOUT_MS = 20000;
 
 const GROQ_URL = "https://api.groq.com/openai/v1";
-const GROQ_MODEL = "llama-3.3-70b-versatile";
+const GROQ_MODEL = process.env.GROQ_MODEL ?? "openai/gpt-oss-20b";
 const OPENROUTER_URL = "https://openrouter.ai/api/v1";
-const OPENROUTER_MODEL = "meta-llama/llama-3.3-70b-instruct:free";
+const OPENROUTER_MODEL =
+  process.env.OPENROUTER_MODEL ?? "openrouter/free";
 
 type CallOptions = {
   system?: string;
@@ -36,6 +42,7 @@ async function callGeminiJson<T>(
     GEMINI_MODEL_FALLBACK_2,
   ];
 
+  const ai = getGeminiClient();
   let lastErr: unknown;
   for (const model of models) {
     const controller = new AbortController();
@@ -71,6 +78,34 @@ async function callGeminiJson<T>(
  * Generic OpenAI-compatible chat completions call.
  * Works for Groq, OpenRouter, Cerebras, and many others.
  */
+function extractJson<T>(raw: string): T {
+  const trimmed = raw.trim();
+  // Fast path: pure JSON
+  try {
+    return JSON.parse(trimmed) as T;
+  } catch {}
+
+  // Strip markdown fences if present
+  const fenceMatch = trimmed.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (fenceMatch) {
+    try {
+      return JSON.parse(fenceMatch[1].trim()) as T;
+    } catch {}
+  }
+
+  // Fallback: grab the outermost {...} block
+  const start = trimmed.indexOf("{");
+  const end = trimmed.lastIndexOf("}");
+  if (start !== -1 && end > start) {
+    const slice = trimmed.slice(start, end + 1);
+    try {
+      return JSON.parse(slice) as T;
+    } catch {}
+  }
+
+  throw new Error("Model did not return parseable JSON");
+}
+
 async function callOpenAICompatible<T>(args: {
   baseUrl: string;
   apiKey: string;
@@ -90,37 +125,74 @@ async function callOpenAICompatible<T>(args: {
     extraHeaders,
   } = args;
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000);
-  try {
-    const res = await fetch(`${baseUrl}/chat/completions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-        ...(extraHeaders ?? {}),
-      },
-      body: JSON.stringify({
-        model,
-        messages: [
-          { role: "system", content: system ?? "You are a helpful assistant." },
-          { role: "user", content: prompt },
-        ],
-        temperature,
-        response_format: { type: "json_object" },
-      }),
-      signal: controller.signal,
-    });
-    if (!res.ok) {
-      const body = await res.text().catch(() => "");
-      throw new Error(`HTTP ${res.status}: ${body.slice(0, 160)}`);
+  const MAX_ATTEMPTS = 3;
+  let lastErr: unknown;
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 45000);
+    try {
+      const res = await fetch(`${baseUrl}/chat/completions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+          ...(extraHeaders ?? {}),
+        },
+        body: JSON.stringify({
+          model,
+          messages: [
+            {
+              role: "system",
+              content:
+                (system ?? "You are a helpful assistant.") +
+                "\n\nReturn ONLY valid JSON. No markdown fences, no prose, no explanations before or after the JSON object.",
+            },
+            { role: "user", content: prompt },
+          ],
+          temperature,
+          response_format: { type: "json_object" },
+        }),
+        signal: controller.signal,
+      });
+
+      if (res.status === 429) {
+        const body = await res.text().catch(() => "");
+        lastErr = new Error(`HTTP 429: ${body.slice(0, 120)}`);
+        if (attempt < MAX_ATTEMPTS) {
+          const wait = 15 * attempt;
+          console.log(`   ⏳ 429 — sleeping ${wait}s before retry ${attempt}/${MAX_ATTEMPTS - 1}`);
+          await new Promise((r) => setTimeout(r, wait * 1000));
+          continue;
+        }
+        throw lastErr;
+      }
+
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        throw new Error(`HTTP ${res.status}: ${body.slice(0, 160)}`);
+      }
+
+      const data = await res.json();
+      const content = data?.choices?.[0]?.message?.content ?? "";
+      return extractJson<T>(content);
+    } catch (err) {
+      lastErr = err;
+      const msg = err instanceof Error ? err.message : String(err);
+      const isJsonError =
+        msg.includes("Failed to validate JSON") ||
+        msg.includes("did not return parseable JSON");
+      if (attempt < MAX_ATTEMPTS && isJsonError) {
+        console.log(`   ⏳ retry ${attempt}/${MAX_ATTEMPTS - 1} after bad JSON`);
+        await new Promise((r) => setTimeout(r, 1500));
+        continue;
+      }
+      throw err;
+    } finally {
+      clearTimeout(timeout);
     }
-    const data = await res.json();
-    const content = data?.choices?.[0]?.message?.content ?? "";
-    return JSON.parse(content) as T;
-  } finally {
-    clearTimeout(timeout);
   }
+  throw lastErr;
 }
 
 /**

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which chart type is best for showing the distribution of a single numeric variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bar chart"
+        },
+        {
+          "id": "b",
+          "text": "Line chart"
+        },
+        {
+          "id": "c",
+          "text": "Histogram"
+        },
+        {
+          "id": "d",
+          "text": "Pie chart"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Histograms display frequency of numeric ranges, making them ideal for distribution analysis.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following is NOT a good practice when labeling axes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Provide units"
+        },
+        {
+          "id": "b",
+          "text": "Include a title"
+        },
+        {
+          "id": "c",
+          "text": "Use descriptive labels"
+        },
+        {
+          "id": "d",
+          "text": "Use abbreviations"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Abbreviations can reduce clarity and may confuse viewers.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which chart type is best for comparing parts of a whole across categories?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stacked bar chart"
+        },
+        {
+          "id": "b",
+          "text": "Scatter plot"
+        },
+        {
+          "id": "c",
+          "text": "Line chart"
+        },
+        {
+          "id": "d",
+          "text": "Heatmap"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Stacked bars show how each category contributes to the whole.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "A researcher wants to show trend over time for multiple categories. Which chart is most appropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pie chart"
+        },
+        {
+          "id": "b",
+          "text": "Stacked area chart"
+        },
+        {
+          "id": "c",
+          "text": "Line chart"
+        },
+        {
+          "id": "d",
+          "text": "Histogram"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Line charts excel at displaying time trends across multiple series.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "A dataset contains outliers that could distort a bar chart's appearance. What technique can mitigate this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use a logarithmic scale"
+        },
+        {
+          "id": "b",
+          "text": "Increase bar width"
+        },
+        {
+          "id": "c",
+          "text": "Use color coding"
+        },
+        {
+          "id": "d",
+          "text": "Add gridlines"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A logarithmic scale compresses large values, reducing the impact of outliers.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "When designing a heatmap, which design choice ensures honest representation of data?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use a diverging color scheme for data centered around zero"
+        },
+        {
+          "id": "b",
+          "text": "Use a single color ramp for all values"
+        },
+        {
+          "id": "c",
+          "text": "Use arbitrary color mapping"
+        },
+        {
+          "id": "d",
+          "text": "Use too many colors"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A diverging scheme highlights deviations from a central value, improving interpretability.",
+      "difficulty": 3
+    }
+  ]
+}

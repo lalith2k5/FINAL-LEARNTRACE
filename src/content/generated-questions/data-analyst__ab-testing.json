@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which metric is most appropriate for measuring conversion rate in an A/B test?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bounce rate"
+        },
+        {
+          "id": "b",
+          "text": "Click-through rate"
+        },
+        {
+          "id": "c",
+          "text": "Conversion rate"
+        },
+        {
+          "id": "d",
+          "text": "Session duration"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Conversion rate directly measures the proportion of users who completed the desired action, making it the primary metric for success.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Why is random assignment of users important in A/B testing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To ensure equal sample sizes"
+        },
+        {
+          "id": "b",
+          "text": "To reduce bias and confounding variables"
+        },
+        {
+          "id": "c",
+          "text": "To increase statistical power"
+        },
+        {
+          "id": "d",
+          "text": "To speed up experiment"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Random assignment balances both known and unknown factors across groups, minimizing bias.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the primary purpose of a statistical significance level (alpha) in A/B testing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Determines sample size"
+        },
+        {
+          "id": "b",
+          "text": "Defines acceptable probability of Type I error"
+        },
+        {
+          "id": "c",
+          "text": "Measures effect size"
+        },
+        {
+          "id": "d",
+          "text": "Sets confidence interval"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Alpha sets the threshold for rejecting the null hypothesis, controlling the chance of a false positive.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which scenario indicates a need for a multi-armed bandit approach rather than classic A/B testing?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Small traffic volume"
+        },
+        {
+          "id": "b",
+          "text": "Long-running experiments"
+        },
+        {
+          "id": "c",
+          "text": "Real-time allocation of traffic to the best-performing variant"
+        },
+        {
+          "id": "d",
+          "text": "Simple binary outcome"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Bandits adaptively shift traffic toward the winning variant, improving efficiency in real-time contexts.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "How does the confidence interval help interpret A/B test results?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Shows sample mean"
+        },
+        {
+          "id": "b",
+          "text": "Provides range of plausible true effect size"
+        },
+        {
+          "id": "c",
+          "text": "Indicates sample size"
+        },
+        {
+          "id": "d",
+          "text": "Measures variability within group"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The CI estimates where the true difference likely falls, giving context to the observed effect.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which of the following is a common pitfall when running multiple A/B tests simultaneously?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increased power"
+        },
+        {
+          "id": "b",
+          "text": "Reduced sample size per test"
+        },
+        {
+          "id": "c",
+          "text": "Inflated Type I error rate"
+        },
+        {
+          "id": "d",
+          "text": "Simplified analysis"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Multiple simultaneous tests raise the overall probability of a false positive, inflating the Type I error rate.",
+      "difficulty": 3
+    }
+  ]
+}

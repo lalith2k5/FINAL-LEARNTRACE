@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "prompt": "Given two tables, Orders(order_id, customer_id) and Customers(customer_id, name), which SQL clause correctly returns only customers who have placed an order?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT Customers.name FROM Customers INNER JOIN Orders ON Customers.customer_id = Orders.customer_id;"
+        },
+        {
+          "id": "b",
+          "text": "SELECT Customers.name FROM Customers LEFT JOIN Orders ON Customers.customer_id = Orders.customer_id;"
+        },
+        {
+          "id": "c",
+          "text": "SELECT Customers.name FROM Customers RIGHT JOIN Orders ON Customers.customer_id = Orders.customer_id;"
+        },
+        {
+          "id": "d",
+          "text": "SELECT Customers.name FROM Customers FULL JOIN Orders ON Customers.customer_id = Orders.customer_id;"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "INNER JOIN returns rows that have matching keys in both tables.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which join type returns all rows from the left table and matching rows from the right table, filling with NULL where no match exists?",
+      "options": [
+        {
+          "id": "a",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "b",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "c",
+          "text": "RIGHT JOIN"
+        },
+        {
+          "id": "d",
+          "text": "FULL JOIN"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "LEFT JOIN keeps all left rows and adds NULLs for missing right rows.",
+      "difficulty": 2
+    }
+  ]
+}

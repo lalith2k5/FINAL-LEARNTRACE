@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "prompt": "Which pandas function is used to read a CSV file into a DataFrame?",
+      "options": [
+        {
+          "id": "a",
+          "text": "pd.read_csv"
+        },
+        {
+          "id": "b",
+          "text": "pd.read_table"
+        },
+        {
+          "id": "c",
+          "text": "pd.read_excel"
+        },
+        {
+          "id": "d",
+          "text": "pd.read_json"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "pd.read_csv loads data from a CSV file into a DataFrame.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What will df.groupby('A')['B'].sum() return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sum of column B for each unique value of column A"
+        },
+        {
+          "id": "b",
+          "text": "Sum of column A for each unique value of column B"
+        },
+        {
+          "id": "c",
+          "text": "Sum of all values in column B"
+        },
+        {
+          "id": "d",
+          "text": "None of the above"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "groupby('A') groups rows by A and sum() aggregates B within each group.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which method can reshape a DataFrame from wide to long format?",
+      "options": [
+        {
+          "id": "a",
+          "text": "pivot"
+        },
+        {
+          "id": "b",
+          "text": "melt"
+        },
+        {
+          "id": "c",
+          "text": "transpose"
+        },
+        {
+          "id": "d",
+          "text": "reshape"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "pd.melt converts wide data into a long format by unpivoting columns.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "If df['C'] contains NaN values, which operation replaces them with 0?",
+      "options": [
+        {
+          "id": "a",
+          "text": "df['C'].replace(np.nan, 0)"
+        },
+        {
+          "id": "b",
+          "text": "df['C'].fillna(0)"
+        },
+        {
+          "id": "c",
+          "text": "df['C'].dropna()"
+        },
+        {
+          "id": "d",
+          "text": "df['C'].isna().replace(0)"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "fillna(0) fills missing values with 0.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "When merging df1 and df2 on column 'id', which pandas function ensures all rows from df1 are retained?",
+      "options": [
+        {
+          "id": "a",
+          "text": "pd.merge(df1, df2, on='id')"
+        },
+        {
+          "id": "b",
+          "text": "pd.merge(df1, df2, on='id', how='left')"
+        },
+        {
+          "id": "c",
+          "text": "pd.concat([df1, df2])"
+        },
+        {
+          "id": "d",
+          "text": "df1.join(df2, on='id')"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A left merge keeps all rows from df1 and adds matching rows from df2.",
+      "difficulty": 5
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In K-means clustering, which of the following best describes the role of the initial centroids?",
+      "options": [
+        {
+          "id": "a",
+          "text": "They are the final cluster centers."
+        },
+        {
+          "id": "b",
+          "text": "They influence the final cluster configuration."
+        },
+        {
+          "id": "c",
+          "text": "They are irrelevant."
+        },
+        {
+          "id": "d",
+          "text": "They determine the number of clusters."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The starting centroids can lead to different local minima, affecting the final cluster assignment.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In DBSCAN, what does the epsilon parameter primarily control?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Minimum points per cluster."
+        },
+        {
+          "id": "b",
+          "text": "Maximum distance between core points."
+        },
+        {
+          "id": "c",
+          "text": "Distance threshold for neighbor inclusion."
+        },
+        {
+          "id": "d",
+          "text": "Number of clusters."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Epsilon sets the radius within which points are considered neighbors of a core point.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which linkage criterion in hierarchical clustering uses the smallest distance between any pair of points in two clusters?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Complete linkage"
+        },
+        {
+          "id": "b",
+          "text": "Average linkage"
+        },
+        {
+          "id": "c",
+          "text": "Single linkage"
+        },
+        {
+          "id": "d",
+          "text": "Ward's method"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Single linkage defines the distance between clusters as the minimum distance between any two points in the clusters.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "K-means aims to minimize which of the following?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Sum of squared Euclidean distances within clusters."
+        },
+        {
+          "id": "b",
+          "text": "Sum of Manhattan distances between cluster centers."
+        },
+        {
+          "id": "c",
+          "text": "Sum of squared distances between points and nearest cluster center."
+        },
+        {
+          "id": "d",
+          "text": "Sum of squared distances between cluster centers."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The objective is to minimize the within-cluster sum of squared errors.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "In DBSCAN, points that are neither core nor border points are called?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Noise points"
+        },
+        {
+          "id": "b",
+          "text": "Outliers"
+        },
+        {
+          "id": "c",
+          "text": "Edge points"
+        },
+        {
+          "id": "d",
+          "text": "Sparse points"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Such points are considered noise and are not assigned to any cluster.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the time complexity of building a dendrogram using agglomerative hierarchical clustering with a naive implementation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O(n log n)"
+        },
+        {
+          "id": "b",
+          "text": "O(n^2)"
+        },
+        {
+          "id": "c",
+          "text": "O(n^3)"
+        },
+        {
+          "id": "d",
+          "text": "O(n^4)"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Naively recomputing all pairwise distances at each merge step yields O(n^3) time.",
+      "difficulty": 5
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "Which SQL statement retrieves all columns from the 'employees' table?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT * FROM employees;"
+        },
+        {
+          "id": "b",
+          "text": "SELECT all FROM employees;"
+        },
+        {
+          "id": "c",
+          "text": "SELECT employees.*;"
+        },
+        {
+          "id": "d",
+          "text": "SELECT * employees;"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "SELECT * selects all columns from the specified table.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which statement returns rows where salary > 50000?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT * FROM employees WHERE salary > 50000;"
+        },
+        {
+          "id": "b",
+          "text": "SELECT * FROM employees HAVING salary > 50000;"
+        },
+        {
+          "id": "c",
+          "text": "SELECT * FROM employees GROUP BY salary > 50000;"
+        },
+        {
+          "id": "d",
+          "text": "SELECT * FROM employees ORDER BY salary > 50000;"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "WHERE filters rows before any aggregation occurs.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "To find the average salary per department, which query is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SELECT department, AVG(salary) FROM employees GROUP BY department;"
+        },
+        {
+          "id": "b",
+          "text": "SELECT department, AVG(salary) FROM employees ORDER BY department;"
+        },
+        {
+          "id": "c",
+          "text": "SELECT AVG(salary) FROM employees GROUP BY department;"
+        },
+        {
+          "id": "d",
+          "text": "SELECT department, salary FROM employees GROUP BY department;"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Both department and AVG(salary) must appear in SELECT and GROUP BY.",
+      "difficulty": 3
+    }
+  ]
+}

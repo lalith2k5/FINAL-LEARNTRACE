@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of translating technical findings into business decisions?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To satisfy regulatory requirements"
+        },
+        {
+          "id": "b",
+          "text": "To enable stakeholders to act on insights"
+        },
+        {
+          "id": "c",
+          "text": "To reduce data storage costs"
+        },
+        {
+          "id": "d",
+          "text": "To publish academic papers"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "It ensures stakeholders can make informed decisions based on insights.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which communication technique best helps explain statistical significance to a non-technical audience?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Provide raw p-values and confidence intervals"
+        },
+        {
+          "id": "b",
+          "text": "Use analogies and visual storytelling"
+        },
+        {
+          "id": "c",
+          "text": "Offer a full statistical report"
+        },
+        {
+          "id": "d",
+          "text": "Show the code used for calculations"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Analogies and visuals translate abstract concepts into familiar terms.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When presenting model results for a marketing campaign, which metric should you emphasize to demonstrate ROI?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mean Squared Error"
+        },
+        {
+          "id": "b",
+          "text": "R-squared"
+        },
+        {
+          "id": "c",
+          "text": "Lift"
+        },
+        {
+          "id": "d",
+          "text": "Accuracy"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Lift measures how much more likely a target group is to convert, directly tied to ROI.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "How can you address stakeholders' concerns about potential bias in a predictive model?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Explain the data preprocessing steps only"
+        },
+        {
+          "id": "b",
+          "text": "Show fairness metrics and mitigation strategies"
+        },
+        {
+          "id": "c",
+          "text": "Avoid discussing the issue"
+        },
+        {
+          "id": "d",
+          "text": "Provide the model code for review"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Demonstrating fairness metrics and mitigation shows proactive bias handling.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "What strategy best integrates stakeholder feedback into an iterative data science project?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Collect feedback at the end of the project only"
+        },
+        {
+          "id": "b",
+          "text": "Build a feedback loop with regular demos and updates"
+        },
+        {
+          "id": "c",
+          "text": "Ignore feedback to avoid scope creep"
+        },
+        {
+          "id": "d",
+          "text": "Let stakeholders decide the model architecture"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Regular demos keep stakeholders engaged and allow incremental adjustments.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which visualization most effectively conveys seasonality in a time series to stakeholders?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Scatter plot of raw values"
+        },
+        {
+          "id": "b",
+          "text": "Bar chart of monthly totals"
+        },
+        {
+          "id": "c",
+          "text": "Heat map of day-of-week vs. month"
+        },
+        {
+          "id": "d",
+          "text": "Seasonal subseries plot"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Seasonal subseries plot isolates patterns per season, making seasonality clear.",
+      "difficulty": 3
+    }
+  ]
+}

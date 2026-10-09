@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "What does LTV stand for in business metrics?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Lifetime Value"
+        },
+        {
+          "id": "b",
+          "text": "Last Transaction Value"
+        },
+        {
+          "id": "c",
+          "text": "Local Transaction Volume"
+        },
+        {
+          "id": "d",
+          "text": "Limited Time Value"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "LTV, or Lifetime Value, represents the total revenue a business expects from a single customer account throughout the business relationship.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which metric measures the money earned from sales before any expenses are deducted?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Net income"
+        },
+        {
+          "id": "b",
+          "text": "Gross profit"
+        },
+        {
+          "id": "c",
+          "text": "Operating income"
+        },
+        {
+          "id": "d",
+          "text": "Revenue"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Revenue is the total amount of money generated from sales, before subtracting costs or expenses.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which KPI indicates the percentage of customers that continue to do business with a company over a given period?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Churn rate"
+        },
+        {
+          "id": "b",
+          "text": "Retention rate"
+        },
+        {
+          "id": "c",
+          "text": "Acquisition cost"
+        },
+        {
+          "id": "d",
+          "text": "Engagement score"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Retention rate is the proportion of existing customers who stay with the company, showing customer loyalty.",
+      "difficulty": 2
+    }
+  ]
+}

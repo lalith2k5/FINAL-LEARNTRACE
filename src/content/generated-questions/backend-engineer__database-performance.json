@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary indicator in a database query execution plan that a full table scan is being performed instead of utilizing an index?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Index Scan"
+        },
+        {
+          "id": "b",
+          "text": "Sequential Scan or Table Scan"
+        },
+        {
+          "id": "c",
+          "text": "Nested Loop Join"
+        },
+        {
+          "id": "d",
+          "text": "Hash Aggregate"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A sequential or table scan indicates the database is reading every row in the table sequentially, which is often a sign of a missing index.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "You notice an application making 1 query to fetch a list of 50 users, followed by 50 individual queries to fetch each user's profile details. What performance anti-pattern is this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cartesian Product"
+        },
+        {
+          "id": "b",
+          "text": "N+1 Query Problem"
+        },
+        {
+          "id": "c",
+          "text": "Deadlock"
+        },
+        {
+          "id": "d",
+          "text": "Unindexed Foreign Key"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The N+1 query problem occurs when an application executes 1 initial query to retrieve a parent list, and then N additional queries to retrieve related child records individually.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When designing a composite index on columns (A, B, C) for a table, which of the following query WHERE clauses will NOT effectively utilize this index?",
+      "options": [
+        {
+          "id": "a",
+          "text": "WHERE A = 1 AND B = 2"
+        },
+        {
+          "id": "b",
+          "text": "WHERE A = 1 AND C = 3"
+        },
+        {
+          "id": "c",
+          "text": "WHERE B = 2 AND C = 3"
+        },
+        {
+          "id": "d",
+          "text": "WHERE A = 1"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "B-tree composite indexes follow a left-prefix rule. A query skipping the leading column (A) and querying only (B, C) cannot fully leverage the index.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following is the most effective way to eliminate an N+1 query problem when fetching parent records and their associated child records?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increase the database connection pool size."
+        },
+        {
+          "id": "b",
+          "text": "Add a unique index to the child table foreign key."
+        },
+        {
+          "id": "c",
+          "text": "Use a JOIN or eager loading mechanism to fetch data in a single query."
+        },
+        {
+          "id": "d",
+          "text": "Enable query caching on the application server."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Eager loading or using a SQL JOIN combines the retrieval of parent and child records into one or a controlled constant number of queries, avoiding the N+1 loop.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Looking at a query execution plan, you see a 'Nested Loop' operating on a large table with 1,000,000 rows without an index on the join condition, resulting in very high execution time. What is the most appropriate fix?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Add an index on the join column of the inner table."
+        },
+        {
+          "id": "b",
+          "text": "Increase the database memory allocation for sorting."
+        },
+        {
+          "id": "c",
+          "text": "Change the query to use an OFFSET pagination method."
+        },
+        {
+          "id": "d",
+          "text": "Disable nested loops globally in the database configuration."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A nested loop without an index forces a full scan of the inner table for every row of the outer table. Adding an index allows the inner table lookups to use index scans.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "An application frequently queries a table using both a range condition on a timestamp column and an equality condition on a status column (e.g., WHERE status = 'active' AND created_at > ?). How should you construct a composite index to optimize this query?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Index on (created_at, status)"
+        },
+        {
+          "id": "b",
+          "text": "Index on (status, created_at)"
+        },
+        {
+          "id": "c",
+          "text": "Two separate indexes: one on status, one on created_at"
+        },
+        {
+          "id": "d",
+          "text": "Index on (status) and a functional index on created_at"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Equality columns should generally come first in a composite index so the B-tree can immediately jump to the exact subset of rows, leaving the range column second to narrow down the remaining results.",
+      "difficulty": 5
+    }
+  ]
+}

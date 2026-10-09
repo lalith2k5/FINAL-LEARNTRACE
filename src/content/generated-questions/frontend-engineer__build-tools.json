@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary advantage of Vite's dev server over traditional bundlers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Faster builds due to pre-bundling dependencies"
+        },
+        {
+          "id": "b",
+          "text": "Automatic code splitting at runtime"
+        },
+        {
+          "id": "c",
+          "text": "Built-in support for serverless functions"
+        },
+        {
+          "id": "d",
+          "text": "No need for configuration files"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Vite serves modules via native ES imports and pre-bundles dependencies once, enabling rapid rebuilds and HMR.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In Webpack, which feature enables removing unused code from the final bundle?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Code Splitting"
+        },
+        {
+          "id": "b",
+          "text": "Tree Shaking"
+        },
+        {
+          "id": "c",
+          "text": "Hot Module Replacement"
+        },
+        {
+          "id": "d",
+          "text": "Module Federation"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Tree shaking analyzes import graphs during optimization to strip dead code from the bundle.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Turbopack is designed to replace which existing tool in the modern JS ecosystem?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Babel"
+        },
+        {
+          "id": "b",
+          "text": "ESLint"
+        },
+        {
+          "id": "c",
+          "text": "Webpack"
+        },
+        {
+          "id": "d",
+          "text": "Rollup"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Turbopack is a fast, incremental bundler built to replace Webpack for large-scale projects.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following is NOT a typical use case for a bundler plugin?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Transpiling JSX to JavaScript"
+        },
+        {
+          "id": "b",
+          "text": "Serving files over HTTP"
+        },
+        {
+          "id": "c",
+          "text": "Adding environment variables at build time"
+        },
+        {
+          "id": "d",
+          "text": "Inlining CSS into JavaScript bundles"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Plugins modify build output; serving files is handled by the dev server, not a plugin.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In Webpack 5, which feature allows multiple independently deployed applications to share code at runtime without duplicating it in the final bundle?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Code Splitting"
+        },
+        {
+          "id": "b",
+          "text": "Module Federation"
+        },
+        {
+          "id": "c",
+          "text": "Hot Module Replacement"
+        },
+        {
+          "id": "d",
+          "text": "Lazy Loading"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Module Federation exposes modules from one build that can be consumed by others, enabling shared runtime code.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which concept allows a bundler to load modules on demand during runtime, reducing initial load time?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Code splitting"
+        },
+        {
+          "id": "b",
+          "text": "Static analysis"
+        },
+        {
+          "id": "c",
+          "text": "Bundle hashing"
+        },
+        {
+          "id": "d",
+          "text": "Dependency injection"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Code splitting splits the bundle into chunks that can be fetched asynchronously when needed.",
+      "difficulty": 4
+    }
+  ]
+}

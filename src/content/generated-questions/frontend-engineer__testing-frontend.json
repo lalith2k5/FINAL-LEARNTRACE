@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "When writing a unit test for a pure presentational component, what should you primarily verify?",
+      "options": [
+        {
+          "id": "a",
+          "text": "That the component makes network requests correctly"
+        },
+        {
+          "id": "b",
+          "text": "That the component renders the expected output given its props"
+        },
+        {
+          "id": "c",
+          "text": "That the component's lifecycle methods are called in the right order"
+        },
+        {
+          "id": "d",
+          "text": "That the component's internal state updates as expected"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A pure presentational component's output depends only on its props, so unit tests should assert the rendered UI matches expectations for given prop values.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In an integration test that checks a form submission flow, why is it common to mock the API call that submits the data?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To make the test run faster by avoiding real network latency"
+        },
+        {
+          "id": "b",
+          "text": "To ensure the test fails if the backend changes its contract"
+        },
+        {
+          "id": "c",
+          "text": "To prevent the test from accidentally modifying production data"
+        },
+        {
+          "id": "d",
+          "text": "All of the above"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Mocking the API eliminates network variability, isolates the frontend code, and protects against unintended side effects, making integration tests reliable and fast.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which testing approach is most appropriate for verifying that a user can navigate from a login page to a dashboard after successful authentication?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unit test of the login component's render output"
+        },
+        {
+          "id": "b",
+          "text": "Integration test that mounts the login and dashboard components together"
+        },
+        {
+          "id": "c",
+          "text": "End-to-end test using a browser automation tool"
+        },
+        {
+          "id": "d",
+          "text": "Snapshot test of the login page's DOM"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Verifying a full user navigation flow requires exercising the router, authentication logic, and page transitions, which is best done with an end-to-end test that mimics real user interactions.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "What is a key limitation of snapshot testing for UI components?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Snapshots cannot capture CSS styles"
+        },
+        {
+          "id": "b",
+          "text": "They provide no insight into which specific element caused a failure"
+        },
+        {
+          "id": "c",
+          "text": "Snapshots only work with functional components"
+        },
+        {
+          "id": "d",
+          "text": "They require a backend server to run"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "When a snapshot fails, the diff shows the entire tree change, making it harder to pinpoint the exact element or prop that caused the mismatch without additional inspection.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Using React Testing Library, which query should you prefer to find a button that has the accessible name 'Submit'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "getByText(/submit/i)"
+        },
+        {
+          "id": "b",
+          "text": "getByRole('button', { name: /submit/i })"
+        },
+        {
+          "id": "c",
+          "text": "getByTestId('submit-button')"
+        },
+        {
+          "id": "d",
+          "text": "getByLabelText('Submit')"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "getByRole with a name argument respects accessibility semantics and finds elements by their accessible name, which is the recommended way to query interactive components.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Why is the act() utility necessary when testing asynchronous state updates in React components?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To ensure React flushes all pending updates before making assertions"
+        },
+        {
+          "id": "b",
+          "text": "To prevent the test runner from timing out"
+        },
+        {
+          "id": "c",
+          "text": "To mock the component's props during render"
+        },
+        {
+          "id": "d",
+          "text": "To convert synchronous code into asynchronous code"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "act() wraps the code that triggers updates, guaranteeing that React processes all state changes and effects before the test runs its expectations, avoiding warnings about unflushed updates.",
+      "difficulty": 5
+    }
+  ]
+}

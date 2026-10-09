@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of randomization in a controlled experiment?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increase sample size"
+        },
+        {
+          "id": "b",
+          "text": "Reduce bias"
+        },
+        {
+          "id": "c",
+          "text": "Simplify data analysis"
+        },
+        {
+          "id": "d",
+          "text": "Ensure equal group sizes"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Randomization distributes known and unknown confounders evenly across groups, thereby reducing bias.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following best distinguishes random assignment from random selection?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Random assignment selects participants; random selection assigns them to conditions"
+        },
+        {
+          "id": "b",
+          "text": "Random assignment assigns participants to conditions; random selection selects participants from population"
+        },
+        {
+          "id": "c",
+          "text": "Both involve random sampling of participants"
+        },
+        {
+          "id": "d",
+          "text": "Random assignment is used only in observational studies"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Random selection chooses participants from a population, whereas random assignment places those selected participants into experimental conditions.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which factor most directly influences the required sample size to achieve a desired statistical power?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Effect size"
+        },
+        {
+          "id": "b",
+          "text": "Alphabetical order of variables"
+        },
+        {
+          "id": "c",
+          "text": "Randomization method"
+        },
+        {
+          "id": "d",
+          "text": "Number of researchers"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A larger effect size requires fewer participants to detect; smaller effects demand larger samples for the same power.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In a blocked design, what is the purpose of blocking?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increase randomization"
+        },
+        {
+          "id": "b",
+          "text": "Control for variability due to a known nuisance variable"
+        },
+        {
+          "id": "c",
+          "text": "Simplify statistical analysis"
+        },
+        {
+          "id": "d",
+          "text": "Ensure equal sample sizes across treatments"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Blocking groups subjects with similar characteristics together, then randomizing within each block to control for nuisance variability.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which statement best describes a confounding variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Variable intentionally manipulated by researcher"
+        },
+        {
+          "id": "b",
+          "text": "Variable that is unrelated to the outcome"
+        },
+        {
+          "id": "c",
+          "text": "Variable that is associated with both the independent and dependent variables and may bias results"
+        },
+        {
+          "id": "d",
+          "text": "Variable measured after the experiment"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A confounder is linked to both predictor and outcome, potentially misleading causal inference.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "How does blinding complement randomization in reducing experimenter bias?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It ensures participants are unaware of the hypothesis"
+        },
+        {
+          "id": "b",
+          "text": "It prevents researchers from knowing which condition participants are in during data collection"
+        },
+        {
+          "id": "c",
+          "text": "It increases sample size"
+        },
+        {
+          "id": "d",
+          "text": "It eliminates the need for randomization"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Blinding stops experimenters from seeing group assignments, preventing bias in observation or data handling.",
+      "difficulty": 5
+    }
+  ]
+}

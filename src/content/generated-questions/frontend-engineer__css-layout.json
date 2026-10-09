@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which property controls the direction of flex items in a flex container?",
+      "options": [
+        {
+          "id": "a",
+          "text": "flex-direction"
+        },
+        {
+          "id": "b",
+          "text": "order"
+        },
+        {
+          "id": "c",
+          "text": "flex-wrap"
+        },
+        {
+          "id": "d",
+          "text": "justify-content"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "flex-direction sets the main axis of the flex container, determining whether items flow horizontally or vertically.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which property defines the number and size of columns in a CSS grid container?",
+      "options": [
+        {
+          "id": "a",
+          "text": "grid-template-columns"
+        },
+        {
+          "id": "b",
+          "text": "grid-columns"
+        },
+        {
+          "id": "c",
+          "text": "column-count"
+        },
+        {
+          "id": "d",
+          "text": "columns"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "grid-template-columns specifies track sizes for columns, creating the column structure of the grid.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In the flex shorthand property flex: 1 1 auto, what does the first number represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "flex-grow"
+        },
+        {
+          "id": "b",
+          "text": "flex-shrink"
+        },
+        {
+          "id": "c",
+          "text": "flex-basis"
+        },
+        {
+          "id": "d",
+          "text": "order"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The first number in the flex shorthand is the flex-grow factor, determining how much a flex item can grow relative to others.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What does the grid-auto-flow: dense rule do in CSS Grid?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fills gaps by placing items in available space"
+        },
+        {
+          "id": "b",
+          "text": "Keeps items in source order"
+        },
+        {
+          "id": "c",
+          "text": "Prevents items from overlapping"
+        },
+        {
+          "id": "d",
+          "text": "Aligns items to the baseline"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "dense mode places items into gaps to reduce unused space, potentially changing the visual order.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which unit is relative to the font size of the root element?",
+      "options": [
+        {
+          "id": "a",
+          "text": "vw"
+        },
+        {
+          "id": "b",
+          "text": "vh"
+        },
+        {
+          "id": "c",
+          "text": "rem"
+        },
+        {
+          "id": "d",
+          "text": "em"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "rem units scale relative to the root element’s font size, making them useful for responsive designs.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "How do you define a grid area that spans from column line 2 to line 5 and row line 1 to line 3 using the grid-area shorthand?",
+      "options": [
+        {
+          "id": "a",
+          "text": "grid-area: 2 / 1 / 5 / 3;"
+        },
+        {
+          "id": "b",
+          "text": "grid-area: 1 / 2 / 3 / 5;"
+        },
+        {
+          "id": "c",
+          "text": "grid-template-areas: \"header header header\";"
+        },
+        {
+          "id": "d",
+          "text": "grid-row-start: 1; grid-row-end: 3; grid-column-start: 2; grid-column-end: 5;"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "grid-area uses the order row-start / column-start / row-end / column-end to position the area.",
+      "difficulty": 5
+    }
+  ]
+}

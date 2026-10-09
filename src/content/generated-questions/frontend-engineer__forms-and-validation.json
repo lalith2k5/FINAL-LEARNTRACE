@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In a React form, what is the primary benefit of using a controlled component?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It automatically saves data to local storage"
+        },
+        {
+          "id": "b",
+          "text": "It ensures the form inputs are always in sync with component state"
+        },
+        {
+          "id": "c",
+          "text": "It prevents the user from typing anything"
+        },
+        {
+          "id": "d",
+          "text": "It removes the need for event handlers"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Controlled components keep the input value in the component state, guaranteeing that the UI always reflects the state and vice versa.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When managing a form with many fields, which React hook is often preferred over multiple useState calls?",
+      "options": [
+        {
+          "id": "a",
+          "text": "useEffect"
+        },
+        {
+          "id": "b",
+          "text": "useContext"
+        },
+        {
+          "id": "c",
+          "text": "useReducer"
+        },
+        {
+          "id": "d",
+          "text": "useMemo"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "useReducer groups related state updates into a single reducer, simplifying updates for complex forms.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which technique provides instant feedback while the user types, without waiting for form submission?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Debounced submission"
+        },
+        {
+          "id": "b",
+          "text": "OnBlur validation"
+        },
+        {
+          "id": "c",
+          "text": "OnChange validation"
+        },
+        {
+          "id": "d",
+          "text": "Manual error display"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Validating on every change gives the user immediate error messages, improving UX.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Debouncing form validation is useful primarily to:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ensure errors are always shown instantly"
+        },
+        {
+          "id": "b",
+          "text": "Reduce the number of validation calls while typing"
+        },
+        {
+          "id": "c",
+          "text": "Store validation logic in local storage"
+        },
+        {
+          "id": "d",
+          "text": "Prevent form submission altogether"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Debounce limits how often validation runs, preventing performance hits during rapid typing.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "For accessibility, error messages should be associated with which element?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<div role='alert'>"
+        },
+        {
+          "id": "b",
+          "text": "<span aria-live='polite'>"
+        },
+        {
+          "id": "c",
+          "text": "<label for='error'>"
+        },
+        {
+          "id": "d",
+          "text": "All of the above"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Using aria-live regions and linking errors to inputs ensures screen readers announce validation problems.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "When performing async validation (e.g., checking username availability) during form submission, what is a best practice?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Disable the submit button until validation passes"
+        },
+        {
+          "id": "b",
+          "text": "Submit the form regardless of the async result"
+        },
+        {
+          "id": "c",
+          "text": "Show a loading spinner and prevent multiple submissions"
+        },
+        {
+          "id": "d",
+          "text": "Both a and c"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Disabling the button and showing a spinner prevents duplicate submissions while awaiting async validation.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which type of test verifies individual functions in isolation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unit test"
+        },
+        {
+          "id": "b",
+          "text": "Integration test"
+        },
+        {
+          "id": "c",
+          "text": "End-to-end test"
+        },
+        {
+          "id": "d",
+          "text": "Load test"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Unit tests isolate a single function or method to verify its behavior independently of other components.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In a unit test, which components are typically mocked to isolate the unit?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Database connections"
+        },
+        {
+          "id": "b",
+          "text": "External APIs"
+        },
+        {
+          "id": "c",
+          "text": "Internal helper functions"
+        },
+        {
+          "id": "d",
+          "text": "Both database connections and external APIs"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Unit tests mock external dependencies like databases and APIs so the unit's logic can be tested in isolation.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which testing technique helps catch bugs that arise only when multiple components interact?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unit test"
+        },
+        {
+          "id": "b",
+          "text": "Integration test"
+        },
+        {
+          "id": "c",
+          "text": "End-to-end test"
+        },
+        {
+          "id": "d",
+          "text": "Static analysis"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Integration tests exercise interactions between multiple components, revealing bugs that unit tests miss.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "A bug appears only after a user logs in, performs several actions, and then logs out. Which test type should be prioritized to catch such a bug?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Unit test"
+        },
+        {
+          "id": "b",
+          "text": "Integration test"
+        },
+        {
+          "id": "c",
+          "text": "End-to-end test"
+        },
+        {
+          "id": "d",
+          "text": "Performance test"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "End-to-end tests simulate a full user journey, making them ideal for catching bugs that occur across the entire flow.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "When writing an end-to-end test for a web application, which best practice reduces flakiness?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use hard-coded waits"
+        },
+        {
+          "id": "b",
+          "text": "Use explicit waits for specific conditions"
+        },
+        {
+          "id": "c",
+          "text": "Ignore asynchronous behavior"
+        },
+        {
+          "id": "d",
+          "text": "Test only one feature per test"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Explicit waits for conditions (e.g., element visible) synchronize tests with the UI, reducing flakiness.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "What is a primary benefit of using a testing framework like Jest or Mocha over writing plain assertions?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Faster execution"
+        },
+        {
+          "id": "b",
+          "text": "Built-in mocking and assertion helpers"
+        },
+        {
+          "id": "c",
+          "text": "No need to write test files"
+        },
+        {
+          "id": "d",
+          "text": "Eliminates bugs entirely"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Testing frameworks provide helpers for assertions, mocking, and test organization, simplifying test writing.",
+      "difficulty": 3
+    }
+  ]
+}

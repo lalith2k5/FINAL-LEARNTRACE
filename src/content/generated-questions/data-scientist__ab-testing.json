@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of an A/B test?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Determine which variant yields higher conversion"
+        },
+        {
+          "id": "b",
+          "text": "Measure overall traffic"
+        },
+        {
+          "id": "c",
+          "text": "Track server load"
+        },
+        {
+          "id": "d",
+          "text": "Gauge user satisfaction"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A/B testing compares two variants to see which performs better in terms of a chosen metric, usually conversion.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which metric is most appropriate to evaluate a typical conversion funnel?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bounce rate"
+        },
+        {
+          "id": "b",
+          "text": "Conversion rate"
+        },
+        {
+          "id": "c",
+          "text": "Average time on page"
+        },
+        {
+          "id": "d",
+          "text": "Number of clicks"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Conversion rate directly measures the success of the funnel, making it the standard metric for A/B tests.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which factor increases the required sample size for a statistically significant A/B test?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Higher confidence level"
+        },
+        {
+          "id": "b",
+          "text": "Lower effect size"
+        },
+        {
+          "id": "c",
+          "text": "Larger population"
+        },
+        {
+          "id": "d",
+          "text": "Both a and b"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Higher confidence and smaller effect size both demand larger samples to detect differences.",
+      "difficulty": 2
+    }
+  ]
+}

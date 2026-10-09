@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which method can be used to select the first element with class 'active'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "document.querySelectorAll('.active')"
+        },
+        {
+          "id": "b",
+          "text": "document.getElementsByClassName('active')"
+        },
+        {
+          "id": "c",
+          "text": "document.querySelector('.active')"
+        },
+        {
+          "id": "d",
+          "text": "document.getElementsByTagName('active')"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "document.querySelector returns the first element that matches the selector.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "How do you create a new <p> element and set its text to 'Hello'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "var p=document.createElement('p');p.textContent='Hello';"
+        },
+        {
+          "id": "b",
+          "text": "var p=document.createTextNode('Hello');document.body.appendChild(p);"
+        },
+        {
+          "id": "c",
+          "text": "var p=document.createElement('p');p.innerHTML='Hello';"
+        },
+        {
+          "id": "d",
+          "text": "var p=document.createElement('div');document.body.appendChild(p);"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "createElement creates a new element; textContent assigns its text.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the correct way to add a click event listener to a button with id 'submit'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "document.getElementById('submit').onclick = function(){};"
+        },
+        {
+          "id": "b",
+          "text": "document.getElementById('submit').addEventListener('click', function(){});"
+        },
+        {
+          "id": "c",
+          "text": "document.querySelector('#submit').onClick = function(){};"
+        },
+        {
+          "id": "d",
+          "text": "document.querySelector('#submit').addEventListener('onClick', function(){});"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "addEventListener attaches the event handler for the specified event type.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which method changes the value of the 'href' attribute on an <a> element stored in variable link?",
+      "options": [
+        {
+          "id": "a",
+          "text": "link.setAttribute('href', '#');"
+        },
+        {
+          "id": "b",
+          "text": "link.getAttribute('href', '#');"
+        },
+        {
+          "id": "c",
+          "text": "link.href = '#';"
+        },
+        {
+          "id": "d",
+          "text": "link.href('#');"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "setAttribute updates the attribute value on the element.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "How can you remove an element with id 'old' from the DOM?",
+      "options": [
+        {
+          "id": "a",
+          "text": "document.getElementById('old').remove();"
+        },
+        {
+          "id": "b",
+          "text": "document.getElementById('old').parentNode.removeChild(document.getElementById('old'));"
+        },
+        {
+          "id": "c",
+          "text": "document.removeChild('old');"
+        },
+        {
+          "id": "d",
+          "text": "document.getElementById('old').delete();"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "removeChild removes the element from its parent node.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "What is event delegation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Attaching event listeners to each child element individually."
+        },
+        {
+          "id": "b",
+          "text": "Attaching event listeners to a parent element and checking event.target."
+        },
+        {
+          "id": "c",
+          "text": "Attaching event listeners to the document body only."
+        },
+        {
+          "id": "d",
+          "text": "Using setInterval to check for events."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Event delegation leverages event bubbling by handling events on a common ancestor.",
+      "difficulty": 5
+    }
+  ]
+}

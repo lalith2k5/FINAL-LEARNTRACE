@@ -1,0 +1,100 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following commands creates a DataFrame with columns 'A' and 'B' containing integers 1-3 and 4-6 respectively?",
+      "options": [
+        {
+          "id": "a",
+          "text": "pd.DataFrame({'A':[1,2,3], 'B':[4,5,6]})"
+        },
+        {
+          "id": "b",
+          "text": "pd.DataFrame({'A':[1,2], 'B':[4,5,6]})"
+        },
+        {
+          "id": "c",
+          "text": "pd.DataFrame({'A':[1,2,3,4], 'B':[4,5,6]})"
+        },
+        {
+          "id": "d",
+          "text": "pd.DataFrame({'A':[1,2,3], 'B':[4,5]})"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Option a constructs a DataFrame with two columns 'A' and 'B' and the specified integer values.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Given df = pd.DataFrame({'x':[1,2,3,4], 'y':[10,20,30,40]}), which expression selects rows where x>2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "df[df['x'] > 2]"
+        },
+        {
+          "id": "b",
+          "text": "df[df['x'] == 2]"
+        },
+        {
+          "id": "c",
+          "text": "df[df['y'] > 2]"
+        },
+        {
+          "id": "d",
+          "text": "df[df['x'] < 2]"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "df['x'] > 2 returns a boolean mask that keeps only rows with x greater than 2.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which code correctly computes the mean of column 'y' grouped by 'x'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "df.groupby('x')['y'].mean()"
+        },
+        {
+          "id": "b",
+          "text": "df.groupby('y')['x'].mean()"
+        },
+        {
+          "id": "c",
+          "text": "df.groupby('x').mean()['y']"
+        },
+        {
+          "id": "d",
+          "text": "df.groupby('x')['y'].sum()"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "groupby on 'x' followed by mean on 'y' gives the desired grouped means.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following correctly adds a 1D array [1,2,3] to a 2D array [[10,20,30],[40,50,60]] using broadcasting?",
+      "options": [
+        {
+          "id": "a",
+          "text": "np.array([[10,20,30],[40,50,60]]) + np.array([1,2,3])"
+        },
+        {
+          "id": "b",
+          "text": "np.array([[10,20,30],[40,50,60]]) + np.array([1,2,3,4])"
+        },
+        {
+          "id": "c",
+          "text": "np.array([[10,20,30],[40,50,60]]) + np.array([[1,2,3]])"
+        },
+        {
+          "id": "d",
+          "text": "np.array([[10,20,30],[40,50,60]]) + np.array([1,2,3]) * 2"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Broadcasting adds the 1D array to each row of the 2D array.",
+      "difficulty": 4
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best describes a 95% confidence interval for a population mean?",
+      "options": [
+        {
+          "id": "a",
+          "text": "interval that will contain the true mean in 95% of samples"
+        },
+        {
+          "id": "b",
+          "text": "interval that will contain 95% of sample data"
+        },
+        {
+          "id": "c",
+          "text": "interval that will contain the true mean with 95% probability"
+        },
+        {
+          "id": "d",
+          "text": "interval that will contain 95% of population data"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A 95% confidence interval is constructed so that, in repeated sampling, 95% of such intervals will contain the true population mean.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What does the standard error of the mean represent?",
+      "options": [
+        {
+          "id": "a",
+          "text": "variability of individual observations"
+        },
+        {
+          "id": "b",
+          "text": "variability of sample mean across repeated samples"
+        },
+        {
+          "id": "c",
+          "text": "standard deviation of the population"
+        },
+        {
+          "id": "d",
+          "text": "margin of error at 95% confidence"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The standard error quantifies how much the sample mean would vary if the sampling process were repeated many times.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "According to the Central Limit Theorem, as the sample size increases, the sampling distribution of the sample mean will become:",
+      "options": [
+        {
+          "id": "a",
+          "text": "more skewed"
+        },
+        {
+          "id": "b",
+          "text": "more variable"
+        },
+        {
+          "id": "c",
+          "text": "approximately normal"
+        },
+        {
+          "id": "d",
+          "text": "identical to population distribution"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The CLT states that the sampling distribution of the mean approaches a normal distribution as sample size grows, regardless of population shape.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "If you increase the confidence level from 90% to 99% while keeping the sample size constant, what happens to the width of the confidence interval?",
+      "options": [
+        {
+          "id": "a",
+          "text": "decreases"
+        },
+        {
+          "id": "b",
+          "text": "stays the same"
+        },
+        {
+          "id": "c",
+          "text": "increases"
+        },
+        {
+          "id": "d",
+          "text": "becomes zero"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A higher confidence level requires a larger margin of error, so the interval becomes wider.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which of the following changes to a study will most likely reduce the margin of error for estimating a population proportion?",
+      "options": [
+        {
+          "id": "a",
+          "text": "decrease sample size"
+        },
+        {
+          "id": "b",
+          "text": "increase sample size"
+        },
+        {
+          "id": "c",
+          "text": "use a larger confidence level"
+        },
+        {
+          "id": "d",
+          "text": "use a smaller confidence level"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Increasing the sample size reduces the standard error and thus narrows the margin of error.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "In a two‑tailed test for a population mean, what does the null hypothesis typically state?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The population mean is greater than the hypothesized value"
+        },
+        {
+          "id": "b",
+          "text": "The population mean is less than the hypothesized value"
+        },
+        {
+          "id": "c",
+          "text": "The population mean equals the hypothesized value"
+        },
+        {
+          "id": "d",
+          "text": "The population variance is zero"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The null hypothesis generally asserts that there is no difference, i.e., the mean equals the hypothesized value.",
+      "difficulty": 3
+    }
+  ]
+}

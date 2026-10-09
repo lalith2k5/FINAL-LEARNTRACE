@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the arithmetic mean of a dataset?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Most frequently occurring value"
+        },
+        {
+          "id": "b",
+          "text": "Sum of values divided by number of values"
+        },
+        {
+          "id": "c",
+          "text": "Middle value when sorted"
+        },
+        {
+          "id": "d",
+          "text": "Measure of spread"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The mean is calculated by summing all observations and dividing by the count.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which statistic best represents the central value of an odd-numbered dataset after ordering?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mean"
+        },
+        {
+          "id": "b",
+          "text": "Median"
+        },
+        {
+          "id": "c",
+          "text": "Mode"
+        },
+        {
+          "id": "d",
+          "text": "Standard deviation"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The median is the middle value in an ordered list.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In a dataset where all values are unique, which statistic cannot be determined?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mean"
+        },
+        {
+          "id": "b",
+          "text": "Median"
+        },
+        {
+          "id": "c",
+          "text": "Mode"
+        },
+        {
+          "id": "d",
+          "text": "Variance"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Mode requires repeated values; if all values are unique, no mode exists.",
+      "difficulty": 2
+    }
+  ]
+}

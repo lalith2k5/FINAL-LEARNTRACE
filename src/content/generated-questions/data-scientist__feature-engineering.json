@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best describes feature scaling?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Transforming features to a common scale to improve algorithm performance."
+        },
+        {
+          "id": "b",
+          "text": "Selecting only the most important features."
+        },
+        {
+          "id": "c",
+          "text": "Encoding categorical variables into integers."
+        },
+        {
+          "id": "d",
+          "text": "Removing outliers from the dataset."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Feature scaling standardizes or normalizes values so that algorithms sensitive to magnitude work properly.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When is it more appropriate to use one-hot encoding instead of label encoding for a categorical variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "When the variable has an inherent order."
+        },
+        {
+          "id": "b",
+          "text": "When the variable has many unique categories."
+        },
+        {
+          "id": "c",
+          "text": "When the variable is ordinal and has no natural order."
+        },
+        {
+          "id": "d",
+          "text": "When the variable is nominal with a small number of categories."
+        }
+      ],
+      "correctId": "d",
+      "explanation": "One-hot encoding avoids imposing arbitrary numeric relationships and works best for nominal categories with limited cardinality.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the purpose of creating polynomial interaction features in a regression model?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To reduce dimensionality by combining features."
+        },
+        {
+          "id": "b",
+          "text": "To capture non-linear relationships between predictors."
+        },
+        {
+          "id": "c",
+          "text": "To encode categorical variables into binary form."
+        },
+        {
+          "id": "d",
+          "text": "To handle missing data by creating new features."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Polynomial terms allow the model to learn interactions and curvature, improving fit for non-linear patterns.",
+      "difficulty": 3
+    }
+  ]
+}

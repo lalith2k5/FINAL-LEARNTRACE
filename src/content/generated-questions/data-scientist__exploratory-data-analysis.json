@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary goal of exploratory data analysis?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Building predictive models"
+        },
+        {
+          "id": "b",
+          "text": "Understanding data structure and patterns"
+        },
+        {
+          "id": "c",
+          "text": "Performing hypothesis testing"
+        },
+        {
+          "id": "d",
+          "text": "Writing production code"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "EDA focuses on gaining insights and identifying patterns, not on model building or code production.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which plot is most appropriate to detect outliers in a univariate numeric variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Histogram"
+        },
+        {
+          "id": "b",
+          "text": "Boxplot"
+        },
+        {
+          "id": "c",
+          "text": "Scatter plot"
+        },
+        {
+          "id": "d",
+          "text": "Heatmap"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Boxplots display quartiles and outliers clearly, making them ideal for spotting extreme values.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which statistical measure is most robust to outliers when summarizing central tendency?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mean"
+        },
+        {
+          "id": "b",
+          "text": "Median"
+        },
+        {
+          "id": "c",
+          "text": "Mode"
+        },
+        {
+          "id": "d",
+          "text": "Standard deviation"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The median is unaffected by extreme values, providing a reliable central estimate when outliers exist.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "If you observe a high correlation between two numeric features, what is a potential next step in EDA?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Remove one to avoid multicollinearity"
+        },
+        {
+          "id": "b",
+          "text": "Keep both to preserve information"
+        },
+        {
+          "id": "c",
+          "text": "Create a new categorical variable"
+        },
+        {
+          "id": "d",
+          "text": "Increase sample size"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "High correlation can cause redundancy; dropping one simplifies subsequent modeling.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which technique helps reduce dimensionality while preserving variance in a dataset?",
+      "options": [
+        {
+          "id": "a",
+          "text": "K-means clustering"
+        },
+        {
+          "id": "b",
+          "text": "Principal Component Analysis"
+        },
+        {
+          "id": "c",
+          "text": "Decision Trees"
+        },
+        {
+          "id": "d",
+          "text": "Linear Regression"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "PCA transforms features into orthogonal components that capture most of the data variance.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which statement best describes the role of hypothesis generation in exploratory data analysis?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is the final step before publishing results"
+        },
+        {
+          "id": "b",
+          "text": "It is a formal statistical test"
+        },
+        {
+          "id": "c",
+          "text": "It is an iterative process to propose explanations"
+        },
+        {
+          "id": "d",
+          "text": "It is unrelated to EDA"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Hypothesis generation is an iterative activity that guides deeper investigation and modeling.",
+      "difficulty": 5
+    }
+  ]
+}

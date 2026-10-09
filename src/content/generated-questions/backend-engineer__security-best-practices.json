@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following is a best practice for storing API keys?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hardcode them in code"
+        },
+        {
+          "id": "b",
+          "text": "Store them in environment variables"
+        },
+        {
+          "id": "c",
+          "text": "Store them in a plain text file"
+        },
+        {
+          "id": "d",
+          "text": "Send them via email"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Environment variables keep secrets out of source code, reducing exposure if the repository is compromised.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which technique helps prevent injection attacks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Whitelisting input types"
+        },
+        {
+          "id": "b",
+          "text": "Using unsanitized user input"
+        },
+        {
+          "id": "c",
+          "text": "Accepting any input"
+        },
+        {
+          "id": "d",
+          "text": "Hardcoding values"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Whitelisting ensures only expected data formats reach the application, limiting the scope for injection.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which OWASP Top 10 category covers Cross‑Site Scripting?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A1: Injection"
+        },
+        {
+          "id": "b",
+          "text": "A2: Broken Authentication"
+        },
+        {
+          "id": "c",
+          "text": "A3: Cross‑Site Scripting"
+        },
+        {
+          "id": "d",
+          "text": "A4: Insecure Direct Object References"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "XSS is listed as A3 in the OWASP Top 10, highlighting its prevalence and impact.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of these actions is NOT a security misconfiguration?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Leaving default admin passwords"
+        },
+        {
+          "id": "b",
+          "text": "Enabling verbose error messages"
+        },
+        {
+          "id": "c",
+          "text": "Using HTTPS everywhere"
+        },
+        {
+          "id": "d",
+          "text": "Leaving directory listings enabled"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Using HTTPS everywhere is a security best practice, not a misconfiguration.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which Kubernetes resource is designed to store sensitive data such as passwords or API keys?",
+      "options": [
+        {
+          "id": "a",
+          "text": "ConfigMap"
+        },
+        {
+          "id": "b",
+          "text": "Secret"
+        },
+        {
+          "id": "c",
+          "text": "Deployment"
+        },
+        {
+          "id": "d",
+          "text": "Service"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Kubernetes Secrets are intended for confidential data and provide basic encoding, whereas ConfigMaps are for non-sensitive config.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which measure reduces the risk of insecure deserialization?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Validate input types before deserialization"
+        },
+        {
+          "id": "b",
+          "text": "Deserialize all inputs"
+        },
+        {
+          "id": "c",
+          "text": "Use the default deserializer"
+        },
+        {
+          "id": "d",
+          "text": "Disable logging"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Type validation ensures only expected objects are deserialized, preventing attackers from injecting malicious payloads.",
+      "difficulty": 4
+    }
+  ]
+}

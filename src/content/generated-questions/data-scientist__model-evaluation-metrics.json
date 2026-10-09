@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which metric is most appropriate for evaluating a binary classification model when classes are imbalanced?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Accuracy"
+        },
+        {
+          "id": "b",
+          "text": "Precision"
+        },
+        {
+          "id": "c",
+          "text": "Recall"
+        },
+        {
+          "id": "d",
+          "text": "F1-score"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "F1-score balances precision and recall, making it robust to class imbalance.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In k-fold cross-validation, why do we need to shuffle the data before splitting?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To reduce variance"
+        },
+        {
+          "id": "b",
+          "text": "To ensure each fold has the same distribution"
+        },
+        {
+          "id": "c",
+          "text": "To avoid ordering bias"
+        },
+        {
+          "id": "d",
+          "text": "To speed up computation"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Shuffling removes any ordering bias that could affect model training and evaluation.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What is the main advantage of using stratified k-fold over regular k-fold in classification tasks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Faster training"
+        },
+        {
+          "id": "b",
+          "text": "More folds"
+        },
+        {
+          "id": "c",
+          "text": "Maintains class proportions"
+        },
+        {
+          "id": "d",
+          "text": "Randomness"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Stratified k-fold preserves the class distribution in each fold, improving evaluation reliability.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which of the following is NOT a typical error analysis technique?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Confusion matrix"
+        },
+        {
+          "id": "b",
+          "text": "Learning curves"
+        },
+        {
+          "id": "c",
+          "text": "ROC curve"
+        },
+        {
+          "id": "d",
+          "text": "Feature importance"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Feature importance explains model decisions, not directly error patterns.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "When evaluating a regression model, which metric would penalize large errors more heavily?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MAE"
+        },
+        {
+          "id": "b",
+          "text": "MSE"
+        },
+        {
+          "id": "c",
+          "text": "RMSE"
+        },
+        {
+          "id": "d",
+          "text": "R^2"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "MSE squares errors, heavily penalizing larger deviations.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In a time-series forecasting context, why is cross-validation with random splits inappropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is fine"
+        },
+        {
+          "id": "b",
+          "text": "It breaks temporal order"
+        },
+        {
+          "id": "c",
+          "text": "It increases variance"
+        },
+        {
+          "id": "d",
+          "text": "It reduces bias"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Random splits violate the chronological order essential in time-series data.",
+      "difficulty": 5
+    }
+  ]
+}

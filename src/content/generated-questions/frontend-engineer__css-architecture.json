@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following best describes a CSS token in a design system?",
+      "options": [
+        {
+          "id": "a",
+          "text": "a reusable class for layout"
+        },
+        {
+          "id": "b",
+          "text": "a variable that holds a value like a color"
+        },
+        {
+          "id": "c",
+          "text": "a JavaScript function"
+        },
+        {
+          "id": "d",
+          "text": "a CSS file"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Tokens are design variables that store values such as colors, spacing, or typography, enabling consistent reuse across the system.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which statement about utility-first CSS is true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Utility classes are defined once and reused across components"
+        },
+        {
+          "id": "b",
+          "text": "They replace all custom CSS"
+        },
+        {
+          "id": "c",
+          "text": "They require a build step"
+        },
+        {
+          "id": "d",
+          "text": "They are only for spacing"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Utility classes provide single-purpose styles that can be shared throughout the project, reducing duplication.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In a component‑scoped CSS approach, what is the main benefit of using CSS modules?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Global variables"
+        },
+        {
+          "id": "b",
+          "text": "Avoiding class name collisions"
+        },
+        {
+          "id": "c",
+          "text": "Faster rendering"
+        },
+        {
+          "id": "d",
+          "text": "Eliminates the need for preprocessors"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "CSS modules generate unique class names at build time, preventing clashes between components.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "When using both design tokens and utility classes, how should you prioritize them to maintain consistency?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use tokens for colors, utilities for layout"
+        },
+        {
+          "id": "b",
+          "text": "Use utilities for colors, tokens for layout"
+        },
+        {
+          "id": "c",
+          "text": "Tokens override utilities"
+        },
+        {
+          "id": "d",
+          "text": "Utilities override tokens"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Tokens store design values like colors; utilities handle layout concerns, ensuring a clean separation of responsibilities.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which CSS architecture pattern focuses on defining a hierarchical set of styles that scale with component complexity, often using BEM naming convention?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Atomic Design"
+        },
+        {
+          "id": "b",
+          "text": "OOCSS"
+        },
+        {
+          "id": "c",
+          "text": "SMACSS"
+        },
+        {
+          "id": "d",
+          "text": "BEM"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "BEM provides a hierarchical naming scheme that reflects component structure and promotes maintainable styles.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which advantage does CSS‑in‑JS provide over traditional CSS files in component‑based frameworks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Automatic vendor prefixing"
+        },
+        {
+          "id": "b",
+          "text": "Runtime CSS injection"
+        },
+        {
+          "id": "c",
+          "text": "Easier debugging"
+        },
+        {
+          "id": "d",
+          "text": "Reduced bundle size"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "CSS‑in‑JS injects styles into the DOM at runtime, enabling dynamic styling based on component state.",
+      "difficulty": 3
+    }
+  ]
+}

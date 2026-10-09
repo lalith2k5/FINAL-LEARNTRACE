@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In Express, how do you define a route that responds to GET requests at the path \"/hello\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "app.post(\"/hello\", handler)"
+        },
+        {
+          "id": "b",
+          "text": "app.get(\"/hello\", handler)"
+        },
+        {
+          "id": "c",
+          "text": "app.put(\"/hello\", handler)"
+        },
+        {
+          "id": "d",
+          "text": "app.delete(\"/hello\", handler)"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "app.get registers a GET route; other methods respond to different HTTP verbs.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In FastAPI, what is the correct way to define a path operation that accepts an optional query parameter 'q' with a default value of None?",
+      "options": [
+        {
+          "id": "a",
+          "text": "def read_items(q: str = None):"
+        },
+        {
+          "id": "b",
+          "text": "def read_items(q: str = Query(None)):"
+        },
+        {
+          "id": "c",
+          "text": "def read_items(q: str = Depends(None)):"
+        },
+        {
+          "id": "d",
+          "text": "def read_items(q: str = Body(None)):"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "FastAPI infers query parameters from the function signature; a default of None makes it optional.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In Django, which class-based view is typically used to display a list of objects?",
+      "options": [
+        {
+          "id": "a",
+          "text": "DetailView"
+        },
+        {
+          "id": "b",
+          "text": "ListView"
+        },
+        {
+          "id": "c",
+          "text": "CreateView"
+        },
+        {
+          "id": "d",
+          "text": "UpdateView"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "ListView renders a list of objects; DetailView shows a single object.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "In Express, where should you place the middleware that logs requests to ensure it runs for all routes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "After all route definitions"
+        },
+        {
+          "id": "b",
+          "text": "Inside a specific route"
+        },
+        {
+          "id": "c",
+          "text": "Before route definitions"
+        },
+        {
+          "id": "d",
+          "text": "It doesn't matter"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Middleware order matters; placing it before routes ensures it runs for all subsequent routes.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In FastAPI, how do you declare a dependency that provides a database session to a path operation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Depends(db_session)"
+        },
+        {
+          "id": "b",
+          "text": "Depends(get_db)"
+        },
+        {
+          "id": "c",
+          "text": "Depends(session)"
+        },
+        {
+          "id": "d",
+          "text": "Depends(db)"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Depends(get_db) tells FastAPI to call get_db to provide a database session.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In Django, what setting must be added to serve static files during development?",
+      "options": [
+        {
+          "id": "a",
+          "text": "STATIC_URL = \"/static/\""
+        },
+        {
+          "id": "b",
+          "text": "STATIC_ROOT = \"/var/www/static/\""
+        },
+        {
+          "id": "c",
+          "text": "MEDIA_URL = \"/media/\""
+        },
+        {
+          "id": "d",
+          "text": "STATICFILES_DIRS = [\"/static/\"]"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "STATIC_URL defines the URL prefix for static files; Django uses it to serve static files in development.",
+      "difficulty": 2
+    }
+  ]
+}

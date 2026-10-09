@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which HTML element is most appropriate for a navigation menu?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<div>"
+        },
+        {
+          "id": "b",
+          "text": "<nav>"
+        },
+        {
+          "id": "c",
+          "text": "<section>"
+        },
+        {
+          "id": "d",
+          "text": "<article>"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The <nav> element provides semantic meaning for navigation and is recognized by screen readers as a navigational region.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What is the purpose of the aria-label attribute?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Provide a visual label for the element"
+        },
+        {
+          "id": "b",
+          "text": "Provide alternative text for screen readers"
+        },
+        {
+          "id": "c",
+          "text": "Set keyboard focus on the element"
+        },
+        {
+          "id": "d",
+          "text": "Validate form input"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "aria-label supplies a text description that screen readers announce, making the element accessible to non‑visual users.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which of the following ensures a custom modal can be closed using the keyboard?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Add a 'tabindex' to the close button"
+        },
+        {
+          "id": "b",
+          "text": "Add 'role=\"dialog\"' to the modal"
+        },
+        {
+          "id": "c",
+          "text": "Add an 'onkeydown' handler for the Escape key"
+        },
+        {
+          "id": "d",
+          "text": "All of the above"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "A keyboard‑accessible modal requires focusable controls, an ARIA role, and a key handler to close on Escape.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which contrast ratio meets WCAG AA for normal text?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3:1"
+        },
+        {
+          "id": "b",
+          "text": "4.5:1"
+        },
+        {
+          "id": "c",
+          "text": "7:1"
+        },
+        {
+          "id": "d",
+          "text": "2:1"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "WCAG AA requires a minimum contrast ratio of 4.5:1 for normal text to be readable by users with moderate vision loss.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "What is a focus trap in the context of accessibility?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Preventing focus from leaving a modal"
+        },
+        {
+          "id": "b",
+          "text": "Allowing focus to move freely"
+        },
+        {
+          "id": "c",
+          "text": "Hiding the focus outline"
+        },
+        {
+          "id": "d",
+          "text": "None of the above"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A focus trap confines keyboard navigation within a modal or dialog, ensuring users don’t tab out accidentally.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which landmark element helps screen reader users quickly navigate to the main content?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<header>"
+        },
+        {
+          "id": "b",
+          "text": "<main>"
+        },
+        {
+          "id": "c",
+          "text": "<footer>"
+        },
+        {
+          "id": "d",
+          "text": "<nav>"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The <main> landmark identifies the primary content area, allowing screen readers to jump directly to it.",
+      "difficulty": 3
+    }
+  ]
+}

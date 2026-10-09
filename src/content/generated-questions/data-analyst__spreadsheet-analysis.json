@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "You calculate a commission in column C using a tax rate stored in cell F1, writing `=B2*$F$1`. After filling the formula down to row 10, what happens to the reference to F1?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It updates to $F$10 for each row."
+        },
+        {
+          "id": "b",
+          "text": "It remains fixed at $F$1 for every row."
+        },
+        {
+          "id": "c",
+          "text": "It becomes a relative reference to F2, F3, etc."
+        },
+        {
+          "id": "d",
+          "text": "It causes a #REF! error."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The dollar signs create an absolute reference, locking both the column and row so the rate cell stays constant when the formula is copied.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "A VLOOKUP formula returns a #N/A error even though you are confident the value exists in the table. What is the most likely cause regarding the lookup range settings?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The lookup range was defined without absolute references."
+        },
+        {
+          "id": "b",
+          "text": "The range_lookup argument was omitted or set to approximate match instead of exact match."
+        },
+        {
+          "id": "c",
+          "text": "The first column of the range does not contain the lookup value."
+        },
+        {
+          "id": "d",
+          "text": "The data contains duplicate values in the first column."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Without an explicit FALSE or 0 for exact match, VLOOKUP defaults to approximate match, which can fail if the data is not sorted or the range is wrong.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "You have a list of transactions with a 'Status' column containing 'Paid' or 'Pending'. You want a Pivot Table to count how many times each status appears. What should you drag into the Values area?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The Status column set to 'Summarize by Count'"
+        },
+        {
+          "id": "b",
+          "text": "The Amount column set to 'Summarize by Sum'"
+        },
+        {
+          "id": "c",
+          "text": "The Status column set to 'Summarize by Sum'"
+        },
+        {
+          "id": "d",
+          "text": "The Date column set to 'Count Unique'"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "To count occurrences of text categories like statuses, you drag the field into Values and ensure it is summarized by Count, not Sum.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Given the formula `=IF(A1>100, 'High', IF(A1>50, 'Medium', 'Low'))`, what result will be returned if cell A1 contains the value 75?",
+      "options": [
+        {
+          "id": "a",
+          "text": "High"
+        },
+        {
+          "id": "b",
+          "text": "Medium"
+        },
+        {
+          "id": "c",
+          "text": "Low"
+        },
+        {
+          "id": "d",
+          "text": "Error"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "75 is not greater than 100, so it moves to the second condition; since 75 is greater than 50, it returns 'Medium'.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "You are dividing a total by a count that might be zero, risking a #DIV/0! error. Which function allows you to return a custom message instead of the error value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "IFERROR"
+        },
+        {
+          "id": "b",
+          "text": "ISERROR"
+        },
+        {
+          "id": "c",
+          "text": "ERROR.VALUE"
+        },
+        {
+          "id": "d",
+          "text": "IFNA"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "IFERROR wraps the calculation and returns your specified value if any error occurs, including #DIV/0!, whereas IFNA only catches #N/A.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "You need to find a value in a table where the lookup key is located in a column to the right of the data you want to return. Why is INDEX/MATCH generally preferred over VLOOKUP here?",
+      "options": [
+        {
+          "id": "a",
+          "text": "INDEX/MATCH can only search text values."
+        },
+        {
+          "id": "b",
+          "text": "VLOOKUP can only look up values in the leftmost column of the range."
+        },
+        {
+          "id": "c",
+          "text": "INDEX/MATCH is faster at summing large datasets."
+        },
+        {
+          "id": "d",
+          "text": "VLOOKUP cannot handle numeric data."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "VLOOKUP requires the lookup column to be the first column in the range, while INDEX/MATCH allows flexible column ordering for both lookup and return.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "Which DAX function returns the current date and time?",
+      "options": [
+        {
+          "id": "a",
+          "text": "NOW"
+        },
+        {
+          "id": "b",
+          "text": "TODAY"
+        },
+        {
+          "id": "c",
+          "text": "CURRENT_DATE"
+        },
+        {
+          "id": "d",
+          "text": "DATE"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The NOW function returns the current date and time in the data model, whereas TODAY only returns the date.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following is NOT a native data source type in Power BI Desktop?",
+      "options": [
+        {
+          "id": "a",
+          "text": "SharePoint List"
+        },
+        {
+          "id": "b",
+          "text": "Azure SQL Database"
+        },
+        {
+          "id": "c",
+          "text": "Oracle"
+        },
+        {
+          "id": "d",
+          "text": "MongoDB"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Power BI Desktop does not include a native connector for MongoDB; other options are supported.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the purpose of a Tableau data source filter?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Filters data after it is loaded into the workbook"
+        },
+        {
+          "id": "b",
+          "text": "Filters data before it is loaded into the workbook"
+        },
+        {
+          "id": "c",
+          "text": "Filters data in the view only"
+        },
+        {
+          "id": "d",
+          "text": "Filters data in the data model only"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Data source filters limit the data that is brought into the workbook, reducing memory usage and improving performance.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "prompt": "What is a Docker container?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A virtual machine"
+        },
+        {
+          "id": "b",
+          "text": "An isolated process running on the host OS"
+        },
+        {
+          "id": "c",
+          "text": "A package manager"
+        },
+        {
+          "id": "d",
+          "text": "A network protocol"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Containers share the host kernel but provide isolated user space, unlike full virtual machines.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which Docker command builds an image from a Dockerfile?",
+      "options": [
+        {
+          "id": "a",
+          "text": "docker run"
+        },
+        {
+          "id": "b",
+          "text": "docker build"
+        },
+        {
+          "id": "c",
+          "text": "docker create"
+        },
+        {
+          "id": "d",
+          "text": "docker compile"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "docker build reads the Dockerfile and constructs the image layer by layer.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which statement about Dockerfile layers is true?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Each RUN instruction creates a new layer that persists in the image"
+        },
+        {
+          "id": "b",
+          "text": "COPY commands do not create layers"
+        },
+        {
+          "id": "c",
+          "text": "The order of commands does not affect image size"
+        },
+        {
+          "id": "d",
+          "text": "All layers are stored in the host filesystem"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Every Dockerfile instruction creates a separate layer; the order influences cache and final size.",
+      "difficulty": 3
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What does the statement `int x = 5;` do in a typical programming language?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It declares a variable named x of type integer and assigns it the value 5."
+        },
+        {
+          "id": "b",
+          "text": "It declares a constant named x with value 5."
+        },
+        {
+          "id": "c",
+          "text": "It increments the value of x by 5."
+        },
+        {
+          "id": "d",
+          "text": "It creates a string variable x with value \"5\"."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The statement declares an integer variable and initializes it with 5.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following is not a primitive data type in most languages?",
+      "options": [
+        {
+          "id": "a",
+          "text": "int"
+        },
+        {
+          "id": "b",
+          "text": "char"
+        },
+        {
+          "id": "c",
+          "text": "float"
+        },
+        {
+          "id": "d",
+          "text": "list"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "list is a compound data type, not primitive.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "After executing the following code, what is the value of `sum`?\nint sum = 0;\nfor (int i = 1; i <= 3; i++) {\n    sum += i;\n}",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "1+2+3 equals 6.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which statement best describes a function?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A block of code that runs only once when the program starts."
+        },
+        {
+          "id": "b",
+          "text": "A variable that stores a function's return value."
+        },
+        {
+          "id": "c",
+          "text": "A reusable block of code that performs a specific task and can be called multiple times."
+        },
+        {
+          "id": "d",
+          "text": "A data type used to store functions."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Functions are reusable code blocks that can be invoked multiple times.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "What will be the output of the following code snippet?\n{\n    int x = 10;\n}\nConsole.WriteLine(x);",
+      "options": [
+        {
+          "id": "a",
+          "text": "10"
+        },
+        {
+          "id": "b",
+          "text": "Error: x is not defined."
+        },
+        {
+          "id": "c",
+          "text": "0"
+        },
+        {
+          "id": "d",
+          "text": "null"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "x is scoped to the block and not accessible outside.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "What is the type of variable `b` after the following assignments?\nint a = 5;\ndouble b = a;",
+      "options": [
+        {
+          "id": "a",
+          "text": "double with value 5.0"
+        },
+        {
+          "id": "b",
+          "text": "int with value 5"
+        },
+        {
+          "id": "c",
+          "text": "double with value 5"
+        },
+        {
+          "id": "d",
+          "text": "string with value \"5\""
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Assigning an int to a double converts it to 5.0.",
+      "difficulty": 3
+    }
+  ]
+}

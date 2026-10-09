@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "When using a message queue to decouple a web frontend from a backend worker, what is the primary benefit regarding request handling latency?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It reduces network bandwidth usage"
+        },
+        {
+          "id": "b",
+          "text": "It allows the frontend to respond immediately while work is processed asynchronously"
+        },
+        {
+          "id": "c",
+          "text": "It guarantees exactly-once processing"
+        },
+        {
+          "id": "d",
+          "text": "It encrypts messages in transit"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The frontend can enqueue a job and return a response quickly, while the worker processes it later, keeping user-facing latency low.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In RabbitMQ, which exchange type routes messages to all bound queues regardless of the routing key?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Direct"
+        },
+        {
+          "id": "b",
+          "text": "Topic"
+        },
+        {
+          "id": "c",
+          "text": "Fanout"
+        },
+        {
+          "id": "d",
+          "text": "Headers"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A fanout exchange ignores the routing key and simply broadcasts every received message to all queues bound to it.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In Apache Kafka, messages within a single partition are guaranteed to be processed in order by a consumer belonging to the same consumer group. What happens if you increase the number of consumer instances beyond the number of partitions?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ordering is preserved across all consumers"
+        },
+        {
+          "id": "b",
+          "text": "Some consumer instances will remain idle"
+        },
+        {
+          "id": "c",
+          "text": "Messages will be duplicated"
+        },
+        {
+          "id": "d",
+          "text": "Kafka will automatically rebalance partitions to match consumer count"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Each partition can be assigned to only one consumer in a group; excess consumers stay idle until a partition becomes available through rebalancing.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "What is the purpose of the visibility timeout in Amazon SQS?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To encrypt messages while they are in the queue"
+        },
+        {
+          "id": "b",
+          "text": "To prevent other consumers from processing the same message for a configurable period after it is received"
+        },
+        {
+          "id": "c",
+          "text": "To automatically delete messages after they are read"
+        },
+        {
+          "id": "d",
+          "text": "To prioritize messages based on their size"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "After a consumer receives a message, it becomes invisible to other consumers for the visibility timeout, giving the consumer time to process and delete it.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which of the following statements about exactly-once message processing in distributed systems is most accurate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It can be achieved solely by using a transactional message queue without any idempotent consumer logic"
+        },
+        {
+          "id": "b",
+          "text": "Kafka provides exactly-once semantics only when using the Streams API with idempotent writes to external systems"
+        },
+        {
+          "id": "c",
+          "text": "RabbitMQ guarantees exactly-once delivery by default when using publisher confirms"
+        },
+        {
+          "id": "d",
+          "text": "SQS FIFO queues provide exactly-once processing without any additional deduplication effort"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Kafka's exactly-once semantics require idempotent producers and transactional writes; external systems must also be idempotent or transactional to avoid duplicates.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Why would you configure a dead-letter queue (DLQ) for a message queue consumer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "To increase the throughput of the primary queue"
+        },
+        {
+          "id": "b",
+          "text": "To store messages that have exceeded the maximum receive count or failed repeatedly for later inspection"
+        },
+        {
+          "id": "c",
+          "text": "To encrypt messages before they are sent to the primary queue"
+        },
+        {
+          "id": "d",
+          "text": "To automatically reorder messages based on priority"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A DLQ isolates repeatedly failing messages so they don't block the main queue and can be examined to diagnose processing issues.",
+      "difficulty": 3
+    }
+  ]
+}

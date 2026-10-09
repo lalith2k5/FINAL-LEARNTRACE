@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary purpose of data storytelling?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Present raw data"
+        },
+        {
+          "id": "b",
+          "text": "Communicate insights persuasively"
+        },
+        {
+          "id": "c",
+          "text": "Store data"
+        },
+        {
+          "id": "d",
+          "text": "Generate charts"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Data storytelling aims to convey insights in a compelling way rather than just presenting raw numbers.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which element is crucial when tailoring a data story for a non-technical audience?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use advanced statistical terminology"
+        },
+        {
+          "id": "b",
+          "text": "Provide executive summary"
+        },
+        {
+          "id": "c",
+          "text": "Include code snippets"
+        },
+        {
+          "id": "d",
+          "text": "Use multiple complex charts"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "An executive summary gives high-level insights without technical jargon.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When choosing a chart type for a time‑series trend, which is most appropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pie chart"
+        },
+        {
+          "id": "b",
+          "text": "Line chart"
+        },
+        {
+          "id": "c",
+          "text": "Bar chart"
+        },
+        {
+          "id": "d",
+          "text": "Scatter plot"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Line charts display continuous change over time.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What narrative structure best helps maintain audience engagement in data storytelling?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Problem‑Solution‑Impact"
+        },
+        {
+          "id": "b",
+          "text": "Chronological order only"
+        },
+        {
+          "id": "c",
+          "text": "Random facts"
+        },
+        {
+          "id": "d",
+          "text": "Data dump"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A clear narrative arc keeps listeners focused.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which ethical principle should guide the presentation of data?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Manipulate data for impact"
+        },
+        {
+          "id": "b",
+          "text": "Ensure accuracy and transparency"
+        },
+        {
+          "id": "c",
+          "text": "Hide outliers"
+        },
+        {
+          "id": "d",
+          "text": "Use sensational headlines"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Accuracy and transparency prevent misleading conclusions.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "When communicating insights to both technical and non-technical stakeholders, what strategy is effective?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Use separate reports for each group"
+        },
+        {
+          "id": "b",
+          "text": "Use a single presentation with dual-language subtitles"
+        },
+        {
+          "id": "c",
+          "text": "Focus on visual storytelling with clear explanations"
+        },
+        {
+          "id": "d",
+          "text": "Avoid technical details entirely"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Visual storytelling bridges the gap between audiences.",
+      "difficulty": 2
+    }
+  ]
+}

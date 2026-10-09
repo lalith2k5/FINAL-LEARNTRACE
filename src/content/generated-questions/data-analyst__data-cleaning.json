@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "prompt": "When dealing with a numeric column that has 30% missing values, which imputation strategy best preserves the overall distribution while mitigating bias?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Delete all rows with missing values"
+        },
+        {
+          "id": "b",
+          "text": "Fill missing values with the column mean"
+        },
+        {
+          "id": "c",
+          "text": "Fill missing values with the column median"
+        },
+        {
+          "id": "d",
+          "text": "Fill missing values with the most frequent value"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The median is robust to outliers and keeps the distribution shape.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which pandas method returns a boolean Series indicating duplicate rows in a DataFrame?",
+      "options": [
+        {
+          "id": "a",
+          "text": ".unique()"
+        },
+        {
+          "id": "b",
+          "text": ".duplicated()"
+        },
+        {
+          "id": "c",
+          "text": ".drop_duplicates()"
+        },
+        {
+          "id": "d",
+          "text": ".is_duplicate()"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "`.duplicated()` marks rows that are duplicates of previous ones.",
+      "difficulty": 1
+    }
+  ]
+}

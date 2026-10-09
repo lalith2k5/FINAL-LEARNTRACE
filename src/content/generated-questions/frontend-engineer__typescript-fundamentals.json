@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which of the following is a correct way to declare a variable `count` with type number in TypeScript?",
+      "options": [
+        {
+          "id": "a",
+          "text": "let count = 5;"
+        },
+        {
+          "id": "b",
+          "text": "let count: number = 5;"
+        },
+        {
+          "id": "c",
+          "text": "const count: string = 5;"
+        },
+        {
+          "id": "d",
+          "text": "var count: number = '5';"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The variable `count` must be annotated with the type `number` and assigned a numeric value; otherwise the compiler reports a type mismatch.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "What is the return type of the following function? \nfunction greet(name: string): string { return `Hello, ${name}`; }",
+      "options": [
+        {
+          "id": "a",
+          "text": "void"
+        },
+        {
+          "id": "b",
+          "text": "string"
+        },
+        {
+          "id": "c",
+          "text": "any"
+        },
+        {
+          "id": "d",
+          "text": "number"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The function explicitly declares its return type as `string` and returns a string literal, so the type is string.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which statement correctly describes an interface in TypeScript?",
+      "options": [
+        {
+          "id": "a",
+          "text": "An interface is a runtime construct that can be instantiated."
+        },
+        {
+          "id": "b",
+          "text": "An interface defines a shape for objects and is erased at compile time."
+        },
+        {
+          "id": "c",
+          "text": "Interfaces are used only for classes."
+        },
+        {
+          "id": "d",
+          "text": "Interfaces cannot have optional properties."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Interfaces provide a compile‑time contract for object shapes and are removed during JavaScript emission.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which of the following is a valid way to declare an optional property `age` in an interface?",
+      "options": [
+        {
+          "id": "a",
+          "text": "age: number;"
+        },
+        {
+          "id": "b",
+          "text": "age?: number;"
+        },
+        {
+          "id": "c",
+          "text": "age!: number;"
+        },
+        {
+          "id": "d",
+          "text": "age? : number;"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The `?` syntax marks the property as optional, allowing objects to omit it.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which of these is a correct union type declaration for variable `value` that can be either string or null?",
+      "options": [
+        {
+          "id": "a",
+          "text": "let value: string | null;"
+        },
+        {
+          "id": "b",
+          "text": "let value: string || null;"
+        },
+        {
+          "id": "c",
+          "text": "let value: string or null;"
+        },
+        {
+          "id": "d",
+          "text": "let value: string & null;"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The pipe symbol `|` denotes a union type, allowing `value` to be either a string or null.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following correctly uses a mapped type to create a read‑only version of type T?",
+      "options": [
+        {
+          "id": "a",
+          "text": "type Readonly<T> = { [P in keyof T]: T[P] };"
+        },
+        {
+          "id": "b",
+          "text": "type Readonly<T> = { readonly [P in keyof T]: T[P] };"
+        },
+        {
+          "id": "c",
+          "text": "type Readonly<T> = { [P in keyof T]?: T[P] };"
+        },
+        {
+          "id": "d",
+          "text": "type Readonly<T> = { [P in keyof T]: T[P] | undefined };"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The `readonly` modifier in a mapped type makes each property of T immutable in the resulting type.",
+      "difficulty": 5
+    }
+  ]
+}

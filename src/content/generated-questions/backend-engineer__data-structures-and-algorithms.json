@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "You are designing an 'Undo' feature for a text editor. Which data structure is most appropriate for storing the history of actions so that the most recent action can be reverted first?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Queue"
+        },
+        {
+          "id": "b",
+          "text": "Stack"
+        },
+        {
+          "id": "c",
+          "text": "Hash Table"
+        },
+        {
+          "id": "d",
+          "text": "Binary Search Tree"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A Stack operates on a Last-In, First-Out (LIFO) basis, making it ideal for an undo mechanism where the most recent action is the first to be reverted.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "You need to frequently check if a specific username exists in a sorted list of 1,000,000 usernames. Which approach offers the best worst-case time complexity?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Linear search"
+        },
+        {
+          "id": "b",
+          "text": "Binary search"
+        },
+        {
+          "id": "c",
+          "text": "Bubble sort followed by lookup"
+        },
+        {
+          "id": "d",
+          "text": "Depth-first search"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Binary search on a sorted array has a worst-case time complexity of O(log n), which is highly efficient for large datasets compared to O(n) linear search.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "An application needs to store a collection of unique IP addresses and quickly check if an incoming IP address has been seen before. Which data structure provides the fastest average-time complexity for both insertion and lookup operations?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Singly Linked List"
+        },
+        {
+          "id": "b",
+          "text": "Hash Set"
+        },
+        {
+          "id": "c",
+          "text": "Min-Heap"
+        },
+        {
+          "id": "d",
+          "text": "Doubly Linked List"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A Hash Set provides average O(1) time complexity for both insertions and lookups while automatically ensuring all stored elements are unique.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "What is the worst-case time complexity of an algorithm that uses a nested loop, where the outer loop runs 'n' times, and the inner loop doubles its loop variable (starting at 1) until it reaches 'n'?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O(n)"
+        },
+        {
+          "id": "b",
+          "text": "O(n log n)"
+        },
+        {
+          "id": "c",
+          "text": "O(n^2)"
+        },
+        {
+          "id": "d",
+          "text": "O(2^n)"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The outer loop runs n times, and the inner loop runs log n times because the loop variable doubles each iteration. Multiplying these gives a total complexity of O(n log n).",
+      "difficulty": 3
+    },
+    {
+      "prompt": "A print server needs to manage print jobs submitted by multiple users, processing them in the exact order they were received. Which data structure should be used to manage this queue of print jobs?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Stack"
+        },
+        {
+          "id": "b",
+          "text": "Queue"
+        },
+        {
+          "id": "c",
+          "text": "Priority Queue"
+        },
+        {
+          "id": "d",
+          "text": "Binary Tree"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "A standard Queue operates on a First-In, First-Out (FIFO) basis, ensuring that print jobs are processed in the order they arrived.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "You are building a music playlist application where users can frequently insert and delete songs from the middle of the playlist. However, random access to a song by its index is rarely needed. Which data structure is most efficient for this use case?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Array"
+        },
+        {
+          "id": "b",
+          "text": "Linked List"
+        },
+        {
+          "id": "c",
+          "text": "Hash Map"
+        },
+        {
+          "id": "d",
+          "text": "Stack"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Linked lists allow for O(1) insertion and deletion once the target node is located, making them more efficient than arrays, which require O(n) shifting of elements.",
+      "difficulty": 3
+    }
+  ]
+}

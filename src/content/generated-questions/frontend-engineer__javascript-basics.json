@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which keyword ensures block scope for a variable in JavaScript?",
+      "options": [
+        {
+          "id": "a",
+          "text": "var"
+        },
+        {
+          "id": "b",
+          "text": "let"
+        },
+        {
+          "id": "c",
+          "text": "const"
+        },
+        {
+          "id": "d",
+          "text": "function"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The let keyword creates a block-scoped variable.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which syntax correctly defines an arrow function that returns the sum of two numbers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "function(a,b){return a+b;}"
+        },
+        {
+          "id": "b",
+          "text": "(a,b)=>a+b"
+        },
+        {
+          "id": "c",
+          "text": "a,b=>a+b"
+        },
+        {
+          "id": "d",
+          "text": "(a,b)=>{return a+b;}"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Arrow functions use => and can omit braces when returning a single expression.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "How can you access the property 'name' of an object named obj?",
+      "options": [
+        {
+          "id": "a",
+          "text": "obj.name"
+        },
+        {
+          "id": "b",
+          "text": "obj['name']"
+        },
+        {
+          "id": "c",
+          "text": "Both a and b"
+        },
+        {
+          "id": "d",
+          "text": "Neither"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Both dot notation and bracket notation can retrieve the property.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which array method returns a new array containing only the even numbers from the original array?",
+      "options": [
+        {
+          "id": "a",
+          "text": "map"
+        },
+        {
+          "id": "b",
+          "text": "filter"
+        },
+        {
+          "id": "c",
+          "text": "reduce"
+        },
+        {
+          "id": "d",
+          "text": "forEach"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "filter creates a new array with elements that satisfy the predicate.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which loop construct iterates over each element of an array named arr?",
+      "options": [
+        {
+          "id": "a",
+          "text": "for(let i=0;i<arr.length;i++) arr[i];"
+        },
+        {
+          "id": "b",
+          "text": "for(const val of arr) val;"
+        },
+        {
+          "id": "c",
+          "text": "arr.forEach(val=>val);"
+        },
+        {
+          "id": "d",
+          "text": "while(arr.length) arr.pop();"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "for..of yields each element of the iterable.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "What is the result of typeof null in JavaScript?",
+      "options": [
+        {
+          "id": "a",
+          "text": "\"null\""
+        },
+        {
+          "id": "b",
+          "text": "\"object\""
+        },
+        {
+          "id": "c",
+          "text": "\"undefined\""
+        },
+        {
+          "id": "d",
+          "text": "\"number\""
+        }
+      ],
+      "correctId": "b",
+      "explanation": "\"typeof null\" returns \"object\" due to a historic JavaScript quirk.",
+      "difficulty": 3
+    }
+  ]
+}

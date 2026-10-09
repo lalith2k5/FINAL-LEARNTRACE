@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is the primary benefit of including contextual metadata (such as user ID or request ID) in log entries?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It reduces the overall size of the log files on disk."
+        },
+        {
+          "id": "b",
+          "text": "It makes it significantly easier to trace and debug specific transactions across distributed systems."
+        },
+        {
+          "id": "c",
+          "text": "It ensures that the logs are automatically encrypted in transit."
+        },
+        {
+          "id": "d",
+          "text": "It prevents the application from throwing unhandled exceptions."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Contextual metadata helps correlate log events belonging to a single operation, which is crucial for debugging in complex environments.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When catching a low-level database error in a service layer, what is the best practice for propagating it to the API controller?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Swallow the error entirely and return a default empty list to avoid crashing."
+        },
+        {
+          "id": "b",
+          "text": "Expose the raw database stack trace directly in the API response for transparency."
+        },
+        {
+          "id": "c",
+          "text": "Wrap the low-level error in a domain-specific error type while preserving the original cause."
+        },
+        {
+          "id": "d",
+          "text": "Convert the error into a generic boolean flag and discard the error message."
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Wrapping errors preserves the root cause for debugging while abstracting away implementation details (like the database) from upper layers.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Why is it generally considered a poor practice to log an error and also rethrow it in the same function?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It will cause an infinite loop in the call stack."
+        },
+        {
+          "id": "b",
+          "text": "It often results in duplicate, noisy log entries as the error bubbles up and is handled elsewhere."
+        },
+        {
+          "id": "c",
+          "text": "It automatically converts synchronous code into asynchronous code."
+        },
+        {
+          "id": "d",
+          "text": "It violates type safety rules in strongly typed languages."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Logging and rethrowing at every layer causes log amplification, making log analysis cluttered and difficult to parse.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which of the following represents a secure and informative error response for an API when a user attempts to access a resource they do not own?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HTTP 403 Forbidden with a generic error code and a unique request tracking ID."
+        },
+        {
+          "id": "b",
+          "text": "HTTP 500 Internal Server Error with the full database query and table names."
+        },
+        {
+          "id": "c",
+          "text": "HTTP 404 Not Found displaying the exact email address stored in the database for that record."
+        },
+        {
+          "id": "d",
+          "text": "HTTP 200 OK with null data fields to trick malicious clients."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "Returning 403 with a tracking ID informs the client of the authorization failure securely while providing a reference for support teams to check internal logs.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "How should structured logging (e.g., JSON logs) differ from traditional plaintext logging in production applications?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Structured logs should only be used during local development and disabled in production."
+        },
+        {
+          "id": "b",
+          "text": "Structured logs output key-value pairs, making them easily indexable and searchable by log aggregation tools."
+        },
+        {
+          "id": "c",
+          "text": "Structured logs eliminate the need for error handling entirely."
+        },
+        {
+          "id": "d",
+          "text": "Structured logs must be written manually to a local CSV file without a logging library."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Structured logging formats data as key-value pairs, which allows log management systems to parse, query, and filter metrics efficiently.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "In an asynchronous worker pipeline, you encounter a transient network failure when calling an external API. What is the most robust error-handling strategy?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Crash the entire worker process immediately upon the first failure."
+        },
+        {
+          "id": "b",
+          "text": "Catch the error, log the failure with context, and implement an exponential backoff retry mechanism."
+        },
+        {
+          "id": "c",
+          "text": "Ignore the network failure and assume the data was processed successfully."
+        },
+        {
+          "id": "d",
+          "text": "Convert the error into a fatal panic state to halt all queue processing permanently."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Transient network issues are best handled via retries with exponential backoff and jitter, preventing service overload while recovering from temporary glitches.",
+      "difficulty": 4
+    }
+  ]
+}

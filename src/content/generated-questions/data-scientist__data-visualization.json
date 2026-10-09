@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which chart type is most appropriate to show the distribution of a single quantitative variable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Bar chart"
+        },
+        {
+          "id": "b",
+          "text": "Scatter plot"
+        },
+        {
+          "id": "c",
+          "text": "Histogram"
+        },
+        {
+          "id": "d",
+          "text": "Pie chart"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "A histogram displays the frequency of data points within value ranges, making it ideal for showing distribution.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "When reporting a change from 10% to 12% on a bar chart, which axis configuration could mislead viewers?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Linear scale 0-15"
+        },
+        {
+          "id": "b",
+          "text": "Linear scale 0-20"
+        },
+        {
+          "id": "c",
+          "text": "Logarithmic scale 0-20"
+        },
+        {
+          "id": "d",
+          "text": "Linear scale 0-100"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "A 0-100 scale makes the 2% change appear negligible, distorting perception of the actual change.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which color scheme best preserves data integrity for viewers with color vision deficiency?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Rainbow"
+        },
+        {
+          "id": "b",
+          "text": "Blue-to-red"
+        },
+        {
+          "id": "c",
+          "text": "Blue-to-green"
+        },
+        {
+          "id": "d",
+          "text": "Grayscale"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Grayscale is readable for all viewers, including those with color blindness, ensuring accurate data interpretation.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "What is an example of chartjunk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Using 3D effects"
+        },
+        {
+          "id": "b",
+          "text": "Adding a trend line"
+        },
+        {
+          "id": "c",
+          "text": "Labeling axes"
+        },
+        {
+          "id": "d",
+          "text": "Using a legend"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "3D effects add unnecessary visual complexity that can distract from the data.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "If you want to highlight a single outlier in a scatter plot, which technique is most appropriate?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increase point size"
+        },
+        {
+          "id": "b",
+          "text": "Change point color"
+        },
+        {
+          "id": "c",
+          "text": "Both increase size and change color"
+        },
+        {
+          "id": "d",
+          "text": "Remove the outlier"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Both size and color changes draw attention without altering the underlying data.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "Which practice is essential for honest data visualization?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Exaggerate differences"
+        },
+        {
+          "id": "b",
+          "text": "Hide missing data"
+        },
+        {
+          "id": "c",
+          "text": "Accurately represent scale"
+        },
+        {
+          "id": "d",
+          "text": "Use decorative fonts"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Accurately representing scales ensures viewers receive a truthful depiction of the data.",
+      "difficulty": 3
+    }
+  ]
+}

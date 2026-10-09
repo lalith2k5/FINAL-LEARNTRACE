@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "prompt": "In time series analysis, which component represents a long-term increase or decrease in the data values?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seasonality"
+        },
+        {
+          "id": "b",
+          "text": "Irregularity"
+        },
+        {
+          "id": "c",
+          "text": "Trend"
+        },
+        {
+          "id": "d",
+          "text": "Cyclic"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The trend component captures systematic long-term movements in the series, distinguishing it from short-term seasonal or irregular fluctuations.",
+      "difficulty": 1
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "In a dataset with a single extreme high value, which measure of central tendency is least affected by that outlier?",
+      "options": [
+        {
+          "id": "a",
+          "text": "mean"
+        },
+        {
+          "id": "b",
+          "text": "median"
+        },
+        {
+          "id": "c",
+          "text": "mode"
+        },
+        {
+          "id": "d",
+          "text": "range"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The median divides the data into two equal halves and is not influenced by extreme values, unlike the mean.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Standard deviation is to variance as _____ is to _____.",
+      "options": [
+        {
+          "id": "a",
+          "text": "mean to median"
+        },
+        {
+          "id": "b",
+          "text": "range to interquartile range"
+        },
+        {
+          "id": "c",
+          "text": "sqrt to square"
+        },
+        {
+          "id": "d",
+          "text": "square to sqrt"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Standard deviation is the square root of variance, analogous to sqrt being the inverse operation of squaring.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which of the following provides a better measure of spread when data is skewed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "range"
+        },
+        {
+          "id": "b",
+          "text": "standard deviation"
+        },
+        {
+          "id": "c",
+          "text": "interquartile range"
+        },
+        {
+          "id": "d",
+          "text": "mean"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The interquartile range uses the middle 50% of data, making it less sensitive to extreme values and skewness.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "In a boxplot, the line inside the box that represents the median is located at which position?",
+      "options": [
+        {
+          "id": "a",
+          "text": "bottom edge"
+        },
+        {
+          "id": "b",
+          "text": "top edge"
+        },
+        {
+          "id": "c",
+          "text": "middle of box"
+        },
+        {
+          "id": "d",
+          "text": "outside the box"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "The median line bisects the box, indicating the 50th percentile.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which rule is used to identify potential outliers using IQR?",
+      "options": [
+        {
+          "id": "a",
+          "text": "values beyond mean ± 2 SD"
+        },
+        {
+          "id": "b",
+          "text": "values beyond 1.5*IQR above Q3 or below Q1"
+        },
+        {
+          "id": "c",
+          "text": "values beyond 3*IQR above Q3 or below Q1"
+        },
+        {
+          "id": "d",
+          "text": "values beyond 2*IQR above Q3 or below Q1"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The 1.5*IQR rule marks observations outside Q1-1.5IQR or Q3+1.5IQR as outliers.",
+      "difficulty": 5
+    },
+    {
+      "prompt": "A distribution with a long tail to the right has which type of skewness?",
+      "options": [
+        {
+          "id": "a",
+          "text": "positive skew"
+        },
+        {
+          "id": "b",
+          "text": "negative skew"
+        },
+        {
+          "id": "c",
+          "text": "zero skew"
+        },
+        {
+          "id": "d",
+          "text": "both"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A long right tail indicates that the distribution is positively skewed.",
+      "difficulty": 3
+    }
+  ]
+}

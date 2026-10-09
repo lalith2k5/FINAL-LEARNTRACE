@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "What is code splitting?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Splitting CSS files into smaller chunks"
+        },
+        {
+          "id": "b",
+          "text": "Dividing JavaScript bundle into multiple chunks that load on demand"
+        },
+        {
+          "id": "c",
+          "text": "Splitting HTML into multiple pages"
+        },
+        {
+          "id": "d",
+          "text": "Splitting server logs for analysis"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Code splitting divides the JS bundle into smaller pieces that are loaded only when needed, reducing the initial load.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which asset type benefits most from lazy loading?",
+      "options": [
+        {
+          "id": "a",
+          "text": "CSS files"
+        },
+        {
+          "id": "b",
+          "text": "JavaScript libraries"
+        },
+        {
+          "id": "c",
+          "text": "Images displayed below the fold"
+        },
+        {
+          "id": "d",
+          "text": "Font files"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Lazy loading defers loading images that are not initially visible, improving perceived performance.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Core Web Vitals metric that measures perceived loading speed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "FID"
+        },
+        {
+          "id": "b",
+          "text": "LCP"
+        },
+        {
+          "id": "c",
+          "text": "CLS"
+        },
+        {
+          "id": "d",
+          "text": "TTFB"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "LCP indicates the time until the largest content element becomes visible, reflecting perceived loading speed.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Which method is commonly used to implement code splitting in React?",
+      "options": [
+        {
+          "id": "a",
+          "text": "React.lazy with Suspense"
+        },
+        {
+          "id": "b",
+          "text": "useEffect hook"
+        },
+        {
+          "id": "c",
+          "text": "PropTypes validation"
+        },
+        {
+          "id": "d",
+          "text": "Inline styles"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "React.lazy loads a component asynchronously, enabling code splitting.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "Which technique directly reduces First Contentful Paint?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Minifying JavaScript"
+        },
+        {
+          "id": "b",
+          "text": "Removing unused CSS"
+        },
+        {
+          "id": "c",
+          "text": "Deferring rendering of non-critical resources"
+        },
+        {
+          "id": "d",
+          "text": "Using server-side rendering"
+        }
+      ],
+      "correctId": "d",
+      "explanation": "Server-side rendering pre-renders content, allowing the browser to display it faster, thus reducing FCP.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "How can you programmatically measure LCP using the PerformanceObserver API?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Observe 'paint' entries and filter for 'first-paint'"
+        },
+        {
+          "id": "b",
+          "text": "Observe 'largest-contentful-paint' entries"
+        },
+        {
+          "id": "c",
+          "text": "Use requestAnimationFrame to log timestamps"
+        },
+        {
+          "id": "d",
+          "text": "Measure network timing for image loads"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The PerformanceObserver can observe 'largest-contentful-paint' entries to capture LCP.",
+      "difficulty": 5
+    }
+  ]
+}

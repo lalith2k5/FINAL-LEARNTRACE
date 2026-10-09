@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "A web application configures its API responses with the header 'Cache-Control: max-age=600, stale-while-revalidate=30'. If a client requests the resource 615 seconds after it was originally cached, what behavior should be expected?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The client receives a 504 Gateway Timeout because the cache is stale."
+        },
+        {
+          "id": "b",
+          "text": "The client immediately receives the stale cached response, while a background request is triggered to update the cache."
+        },
+        {
+          "id": "c",
+          "text": "The client's request is blocked while the cache is synchronously validated with the origin server."
+        },
+        {
+          "id": "d",
+          "text": "The browser ignores the cached response completely and performs a standard hard reload."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The stale-while-revalidate directive allows the cache to serve a stale response within the specified window (30 seconds after max-age expiration) while asynchronously fetching a fresh version in the background.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "An e-commerce platform uses Redis to store user session data (which has an expiration time set) and product catalog data (which does not expire). Due to memory constraints, you need to configure an eviction policy. If you want to ensure that only session data is evicted when memory is full, which policy should you choose?",
+      "options": [
+        {
+          "id": "a",
+          "text": "allkeys-lru"
+        },
+        {
+          "id": "b",
+          "text": "volatile-lru"
+        },
+        {
+          "id": "c",
+          "text": "noeviction"
+        },
+        {
+          "id": "d",
+          "text": "allkeys-random"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The volatile-lru policy evicts keys using an approximated LRU algorithm, but only among keys that have an expire set (TTL), preserving the product catalog data which has no expiration.",
+      "difficulty": 3
+    },
+    {
+      "prompt": "Your high-traffic application experiences a sudden spike in database load whenever a highly popular cached item expires. This phenomenon is known as a cache stampede. Which of the following strategies is the most effective way to prevent this?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Increasing the cache TTL to a very large number or infinity."
+        },
+        {
+          "id": "b",
+          "text": "Using mutual exclusion (mutex) locks to ensure only one thread/process fetches the new data to repopulate the cache while others wait."
+        },
+        {
+          "id": "c",
+          "text": "Implementing a random eviction policy in Redis to clear space before expiration."
+        },
+        {
+          "id": "d",
+          "text": "Switching from an in-memory cache to a distributed cache like Redis without changing application logic."
+        }
+      ],
+      "correctId": "b",
+      "explanation": "Mutex locking ensures that only one worker thread fetches the fresh data from the database when a cache miss occurs, preventing concurrent duplicate queries from overwhelming the database.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "A client makes a request to a server for a resource it has cached locally. The cached response contains the header 'ETag: \"v2.0\"'. Which header should the client send in its subsequent request to verify if the resource has changed, and what response code indicates it has not?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Header: If-Match: 'v2.0', Status: 200 OK"
+        },
+        {
+          "id": "b",
+          "text": "Header: If-None-Match: 'v2.0', Status: 304 Not Modified"
+        },
+        {
+          "id": "c",
+          "text": "Header: Cache-Control: no-cache, Status: 204 No Content"
+        },
+        {
+          "id": "d",
+          "text": "Header: If-Modified-Since: 'v2.0', Status: 304 Not Modified"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "The client sends the If-None-Match header containing the ETag value. If the resource hasn't changed, the server returns a 304 Not Modified status, telling the client to use its cached version.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Your application requires strong data consistency, where any update to the database must be immediately reflected in subsequent reads. However, write operations are frequent, and you want to minimize database write latency. Which caching pattern is LEAST suitable for this scenario?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Write-Through caching"
+        },
+        {
+          "id": "b",
+          "text": "Cache-Aside (Lazy Loading)"
+        },
+        {
+          "id": "c",
+          "text": "Write-Behind (Write-Back) caching"
+        },
+        {
+          "id": "d",
+          "text": "Refresh-Ahead caching"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "Write-Behind caching writes data to the cache first and asynchronously updates the database later. While this minimizes write latency, it introduces a risk of data inconsistency and loss if the cache node crashes before writing to the database.",
+      "difficulty": 4
+    },
+    {
+      "prompt": "An attacker is targeting your API by requesting non-existent user IDs at a high rate. Since these IDs do not exist, they always miss the cache and hit your primary database, degrading performance. Which of the following is the most robust caching-related defense against this 'cache penetration' attack?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Implement a Bloom filter in front of the cache to quickly reject requests for non-existent keys."
+        },
+        {
+          "id": "b",
+          "text": "Switch the Redis eviction policy to allkeys-lfu to prioritize frequently requested keys."
+        },
+        {
+          "id": "c",
+          "text": "Compress the keys in Redis to allow more records to be stored in memory."
+        },
+        {
+          "id": "d",
+          "text": "Set the TTL of all legitimate cached database records to infinity."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "A Bloom filter is a space-efficient probabilistic data structure that can quickly determine if a requested key definitely does not exist, preventing unnecessary database queries.",
+      "difficulty": 4
+    }
+  ]
+}

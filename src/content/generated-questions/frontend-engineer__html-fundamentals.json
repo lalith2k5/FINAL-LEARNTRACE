@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "prompt": "Which HTML5 element is primarily used to contain a site’s navigation links?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<nav>"
+        },
+        {
+          "id": "b",
+          "text": "<section>"
+        },
+        {
+          "id": "c",
+          "text": "<header>"
+        },
+        {
+          "id": "d",
+          "text": "<aside>"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "The <nav> element is the semantic tag for navigation sections, helping screen readers and search engines identify the purpose of the content.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which DOM method retrieves an element by its unique ID?",
+      "options": [
+        {
+          "id": "a",
+          "text": "getElementsByClassName"
+        },
+        {
+          "id": "b",
+          "text": "getElementById"
+        },
+        {
+          "id": "c",
+          "text": "querySelectorAll"
+        },
+        {
+          "id": "d",
+          "text": "getElementsByTagName"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "getElementById returns the first element with the specified ID, providing a direct reference to that node in the DOM.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which of the following HTML tags is considered a semantic element?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<div>"
+        },
+        {
+          "id": "b",
+          "text": "<span>"
+        },
+        {
+          "id": "c",
+          "text": "<article>"
+        },
+        {
+          "id": "d",
+          "text": "<wrapper>"
+        }
+      ],
+      "correctId": "c",
+      "explanation": "<article> clearly indicates that its content constitutes an independent, self‑contained piece of content, making it a semantic element.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "When labeling a form input for screen readers, which attribute should you use to provide an accessible label?",
+      "options": [
+        {
+          "id": "a",
+          "text": "id"
+        },
+        {
+          "id": "b",
+          "text": "aria-label"
+        },
+        {
+          "id": "c",
+          "text": "name"
+        },
+        {
+          "id": "d",
+          "text": "placeholder"
+        }
+      ],
+      "correctId": "b",
+      "explanation": "aria-label adds a hidden text label to the input, improving accessibility for assistive technologies.",
+      "difficulty": 2
+    },
+    {
+      "prompt": "Which HTML element is best suited for grouping a set of inline pieces of text or other inline elements?",
+      "options": [
+        {
+          "id": "a",
+          "text": "<span>"
+        },
+        {
+          "id": "b",
+          "text": "<div>"
+        },
+        {
+          "id": "c",
+          "text": "<section>"
+        },
+        {
+          "id": "d",
+          "text": "<main>"
+        }
+      ],
+      "correctId": "a",
+      "explanation": "<span> is an inline container that can wrap small pieces of content without affecting the surrounding layout.",
+      "difficulty": 1
+    },
+    {
+      "prompt": "Which statement best describes the interaction of HTML, CSS, and JavaScript with the DOM?",
+      "options": [
+        {
+          "id": "a",
+          "text": "HTML defines the structure, CSS styles it, and JavaScript manipulates it."
+        },
+        {
+          "id": "b",
+          "text": "JavaScript defines the structure, CSS adds behavior, and HTML styles elements."
+        },
+        {
+          "id": "c",
+          "text": "CSS defines the structure, HTML styles, and JavaScript adds interactivity."
+        },
+        {
+          "id": "d",
+          "text": "HTML styles, CSS manipulates, and JavaScript defines the structure."
+        }
+      ],
+      "correctId": "a",
+      "explanation": "HTML provides the document's skeleton, CSS applies visual styling, and JavaScript dynamically modifies the DOM, enabling interactivity.",
+      "difficulty": 3
+    }
+  ]
+}
