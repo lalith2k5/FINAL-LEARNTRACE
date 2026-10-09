@@ -154,7 +154,6 @@ model Mastery {
   userId        String
   skillId       String
   value         Float    @default(0)
-  evidenceCount Float    @default(0)
   updatedAt     DateTime @updatedAt
   history       Json     @default("[]")
 

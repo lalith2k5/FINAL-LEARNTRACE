@@ -69,12 +69,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, analysis });
   } catch (err) {
     console.error(
-      "Misconception analysis failed:",
+      "Misconception analysis failed, using fallback:",
       err instanceof Error ? err.message : err
     );
     return NextResponse.json(
-      { error: "Analysis failed — try again later." },
-      { status: 500 }
+      {
+        ok: true,
+        fallback: true,
+        analysis: {
+          category: "unclear",
+          misconception:
+            "We couldn't analyze your reasoning right now — the AI providers are all busy.",
+          corrective:
+            "Try rephrasing your reasoning in one more sentence, or review the concept directly using the feedback above.",
+          confidence: 0,
+        },
+      },
+      { status: 200 }
     );
   }
 }

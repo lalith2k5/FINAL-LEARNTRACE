@@ -22,9 +22,21 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/shared/Logo";
+import { DomainSwitcher } from "./DomainSwitcher";
 
 type NavItem = { href: string; label: string; icon: typeof LayoutDashboard };
 type Group = { label: string; items: NavItem[] };
+
+type DomainOption = {
+  id: string;
+  name: string;
+  slug: string;
+  isActive: boolean;
+};
+
+type TopbarProps = {
+  domains?: DomainOption[];
+};
 
 const GROUPS: Group[] = [
   {
@@ -84,7 +96,7 @@ function initials(name?: string | null, email?: string | null) {
   return "??";
 }
 
-export function Topbar() {
+export function Topbar({ domains }: TopbarProps) {
   const path = usePathname();
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -193,6 +205,9 @@ export function Topbar() {
       {/* ---------- Breadcrumb dropdown ---------- */}
       <div className="flex items-center gap-3">
         <Logo size={22} showWordmark={false} />
+        {domains && domains.length > 0 && (
+          <DomainSwitcher domains={domains} />
+        )}
         <div ref={navRef} className="relative">
         <button
           type="button"

@@ -56,6 +56,16 @@ export async function deselectDomain(domainId: string) {
 }
 
 export async function setActiveDomain(domainId: string) {
+  const user = await requireUser();
+
+  const ud = await prisma.userDomain.findUnique({
+    where: { userId_domainId: { userId: user.id, domainId } },
+    select: { domainId: true },
+  });
+  if (!ud) {
+    return { ok: false, error: "Domain not selected." };
+  }
+
   const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, domainId, {
     httpOnly: true,
@@ -63,7 +73,7 @@ export async function setActiveDomain(domainId: string) {
     path: "/",
     maxAge: 60 * 60 * 24 * 365,
   });
-  revalidatePath("/domains");
+  revalidatePath("/", "layout");
   return { ok: true };
 }
 

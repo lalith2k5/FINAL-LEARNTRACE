@@ -88,14 +88,12 @@ export async function POST(req: Request) {
       },
       update: {
         value: next,
-        evidenceCount: (current?.evidenceCount ?? 0) + 1,
         history: [...existingHistory, historyEntry] as never,
       },
       create: {
         userId: user.id,
         skillId: qs.skillId,
         value: next,
-        evidenceCount: 1,
         history: [historyEntry] as never,
       },
     });

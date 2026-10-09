@@ -285,7 +285,16 @@ callback in `src/lib/auth.ts`.
 - Set `GROQ_MODEL`/`OPENROUTER_MODEL` env vars — never hardcode model slugs, they churn monthly
 - Gemini free tier: 20 RPD on gemini-3.5-flash; Groq: 1,000 RPD; OpenRouter: 50 RPD
 
+### Session log — 2026-10-09 (batch: fixes + coverage)
+
+- Newly-verified detection rewritten: `detectNewlyVerifiedSkills` now compares pre/post state via a hypothetical submission passed to `getSkillEvidence(…, extra)`. Celebration fires on the run that actually crosses the threshold. (Was: relied on `priorSubmissions[1]`, one-run-late.)
+- AI misconception route now falls back to a static analysis on total provider failure — parity with `/api/ai/explain` and `/api/ai/certificates`. No more 500s.
+- Practical-task coverage: 43 tasks added across the 5 domains. Every skill in every domain now has ≥1 practical task. Totals — backend 25, analyst 24, scientist 29, frontend 29, ml 34.
+- Domain switcher in Topbar (dropdown, single-domain badge, cookies + `revalidatePath("/", "layout")`). `setActiveDomain` now verifies selection before setting the cookie.
+- Dropped `Mastery.evidenceCount` (migration `20261009150000_drop_mastery_evidence_count`). Deleted `src/app/api/misconceptions/route.ts` (zero callers). `User.image`, `User.emailVerified`, `VerificationToken` explicitly kept — adapter-owned.
+
 ### Open menu
 1. Graph interactivity (search / zoom / pan)
 2. CSV/JSON domain import
 3. PDF upload + inline viewer
+4. Content depth: 15 Q/skill for the 4 newer domains (Gemini quota — ~4 days)

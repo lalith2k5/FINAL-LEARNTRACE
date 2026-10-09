@@ -113,13 +113,10 @@ For a full walkthrough and the mastery formula, see the source in `src/lib/maste
 - **Language runtimes** — `src/lib/practice/runtimes.ts`. Piston runtime map + local execution fallback.
 - **Content** — `src/content/domains/*.json`. Seeded via `scripts/seed.ts` (idempotent, prunes stale skills).
 
-### Reserved for future use
+### Reserved / adapter-owned
 
-These schema fields exist but are intentionally not read by current code:
-
-- `VerificationToken` — required by `@auth/prisma-adapter` (only used if an Email provider is added)
-- `Attempt.attemptNo` — defaults to 1; reserved for multi-attempt quiz support
-- `GET /api/misconceptions` — public API surface; the dashboard uses the same engine inline
+- `User.image`, `User.emailVerified`, `VerificationToken` — **adapter-owned storage**, not app-read but written by `@auth/prisma-adapter` on OAuth. Do NOT drop; Prisma will fail on Google sign-in if these columns vanish.
+- `Attempt.attemptNo` — always 1 today; the mastery engine's `attemptPenalty` term reads it. Kept as the seam for future multi-attempt quiz support.
 
 ---
 

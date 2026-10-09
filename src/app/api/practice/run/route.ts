@@ -26,33 +26,30 @@ type TestResult = {
 async function detectNewlyVerifiedSkills(
   userId: string,
   taskId: string | undefined,
-  justSubmitted: { passed: number; total: number }[]
+  results: { passed: boolean }[]
 ): Promise<{ id: string; name: string }[]> {
   if (!taskId) return [];
+  const passed = results.filter((r) => r.passed).length;
+  const total = results.length;
+  if (total === 0) return [];
+
   const taskSkills = await prisma.practicalTaskSkill.findMany({
     where: { taskId },
     include: { skill: true },
   });
   if (taskSkills.length === 0) return [];
 
-  const totalPassed = justSubmitted.reduce((a, r) => a + r.passed, 0);
-  const totalTests = justSubmitted.reduce((a, r) => a + r.total, 0);
-  if (totalTests === 0) return [];
-  const currentRate = totalPassed / totalTests;
-
   const newly: { id: string; name: string }[] = [];
   for (const ts of taskSkills) {
-    const ev = await getSkillEvidence(userId, ts.skillId);
-    if (!ev.verified) continue;
+    const before = await getSkillEvidence(userId, ts.skillId);
+    if (before.verified) continue;
 
-    const priorSubmissions = await prisma.practicalSubmission.findMany({
-      where: { userId, taskId },
-      orderBy: { createdAt: "desc" },
-      take: 2,
+    const after = await getSkillEvidence(userId, ts.skillId, {
+      taskId,
+      passed,
+      total,
     });
-    const prior = priorSubmissions[1];
-    const priorVerifiedOnThisTask = prior?.passedAll ?? false;
-    if (!priorVerifiedOnThisTask) {
+    if (after.verified) {
       newly.push({ id: ts.skill.id, name: ts.skill.name });
     }
   }
@@ -80,7 +77,7 @@ export async function POST(req: Request) {
       const newlyVerified = await detectNewlyVerifiedSkills(
         user.id,
         taskId,
-        results.map((r) => ({ passed: r.passed ? 1 : 0, total: 1 }))
+        results
       );
       return NextResponse.json({
         results,
@@ -101,7 +98,7 @@ export async function POST(req: Request) {
     const newlyVerified = await detectNewlyVerifiedSkills(
       user.id,
       taskId,
-      results.map((r) => ({ passed: r.passed ? 1 : 0, total: 1 }))
+      results
     );
     return NextResponse.json({
       results,

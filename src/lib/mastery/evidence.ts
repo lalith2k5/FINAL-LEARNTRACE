@@ -30,7 +30,8 @@ const VERIFIED_THRESHOLD = 0.75;
  */
 export async function getSkillEvidence(
   userId: string,
-  skillId: string
+  skillId: string,
+  extra?: { taskId: string; passed: number; total: number }
 ): Promise<SkillEvidence> {
   const skill = await prisma.skill.findUnique({
     where: { id: skillId },
@@ -70,14 +71,34 @@ export async function getSkillEvidence(
       orderBy: { createdAt: "desc" },
     });
 
-    practicalAttempts = subs.length;
+    const subsWithExtra: {
+      taskId: string;
+      passed: number;
+      total: number;
+      passedAll: boolean;
+    }[] = subs.map((row) => ({
+      taskId: row.taskId,
+      passed: row.passed,
+      total: row.total,
+      passedAll: row.passedAll,
+    }));
+    if (extra && taskIds.includes(extra.taskId)) {
+      subsWithExtra.push({
+        taskId: extra.taskId,
+        passed: extra.passed,
+        total: extra.total,
+        passedAll: extra.total > 0 && extra.passed === extra.total,
+      });
+    }
+
+    practicalAttempts = subsWithExtra.length;
 
     const bestByTask = new Map<string, number>();
-    for (const s of subs) {
-      const rate = s.total > 0 ? s.passed / s.total : 0;
-      const existing = bestByTask.get(s.taskId) ?? 0;
-      if (rate > existing) bestByTask.set(s.taskId, rate);
-      if (s.passedAll) practicalPassed++;
+    for (const row of subsWithExtra) {
+      const rate = row.total > 0 ? row.passed / row.total : 0;
+      const existing = bestByTask.get(row.taskId) ?? 0;
+      if (rate > existing) bestByTask.set(row.taskId, rate);
+      if (row.passedAll) practicalPassed++;
     }
 
     if (bestByTask.size > 0) {
